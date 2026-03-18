@@ -1,0 +1,16 @@
+{
+  "name": "arabastabot",
+  "version": "1.0.0",
+  "description": "management bot for arabasta discord server",
+  "license": "ISC",
+  "author": "Arabasta Development Team (ADT)",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "discord.js": "^14.25.1",
+    "dotenv": "^17.3.1"
+  }
+}
