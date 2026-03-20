@@ -1,0 +1,148 @@
+// Load environment variables from .env
+require('dotenv').config();
+
+// Import required modules
+const mongoose = require('mongoose');
+const { Client, GatewayIntentBits } = require('discord.js');
+const User = require('./models/user'); // user.js now inside models folder
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB connected ✅'))
+  .catch(err => console.log(err));
+
+// Command prefix
+const prefix = '%';
+
+// Create Discord client
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContentgive 
+    ]
+});
+
+// Bot ready (v15+)
+client.once('clientReady', () => {
+    console.log('ArabastaBot is Online!');
+    client.user.setActivity('Watching Arabasta 👑');
+});
+
+// Single message listener (commands + greetings + economy)
+client.on('messageCreate', async (message) => {
+    if (message.author.bot) return; // ignore bots
+
+    const content = message.content.trim();
+    const firstWord = content.toLowerCase().split(/\s+/)[0];
+
+    // ====================
+    // === COMMAND HANDLER ===
+    // ====================
+    if (content.startsWith(prefix)) {
+        const args = content.slice(prefix.length).trim().split(/ +/);
+        const command = args.shift().toLowerCase();
+
+        // ---- %ping ----
+        if (command === 'ping') {
+            return message.channel.send('**Pong!**');
+        }
+
+        // ---- %profile ----
+        if (command === 'profile') {
+            // check optional mentioned user
+            const targetUser = message.mentions.users.first() || message.author;
+
+            let user = await User.findOne({ user_id: targetUser.id });
+            if (!user) {
+                // auto-create user if not exist
+                user = new User({ user_id: targetUser.id, gold: 0 });
+                await user.save();
+                console.log(`Created new user: ${targetUser.tag}`);
+            }
+
+            const level = user.level;
+            const xp = user.xp; // XP carried over
+            const requiredXP = 100 * level;
+            const gold = user.gold / 10; // divide by 10 for display
+
+            const replyMsg = `**${targetUser.username} Profile**\n` +
+                             `Level: ${level}\n` +
+                             `XP: ${xp} / ${requiredXP}\n` +
+                             `Gold: ${gold}\n` +
+                             `Gems: ${user.gems}\n` +
+                             `Honor: ${user.honor}`;
+
+            return message.reply(replyMsg);
+        }
+    }
+
+    // ====================
+    // === ARABIC GREETINGS ===
+    // ====================
+    if (content.toLowerCase() === 'سلام') {
+        return message.reply('**وعليكم السلام، في أمان الله، نراك على خير**');
+    }
+    if (firstWord === 'سلام' || firstWord === 'السلام') {
+        const greetings = [
+            '**نورت المكان**',
+            '**نورت السيرفر**',
+            '**سعداء بوجودك**',
+            '**أهلاً وسهلاً بك**'
+        ];
+        const gifs = ['<a:squish:1358122025016758444>'];
+        const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+        const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+        message.reply(`**وعليكم السلام و رحمة الله و بركاته**\n${randomGreeting}\n${randomGif}`);
+    }
+
+    // ====================
+    // === ECONOMY + USER CREATION + LEVELING ===
+    // ====================
+    let user = await User.findOne({ user_id: message.author.id });
+    if (!user) {
+        user = new User({ user_id: message.author.id, gold: 0 });
+        await user.save();
+        console.log(`Created new user: ${message.author.tag}`);
+    }
+
+    const now = Date.now();
+    const ONE_DAY = 24 * 60 * 60 * 1000;
+
+    // daily reset
+    if (!user.last_daily_reset || now - user.last_daily_reset >= ONE_DAY) {
+        user.daily_gold_earned = 0;
+        user.last_daily_reset = now;
+    }
+
+    // rewards with cooldown and daily cap
+    const COOLDOWN = 60 * 1000; // 60 seconds
+    const DAILY_CAP = 350 * 10; // 3500 internally
+    const GOLD_REWARD = 7.5 * 10; // 75 internally
+
+    if (!user.last_reward_time || (now - user.last_reward_time >= COOLDOWN && user.daily_gold_earned < DAILY_CAP)) {
+        let goldToGive = GOLD_REWARD;
+        if (user.daily_gold_earned + goldToGive > DAILY_CAP) goldToGive = DAILY_CAP - user.daily_gold_earned;
+
+        user.gold += goldToGive;
+        user.daily_gold_earned += goldToGive;
+        user.xp += 15;
+        user.last_reward_time = now;
+
+        console.log(`${message.author.tag} got reward: +15 XP, +${goldToGive / 10} Gold`);
+    }
+
+    // leveling system
+    let requiredXP = 100 * user.level;
+    while (user.xp >= requiredXP) {
+        user.xp -= requiredXP;
+        user.level += 1;
+        console.log(`${message.author.tag} leveled up to ${user.level}`);
+        requiredXP = 100 * user.level;
+    }
+
+    await user.save(); // save everything
+});
+
+// login bot
+client.login(process.env.DISCORD_TOKEN);
