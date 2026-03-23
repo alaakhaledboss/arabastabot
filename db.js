@@ -3,52 +3,56 @@ const path = require('path');
 
 const dataFolder = path.join(__dirname, 'data');
 const filePath = path.join(dataFolder, 'users.json');
+const bankFilePath = path.join(dataFolder, 'bank.json');
+const productsFilePath = path.join(dataFolder, 'products.json');
 
-async function ensureDataFile() {
+/* ── helpers ── */
+
+async function ensureFile(file, defaultData) {
+    await fs.mkdir(dataFolder, { recursive: true });
     try {
-        await fs.mkdir(dataFolder, { recursive: true });
-        try {
-            await fs.access(filePath);
-        } catch {
-            await fs.writeFile(filePath, JSON.stringify({ users: [] }, null, 2), 'utf8');
-        }
-    } catch (err) {
-        console.error('Failed to ensure data file:', err);
-        throw err;
+        await fs.access(file);
+    } catch {
+        await fs.writeFile(file, JSON.stringify(defaultData, null, 2), 'utf8');
     }
 }
 
-async function readDB() {
-    await ensureDataFile();
-    const raw = await fs.readFile(filePath, 'utf8');
+async function safeRead(file, defaultData) {
+    const raw = await fs.readFile(file, 'utf8');
     try {
         return JSON.parse(raw);
     } catch (err) {
-        // If JSON corrupted, recreate safe empty DB
-        console.error('Corrupted DB file, recreating:', err);
-        const init = { users: [] };
-        await fs.writeFile(filePath, JSON.stringify(init, null, 2), 'utf8');
-        return init;
+        console.error(`Corrupted file ${file}, recreating:`, err);
+        await fs.writeFile(file, JSON.stringify(defaultData, null, 2), 'utf8');
+        return defaultData;
     }
 }
 
-async function writeDB(data) {
-    const tmp = `${filePath}.tmp`;
+async function atomicWrite(file, data) {
+    const tmp = `${file}.tmp`;
     await fs.writeFile(tmp, JSON.stringify(data, null, 2), 'utf8');
-    await fs.rename(tmp, filePath);
+    await fs.rename(tmp, file);
 }
+
+/* ── init ── */
 
 async function initDB() {
-    await ensureDataFile();
-    // validate structure
-    const db = await readDB();
+    await ensureFile(filePath, { users: [] });
+    await ensureFile(bankFilePath, { balance: 1000000 });
+    await ensureFile(productsFilePath, []);
+
+    const db = await safeRead(filePath, { users: [] });
     db.users ||= [];
-    await writeDB(db);
+    await atomicWrite(filePath, db);
 }
 
+/* ── users ── */
+
 async function getUser(userId) {
-    const db = await readDB();
+    await ensureFile(filePath, { users: [] });
+    const db = await safeRead(filePath, { users: [] });
     db.users ||= [];
+
     let user = db.users.find(u => u.user_id === userId);
     if (!user) {
         user = {
@@ -60,41 +64,102 @@ async function getUser(userId) {
             honor: 0,
             last_reward_time: 0,
             daily_gold_earned: 0,
-            last_daily_reset: 0
+            last_daily_reset: 0,
+            bank_access: false
         };
         db.users.push(user);
-        await writeDB(db);
+        await atomicWrite(filePath, db);
     }
+
+    // ensure bank_access field exists on older records
+    if (user.bank_access === undefined) user.bank_access = false;
+
     return user;
 }
 
 async function saveUser(user) {
-    const db = await readDB();
+    await ensureFile(filePath, { users: [] });
+    const db = await safeRead(filePath, { users: [] });
     db.users ||= [];
+
     const idx = db.users.findIndex(u => u.user_id === user.user_id);
     if (idx !== -1) db.users[idx] = user;
     else db.users.push(user);
-    await writeDB(db);
+
+    await atomicWrite(filePath, db);
 }
 
-// Get leaderboard for a stat (supports 'xp' as total XP across levels)
+async function getAuthorizedUsers() {
+    await ensureFile(filePath, { users: [] });
+    const db = await safeRead(filePath, { users: [] });
+    db.users ||= [];
+    return new Set(
+        db.users
+            .filter(u => u.bank_access === true)
+            .map(u => u.user_id)
+    );
+}
+
+async function setBankAccess(userId, value) {
+    const user = await getUser(userId);
+    user.bank_access = value;
+    await saveUser(user);
+}
+
+/* ── leaderboard ── */
+
 async function getLeaderboard(field, limit = 10) {
-    const db = await readDB();
+    await ensureFile(filePath, { users: [] });
+    const db = await safeRead(filePath, { users: [] });
     db.users ||= [];
     if (db.users.length === 0) return [];
 
-    const usersWithTotal = db.users.map(u => {
-        let total = u[field] ?? 0;
-        if (field === 'xp') {
-            // total XP including all previous levels:
-            // sum of 100 * level for levels 1..(level-1) = 100 * (level*(level-1)/2)
-            total += 100 * (u.level * (u.level - 1) / 2);
-        }
-        return { ...u, totalField: total };
-    });
+    const withTotal = db.users
+        .filter(u => u.user_id) // skip orphan records
+        .map(u => {
+            let total = u[field] ?? 0;
+            if (field === 'xp') {
+                total += 100 * (u.level * (u.level - 1) / 2);
+            }
+            return { ...u, totalField: total };
+        });
 
-    const sorted = usersWithTotal.sort((a, b) => b.totalField - a.totalField);
-    return sorted.slice(0, limit);
+    return withTotal
+        .sort((a, b) => b.totalField - a.totalField)
+        .slice(0, limit);
 }
 
-module.exports = { initDB, getUser, saveUser, getLeaderboard };
+/* ── bank ── */
+
+async function getBank() {
+    await ensureFile(bankFilePath, { balance: 1000000 });
+    return safeRead(bankFilePath, { balance: 1000000 });
+}
+
+async function saveBank(bank) {
+    await atomicWrite(bankFilePath, bank);
+}
+
+/* ── products ── */
+
+async function getProducts() {
+    await ensureFile(productsFilePath, []);
+    return safeRead(productsFilePath, []);
+}
+
+async function saveProducts(products) {
+    await atomicWrite(productsFilePath, products);
+}
+
+module.exports = {
+    initDB,
+    getUser,
+    saveUser,
+    getAuthorizedUsers,
+    setBankAccess,
+    getLeaderboard,
+    getBank,
+    saveBank,
+    getProducts,
+    saveProducts
+};
