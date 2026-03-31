@@ -3,6 +3,7 @@ const { Client, GatewayIntentBits } = require('discord.js');
 const db = require('./db');
 
 const handleButton  = require('./interactions/buttons');
+const handleSelect  = require('./interactions/selects');
 const handleModal   = require('./interactions/modals');
 const commandHandler = require('./commands/commandHandler');
 const rewardService = require('./services/rewardService');
@@ -23,7 +24,7 @@ process.on('unhandledRejection', console.error);
 process.on('uncaughtException', (err) => { console.error(err); process.exit(1); });
 
 // ── ready ─────────────────────────────────────────────────────
-client.once('ready', () => {
+client.once('clientReady', () => {
     console.log(`✅ ${client.user.tag} is online!`);
     client.user.setActivity('Watching Arabasta 👑');
 });
@@ -31,16 +32,19 @@ client.once('ready', () => {
 // ── interactions ──────────────────────────────────────────────
 client.on('interactionCreate', async (interaction) => {
     try {
-        if (interaction.isButton())      return await handleButton(interaction);
-        if (interaction.isModalSubmit()) return await handleModal(interaction);
+        if (interaction.isButton())            return await handleButton(interaction);
+        if (interaction.isStringSelectMenu())  return await handleSelect(interaction);
+        if (interaction.isModalSubmit())       return await handleModal(interaction);
     } catch (err) {
         console.error('Interaction error:', err);
-        const reply = { content: 'Something went wrong. حدث خطأ ما.', ephemeral: true };
-        if (interaction.replied || interaction.deferred) {
-            interaction.followUp(reply).catch(() => {});
-        } else {
-            interaction.reply(reply).catch(() => {});
-        }
+        try {
+            const reply = { content: 'Something went wrong. حدث خطأ ما.', ephemeral: true };
+            if (interaction.replied || interaction.deferred) {
+                await interaction.followUp(reply);
+            } else {
+                await interaction.reply(reply);
+            }
+        } catch (e) {}
     }
 });
 
@@ -50,29 +54,24 @@ client.on('messageCreate', async (message) => {
 
     const content = message.content.trim();
 
-    // Arabic greeting — "السلام عليكم" and variants
     if (content.startsWith('السلام')) {
         const phrases = ['نورت المكان', 'نورت السيرفر', 'يا هلا بالزين', 'أهلاً وسهلاً بك', 'سعداء بوجودك'];
         const phrase = phrases[Math.floor(Math.random() * phrases.length)];
         return message.reply(`وعليكم السلام ورحمة الله وبركاته\n**${phrase}** 🌟`);
     }
 
-    // Arabic farewell — "سلام" alone = goodbye
     if (content === 'سلام') {
         return message.reply('مع السلامة، عد مرة أخرى 👋');
     }
 
-    // Arabic greeting — "سلام" followed by more text = greeting
     if (content.startsWith('سلام')) {
         const phrases = ['نورت المكان', 'نورت السيرفر', 'يا هلا بالزين', 'أهلاً وسهلاً بك'];
         const phrase = phrases[Math.floor(Math.random() * phrases.length)];
         return message.reply(`**${phrase}** 🌟`);
     }
 
-    // rewards (XP + gold + level-up)
     await rewardService.handleRewards(message);
 
-    // commands
     if (content.startsWith('%')) {
         const args = content.slice(1).split(/ +/);
         const cmd = args.shift().toLowerCase();

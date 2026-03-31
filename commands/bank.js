@@ -1,5 +1,6 @@
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, EmbedBuilder } = require('discord.js');
 const db = require('../db');
+const { COLORS, BUTTON_STYLES, EMOJIS, FOOTER_TEXT, formatError } = require('../utils/uiConstants');
 
 module.exports = async function (message, OWNER_ID) {
     try {
@@ -7,32 +8,38 @@ module.exports = async function (message, OWNER_ID) {
         const isOwner = message.author.id === OWNER_ID;
 
         if (!isOwner && !authorized.has(message.author.id)) {
-            return message.reply('You don\'t have permission to access the bank. ليس لديك إذن للوصول إلى البنك.');
+            return message.reply(formatError('ليس لديك إذن للوصول إلى البنك.', 'You don\'t have permission to access the bank.'));
         }
 
-        const row = new ActionRowBuilder().addComponents(
+        // Row 1: Main bank operations (for all authorized users)
+        const row1 = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
                 .setCustomId(`bank:show:0:${message.author.id}`)
-                .setLabel('Balance الرصيد')
-                .setStyle(ButtonStyle.Secondary),
+                .setLabel(`${EMOJIS.BANK} الرصيد | Balance`)
+                .setStyle(BUTTON_STYLES.SECONDARY),
             new ButtonBuilder()
                 .setCustomId(`bank:withdraw:0:${message.author.id}`)
-                .setLabel('Withdraw سحب')
-                .setStyle(ButtonStyle.Primary),
+                .setLabel(`${EMOJIS.WITHDRAW} سحب | Withdraw`)
+                .setStyle(BUTTON_STYLES.PRIMARY),
             new ButtonBuilder()
                 .setCustomId(`bank:deposit:0:${message.author.id}`)
-                .setLabel('Deposit إيداع')
-                .setStyle(ButtonStyle.Success)
+                .setLabel(`${EMOJIS.DEPOSIT} إيداع | Deposit`)
+                .setStyle(BUTTON_STYLES.SUCCESS)
         );
 
         const embed = new EmbedBuilder()
-            .setColor('#FFD700')
-            .setTitle('Bank Account حساب البنك')
-            .setDescription('Manage the bank account. قم بإدارة حساب البنك.');
+            .setColor(COLORS.BANK)
+            .setTitle(`${EMOJIS.BANK} **حساب البنك | Bank Account**`)
+            .setDescription('قم بإدارة حساب البنك.\nManage your bank account.')
+            .addFields(
+                { name: `${EMOJIS.INFO} معلومات | Information`, value: isOwner ? '🔓 أنت المالك | You are the owner' : '🔒 مستخدم مصرح | Authorized user', inline: false }
+            )
+            .setFooter({ text: FOOTER_TEXT })
+            .setTimestamp();
 
-        return message.reply({ embeds: [embed], components: [row] });
+        return message.reply({ embeds: [embed], components: [row1] });
     } catch (err) {
         console.error('bank command error:', err);
-        return message.reply('Error loading bank. خطأ في تحميل البنك.');
+        return message.reply(formatError('خطأ في تحميل البنك.', 'Error loading bank.'));
     }
 };

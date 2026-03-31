@@ -1,49 +1,29 @@
 const db = require('../db');
 const { EmbedBuilder } = require('discord.js');
 
-// Import command modules
-const bankCmd = require('./bank');
-const shopCmd = require('./shop');
-const miscCmd = require('./misc');
-const profileCmd = require('./profile');
+const bankCmd        = require('./bank');
+const shopCmd        = require('./shop');
+const miscCmd        = require('./misc');
+const profileCmd     = require('./profile');
 const leaderboardCmd = require('./leaderboard');
-const permissionCmd = require('./permission');
-const productCmd = require('./product');
+const permissionCmd  = require('./permission');
+const convertCmd     = require('./convert');
+
+// ── Help ──────────────────────────────────────────────────────
 
 async function showHelp(message) {
     try {
         const embed = new EmbedBuilder()
             .setColor('#FFD700')
-            .setTitle('📖 ArabastaBot Commands')
-            .setDescription('User-accessible commands')
+            .setTitle('📖 **ArabastaBot Commands | أوامر البوت**')
             .addFields(
-                {
-                    name: '� User Profile',
-                    value: '`%p` or `%profile` [@user] - View your or someone\'s profile',
-                    inline: false
-                },
-                {
-                    name: '🏆 Rankings',
-                    value: '`%lb` or `%leaderboard` [field] - View top 10 players\n**Fields:** `xp`, `gold`, `gems`, `honor`',
-                    inline: false
-                },
-                {
-                    name: '🛍️ Shop',
-                    value: '`%s` or `%shop` - Browse and buy products',
-                    inline: false
-                },
-                {
-                    name: '💰 Bank',
-                    value: '`%b` or `%bank` - Access bank (if authorized)',
-                    inline: false
-                },
-                {
-                    name: '🔧 Utility',
-                    value: '`%ping` - Check if bot is online',
-                    inline: false
-                }
+                { name: '👤 Profile | الملف الشخصي', value: '`%p` أو `%profile` [@user] — عرض الملف الشخصي', inline: false },
+                { name: '🏆 Rankings | المتصدرين',   value: '`%lb` أو `%leaderboard` [xp|gold|gems|honor] — أفضل 10', inline: false },
+                { name: '🛍️ Shop | المتجر',          value: '`%s` أو `%shop` — فتح المتجر (للمصرّح لهم)', inline: false },
+                { name: '💰 Bank | البنك',            value: '`%b` أو `%bank` — فتح البنك (للمصرّح لهم)', inline: false },
+                { name: '🔧 Utility | أدوات',         value: '`%ping` — التحقق من البوت\n`%convert` [@user] — تحويل لوحة المفاتيح', inline: false }
             )
-            .setFooter({ text: 'Type %command for admin commands' })
+            .setFooter({ text: 'ArabastaBot | وزارة المالية • مملكة أراباستا' })
             .setTimestamp();
 
         return message.reply({ embeds: [embed] });
@@ -56,65 +36,57 @@ async function showHelp(message) {
 async function showAllCommands(message, OWNER_ID) {
     try {
         const isOwner = message.author.id === OWNER_ID;
-        
+        const authorized = await db.getAuthorizedUsers();
+        const isAdmin = isOwner || authorized.has(message.author.id);
+
         const embed = new EmbedBuilder()
             .setColor('#FFD700')
-            .setTitle('📖 ArabastaBot - All Commands')
-            .setDescription('Complete command reference')
+            .setTitle('📖 **ArabastaBot — All Commands | جميع الأوامر**')
             .addFields(
-                {
-                    name: '👤 User Profile',
-                    value: '`%p` or `%profile` [@user] - View profile stats\n`%lb` or `%leaderboard` [field] - View rankings',
-                    inline: false
-                },
-                {
-                    name: '🛍️ Shop System',
-                    value: '`%s` or `%shop` - Open shop menu\nBrowse products, check prices, manage inventory',
-                    inline: false
-                },
-                {
-                    name: '💰 Bank System',
-                    value: '`%b` or `%bank` - Open bank menu\nView balance, withdraw, deposit gold',
-                    inline: false
-                },
-                {
-                    name: '🔧 Utility',
-                    value: '`%ping` - Check bot responsiveness\n`%help` - Show user commands\n`%command` - Show all commands',
-                    inline: false
-                }
+                { name: '👤 Profile | الملف الشخصي', value: '`%p` / `%profile` [@user]\n`%lb` / `%leaderboard` [xp|gold|gems|honor]', inline: false },
+                { name: '🛍️ Shop | المتجر',           value: '`%s` / `%shop` — المتجر (للمصرّح لهم فقط)', inline: false },
+                { name: '💰 Bank | البنك',             value: '`%b` / `%bank` — البنك (للمصرّح لهم فقط)', inline: false },
+                { name: '🔧 Utility | أدوات',          value: '`%ping` `%help` `%command` `%convert` [@user]', inline: false }
             );
 
-        if (isOwner) {
-            embed.addFields(
-                {
-                    name: '👑 Owner Commands (Admin Only)',
-                    value: '`%a @user` - Grant user bank access\n`%da @user` - Revoke user bank access\n`%ap` or `%addproduct` - Add new shop product',
-                    inline: false
-                }
-            );
+        if (isAdmin) {
+            embed.addFields({
+                name: '🛡️ Admin Commands | أوامر الإدارة',
+                value: '`%a @user` — منح صلاحية المتجر/البنك\n`%da @user` — سحب الصلاحية\n`%log` — سجل تحويل العملات',
+                inline: false
+            });
         }
 
-        embed.setFooter({ text: isOwner ? 'You are the owner' : 'Contact owner for admin access' })
-            .setTimestamp();
+        if (isOwner) {
+            embed.addFields({
+                name: '👑 Owner Commands | أوامر المالك',
+                value: '`%bank` → Credit buttons | البنك → أزرار إدارة الرصيد\n`%showbanklog` — سجل البنك الكامل\n`%reseteverything` — إعادة تعيين جميع المستخدمين',
+                inline: false
+            });
+        }
+
+        embed.setFooter({ text: isOwner ? '👑 You are the owner | أنت المالك' : 'Contact owner for admin access' })
+             .setTimestamp();
 
         return message.reply({ embeds: [embed] });
     } catch (err) {
         console.error('showAllCommands error:', err);
-        return message.reply('❌ Error displaying commands. خطأ في عرض الأوامر.').catch(() => {});
+        return message.reply('❌ Error displaying commands.').catch(() => {});
     }
 }
 
+// ── Main handler ──────────────────────────────────────────────
+
 module.exports = async function (client, message, cmd, args, OWNER_ID) {
     try {
-        // Validate message object
         if (!message || !message.author || typeof message.reply !== 'function') {
             console.error('Invalid message object passed to commandHandler.');
             return;
         }
-
-        if (!cmd) return; // silently ignore empty commands
+        if (!cmd) return;
 
         switch (cmd) {
+
             case 'help':
                 return await showHelp(message);
 
@@ -129,7 +101,7 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
 
             case 's':
             case 'shop':
-                return await shopCmd(message);
+                return await shopCmd(message, OWNER_ID);
 
             case 'ping':
                 return miscCmd.ping(message);
@@ -146,12 +118,74 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
             case 'da':
                 return await permissionCmd.handlePermission(message, cmd, args, OWNER_ID);
 
-            case 'ap':
-            case 'addproduct':
-                return await productCmd.addProduct(message, args, OWNER_ID);
+            case 'convert':
+                return await convertCmd(message, args);
+
+            // ── Owner: view bank log ──────────────────────────────
+            case 'showbanklog': {
+                if (message.author.id !== OWNER_ID) return;
+
+                const log = await db.getBankLog();
+                if (!log.length) {
+                    return message.reply('📋 **سجل البنك فارغ. | Bank log is empty.**');
+                }
+
+                const last = log.slice(-20).reverse();
+                const lines = last.map(entry => {
+                    const date = new Date(entry.timestamp);
+                    const dateStr = date.toLocaleDateString('en-GB');
+                    const timeStr = date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+                    const extra = entry.extra ? ` *(${entry.extra})*` : '';
+                    return `**${entry.action}** | <@${entry.userId}> | ${entry.amount}${extra} | ${dateStr} ${timeStr}`;
+                });
+
+                const embed = new EmbedBuilder()
+                    .setColor('#FFD700')
+                    .setTitle('📋 **سجل البنك | Bank Log** (آخر 20 عملية | Last 20)')
+                    .setDescription(lines.join('\n'))
+                    .setTimestamp();
+
+                return message.reply({ embeds: [embed] });
+            }
+
+            // ── Admin + Owner: view conversion log ────────────────
+            case 'log': {
+                const authorized = await db.getAuthorizedUsers();
+                if (message.author.id !== OWNER_ID && !authorized.has(message.author.id)) {
+                    return message.reply('❌ ليس لديك صلاحية. | You don\'t have permission.');
+                }
+
+                const log = await db.getConversionLog();
+                if (!log.length) {
+                    return message.reply('📋 **سجل التحويل فارغ. | Conversion log is empty.**');
+                }
+
+                const last = log.slice(-20).reverse();
+                const lines = last.map(entry => {
+                    const date = new Date(entry.timestamp);
+                    const dateStr = date.toLocaleDateString('en-GB');
+                    const timeStr = date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+                    return `**${entry.fromType} → ${entry.toType}** | <@${entry.userId}> | ${entry.fromAmount} → ${entry.toAmount} | ${dateStr} ${timeStr}`;
+                });
+
+                const embed = new EmbedBuilder()
+                    .setColor('#00CED1')
+                    .setTitle('📋 **سجل تحويل العملات | Conversion Log** (آخر 20 | Last 20)')
+                    .setDescription(lines.join('\n'))
+                    .setTimestamp();
+
+                return message.reply({ embeds: [embed] });
+            }
+
+            // ── Owner: reset all users (hidden) ───────────────────
+            case 'reseteverything': {
+                if (message.author.id !== OWNER_ID) return;
+                await db.resetAllUsers();
+                return message.reply('✅ **تم إعادة تعيين جميع المستخدمين. | All users have been reset.**').catch(() => {});
+            }
 
             default:
-                return message.reply(`❌ Unknown command. Type \`%help\` for user commands or \`%command\` for all commands.`);
+                return message.reply(`❌ Unknown command. اكتب \`%help\` للأوامر أو \`%command\` لجميع الأوامر.`);
         }
     } catch (err) {
         console.error('Command execution error:', err);

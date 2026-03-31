@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 const db = require('../db');
+const { COLORS, EMOJIS, FOOTER_TEXT, formatError } = require('../utils/uiConstants');
 
 module.exports = async (message, args) => {
     try {
@@ -7,7 +8,7 @@ module.exports = async (message, args) => {
         const discordUser = await message.client.users.fetch(targetId).catch(() => null);
 
         if (!discordUser) {
-            return message.reply('User not found. المستخدم غير موجود.');
+            return message.reply(formatError('المستخدم غير موجود.', 'User not found.'));
         }
 
         const user = await db.getUser(targetId);
@@ -18,22 +19,22 @@ module.exports = async (message, args) => {
         const bar = '█'.repeat(filled) + '░'.repeat(10 - filled);
 
         const embed = new EmbedBuilder()
-            .setColor('#FFD700')
-            .setTitle(`${discordUser.username}'s Profile`)
+            .setColor(COLORS.PROFILE)
+            .setTitle(`${EMOJIS.PROFILE} **${discordUser.username}**`)
             .setThumbnail(discordUser.displayAvatarURL({ dynamic: true }))
             .addFields(
-                { name: 'Level المستوى', value: `${user.level}`, inline: true },
-                { name: 'XP', value: `${user.xp} / ${xpNeeded}\n[${bar}]`, inline: true },
-                { name: 'Gold ذهب', value: `${user.gold / 10}`, inline: true },
-                { name: 'Gems جواهر', value: `${user.gems}`, inline: true },
-                { name: 'Honor شرف', value: `${user.honor}`, inline: true }
+                { name: `${EMOJIS.LEVEL} المستوى | Level`, value: `**${user.level}**`, inline: true },
+                { name: `${EMOJIS.XP} XP Progress`, value: `**${user.xp}** / ${xpNeeded}\n[${bar}]`, inline: false },
+                { name: `${EMOJIS.GOLD} ذهب | Gold`, value: `**${(user.gold / 10).toLocaleString()}**`, inline: true },
+                { name: `${EMOJIS.GEMS} جواهر | Gems`, value: `**${user.gems}**`, inline: true },
+                { name: `${EMOJIS.HONOR} شرف | Honor`, value: `**${user.honor}**`, inline: true }
             )
-            .setFooter({ text: 'ArabastaBot • Profile' })
+            .setFooter({ text: FOOTER_TEXT })
             .setTimestamp();
 
         return message.reply({ embeds: [embed] });
     } catch (err) {
         console.error('profile error:', err);
-        return message.reply('Error loading profile. خطأ في تحميل الملف الشخصي.');
+        return message.reply(formatError('خطأ في تحميل الملف الشخصي.', 'Error loading profile.'));
     }
 };
