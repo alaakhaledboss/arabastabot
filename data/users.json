@@ -537,16 +537,16 @@
     },
     {
       "user_id": "1271107907517419563",
-      "gold": 1425,
-      "xp": 185,
-      "level": 2,
+      "gold": 1500,
+      "xp": 0,
+      "level": 3,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774986858963,
-      "daily_gold_earned": 375,
+      "last_reward_time": 1774991044683,
+      "daily_gold_earned": 450,
       "last_daily_reset": 1774983650872,
       "bank_access": false
     },
@@ -2068,6 +2068,21 @@
       "last_reward_time": 1774990617939,
       "daily_gold_earned": 75,
       "last_daily_reset": 1774990617939,
+      "bank_access": false
+    },
+    {
+      "user_id": "1484911255021031465",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1774991034360,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1774991034360,
       "bank_access": false
     }
   ]
