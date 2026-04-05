@@ -1,8 +1,16 @@
 const play = require('play-dl');
 const ytdl = require('@distube/ytdl-core');
+const { Innertube } = require('youtubei.js');
 const { spawn } = require('child_process');
 const fs = require('fs');
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const {
+    ActionRowBuilder,
+    ButtonBuilder,
+    ButtonStyle,
+    ModalBuilder,
+    TextInputBuilder,
+    TextInputStyle
+} = require('discord.js');
 const {
     joinVoiceChannel,
     createAudioPlayer,
@@ -18,6 +26,17 @@ const {
 const guildMusicState = new Map();
 const VOICE_READY_TIMEOUT_MS = 20_000;
 const MAX_QUEUE_SIZE = 50;
+let innertubeClientPromise = null;
+
+function getInnertubeClient() {
+    if (!innertubeClientPromise) {
+        innertubeClientPromise = Innertube.create().catch((err) => {
+            innertubeClientPromise = null;
+            throw err;
+        });
+    }
+    return innertubeClientPromise;
+}
 
 function mapVoiceError(err) {
     const msg = String(err?.message || err || '');
@@ -51,9 +70,9 @@ function resolveDenoExecutable() {
     return null;
 }
 
-function buildControlRow(guildId, isPaused = false) {
+function buildControlRows(guildId, isPaused = false) {
     const pauseLabel = isPaused ? 'Resume' : 'Pause';
-    return new ActionRowBuilder().addComponents(
+    const row1 = new ActionRowBuilder().addComponents(
         new ButtonBuilder()
             .setCustomId(`music:pause:${guildId}`)
             .setLabel(`⏯ ${pauseLabel}`)
@@ -71,6 +90,19 @@ function buildControlRow(guildId, isPaused = false) {
             .setLabel('📜 Show Queue')
             .setStyle(ButtonStyle.Secondary)
     );
+
+    const row2 = new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
+            .setCustomId(`music:remove:${guildId}`)
+            .setLabel('🗑 Remove')
+            .setStyle(ButtonStyle.Secondary),
+        new ButtonBuilder()
+            .setCustomId(`music:volume:${guildId}`)
+            .setLabel('🔊 Set Volume')
+            .setStyle(ButtonStyle.Secondary)
+    );
+
+    return [row1, row2];
 }
 
 function formatQueue(guildId) {
@@ -118,76 +150,113 @@ async function sendNowPlayingMessage(guildId, track) {
     const channel = await resolveTextChannel(state);
     if (!channel || !channel.isTextBased()) return;
 
+    if (state.nowPlayingMessageId) {
+        await channel.messages.delete(state.nowPlayingMessageId).catch(() => {});
+        state.nowPlayingMessageId = null;
+    }
+
     const isPaused = state.player.state.status === AudioPlayerStatus.Paused;
-    await channel.send({
-        content: `🎶 Now playing: **${track.title}**\nRequested by: ${track.requestedBy}`,
-        components: [buildControlRow(guildId, isPaused)]
+    const sent = await channel.send({
+        content: `🎶 Now playing: **${track.title}**\nRequested by: ${track.requestedBy}\nVolume: **${Math.round((state.volume || 1) * 100)}%**`,
+        components: buildControlRows(guildId, isPaused)
     }).catch((err) => {
         console.error('[music] Failed to send now-playing message:', err?.message || err);
+        return null;
     });
+
+    if (sent?.id) state.nowPlayingMessageId = sent.id;
 }
 
 async function createYtDlpOpusResource(trackUrl) {
-    return new Promise((resolve, reject) => {
-        const ytDlpExe = resolveYtDlpExecutable();
-        const denoExe = resolveDenoExecutable();
-        const args = [
-            '--no-playlist',
-            '--quiet',
-            '--no-warnings',
-            '-f',
-            'bestaudio[acodec=opus][ext=webm]/bestaudio[acodec=opus]/bestaudio[ext=webm]',
-            '-o',
-            '-',
-            trackUrl
-        ];
+    async function spawnYtDlpResource(formatSelector, inputType, strategyLabel) {
+        return new Promise((resolve, reject) => {
+            const ytDlpExe = resolveYtDlpExecutable();
+            const denoExe = resolveDenoExecutable();
+            const args = [
+                '--no-playlist',
+                '--quiet',
+                '--no-warnings',
+                '-f',
+                formatSelector,
+                '-o',
+                '-',
+                trackUrl
+            ];
 
-        if (denoExe) {
-            args.unshift(`deno:${denoExe}`);
-            args.unshift('--js-runtimes');
-        }
-
-        const proc = spawn(ytDlpExe, args, { stdio: ['ignore', 'pipe', 'pipe'] });
-        let settled = false;
-        let stderr = '';
-
-        const fail = (error) => {
-            if (settled) return;
-            settled = true;
-            try { proc.kill(); } catch (_) {}
-            reject(error);
-        };
-
-        const success = (resource) => {
-            if (settled) return;
-            settled = true;
-            resolve(resource);
-        };
-
-        proc.on('error', (err) => {
-            if (String(err?.message || '').includes('ENOENT')) return fail(new Error('YTDLP_NOT_FOUND'));
-            fail(new Error('YTDLP_SPAWN_FAILED'));
-        });
-
-        proc.stderr.on('data', (chunk) => {
-            stderr += chunk.toString();
-        });
-
-        try {
-            // Do not consume stdout before resource creation, or EBML header can be lost.
-            const resource = createAudioResource(proc.stdout, { inputType: StreamType.WebmOpus });
-            success(resource);
-        } catch (_) {
-            fail(new Error('YTDLP_RESOURCE_FAILED'));
-        }
-
-        proc.on('close', (code) => {
-            if (!settled) {
-                console.error(`[music] yt-dlp exited early code=${code}; stderr=${stderr.trim() || 'n/a'}`);
-                fail(new Error('YTDLP_EXITED_EARLY'));
+            if (denoExe) {
+                args.unshift(`deno:${denoExe}`);
+                args.unshift('--js-runtimes');
             }
+
+            const proc = spawn(ytDlpExe, args, { stdio: ['ignore', 'pipe', 'pipe'] });
+            let settled = false;
+            let stderr = '';
+
+            const fail = (error) => {
+                if (settled) return;
+                settled = true;
+                try { proc.kill(); } catch (_) {}
+                reject(error);
+            };
+
+            const success = (resource) => {
+                if (settled) return;
+                settled = true;
+                resolve(resource);
+            };
+
+            proc.on('error', (err) => {
+                if (String(err?.message || '').includes('ENOENT')) return fail(new Error('YTDLP_NOT_FOUND'));
+                fail(new Error('YTDLP_SPAWN_FAILED'));
+            });
+
+            proc.stderr.on('data', (chunk) => {
+                stderr += chunk.toString();
+            });
+
+            try {
+                // Do not consume stdout before resource creation, or container headers can be lost.
+                const resource = createAudioResource(proc.stdout, {
+                    inputType,
+                    inlineVolume: true
+                });
+                success(resource);
+            } catch (err) {
+                const msg = String(err?.message || err || '');
+                if (/ffmpeg|avconv/i.test(msg)) return fail(new Error('FFMPEG_MISSING'));
+                if (/@discordjs\/opus|opusscript|node-opus/.test(msg)) return fail(new Error('OPUS_CODEC_MISSING'));
+                console.warn(`[music] yt-dlp resource strategy failed (${strategyLabel}): ${msg || 'unknown error'}`);
+                fail(new Error('YTDLP_RESOURCE_FAILED'));
+            }
+
+            proc.on('close', (code) => {
+                if (!settled) {
+                    console.error(`[music] yt-dlp exited early (${strategyLabel}) code=${code}; stderr=${stderr.trim() || 'n/a'}`);
+                    fail(new Error('YTDLP_EXITED_EARLY'));
+                }
+            });
         });
-    });
+    }
+
+    // Strategy A: Keep zero-transcode Opus/WebM path (fastest and most reliable when available).
+    try {
+        return await spawnYtDlpResource(
+            'bestaudio[acodec=opus][ext=webm]/bestaudio[acodec=opus]/bestaudio[ext=webm]',
+            StreamType.WebmOpus,
+            'webm-opus'
+        );
+    } catch (err) {
+        if (err.message === 'YTDLP_NOT_FOUND' || err.message === 'YTDLP_SPAWN_FAILED' || err.message === 'FFMPEG_MISSING') {
+            throw err;
+        }
+    }
+
+    // Strategy B: Generic bestaudio stream for cases where Opus metadata/container path fails.
+    return await spawnYtDlpResource(
+        'bestaudio/best',
+        StreamType.Arbitrary,
+        'generic-bestaudio'
+    );
 }
 
 async function createYtdlOpusResource(trackUrl) {
@@ -215,7 +284,10 @@ async function createYtdlOpusResource(trackUrl) {
             console.error('[music] ytdl stream runtime error:', err?.message || err);
         });
 
-        return createAudioResource(stream, { inputType: StreamType.WebmOpus });
+        return createAudioResource(stream, {
+            inputType: StreamType.WebmOpus,
+            inlineVolume: true
+        });
     } catch (err) {
         const msg = String(err?.message || err || '');
         if (/FFmpeg|avconv/i.test(msg)) throw new Error('FFMPEG_MISSING');
@@ -227,19 +299,19 @@ async function createYtdlOpusResource(trackUrl) {
 async function createTrackResource(trackUrl) {
     try {
         const stream = await play.stream(trackUrl);
-        return createAudioResource(stream.stream, { inputType: stream.type });
+    return createAudioResource(stream.stream, { inputType: stream.type, inlineVolume: true });
     } catch (_) {
         try {
             const info = await play.video_info(trackUrl);
             const stream = await play.stream_from_info(info);
-            return createAudioResource(stream.stream, { inputType: stream.type });
+            return createAudioResource(stream.stream, { inputType: stream.type, inlineVolume: true });
         } catch (_) {
             if (!ytdl.validateURL(trackUrl)) throw new Error('TRACK_URL_MISSING');
 
             try {
                 return await createYtdlOpusResource(trackUrl);
             } catch (ytdlErr) {
-                if (ytdlErr.message === 'NO_PLAYABLE_FORMATS') {
+                if (ytdlErr.message === 'NO_PLAYABLE_FORMATS' || ytdlErr.message === 'YTDL_INFO_FAILED') {
                     return await createYtDlpOpusResource(trackUrl);
                 }
                 throw ytdlErr;
@@ -249,19 +321,65 @@ async function createTrackResource(trackUrl) {
 }
 
 async function searchYouTubeFirst(query) {
-    const results = await play.search(query, {
-        limit: 1,
-        source: { youtube: 'video' }
-    });
+    const text = String(query || '').trim();
+    if (!text) return null;
 
-    if (!results || !results.length) return null;
+    // Direct YouTube URL input should bypass search providers.
+    if (ytdl.validateURL(text)) {
+        try {
+            const info = await ytdl.getBasicInfo(text);
+            return {
+                title: info?.videoDetails?.title || 'Unknown title',
+                url: text,
+                requestedBy: null
+            };
+        } catch (_) {
+            return {
+                title: 'YouTube Track',
+                url: text,
+                requestedBy: null
+            };
+        }
+    }
 
-    const first = results[0];
-    return {
-        title: first.title || 'Unknown title',
-        url: first.url || (first.id ? `https://www.youtube.com/watch?v=${first.id}` : null),
-        requestedBy: null
-    };
+    // Primary provider: play-dl
+    try {
+        const results = await play.search(text, {
+            limit: 1,
+            source: { youtube: 'video' }
+        });
+
+        if (results?.length) {
+            const first = results[0];
+            return {
+                title: first.title || 'Unknown title',
+                url: first.url || (first.id ? `https://www.youtube.com/watch?v=${first.id}` : null),
+                requestedBy: null
+            };
+        }
+    } catch (err) {
+        console.warn('[music] play-dl search failed, falling back to youtubei.js:', err?.message || err);
+    }
+
+    // Fallback provider: youtubei.js
+    try {
+        const yt = await getInnertubeClient();
+        const results = await yt.search(text, { type: 'video' });
+        const first = results?.videos?.[0] || results?.results?.[0] || null;
+        if (!first) return null;
+
+        const videoId = first.video_id || first.id || first?.endpoint?.payload?.videoId || null;
+        const url = first.url || (videoId ? `https://www.youtube.com/watch?v=${videoId}` : null);
+
+        return {
+            title: first.title?.text || first.title || 'Unknown title',
+            url,
+            requestedBy: null
+        };
+    } catch (err) {
+        console.error('[music] youtubei.js search fallback failed:', err?.message || err);
+        throw new Error('SEARCH_FAILED');
+    }
 }
 
 async function ensureConnection(voiceChannel) {
@@ -337,7 +455,9 @@ function getOrCreateGuildState(guildId) {
         queue: [],
         textChannelId: null,
         client: null,
-        isAdvancing: false
+        isAdvancing: false,
+        volume: 1,
+        nowPlayingMessageId: null
     };
 
     player.on('error', async (err) => {
@@ -357,13 +477,41 @@ function getOrCreateGuildState(guildId) {
     return state;
 }
 
+function attachConnectionStateListener(guildId, connection) {
+    if (!connection) return;
+
+    connection.on(VoiceConnectionStatus.Disconnected, async () => {
+        console.log(`[music] Voice connection disconnected in guild ${guildId}`);
+        await destroyGuildState(guildId);
+    });
+
+    connection.on(VoiceConnectionStatus.Destroyed, async () => {
+        console.log(`[music] Voice connection destroyed in guild ${guildId}`);
+        await destroyGuildState(guildId);
+    });
+}
+
 async function destroyGuildState(guildId) {
     const state = guildMusicState.get(guildId);
     if (!state) return;
 
+    try {
+        const channel = await resolveTextChannel(state);
+        if (channel?.isTextBased() && state.nowPlayingMessageId) {
+            await channel.messages.delete(state.nowPlayingMessageId).catch(() => {});
+        }
+    } catch (_) {}
+
     try { state.player.stop(true); } catch (_) {}
     try { state.connection?.destroy(); } catch (_) {}
+    try { state.connection?.removeAllListeners(); } catch (_) {}
+    
+    state.queue = [];
+    state.current = null;
+    state.isAdvancing = false;
+    
     guildMusicState.delete(guildId);
+    console.log(`[music] Guild ${guildId} state cleaned up`);
 }
 
 async function playNext(guildId) {
@@ -380,6 +528,10 @@ async function playNext(guildId) {
             try {
                 const resource = await createTrackResource(nextTrack.url);
                 if (!state.connection) throw new Error('VOICE_CONNECTION_MISSING');
+
+                if (resource.volume) {
+                    resource.volume.setVolume(state.volume || 1);
+                }
 
                 state.player.play(resource);
                 state.connection.subscribe(state.player);
@@ -421,6 +573,7 @@ async function addToQueue({ message, query }) {
     }
 
     state.connection = await ensureConnection(voiceChannel);
+    attachConnectionStateListener(guildId, state.connection);
 
     const track = await searchYouTubeFirst(query);
     if (!track) throw new Error('NO_RESULTS');
@@ -488,6 +641,74 @@ async function togglePause(guildId) {
     return { paused: true };
 }
 
+async function setVolume(guildId, percent) {
+    const state = guildMusicState.get(guildId);
+    if (!state || !state.current) throw new Error('NOTHING_PLAYING');
+
+    const parsed = Number(percent);
+    if (!Number.isFinite(parsed) || parsed < 0 || parsed > 200) {
+        throw new Error('INVALID_VOLUME_RANGE');
+    }
+
+    const volume = parsed / 100;
+    state.volume = volume;
+
+    const currentResource = state.player.state?.resource;
+    if (currentResource?.volume) {
+        currentResource.volume.setVolume(volume);
+    }
+
+    return { percent: Math.round(parsed) };
+}
+
+function removeQueueItem(guildId, position) {
+    const state = guildMusicState.get(guildId);
+    if (!state) throw new Error('NOTHING_PLAYING');
+    if (!state.queue.length) throw new Error('QUEUE_EMPTY');
+
+    const index = Number(position) - 1;
+    if (!Number.isInteger(index) || index < 0 || index >= state.queue.length) {
+        throw new Error('INVALID_QUEUE_POSITION');
+    }
+
+    const [removed] = state.queue.splice(index, 1);
+    return { removed, position: index + 1 };
+}
+
+function createVolumeModal(guildId) {
+    const modal = new ModalBuilder()
+        .setCustomId(`musicModal:setVolume:${guildId}`)
+        .setTitle('Set Music Volume');
+
+    const input = new TextInputBuilder()
+        .setCustomId('volumePercent')
+        .setLabel('Volume Percentage (0-200)')
+        .setPlaceholder('100')
+        .setStyle(TextInputStyle.Short)
+        .setRequired(true)
+        .setMaxLength(3);
+
+    modal.addComponents(new ActionRowBuilder().addComponents(input));
+    return modal;
+}
+
+function createRemoveQueueModal(guildId) {
+    const modal = new ModalBuilder()
+        .setCustomId(`musicModal:removeQueue:${guildId}`)
+        .setTitle('Remove Track From Queue');
+
+    const input = new TextInputBuilder()
+        .setCustomId('queuePosition')
+        .setLabel('Queue Position (1 = next track)')
+        .setPlaceholder('1')
+        .setStyle(TextInputStyle.Short)
+        .setRequired(true)
+        .setMaxLength(3);
+
+    modal.addComponents(new ActionRowBuilder().addComponents(input));
+    return modal;
+}
+
 function assertSameVoiceChannel(interaction, state) {
     const userChannelId = interaction.member?.voice?.channelId;
     if (!userChannelId) throw new Error('USER_NOT_IN_VOICE');
@@ -541,6 +762,20 @@ async function handleControlInteraction(interaction) {
                 return true;
             }
 
+            case 'volume': {
+                await interaction.showModal(createVolumeModal(guildId));
+                return true;
+            }
+
+            case 'remove': {
+                if (!state.queue.length) {
+                    await interaction.reply({ content: 'Queue is empty. Nothing to remove.', ephemeral: true });
+                    return true;
+                }
+                await interaction.showModal(createRemoveQueueModal(guildId));
+                return true;
+            }
+
             default:
                 await interaction.reply({ content: 'Unknown music control.', ephemeral: true });
                 return true;
@@ -558,9 +793,88 @@ async function handleControlInteraction(interaction) {
             await interaction.reply({ content: 'You must be in the same voice channel as the bot to use these buttons.', ephemeral: true });
             return true;
         }
+        if (err.message === 'INVALID_VOLUME_RANGE') {
+            await interaction.reply({ content: 'Volume must be between 0 and 200.', ephemeral: true });
+            return true;
+        }
 
         console.error('[music] Control interaction error:', err);
         await interaction.reply({ content: 'Music control failed. Please try again.', ephemeral: true });
+        return true;
+    }
+}
+
+async function handleModalInteraction(interaction) {
+    const [system, action, guildIdFromModal] = String(interaction.customId || '').split(':');
+    if (system !== 'musicModal') return false;
+
+    const guildId = interaction.guildId;
+    if (!guildId || (guildIdFromModal && guildIdFromModal !== guildId)) {
+        await interaction.reply({ content: 'This music form is not valid for this server.', ephemeral: true });
+        return true;
+    }
+
+    const state = guildMusicState.get(guildId);
+
+    try {
+        if (!state) throw new Error('NOTHING_PLAYING');
+        assertSameVoiceChannel(interaction, state);
+
+        if (action === 'setVolume') {
+            const value = interaction.fields.getTextInputValue('volumePercent');
+            const result = await setVolume(guildId, value);
+            await interaction.reply({ content: `🔊 Volume set to **${result.percent}%**.`, ephemeral: true });
+
+            if (state.current) {
+                const channel = await resolveTextChannel(state);
+                if (channel?.isTextBased()) {
+                    await sendNowPlayingMessage(guildId, state.current);
+                }
+            }
+
+            return true;
+        }
+
+        if (action === 'removeQueue') {
+            const value = interaction.fields.getTextInputValue('queuePosition');
+            const result = removeQueueItem(guildId, value);
+            await interaction.reply({
+                content: `🗑 Removed **#${result.position}** from queue: **${truncateTitle(result.removed.title)}**`,
+                ephemeral: true
+            });
+            return true;
+        }
+
+        await interaction.reply({ content: 'Unknown music form action.', ephemeral: true });
+        return true;
+    } catch (err) {
+        if (err.message === 'NOTHING_PLAYING') {
+            await interaction.reply({ content: 'There is no active playback right now.', ephemeral: true });
+            return true;
+        }
+        if (err.message === 'USER_NOT_IN_VOICE') {
+            await interaction.reply({ content: 'You must be in a voice channel to use music controls.', ephemeral: true });
+            return true;
+        }
+        if (err.message === 'NOT_SAME_VOICE_CHANNEL') {
+            await interaction.reply({ content: 'You must be in the same voice channel as the bot to use these controls.', ephemeral: true });
+            return true;
+        }
+        if (err.message === 'INVALID_VOLUME_RANGE') {
+            await interaction.reply({ content: 'Volume must be a number between 0 and 200.', ephemeral: true });
+            return true;
+        }
+        if (err.message === 'QUEUE_EMPTY') {
+            await interaction.reply({ content: 'Queue is empty. Nothing to remove.', ephemeral: true });
+            return true;
+        }
+        if (err.message === 'INVALID_QUEUE_POSITION') {
+            await interaction.reply({ content: 'Invalid queue position. Use a number from the current queue list.', ephemeral: true });
+            return true;
+        }
+
+        console.error('[music] Modal interaction error:', err);
+        await interaction.reply({ content: 'Music action failed. Please try again.', ephemeral: true });
         return true;
     }
 }
@@ -572,6 +886,7 @@ module.exports = {
     skipTrack,
     searchYouTubeFirst,
     handleControlInteraction,
+    handleModalInteraction,
     formatQueue,
     MAX_QUEUE_SIZE
 };

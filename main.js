@@ -8,13 +8,15 @@ const handleModal   = require('./interactions/modals');
 const commandHandler = require('./commands/commandHandler');
 const rewardService = require('./services/rewardService');
 const taskService = require('./services/taskService');
+const progressionService = require('./services/progressionService');
 
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
-        GatewayIntentBits.GuildVoiceStates
+        GatewayIntentBits.GuildVoiceStates,
+        GatewayIntentBits.GuildMembers
     ]
 });
 
@@ -123,6 +125,22 @@ client.on('clientReady', () => {
     setInterval(trackVoiceTaskProgress, VOICE_PROGRESS_TICK_MS);
 });
 
+client.on('guildMemberAdd', async (member) => {
+    try {
+        await progressionService.syncMemberState(member, { allowRestoreFromDb: false });
+    } catch (err) {
+        console.error('guildMemberAdd progression sync error:', err);
+    }
+});
+
+client.on('guildMemberUpdate', async (_, newMember) => {
+    try {
+        await progressionService.syncMemberState(newMember, { allowRestoreFromDb: false });
+    } catch (err) {
+        console.error('guildMemberUpdate progression sync error:', err);
+    }
+});
+
 // ── interactions ──────────────────────────────────────────────
 client.on('interactionCreate', async (interaction) => {
     try {
@@ -164,7 +182,14 @@ client.on('messageCreate', async (message) => {
         return message.reply(`**${phrase}** 🌟`);
     }
 
-    await rewardService.handleRewards(message);
+    try {
+        await progressionService.syncMemberState(message.member, { allowRestoreFromDb: false });
+    } catch (err) {
+        console.error('message progression sync error:', err);
+    }
+
+    const xpMultiplier = await progressionService.getXpMultiplierForMessage(message);
+    await rewardService.handleRewards(message, { xpMultiplier });
     await taskService.handleMessageTask(message);
 
     if (content.startsWith('%')) {

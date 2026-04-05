@@ -9,6 +9,8 @@ const leaderboardCmd = require('./leaderboard');
 const permissionCmd  = require('./permission');
 const convertCmd     = require('./convert');
 const musicCmd       = require('./music');
+const progressionCmd = require('./progression');
+const testingCmd     = require('./testing');
 const taskService    = require('../services/taskService');
 const disabledCommandsService = require('../services/disabledCommandsService');
 
@@ -27,6 +29,13 @@ const COMMAND_ALIAS_TO_CANONICAL = {
 
     ping: 'ping',
     play: 'play',
+    specialty: 'specialty',
+    speciality: 'specialty',
+    specialties: 'specialty',
+    specialities: 'specialty',
+    prestige: 'prestige',
+    rebirth: 'rebirth',
+    setlevel: 'setlevel',
 
     p: 'profile',
     profile: 'profile',
@@ -84,6 +93,8 @@ async function showHelp(message) {
                 { name: '💰 Bank | البنك',            value: '`%b` أو `%bank` — فتح البنك (للمصرّح لهم)', inline: false },
                 { name: '🗓️ Tasks | المهام',          value: '`%t` أو `%task` — تقدم المهام اليومية', inline: false },
                 { name: '🎵 Music | الموسيقى',        value: '`%play` [query] — تشغيل/إضافة للأغاني مع أزرار تحكم (Pause/Skip/Stop/Queue)', inline: false },
+                { name: '🧭 Progression | التقدم',     value: '`%speciality <route>` — لوحة اختيار التخصص\n`%prestige` — لوحة الانتقال\n`%rebirth` — لوحة إعادة الولادة', inline: false },
+                { name: '🧪 Testing | الاختبار',        value: '`%setlevel @user <value>` — ضبط المستوى للاختبار (Owner/Authorized)', inline: false },
                 { name: '🔧 Utility | أدوات',         value: '`%ping` — التحقق من البوت\n`%convert` [@user] — تحويل لوحة المفاتيح', inline: false }
             )
             .setFooter({ text: 'ArabastaBot | وزارة المالية • مملكة أراباستا' })
@@ -111,13 +122,15 @@ async function showAllCommands(message, OWNER_ID) {
                 { name: '💰 Bank | البنك',             value: '`%b` / `%bank` — البنك (للمصرّح لهم فقط)', inline: false },
                 { name: '�️ Tasks | المهام',          value: '`%t` / `%task` / `%tasks` — عرض تقدم المهام اليومية', inline: false },
                 { name: '🎵 Music | الموسيقى',        value: '`%play` [query] — play or queue YouTube tracks with button controls', inline: false },
+                { name: '🧭 Progression',             value: '`%speciality <route>` `%prestige` `%rebirth`', inline: false },
+                { name: '🧪 Testing',                 value: '`%setlevel @user <value>` (Owner/Authorized)', inline: false },
                 { name: '�🔧 Utility | أدوات',          value: '`%ping` `%help` `%command` `%convert` [@user]', inline: false }
             );
 
         if (isAdmin) {
             embed.addFields({
                 name: '🛡️ Admin Commands | أوامر الإدارة',
-                value: '`%a @user` — منح صلاحية المتجر/البنك\n`%da @user` — سحب الصلاحية\n`%log` — سجل تحويل العملات',
+                value: '`%a @user` — منح الصلاحية الخاصة | Grant special authorization\n`%da @user` — سحب الصلاحية الخاصة | Revoke special authorization\n`%log` — سجل تحويل العملات',
                 inline: false
             });
         }
@@ -195,6 +208,45 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
 
             case 'play':
                 return await musicCmd.play(message, args);
+
+                case 'specialty':
+                case 'speciality':
+                case 'specialties':
+                case 'specialities': {
+                    const authorized = await db.getAuthorizedUsers();
+                    const isAllowed = message.author.id === OWNER_ID || authorized.has(message.author.id);
+                    if (!isAllowed) {
+                        return message.reply('❌ ليس لديك صلاحية لاستخدام أوامر التقدم. | You do not have permission to use progression commands.');
+                    }
+                    return await progressionCmd.specialty(message, args);
+                }
+
+                case 'prestige': {
+                    const authorized = await db.getAuthorizedUsers();
+                    const isAllowed = message.author.id === OWNER_ID || authorized.has(message.author.id);
+                    if (!isAllowed) {
+                        return message.reply('❌ ليس لديك صلاحية لاستخدام أوامر التقدم. | You do not have permission to use progression commands.');
+                    }
+                    return await progressionCmd.prestige(message, args);
+                }
+
+                case 'rebirth': {
+                    const authorized = await db.getAuthorizedUsers();
+                    const isAllowed = message.author.id === OWNER_ID || authorized.has(message.author.id);
+                    if (!isAllowed) {
+                        return message.reply('❌ ليس لديك صلاحية لاستخدام أوامر التقدم. | You do not have permission to use progression commands.');
+                    }
+                    return await progressionCmd.rebirth(message, args);
+                }
+
+                case 'setlevel': {
+                    const authorized = await db.getAuthorizedUsers();
+                    const isAllowed = message.author.id === OWNER_ID || authorized.has(message.author.id);
+                    if (!isAllowed) {
+                        return message.reply('❌ You do not have permission to use testing commands.');
+                    }
+                    return await testingCmd.setLevel(message, args);
+                }
 
             case 'p':
             case 'profile':

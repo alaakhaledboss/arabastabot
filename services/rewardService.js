@@ -6,10 +6,12 @@ const GOLD_REWARD  = 75;              // internal units per tick (= 7.5 display 
 const XP_REWARD    = 15;
 const ONE_DAY_MS   = 24 * 60 * 60 * 1000;
 
-async function handleRewards(message) {
+async function handleRewards(message, options = {}) {
     try {
         const user = await db.getUser(message.author.id);
         const now = Date.now();
+        const xpMultiplier = Number(options.xpMultiplier || 1);
+        const effectiveXpReward = Math.max(0, Math.round(XP_REWARD * xpMultiplier));
 
         // reset daily counter if 24 h have passed
         if (!user.last_daily_reset || now - user.last_daily_reset >= ONE_DAY_MS) {
@@ -24,7 +26,7 @@ async function handleRewards(message) {
 
             user.gold += goldToGive;
             user.daily_gold_earned = (user.daily_gold_earned || 0) + goldToGive;
-            user.xp += XP_REWARD;
+            user.xp += effectiveXpReward;
             user.last_reward_time = now;
         }
 

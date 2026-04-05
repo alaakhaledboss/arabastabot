@@ -1,6 +1,7 @@
 const shopService = require('../services/shopService');
 const bankService = require('../services/bankService');
 const musicService = require('../services/musicService');
+const progressionService = require('../services/progressionService');
 const db          = require('../db');
 const { formatError } = require('../utils/uiConstants');
 
@@ -19,6 +20,11 @@ module.exports = async function (interaction) {
         // Only users in the same voice channel as the bot can use controls.
         if (system === 'music') {
             return await musicService.handleControlInteraction(interaction);
+        }
+
+        // ── Progression buttons ───────────────────────────────
+        if (system === 'progression') {
+            return await progressionService.handleButtonInteraction(interaction);
         }
 
         // ── Shop buttons ──────────────────────────────────────

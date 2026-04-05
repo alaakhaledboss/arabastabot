@@ -1,5 +1,6 @@
 const bankService = require('../services/bankService');
 const shopService = require('../services/shopService');
+const musicService = require('../services/musicService');
 const { formatError } = require('../utils/uiConstants');
 
 const OWNER_ID = process.env.OWNER_ID || '1156642624770424902';
@@ -22,6 +23,11 @@ module.exports = async function (interaction) {
         if (system === 'convert') {
             if (action === 'to_gems')  return await shopService.processConvertToGems(interaction, userId);
             if (action === 'to_honor') return await shopService.processConvertToHonor(interaction, userId);
+        }
+
+        // ── Music modals (set volume / remove queue item) ─────
+        if (system === 'musicModal') {
+            return await musicService.handleModalInteraction(interaction);
         }
 
         // ── Fallback ───────────────────────────────────────────

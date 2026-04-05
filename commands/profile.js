@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 const db = require('../db');
+const progressionService = require('../services/progressionService');
 const { COLORS, EMOJIS, FOOTER_TEXT, formatError } = require('../utils/uiConstants');
 
 module.exports = async (message, args) => {
@@ -13,6 +14,13 @@ module.exports = async (message, args) => {
 
         const user = await db.getUser(targetId);
         const xpNeeded = 100 * user.level;
+        const targetMember = message.guild
+            ? await message.guild.members.fetch(targetId).catch(() => null)
+            : null;
+        const routeInfo = progressionService.getRouteLevelInfo(targetMember);
+        const routeText = routeInfo.route
+            ? `${routeInfo.route} • ${routeInfo.levelName || 'unknown'}`
+            : 'Not assigned';
 
         // simple ASCII-style progress bar
         const filled = Math.round((user.xp / xpNeeded) * 10);
@@ -24,6 +32,7 @@ module.exports = async (message, args) => {
             .setThumbnail(discordUser.displayAvatarURL({ dynamic: true }))
             .addFields(
                 { name: `${EMOJIS.LEVEL} المستوى | Level`, value: `**${user.level}**`, inline: true },
+                { name: '🧭 Route | المسار', value: `**${routeText}**`, inline: true },
                 { name: `${EMOJIS.XP} XP Progress`, value: `**${user.xp}** / ${xpNeeded}\n[${bar}]`, inline: false },
                 { name: `${EMOJIS.GOLD} ذهب | Gold`, value: `**${(user.gold / 10).toLocaleString()}**`, inline: true },
                 { name: `${EMOJIS.GEMS} جواهر | Gems`, value: `**${user.gems}**`, inline: true },

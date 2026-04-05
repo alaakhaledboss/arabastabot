@@ -12,6 +12,29 @@ const commandLogPath     = path.join(dataFolder, 'command_log.json');
 
 /* ── helpers ── */
 
+let memoryDb = null;
+let pendingSave = null;
+
+async function flushDB() {
+    if (memoryDb) await atomicWrite(filePath, memoryDb);
+    pendingSave = false;
+}
+
+function queueSave() {
+    if (!pendingSave) {
+        pendingSave = true;
+        setTimeout(flushDB, 3000); // Batch saves every 3s
+    }
+}
+
+async function loadDB() {
+    if (memoryDb) return memoryDb;
+    await ensureFile(filePath, { users: [] });
+    memoryDb = await safeRead(filePath, { users: [] });
+    memoryDb.users ||= [];
+    return memoryDb;
+}
+
 async function ensureFile(file, defaultData) {
     await fs.mkdir(dataFolder, { recursive: true });
     try { await fs.access(file); }
@@ -60,6 +83,21 @@ const DEFAULT_USER = {
     task_daily_voice_seconds: 0,
     task_daily_voice_bonus_claimed: false,
 
+    // Role-driven progression system
+    currentRoute: null,
+    currentSpecialty: null,
+    specialties: {
+        combat: null,
+        scholar: null,
+        atelier: null,
+        merchant: null
+    },
+    completedRoutes: [],
+    prestigeRoles: [],
+    prestigeCount: 0,
+    rebirthCount: 0,
+    pendingFinalRestoreRoute: '',
+
     // Future slots (not active yet)
     task_weekly: { slots: {} },
     task_monthly: { slots: {} }
@@ -90,15 +128,12 @@ async function initDB() {
 /* ── users ── */
 
 async function getUser(userId) {
-    await ensureFile(filePath, { users: [] });
-    const db = await safeRead(filePath, { users: [] });
-    db.users ||= [];
-
+    const db = await loadDB();
     let user = db.users.find(u => u.user_id === userId);
     if (!user) {
         user = { user_id: userId, ...DEFAULT_USER };
         db.users.push(user);
-        await atomicWrite(filePath, db);
+        queueSave();
     }
 
     // Migrate older records
@@ -118,6 +153,20 @@ async function getUser(userId) {
     if (user.task_daily_voice_bonus_claimed === undefined) user.task_daily_voice_bonus_claimed = false;
     if (!user.task_weekly || typeof user.task_weekly !== 'object') user.task_weekly = { slots: {} };
     if (!user.task_monthly || typeof user.task_monthly !== 'object') user.task_monthly = { slots: {} };
+    if (user.currentRoute === undefined) user.currentRoute = null;
+    if (user.currentSpecialty === undefined) user.currentSpecialty = null;
+    if (!user.specialties || typeof user.specialties !== 'object') {
+        user.specialties = { combat: null, scholar: null, atelier: null, merchant: null };
+    }
+    if (user.specialties.combat === undefined) user.specialties.combat = null;
+    if (user.specialties.scholar === undefined) user.specialties.scholar = null;
+    if (user.specialties.atelier === undefined) user.specialties.atelier = null;
+    if (user.specialties.merchant === undefined) user.specialties.merchant = null;
+    if (!Array.isArray(user.completedRoutes)) user.completedRoutes = [];
+    if (!Array.isArray(user.prestigeRoles)) user.prestigeRoles = [];
+    if (user.prestigeCount === undefined) user.prestigeCount = user.prestigeRoles.length || 0;
+    if (user.rebirthCount === undefined) user.rebirthCount = 0;
+    if (user.pendingFinalRestoreRoute === undefined) user.pendingFinalRestoreRoute = '';
     // Remove credit field if it exists (migration)
     if (user.credit !== undefined) delete user.credit;
 
@@ -125,40 +174,40 @@ async function getUser(userId) {
 }
 
 async function saveUser(user) {
-    await ensureFile(filePath, { users: [] });
-    const db = await safeRead(filePath, { users: [] });
-    db.users ||= [];
+    const db = await loadDB();
     const idx = db.users.findIndex(u => u.user_id === user.user_id);
     if (idx !== -1) db.users[idx] = user;
     else db.users.push(user);
-    await atomicWrite(filePath, db);
+    queueSave();
 }
 
+let authCache = null;
+let authCacheTime = 0;
+
 async function getAuthorizedUsers() {
-    await ensureFile(filePath, { users: [] });
-    const db = await safeRead(filePath, { users: [] });
-    db.users ||= [];
-    return new Set(db.users.filter(u => u.bank_access === true).map(u => u.user_id));
+    const db = await loadDB();
+    const now = Date.now();
+    if (!authCache || (now - authCacheTime > 60000)) {
+        authCache = new Set(db.users.filter(u => u.bank_access === true).map(u => u.user_id));
+        authCacheTime = now;
+    }
+    return authCache;
 }
 
 async function getAllUsers() {
-    await ensureFile(filePath, { users: [] });
-    const db = await safeRead(filePath, { users: [] });
-    db.users ||= [];
-    // Return the array (note: callers should not mutate the returned array directly)
+    const db = await loadDB();
     return db.users.slice();
 }
 
 async function setBankAccess(userId, value) {
     const user = await getUser(userId);
     user.bank_access = value;
+    authCacheTime = 0; // invalidate cache
     await saveUser(user);
 }
 
 async function resetAllUsers() {
-    await ensureFile(filePath, { users: [] });
-    const db = await safeRead(filePath, { users: [] });
-    db.users ||= [];
+    const db = await loadDB();
     // Preserve punishment-related fields (if any) so a later punishment system
     // can remain intact while everything else is reset.
     const preservedRE = /punish|punishment|ban|mute|strike|moderation/i;
@@ -175,7 +224,10 @@ async function resetAllUsers() {
 
         return base;
     });
-    await atomicWrite(filePath, db);
+    
+    // reset cache
+    authCacheTime = 0;
+    queueSave();
 
     // Reset global/system files so the bot looks unused:
     // - bank (balances)
@@ -195,9 +247,7 @@ async function resetAllUsers() {
 /* ── leaderboard ── */
 
 async function getLeaderboard(field, limit = 10) {
-    await ensureFile(filePath, { users: [] });
-    const db = await safeRead(filePath, { users: [] });
-    db.users ||= [];
+    const db = await loadDB();
     if (!db.users.length) return [];
 
     const withTotal = db.users.filter(u => u.user_id).map(u => {
@@ -211,16 +261,31 @@ async function getLeaderboard(field, limit = 10) {
 
 /* ── bank ── */
 
+let bankMemory = null;
+let pendingBankSave = null;
+async function flushBank() {
+    if (bankMemory) await atomicWrite(bankFilePath, bankMemory);
+    pendingBankSave = false;
+}
+function queueBankSave() {
+    if (!pendingBankSave) { 
+        pendingBankSave = true; 
+        setTimeout(flushBank, 3000); 
+    }
+}
 async function getBank() {
+    if (bankMemory) return bankMemory;
     await ensureFile(bankFilePath, DEFAULT_BANK);
     const bank = await safeRead(bankFilePath, DEFAULT_BANK);
     if (bank.gems  === undefined) bank.gems  = 0;
     if (bank.honor === undefined) bank.honor = 0;
+    bankMemory = bank;
     return bank;
 }
 
 async function saveBank(bank) {
-    await atomicWrite(bankFilePath, bank);
+    bankMemory = bank;
+    queueBankSave();
 }
 
 /* ── products ── */

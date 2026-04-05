@@ -27,6 +27,9 @@ async function play(message, args) {
         if (err.message === 'NO_RESULTS') {
             return message.reply('No results found on YouTube for your query.');
         }
+        if (err.message === 'SEARCH_FAILED') {
+            return message.reply('Could not search YouTube right now (provider issue). Please try again in a moment or send a direct YouTube link.');
+        }
         if (err.message === 'MISSING_VOICE_PERMISSIONS') {
             return message.reply('I need **View Channel**, **Connect**, and **Speak** permissions in your voice channel.');
         }
@@ -59,6 +62,9 @@ async function play(message, args) {
         }
         if (err.message === 'FFMPEG_MISSING') {
             return message.reply('Audio transcoder is missing on host (FFmpeg). Install FFmpeg or keep using Opus-compatible sources.');
+        }
+        if (err.message === 'OPUS_CODEC_MISSING') {
+            return message.reply('Audio codec (Opus) is missing. Bot environment is incomplete. Contact the bot owner.');
         }
         if (err.message === 'YTDLP_NOT_FOUND') {
             return message.reply('`yt-dlp` is not installed/found on host, and other extractors failed. Install yt-dlp or set `YT_DLP_PATH` in `.env`.');

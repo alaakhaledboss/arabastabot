@@ -92,36 +92,41 @@ const FOOTER_TEXT_SHORT = 'ArabastaBot • Arabasta';
 // ════════════════════════════════════════════════════════════════
 
 /**
- * Format an error message with consistent styling
+ * Format an error message with consistent styling (backwards-compatible)
+ * Accepts (arabicText, englishText) like existing callers, but outputs
+ * English on the first line and Arabic on the second line per UI spec.
  * @param {string} arabicText - Arabic error message
  * @param {string} englishText - English error message (optional)
  * @returns {string} Formatted error message
  */
 function formatError(arabicText, englishText = '') {
-    const base = `${EMOJIS.ERROR} ${arabicText}`;
-    return englishText ? `${base} | ${englishText}` : base;
+    // If englishText provided, show English first then Arabic on next line
+    if (englishText) return `${EMOJIS.ERROR} ${englishText}\n${EMOJIS.ERROR} ${arabicText}`;
+    // Fallback: only Arabic provided
+    return `${EMOJIS.ERROR} ${arabicText}`;
 }
 
-/**
- * Format a success message with consistent styling
+/**n+ * Format a success message with consistent styling (backwards-compatible)
+ * Accepts (arabicText, englishText) and outputs English then Arabic.
  * @param {string} arabicText - Arabic success message
  * @param {string} englishText - English success message (optional)
  * @returns {string} Formatted success message
  */
 function formatSuccess(arabicText, englishText = '') {
-    const base = `${EMOJIS.SUCCESS} ${arabicText}`;
-    return englishText ? `${base} | ${englishText}` : base;
+    if (englishText) return `${EMOJIS.SUCCESS} ${englishText}\n${EMOJIS.SUCCESS} ${arabicText}`;
+    return `${EMOJIS.SUCCESS} ${arabicText}`;
 }
 
 /**
- * Format a warning message with consistent styling
+ * Format a warning message with consistent styling (backwards-compatible)
+ * Accepts (arabicText, englishText) and outputs English then Arabic.
  * @param {string} arabicText - Arabic warning message
  * @param {string} englishText - English warning message (optional)
  * @returns {string} Formatted warning message
  */
 function formatWarning(arabicText, englishText = '') {
-    const base = `${EMOJIS.WARNING} ${arabicText}`;
-    return englishText ? `${base} | ${englishText}` : base;
+    if (englishText) return `${EMOJIS.WARNING} ${englishText}\n${EMOJIS.WARNING} ${arabicText}`;
+    return `${EMOJIS.WARNING} ${arabicText}`;
 }
 
 /**
