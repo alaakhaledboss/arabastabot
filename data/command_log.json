@@ -1,0 +1,647 @@
+[
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "logtransaction",
+    "args": [],
+    "rawContent": "%logtransaction",
+    "status": "invoked",
+    "details": "normalized:logtransaction",
+    "timestamp": "2026-04-02T21:35:56.671Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "bank",
+    "args": [],
+    "rawContent": "%b",
+    "status": "invoked",
+    "details": "normalized:bank",
+    "timestamp": "2026-04-02T21:36:06.359Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "permission",
+    "args": [
+      "<@1079479751200227388>"
+    ],
+    "rawContent": "%a <@1079479751200227388>",
+    "status": "invoked",
+    "details": "normalized:permission",
+    "timestamp": "2026-04-02T21:37:10.958Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "logtransaction",
+    "args": [],
+    "rawContent": "%logtransaction",
+    "status": "invoked",
+    "details": "normalized:logtransaction",
+    "timestamp": "2026-04-02T21:38:10.529Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "logcommand",
+    "args": [],
+    "rawContent": "%logcommand",
+    "status": "invoked",
+    "details": "normalized:logcommand",
+    "timestamp": "2026-04-02T21:38:52.365Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "commands",
+    "args": [],
+    "rawContent": "%command",
+    "status": "invoked",
+    "details": "normalized:commands",
+    "timestamp": "2026-04-02T21:39:02.742Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "logcommand",
+    "args": [],
+    "rawContent": "%logcommand",
+    "status": "invoked",
+    "details": "normalized:logcommand",
+    "timestamp": "2026-04-02T21:39:18.495Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "kogcommands",
+    "args": [],
+    "rawContent": "%kogcommands",
+    "status": "invoked",
+    "details": "normalized:kogcommands",
+    "timestamp": "2026-04-02T21:39:50.960Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "logcommands",
+    "args": [],
+    "rawContent": "%logcommands",
+    "status": "invoked",
+    "details": "normalized:logcommands",
+    "timestamp": "2026-04-02T21:39:59.825Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T20:43:48.436Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T20:53:45.763Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1456766791387971636",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T20:55:07.380Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:00:07.196Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:03:56.910Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:04:26.413Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:04:26.418Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "tasks",
+    "args": [],
+    "rawContent": "%t",
+    "status": "invoked",
+    "details": "normalized:tasks",
+    "timestamp": "2026-04-03T21:06:15.755Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [],
+    "rawContent": "%play",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:06:24.576Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:06:32.992Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:10:32.642Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:10:32.647Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:11:00.195Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:11:00.200Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:13:07.070Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:13:21.563Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:13:39.974Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:15:26.903Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "idol"
+    ],
+    "rawContent": "%play idol",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:15:48.011Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:17:18.267Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:28:59.880Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "dokoppoina"
+    ],
+    "rawContent": "%play dokoppoina",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:31:37.750Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "tetoris",
+    "args": [],
+    "rawContent": "%tetoris",
+    "status": "invoked",
+    "details": "normalized:tetoris",
+    "timestamp": "2026-04-03T21:31:53.663Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-03T21:32:00.908Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "Dance",
+      "with",
+      "STEEL",
+      "BALL",
+      "RUN"
+    ],
+    "rawContent": "%play Dance with STEEL BALL RUN",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-04T19:43:54.462Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "Dance",
+      "with",
+      "STEEL",
+      "BALL",
+      "RUN"
+    ],
+    "rawContent": "%play Dance with STEEL BALL RUN",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-04T19:44:22.628Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [],
+    "rawContent": "%play",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-04T19:47:48.534Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "Dance",
+      "with",
+      "STEEL",
+      "BALL",
+      "RUN"
+    ],
+    "rawContent": "%play Dance with STEEL BALL RUN",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-04T19:47:55.367Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "battotai"
+    ],
+    "rawContent": "%play battotai",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-04T19:57:24.178Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "idol",
+      "yoasobi"
+    ],
+    "rawContent": "%play idol yoasobi",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-04T20:06:46.857Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "idol",
+      "yoasobi"
+    ],
+    "rawContent": "%play idol yoasobi",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-04T20:06:54.456Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "dance",
+      "with",
+      "the",
+      "steel",
+      "ball",
+      "run"
+    ],
+    "rawContent": "%play dance with the steel ball run",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-04T20:48:44.222Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "dance",
+      "with",
+      "the",
+      "steel",
+      "ball",
+      "run"
+    ],
+    "rawContent": "%play dance with the steel ball run",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-04T20:48:54.869Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "dance",
+      "with",
+      "the",
+      "steel",
+      "ball",
+      "run"
+    ],
+    "rawContent": "%play dance with the steel ball run",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-04T21:04:46.230Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "dance",
+      "with",
+      "the",
+      "steel",
+      "ball",
+      "run"
+    ],
+    "rawContent": "%play dance with the steel ball run",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-04T21:04:58.350Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "dance",
+      "with",
+      "the",
+      "steel",
+      "ball",
+      "run"
+    ],
+    "rawContent": "%play dance with the steel ball run",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-04T21:05:01.783Z"
+  }
+]

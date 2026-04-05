@@ -2,33 +2,57 @@
   "users": [
     {
       "user_id": "830069755599519757",
-      "gold": 3150,
-      "xp": 30,
-      "level": 4,
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774809496299,
-      "daily_gold_earned": 2100,
-      "last_daily_reset": 1774798440226,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1315569013690073088",
-      "gold": 5400,
-      "xp": 80,
-      "level": 5,
+      "gold": 750,
+      "xp": 50,
+      "level": 2,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774983923560,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1774983756772,
-      "bank_access": false
+      "last_reward_time": 1775334106023,
+      "daily_gold_earned": 750,
+      "last_daily_reset": 1775331582899,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 52,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "832656205952188437",
@@ -37,74 +61,133 @@
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
       "last_reward_time": 0,
       "daily_gold_earned": 0,
       "last_daily_reset": 0,
-      "bank_access": false
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "973786719394603020",
-      "gold": 3900,
-      "xp": 180,
-      "level": 4,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774990560235,
-      "daily_gold_earned": 1050,
-      "last_daily_reset": 1774983523938,
-      "bank_access": false
-    },
-    {
-      "user_id": "1156642624770424902",
-      "gold": 42550,
-      "xp": 210,
-      "level": 3,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "2026-03",
-      "last_reward_time": 1774987445747,
-      "daily_gold_earned": 675,
-      "last_daily_reset": 1774984776678,
-      "bank_access": false
-    },
-    {
-      "user_id": "1277746952657965078",
-      "gold": 600,
-      "xp": 20,
+      "gold": 525,
+      "xp": 5,
       "level": 2,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774803528541,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774803528541,
-      "bank_access": false
+      "last_reward_time": 1775335300664,
+      "daily_gold_earned": 525,
+      "last_daily_reset": 1775332145041,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 29,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
-      "user_id": "1079479751200227388",
-      "gold": 4775,
-      "xp": 20,
-      "level": 5,
+      "user_id": "1156642624770424902",
+      "gold": 64150,
+      "xp": 230,
+      "level": 4,
+      "gems": 20,
+      "honor": 2,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775336841767,
+      "daily_gold_earned": 150,
+      "last_daily_reset": 1775336686203,
+      "bank_access": false,
+      "task_daily_date": "2026-04-05",
+      "task_daily_messages": 8,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 449,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1277746952657965078",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774990552733,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1774984376521,
-      "bank_access": true
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1079479751200227388",
+      "gold": 103450,
+      "xp": 50,
+      "level": 4,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775336652320,
+      "daily_gold_earned": 1500,
+      "last_daily_reset": 1775251255716,
+      "bank_access": true,
+      "task_daily_date": "2026-04-05",
+      "task_daily_messages": 2,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1136437335278485544",
@@ -113,74 +196,133 @@
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
       "last_reward_time": 0,
       "daily_gold_earned": 0,
       "last_daily_reset": 0,
-      "bank_access": false
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "677860550729793563",
-      "gold": 7075,
-      "xp": 135,
-      "level": 6,
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774985446063,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774985446063,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1285197348900962337",
-      "gold": 5000,
-      "xp": 95,
-      "level": 5,
+      "gold": 900,
+      "xp": 80,
+      "level": 2,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774989161008,
-      "daily_gold_earned": 300,
-      "last_daily_reset": 1774986182404,
-      "bank_access": false
+      "last_reward_time": 1775336910555,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775336910555,
+      "bank_access": false,
+      "task_daily_date": "2026-04-05",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "765288847810101320",
-      "gold": 300,
-      "xp": 60,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774808343782,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1774799495163,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "869728165445120020",
-      "gold": 150,
-      "xp": 30,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774986677280,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774986677280,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "661085322213326871",
@@ -189,30 +331,52 @@
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
       "last_reward_time": 0,
       "daily_gold_earned": 0,
       "last_daily_reset": 0,
-      "bank_access": false
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1252315782692605964",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774699481077,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774699481077,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1473839537863262442",
@@ -221,292 +385,82 @@
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
       "last_reward_time": 0,
       "daily_gold_earned": 0,
       "last_daily_reset": 0,
-      "bank_access": false
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1101875132022149120",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774699244185,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774699244185,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1075749526402506832",
-      "gold": 450,
-      "xp": 90,
+      "gold": 75,
+      "xp": 15,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774800233458,
+      "last_reward_time": 1775332687075,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1774800233458,
-      "bank_access": false
+      "last_daily_reset": 1775332687075,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1337522756048392303",
-      "gold": 5550,
-      "xp": 110,
-      "level": 5,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774986941160,
-      "daily_gold_earned": 675,
-      "last_daily_reset": 1774983961242,
-      "bank_access": false
-    },
-    {
-      "user_id": "1485993417703034914",
-      "gold": 1050,
-      "xp": 110,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774989213539,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774989213539,
-      "bank_access": false
-    },
-    {
-      "user_id": "1440608339141857311",
-      "gold": 2775,
-      "xp": 255,
-      "level": 3,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774808632689,
-      "daily_gold_earned": 1275,
-      "last_daily_reset": 1774807314060,
-      "bank_access": false
-    },
-    {
-      "user_id": "854474572832702495",
-      "gold": 300,
-      "xp": 60,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774800423662,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774779147122,
-      "bank_access": false
-    },
-    {
-      "user_id": "735159539200032820",
-      "gold": 450,
-      "xp": 90,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774984281942,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774984281942,
-      "bank_access": false
-    },
-    {
-      "user_id": "1015788679777763378",
-      "gold": 0,
-      "xp": 0,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 0,
-      "daily_gold_earned": 0,
-      "last_daily_reset": 0,
-      "bank_access": false
-    },
-    {
-      "user_id": "747389646232748123",
-      "gold": 2175,
-      "xp": 135,
-      "level": 3,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774989930637,
-      "daily_gold_earned": 750,
-      "last_daily_reset": 1774983576261,
-      "bank_access": true
-    },
-    {
-      "user_id": "1485437701694947420",
-      "gold": 0,
-      "xp": 0,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 0,
-      "daily_gold_earned": 0,
-      "last_daily_reset": 0,
-      "bank_access": false
-    },
-    {
-      "user_id": "1148344234982789271",
-      "gold": 975,
-      "xp": 95,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774990042204,
-      "daily_gold_earned": 825,
-      "last_daily_reset": 1774987142935,
-      "bank_access": false
-    },
-    {
-      "user_id": "1232769958451220534",
-      "gold": 450,
-      "xp": 90,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774809624158,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774800910350,
-      "bank_access": false
-    },
-    {
-      "user_id": "763369535444615168",
-      "gold": 675,
-      "xp": 35,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774988004622,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774988004622,
-      "bank_access": false
-    },
-    {
-      "user_id": "1448468254946365490",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774798387809,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774798387809,
-      "bank_access": false
-    },
-    {
-      "user_id": "1072147271090708541",
-      "gold": 300,
-      "xp": 60,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774806451054,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774806451054,
-      "bank_access": false
-    },
-    {
-      "user_id": "1098118379656728617",
-      "gold": 300,
-      "xp": 60,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774990336421,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774990336421,
-      "bank_access": false
-    },
-    {
-      "user_id": "1393296452473716826",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774777577508,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774777577508,
-      "bank_access": false
-    },
-    {
-      "user_id": "1256734018377089068",
-      "gold": 375,
-      "xp": 75,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774731493634,
-      "daily_gold_earned": 375,
-      "last_daily_reset": 1774692897847,
-      "bank_access": false
-    },
-    {
-      "user_id": "1440409619104272414",
       "gold": 225,
       "xp": 45,
       "level": 1,
@@ -515,10 +469,454 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774809251390,
+      "last_reward_time": 1775333044956,
       "daily_gold_earned": 225,
-      "last_daily_reset": 1774804991090,
-      "bank_access": false
+      "last_daily_reset": 1775249086667,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 2,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1485993417703034914",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775332332900,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775332332900,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1440608339141857311",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "854474572832702495",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "735159539200032820",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775249924765,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775249924765,
+      "bank_access": false,
+      "task_daily_date": "2026-04-03",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1015788679777763378",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "747389646232748123",
+      "gold": 1825,
+      "xp": 65,
+      "level": 3,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775336923569,
+      "daily_gold_earned": 225,
+      "last_daily_reset": 1775336423416,
+      "bank_access": true,
+      "task_daily_date": "2026-04-05",
+      "task_daily_messages": 5,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 449,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1485437701694947420",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1148344234982789271",
+      "gold": 1000,
+      "xp": 100,
+      "level": 2,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 1410,
+      "task_daily_voice_bonus_claimed": true,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1232769958451220534",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "763369535444615168",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775252381203,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775252381203,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1448468254946365490",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1072147271090708541",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1098118379656728617",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1393296452473716826",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1256734018377089068",
+      "gold": 150,
+      "xp": 30,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775336291363,
+      "daily_gold_earned": 150,
+      "last_daily_reset": 1775251715771,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 2,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1440409619104272414",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775164348074,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775164348074,
+      "bank_access": false,
+      "task_daily_date": "2026-04-03",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "561155639292854283",
@@ -530,28 +928,25 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774985473447,
+      "last_reward_time": 1775334552482,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1774985473447,
-      "bank_access": false
+      "last_daily_reset": 1775334552482,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1271107907517419563",
-      "gold": 1500,
-      "xp": 0,
-      "level": 3,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774991044683,
-      "daily_gold_earned": 450,
-      "last_daily_reset": 1774983650872,
-      "bank_access": false
-    },
-    {
-      "user_id": "1138391047874039849",
       "gold": 75,
       "xp": 15,
       "level": 1,
@@ -560,28 +955,214 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774802875771,
+      "last_reward_time": 1775335902546,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1774802875771,
-      "bank_access": false
+      "last_daily_reset": 1775335902546,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
-      "user_id": "1316159828900450304",
-      "gold": 1725,
-      "xp": 45,
-      "level": 3,
+      "user_id": "1138391047874039849",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774988574017,
-      "daily_gold_earned": 375,
-      "last_daily_reset": 1774983763567,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1316159828900450304",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1339182212943183893",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "441230130103189509",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1393919528953581743",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775250559089,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775250559089,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 2,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "736063384339873832",
+      "gold": 150,
+      "xp": 30,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775335066123,
+      "daily_gold_earned": 150,
+      "last_daily_reset": 1775251579913,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 2,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1484750186088632371",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1172971479093215297",
       "gold": 300,
       "xp": 60,
       "level": 1,
@@ -590,102 +1171,49 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774807748055,
+      "last_reward_time": 1775333555196,
       "daily_gold_earned": 300,
-      "last_daily_reset": 1774802300775,
-      "bank_access": false
+      "last_daily_reset": 1775332596349,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 7,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
-      "user_id": "441230130103189509",
+      "user_id": "1473344571973963939",
       "gold": 75,
       "xp": 15,
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774784006625,
+      "last_reward_time": 1775331477794,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1774784006625,
-      "bank_access": false
-    },
-    {
-      "user_id": "1393919528953581743",
-      "gold": 375,
-      "xp": 75,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774989318880,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774989318880,
-      "bank_access": false
-    },
-    {
-      "user_id": "736063384339873832",
-      "gold": 0,
-      "xp": 0,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 0,
-      "daily_gold_earned": 0,
-      "last_daily_reset": 0,
-      "bank_access": false
-    },
-    {
-      "user_id": "1484750186088632371",
-      "gold": 225,
-      "xp": 45,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774803209466,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774782540385,
-      "bank_access": false
-    },
-    {
-      "user_id": "1172971479093215297",
-      "gold": 1200,
-      "xp": 140,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774987640474,
-      "daily_gold_earned": 525,
-      "last_daily_reset": 1774983588857,
-      "bank_access": false
-    },
-    {
-      "user_id": "1473344571973963939",
-      "gold": 450,
-      "xp": 90,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774804902911,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1774781260513,
-      "bank_access": false
+      "last_daily_reset": 1775331477794,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1171511465782546432",
@@ -694,29 +1222,52 @@
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
       "last_reward_time": 0,
       "daily_gold_earned": 0,
       "last_daily_reset": 0,
-      "bank_access": false
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1118938978851246140",
-      "gold": 225,
-      "xp": 45,
-      "level": 1,
+      "gold": 1075,
+      "xp": 115,
+      "level": 2,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774989685096,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774985991598,
-      "bank_access": false
+      "last_reward_time": 1775336919183,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775336919183,
+      "bank_access": false,
+      "task_daily_date": "2026-04-05",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 449,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "840725072075161690",
@@ -725,14 +1276,25 @@
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
       "last_reward_time": 0,
       "daily_gold_earned": 0,
       "last_daily_reset": 0,
-      "bank_access": false
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1225707100240609366",
@@ -741,266 +1303,1270 @@
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
       "last_reward_time": 0,
       "daily_gold_earned": 0,
       "last_daily_reset": 0,
-      "bank_access": false
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1122981733084692620",
-      "gold": 150,
-      "xp": 30,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774779092484,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774779092484,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1267904509040918553",
-      "gold": 975,
-      "xp": 95,
-      "level": 2,
+      "gold": 1500,
+      "xp": 0,
+      "level": 3,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774987479794,
-      "daily_gold_earned": 300,
-      "last_daily_reset": 1774985094518,
-      "bank_access": false
+      "last_reward_time": 1775336100825,
+      "daily_gold_earned": 1500,
+      "last_daily_reset": 1775332555113,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 58,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1137011106620129343",
-      "gold": 825,
-      "xp": 65,
+      "gold": 650,
+      "xp": 30,
       "level": 2,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774808565220,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774808565220,
-      "bank_access": false
+      "last_reward_time": 1775336372857,
+      "daily_gold_earned": 150,
+      "last_daily_reset": 1775335920406,
+      "bank_access": false,
+      "task_daily_date": "2026-04-05",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 449,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1172203270131953745",
-      "gold": 525,
-      "xp": 5,
-      "level": 2,
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774783892682,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1774777997196,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1465016545318015289",
-      "gold": 4025,
-      "xp": 210,
-      "level": 4,
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774807079507,
-      "daily_gold_earned": 3500,
-      "last_daily_reset": 1774795129793,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1033759498503979162",
-      "gold": 450,
-      "xp": 90,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774729715969,
-      "daily_gold_earned": 450,
-      "last_daily_reset": 1774649151583,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1062684082812751972",
-      "gold": 600,
-      "xp": 20,
-      "level": 2,
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774989061903,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774984083524,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1353945221892673556",
-      "gold": 150,
-      "xp": 30,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774798579068,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774798579068,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "995391532804886678",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774688965726,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774688965726,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "958427816918134814",
-      "gold": 300,
-      "xp": 60,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774983883313,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774983883313,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "987137227467403306",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774690088385,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774690088385,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1300518281001566228",
-      "gold": 300,
-      "xp": 60,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774690903762,
-      "daily_gold_earned": 300,
-      "last_daily_reset": 1774690693653,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "265232522525278209",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774691319291,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774691319291,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1458106382736822479",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1487107958604173343",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "683267371703468039",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "888747212790706176",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "867088636545990657",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1254455804287782916",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "898972502389317642",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1397551292129480724",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "967803615676870776",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "790210259414417458",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "602596278227959810",
       "gold": 75,
       "xp": 15,
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774692068836,
+      "last_reward_time": 1775333467336,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1774692068836,
-      "bank_access": false
+      "last_daily_reset": 1775333467336,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
-      "user_id": "1487107958604173343",
-      "gold": 450,
-      "xp": 90,
+      "user_id": "1235687228546482326",
+      "gold": 75,
+      "xp": 15,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774987400931,
+      "last_reward_time": 1775331393892,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1774987400931,
-      "bank_access": false
+      "last_daily_reset": 1775331393892,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
-      "user_id": "683267371703468039",
-      "gold": 225,
-      "xp": 45,
+      "user_id": "1407299345413570581",
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774693925891,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1774693708217,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
-      "user_id": "888747212790706176",
+      "user_id": "834053366001958933",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1172941435998306419",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "957230366186438737",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "812079738201309215",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1252597627581763638",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1364187503049052241",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1487081777037054032",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1447683178885021942",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "965678893883330610",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775251200128,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775251200128,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1377800981277970553",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1212482743661891665",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1403140132885758065",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1363568131951558769",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "712279696385114124",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1152294427574943815",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1347681853737533470",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1063730734570946560",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1486435369581936651",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1329895822103416836",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1474341643250438272",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775333859180,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775333859180,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1061679429983670342",
       "gold": 975,
       "xp": 95,
       "level": 2,
@@ -1009,601 +2575,238 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774800779887,
-      "daily_gold_earned": 450,
-      "last_daily_reset": 1774800217288,
-      "bank_access": false
-    },
-    {
-      "user_id": "867088636545990657",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774695114687,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774695114687,
-      "bank_access": false
-    },
-    {
-      "user_id": "1254455804287782916",
-      "gold": 600,
-      "xp": 20,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774799066938,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774798864243,
-      "bank_access": false
-    },
-    {
-      "user_id": "898972502389317642",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774695550745,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774695485625,
-      "bank_access": false
-    },
-    {
-      "user_id": "1397551292129480724",
-      "gold": 225,
-      "xp": 45,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774696517649,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1774696342069,
-      "bank_access": false
-    },
-    {
-      "user_id": "967803615676870776",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774697840521,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774696529843,
-      "bank_access": false
-    },
-    {
-      "user_id": "790210259414417458",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774697332755,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774697332755,
-      "bank_access": false
-    },
-    {
-      "user_id": "602596278227959810",
-      "gold": 525,
-      "xp": 5,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774808607208,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1774799094146,
-      "bank_access": false
-    },
-    {
-      "user_id": "1235687228546482326",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774794724009,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774794724009,
-      "bank_access": false
-    },
-    {
-      "user_id": "1407299345413570581",
-      "gold": 2925,
-      "xp": 285,
-      "level": 3,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774809272884,
-      "daily_gold_earned": 2325,
-      "last_daily_reset": 1774798309330,
-      "bank_access": false
-    },
-    {
-      "user_id": "834053366001958933",
-      "gold": 2025,
-      "xp": 105,
-      "level": 3,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774987462087,
-      "daily_gold_earned": 750,
-      "last_daily_reset": 1774983502768,
-      "bank_access": false
-    },
-    {
-      "user_id": "1172941435998306419",
-      "gold": 2250,
-      "xp": 150,
-      "level": 3,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774983525839,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774983525839,
-      "bank_access": false
-    },
-    {
-      "user_id": "957230366186438737",
-      "gold": 600,
-      "xp": 20,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774805501495,
-      "daily_gold_earned": 600,
-      "last_daily_reset": 1774729353984,
-      "bank_access": false
-    },
-    {
-      "user_id": "812079738201309215",
-      "gold": 375,
-      "xp": 75,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774730160903,
-      "daily_gold_earned": 375,
-      "last_daily_reset": 1774729754358,
-      "bank_access": false
-    },
-    {
-      "user_id": "1252597627581763638",
-      "gold": 225,
-      "xp": 45,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774799933744,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1774730778967,
-      "bank_access": false
-    },
-    {
-      "user_id": "1364187503049052241",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774731233000,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774731233000,
-      "bank_access": false
-    },
-    {
-      "user_id": "1487081777037054032",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774800386036,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774731628592,
-      "bank_access": false
-    },
-    {
-      "user_id": "1447683178885021942",
-      "gold": 1200,
-      "xp": 140,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774809232703,
-      "daily_gold_earned": 1200,
-      "last_daily_reset": 1774731634944,
-      "bank_access": false
-    },
-    {
-      "user_id": "965678893883330610",
-      "gold": 1800,
-      "xp": 60,
-      "level": 3,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774989555341,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1774986483037,
-      "bank_access": false
-    },
-    {
-      "user_id": "1377800981277970553",
-      "gold": 375,
-      "xp": 75,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774798291617,
-      "daily_gold_earned": 375,
-      "last_daily_reset": 1774771071861,
-      "bank_access": false
-    },
-    {
-      "user_id": "1212482743661891665",
-      "gold": 3000,
-      "xp": 0,
-      "level": 4,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774776809920,
-      "daily_gold_earned": 3000,
-      "last_daily_reset": 1774772117810,
-      "bank_access": false
-    },
-    {
-      "user_id": "1403140132885758065",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774772810809,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774772810809,
-      "bank_access": false
-    },
-    {
-      "user_id": "1363568131951558769",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774776537806,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774772828113,
-      "bank_access": false
-    },
-    {
-      "user_id": "712279696385114124",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774775786488,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774775786488,
-      "bank_access": false
-    },
-    {
-      "user_id": "1152294427574943815",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774775801866,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774775801866,
-      "bank_access": false
-    },
-    {
-      "user_id": "1347681853737533470",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774785146287,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774776485672,
-      "bank_access": false
-    },
-    {
-      "user_id": "1063730734570946560",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774777667890,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774777667890,
-      "bank_access": false
-    },
-    {
-      "user_id": "1486435369581936651",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774778034439,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774778034439,
-      "bank_access": false
-    },
-    {
-      "user_id": "1329895822103416836",
-      "gold": 225,
-      "xp": 45,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "credit": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774784422774,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1774778436569,
-      "bank_access": false
-    },
-    {
-      "user_id": "1474341643250438272",
-      "gold": 225,
-      "xp": 45,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774807428199,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1774779320870,
-      "bank_access": false
-    },
-    {
-      "user_id": "1061679429983670342",
-      "gold": 3150,
-      "xp": 30,
-      "level": 4,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774989546156,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774983798985,
-      "bank_access": false
+      "last_reward_time": 1775336461327,
+      "daily_gold_earned": 975,
+      "last_daily_reset": 1775252404246,
+      "bank_access": false,
+      "task_daily_date": "2026-04-05",
+      "task_daily_messages": 4,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1170755254044852270",
-      "gold": 150,
-      "xp": 30,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774782937910,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774780357006,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1213134596804186196",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
+      "gold": 1650,
+      "xp": 30,
+      "level": 3,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774784225389,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774784225389,
-      "bank_access": false
+      "last_reward_time": 1775336081249,
+      "daily_gold_earned": 1650,
+      "last_daily_reset": 1775332419825,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 97,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1421585514015887370",
-      "gold": 150,
-      "xp": 30,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774983725441,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774983725441,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1226674704778268703",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774794970582,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774794970582,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1412614554084442202",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
-      "credit": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774796044532,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774796044532,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1346177275447742598",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774798196004,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774798196004,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1376606280222773339",
-      "gold": 300,
-      "xp": 60,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774803176571,
-      "daily_gold_earned": 300,
-      "last_daily_reset": 1774798660537,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "333752029258317837",
-      "gold": 150,
-      "xp": 30,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774806918016,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774798781836,
-      "bank_access": false
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1038805072303374406",
@@ -1615,85 +2818,157 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774799165972,
+      "last_reward_time": 1775250633270,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1774799165972,
-      "bank_access": false
+      "last_daily_reset": 1775250633270,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "494489850645446656",
-      "gold": 600,
-      "xp": 20,
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1474009982403084308",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "538438551193255936",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1261770926551334925",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "701176406125576232",
+      "gold": 1025,
+      "xp": 105,
       "level": 2,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774805548617,
-      "daily_gold_earned": 600,
-      "last_daily_reset": 1774799574870,
-      "bank_access": false
-    },
-    {
-      "user_id": "1474009982403084308",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774799612460,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774799612460,
-      "bank_access": false
-    },
-    {
-      "user_id": "538438551193255936",
-      "gold": 225,
-      "xp": 45,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774801230680,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1774799617489,
-      "bank_access": false
-    },
-    {
-      "user_id": "1261770926551334925",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774802256596,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774800089274,
-      "bank_access": false
-    },
-    {
-      "user_id": "701176406125576232",
-      "gold": 375,
-      "xp": 75,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774989784113,
-      "daily_gold_earned": 300,
-      "last_daily_reset": 1774987864193,
-      "bank_access": false
+      "last_reward_time": 1775336898034,
+      "daily_gold_earned": 525,
+      "last_daily_reset": 1775336281562,
+      "bank_access": false,
+      "task_daily_date": "2026-04-05",
+      "task_daily_messages": 9,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 449,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1261794722712915982",
@@ -1705,43 +2980,25 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774808587895,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774802732822,
-      "bank_access": false
+      "last_reward_time": 1775334334574,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775334334574,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "992216758683447397",
-      "gold": 1650,
-      "xp": 30,
-      "level": 3,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774984998952,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774984998952,
-      "bank_access": false
-    },
-    {
-      "user_id": "1065489208162123936",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774803340377,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774803340377,
-      "bank_access": false
-    },
-    {
-      "user_id": "1324658527465111583",
       "gold": 150,
       "xp": 30,
       "level": 1,
@@ -1750,13 +3007,1724 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774803884264,
+      "last_reward_time": 1775332799814,
       "daily_gold_earned": 150,
-      "last_daily_reset": 1774803748798,
-      "bank_access": false
+      "last_daily_reset": 1775332169144,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 7,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1065489208162123936",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1324658527465111583",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "856098490333003786",
+      "gold": 600,
+      "xp": 20,
+      "level": 2,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775336412514,
+      "daily_gold_earned": 600,
+      "last_daily_reset": 1775335206562,
+      "bank_access": false,
+      "task_daily_date": "2026-04-05",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "694641834449961072",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "869845095598424094",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1084541229309636769",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1173957946930122832",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "660511530248306706",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "735664198268223610",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "767795038721540147",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1261507646595399720",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "980146635243925586",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1446147697558950022",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1342992578961866876",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1008812397240258600",
+      "gold": 1600,
+      "xp": 20,
+      "level": 3,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775336867821,
+      "daily_gold_earned": 300,
+      "last_daily_reset": 1775336432132,
+      "bank_access": false,
+      "task_daily_date": "2026-04-05",
+      "task_daily_messages": 7,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 449,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1451135937017938044",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "825408057893716005",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1484972832088657961",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1019561389595050015",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "925472612002443265",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "730022675615055953",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 360,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1171786771365888113",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "969264330149339187",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1484911255021031465",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1388885788921434253",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "688358757549342766",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "989534899604193280",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1017141812277813299",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1155175461140312105",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1303395895999463426",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1128972835990286427",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1341473696656916564",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1297997965499306114",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1427067596959907871",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1265978103830806563",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "883825925370826762",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1331625316933832826",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "731991981554794608",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1369415029559918664",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1126472708910239797",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1484554355863453778",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1271235644039106572",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1462878445074649131",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "645733640361476107",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "807726034559959061",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1271814715462385738",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1459866775184347343",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775164674840,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775164674840,
+      "bank_access": false,
+      "task_daily_date": "2026-04-03",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1109423536621244467",
+      "gold": 575,
+      "xp": 15,
+      "level": 2,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775164532458,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775164532458,
+      "bank_access": false,
+      "task_daily_date": "2026-04-03",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 1228,
+      "task_daily_voice_bonus_claimed": true,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "917525675957682308",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775332770163,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775332770163,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1086109901287329964",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "973889206332055562",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1175414671981953034",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1243204720613527633",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775250498883,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775250498883,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "247534500999856129",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1438290040378622002",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1209010793731989525",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1465368712516337719",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "959401177710211113",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1111815766816342148",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775336269148,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775336269148,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1018501254818836502",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1217665688856952913",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1350192693099106307",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 210,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      }
+    },
+    {
+      "user_id": "1483644501527494819",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775331987138,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775331987138,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      }
+    },
+    {
+      "user_id": "1132115457277702205",
       "gold": 750,
       "xp": 50,
       "level": 2,
@@ -1765,58 +4733,24 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774988682337,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774988682337,
-      "bank_access": false
+      "last_reward_time": 1775336297849,
+      "daily_gold_earned": 750,
+      "last_daily_reset": 1775332951283,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 11,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      }
     },
     {
-      "user_id": "694641834449961072",
-      "gold": 450,
-      "xp": 90,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774986083631,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774986083631,
-      "bank_access": false
-    },
-    {
-      "user_id": "869845095598424094",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774983981548,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774983981548,
-      "bank_access": false
-    },
-    {
-      "user_id": "1084541229309636769",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774805585286,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774805442624,
-      "bank_access": false
-    },
-    {
-      "user_id": "1173957946930122832",
+      "user_id": "861941577655123968",
       "gold": 75,
       "xp": 15,
       "level": 1,
@@ -1825,88 +4759,24 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774805630581,
+      "last_reward_time": 1775334979216,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1774805630581,
-      "bank_access": false
+      "last_daily_reset": 1775334979216,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      }
     },
     {
-      "user_id": "660511530248306706",
-      "gold": 300,
-      "xp": 60,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774983535618,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774983535618,
-      "bank_access": false
-    },
-    {
-      "user_id": "735664198268223610",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774808310990,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774808249849,
-      "bank_access": false
-    },
-    {
-      "user_id": "767795038721540147",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774808334805,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774808263831,
-      "bank_access": false
-    },
-    {
-      "user_id": "1261507646595399720",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774809064134,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774808683472,
-      "bank_access": false
-    },
-    {
-      "user_id": "980146635243925586",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774808860875,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774808764577,
-      "bank_access": false
-    },
-    {
-      "user_id": "1446147697558950022",
+      "user_id": "1168189476384817216",
       "gold": 75,
       "xp": 15,
       "level": 1,
@@ -1915,13 +4785,24 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774809573146,
+      "last_reward_time": 1775335472254,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1774809573146,
-      "bank_access": false
+      "last_daily_reset": 1775335472254,
+      "bank_access": false,
+      "task_daily_date": "2026-04-04",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      }
     },
     {
-      "user_id": "1342992578961866876",
+      "user_id": "738098396790784102",
       "gold": 75,
       "xp": 15,
       "level": 1,
@@ -1930,160 +4811,21 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1774983698661,
+      "last_reward_time": 1775336911852,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1774983698661,
-      "bank_access": false
-    },
-    {
-      "user_id": "1008812397240258600",
-      "gold": 300,
-      "xp": 60,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774989241299,
-      "daily_gold_earned": 300,
-      "last_daily_reset": 1774983998091,
-      "bank_access": false
-    },
-    {
-      "user_id": "1451135937017938044",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774984178291,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774984178291,
-      "bank_access": false
-    },
-    {
-      "user_id": "825408057893716005",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774985222529,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774985003001,
-      "bank_access": false
-    },
-    {
-      "user_id": "1484972832088657961",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774986149350,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774986149350,
-      "bank_access": false
-    },
-    {
-      "user_id": "1019561389595050015",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774986248738,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774986248738,
-      "bank_access": false
-    },
-    {
-      "user_id": "925472612002443265",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774986730020,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774986730020,
-      "bank_access": false
-    },
-    {
-      "user_id": "730022675615055953",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774989853619,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1774989785517,
-      "bank_access": false
-    },
-    {
-      "user_id": "1171786771365888113",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774990499228,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774990499228,
-      "bank_access": false
-    },
-    {
-      "user_id": "969264330149339187",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774990617939,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774990617939,
-      "bank_access": false
-    },
-    {
-      "user_id": "1484911255021031465",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1774991034360,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1774991034360,
-      "bank_access": false
+      "last_daily_reset": 1775336911852,
+      "bank_access": false,
+      "task_daily_date": "2026-04-05",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      }
     }
   ]
 }

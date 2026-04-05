@@ -1,5 +1,6 @@
 const shopService = require('../services/shopService');
 const bankService = require('../services/bankService');
+const musicService = require('../services/musicService');
 const db          = require('../db');
 const { formatError } = require('../utils/uiConstants');
 
@@ -13,6 +14,12 @@ module.exports = async function (interaction) {
     const userId = parts[3];
 
     try {
+
+        // ── Music buttons ─────────────────────────────────────
+        // Only users in the same voice channel as the bot can use controls.
+        if (system === 'music') {
+            return await musicService.handleControlInteraction(interaction);
+        }
 
         // ── Shop buttons ──────────────────────────────────────
         // Anyone may click shop buttons once the panel is posted.

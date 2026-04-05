@@ -47,15 +47,21 @@ async function showBalance(interaction, OWNER_ID) {
         const user = await db.getUser(interaction.user.id);
         const hasAccess = isOwner || user.bank_access;
 
+        // Defensive defaults in case some fields are missing from data file
+        const bankBalance = Number(bank?.balance || 0);
+        const bankGems    = Number(bank?.gems    || 0);
+        const bankHonor   = Number(bank?.honor   || 0);
+        const bankCredit  = Number(bank?.credit  || 0);
+
         const fields = [
-            createCurrencyField(`${EMOJIS.GOLD} الذهب | Gold`, (bank.balance / 10).toLocaleString(), 'ذهب', true),
-            createCurrencyField(`${EMOJIS.GEMS} جواهر | Gems`, bank.gems, 'جواهر', true),
-            createCurrencyField(`${EMOJIS.HONOR} شرف | Honor`, bank.honor, 'شرف', true)
+            createCurrencyField(`${EMOJIS.GOLD} الذهب | Gold`, (bankBalance / 10).toLocaleString(), 'ذهب', true),
+            createCurrencyField(`${EMOJIS.GEMS} جواهر | Gems`, bankGems.toLocaleString(), 'جواهر', true),
+            createCurrencyField(`${EMOJIS.HONOR} شرف | Honor`, bankHonor.toLocaleString(), 'شرف', true)
         ];
 
         // Only show credit if owner or has bank access
         if (hasAccess) {
-            fields.push(createCurrencyField(`${EMOJIS.CREDIT} رصيد بروبوت | ProBot Credit`, bank.credit.toLocaleString(), 'رصيد', true));
+            fields.push(createCurrencyField(`${EMOJIS.CREDIT} رصيد بروبوت | ProBot Credit`, bankCredit.toLocaleString(), 'رصيد', true));
         }
 
         const embed = new EmbedBuilder()
@@ -120,6 +126,15 @@ async function handleModal(interaction, action, userId, OWNER_ID) {
             bank.gems        -= gemsAmount;
             bank.honor       -= honorAmount;
             await db.logBankAction({ userId, action: 'withdraw', amount: goldAmount / 10, extra: `gems: ${gemsAmount}, honor: ${honorAmount}` });
+            if (goldAmount > 0) {
+                await db.logTransaction({
+                    userId,
+                    action: 'bank_withdraw',
+                    goldAmount: goldAmount / 10,
+                    reason: 'Withdraw from bank',
+                    details: `gems:${gemsAmount} honor:${honorAmount}`
+                });
+            }
         }
 
         if (action === 'deposit') {
@@ -135,6 +150,15 @@ async function handleModal(interaction, action, userId, OWNER_ID) {
             bank.gems        += gemsAmount;
             bank.honor       += honorAmount;
             await db.logBankAction({ userId, action: 'deposit', amount: goldAmount / 10, extra: `gems: ${gemsAmount}, honor: ${honorAmount}` });
+            if (goldAmount > 0) {
+                await db.logTransaction({
+                    userId,
+                    action: 'bank_deposit',
+                    goldAmount: -(goldAmount / 10),
+                    reason: 'Deposit to bank',
+                    details: `gems:${gemsAmount} honor:${honorAmount}`
+                });
+            }
         }
 
         await db.saveUser(bankUser);

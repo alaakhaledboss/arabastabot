@@ -147,6 +147,16 @@ const ROLE_ACCESS_CONFIG = [
         description: '**20,000** 💰 ذهب + **50** 💎 جواهر + **3** ⚔️ شرف',
         level:       3
     }
+    ,
+    {
+        value:       'gif',
+        label:       'GIF',
+        emoji:       '🎞️',
+        roleId:      '1488618034062033048',
+        price:       { gold: 5000, gems: 0, honor: 0 },
+        description: '**5,000** 💰 ذهب — صلاحية أسبوعية (مرة واحدة في الشهر)',
+        level:       4
+    }
 ];
 
 // ── Hierarchy helpers ─────────────────────────────────────────
@@ -236,6 +246,9 @@ function ensureMonthlyReset(user) {
         user.monthly_gold_to_gems  = 0;
         user.monthly_gems_to_honor = 0;
         user.conversion_month      = currentMonth;
+        // reset gif monthly purchases
+        user.monthly_gif_buys = 0;
+        user.gif_month = currentMonth;
     }
 }
 
@@ -260,7 +273,8 @@ async function showBag(interaction) {
                 createCurrencyField(`${EMOJIS.XP} XP`, user.xp, '', true),
                 createCurrencyField(`${EMOJIS.LEVEL} المستوى | Level`, user.level, '', true),
                 createCurrencyField('💱 ذهب→جواهر هذا الشهر', `**${user.monthly_gold_to_gems || 0}/10**`, '', true),
-                createCurrencyField('💱 جواهر→شرف هذا الشهر', `**${user.monthly_gems_to_honor || 0}/10**`, '', true)
+                createCurrencyField('💱 جواهر→شرف هذا الشهر', `**${user.monthly_gems_to_honor || 0}/10**`, '', true),
+                createCurrencyField('🎞️ GIF this month', `**${user.monthly_gif_buys || 0}/1**`, '', true)
             )
             .setFooter({ text: FOOTER_TEXT })
             .setTimestamp();
@@ -402,6 +416,13 @@ async function buyColor(interaction) {
         await db.saveUser(user);
         await db.saveBank(bank);
         await db.logBankAction({ userId: interaction.user.id, action: 'buy_color', amount: goldDisplay, extra: `Color #${slot}` });
+        await db.logTransaction({
+            userId: interaction.user.id,
+            action: 'buy_color',
+            goldAmount: -goldDisplay,
+            reason: `Bought role color #${slot}`,
+            details: `slot:${slot}`
+        });
 
         // Remove existing color role (only one at a time)
         if (member) {
@@ -521,8 +542,32 @@ async function buyAccess(interaction) {
         }
 
         // ── Already owns this exact role ──────────────────────
-        if (member.roles.cache.has(roleId)) {
-            return interaction.editReply({ content: formatError(`لديك رتبة **${config.label}** بالفعل!`, `You already have this role!`) });
+        // If GIF role, handle temporary ownership & monthly limit
+        if (config.value === 'gif') {
+            const user = await db.getUser(interaction.user.id);
+            ensureMonthlyReset(user);
+
+            // Remove expired GIF role if present
+            if (user.gif_expires && Date.now() > user.gif_expires) {
+                try {
+                    if (member.roles.cache.has(roleId)) await member.roles.remove(roleId).catch(() => {});
+                } catch (e) {}
+                delete user.gif_expires;
+                await db.saveUser(user);
+            }
+
+            if ((user.monthly_gif_buys || 0) >= 1) {
+                return interaction.editReply({ content: formatError('يمكن شراء GIF مرة واحدة فقط في الشهر.', 'You can only buy GIF once per month.') });
+            }
+
+            if (member.roles.cache.has(roleId)) {
+                return interaction.editReply({ content: formatError(`لديك رتبة **${config.label}** بالفعل!`, `You already have this role!`) });
+            }
+        }
+        else {
+            if (member.roles.cache.has(roleId)) {
+                return interaction.editReply({ content: formatError(`لديك رتبة **${config.label}** بالفعل!`, `You already have this role!`) });
+            }
         }
 
         const user = await db.getUser(interaction.user.id);
@@ -556,6 +601,15 @@ async function buyAccess(interaction) {
         await db.saveUser(user);
         await db.saveBank(bank);
         await db.logBankAction({ userId: interaction.user.id, action: 'buy_access', amount: config.price.gold, extra: `${config.label} (gems:${gemsRequired} honor:${honorRequired})` });
+        if ((config.price.gold || 0) > 0) {
+            await db.logTransaction({
+                userId: interaction.user.id,
+                action: 'buy_access',
+                goldAmount: -config.price.gold,
+                reason: `Bought role access ${config.label}`,
+                details: `gems:${gemsRequired} honor:${honorRequired}`
+            });
+        }
 
         // ── Remove old lower role (upgrade) ───────────────────
         if (currentCfg) {
@@ -580,6 +634,16 @@ async function buyAccess(interaction) {
             await db.saveUser(user);
             await db.saveBank(bank);
             return interaction.editReply({ content: formatError('تعذّر تعيين الرتبة. تواصل مع الإدارة.', 'Could not assign the role.') });
+        }
+
+        // Special handling for GIF temporary role
+        if (config.value === 'gif') {
+            const now = Date.now();
+            const weekMs = 7 * 24 * 60 * 60 * 1000;
+            user.gif_expires = now + weekMs;
+            user.monthly_gif_buys = (user.monthly_gif_buys || 0) + 1;
+            user.gif_month = new Date().toISOString().slice(0,7);
+            await db.saveUser(user);
         }
 
         const embed = new EmbedBuilder()
@@ -690,6 +754,13 @@ async function processGoldCredit(interaction, userId) {
         await db.saveUser(user);
         await db.saveBank(bank);
         await db.logBankAction({ userId, action: 'gold_ticket', amount: goldDisplay, extra: 'Gold paid for manual credit ticket' });
+        await db.logTransaction({
+            userId,
+            action: 'gold_ticket',
+            goldAmount: -goldDisplay,
+            reason: 'Paid gold for manual credit ticket',
+            details: `ticketCategory:${BANK_CATEGORY_ID}`
+        });
 
         // Build mentions for authorized users
     const authorizedSet = await db.getAuthorizedUsers();
@@ -834,6 +905,13 @@ async function processConvertToGems(interaction, userId) {
         await db.saveUser(user);
         await db.saveBank(bank);
         await db.logConversion({ userId, fromType: 'gold', fromAmount: goldCostDisplay, toType: 'gems', toAmount: gemsWanted });
+        await db.logTransaction({
+            userId,
+            action: 'convert_gold_to_gems',
+            goldAmount: -goldCostDisplay,
+            reason: 'Converted gold to gems',
+            details: `toGems:${gemsWanted}`
+        });
 
         const embed = new EmbedBuilder()
             .setColor(COLORS.SUCCESS)
@@ -996,3 +1074,12 @@ module.exports = {
     createConvertToGemsModal,
     createConvertToHonorModal
 };
+
+// Export a small helper so other modules (e.g. main.js) can remove expired GIF roles
+// without duplicating the ROLE_ACCESS_CONFIG or GUILD_ID values.
+function getGifRoleInfo() {
+    const cfg = ROLE_ACCESS_CONFIG.find(r => r.value === 'gif');
+    return { guildId: GUILD_ID, roleId: getRoleId(cfg) };
+}
+
+module.exports.getGifRoleInfo = getGifRoleInfo;

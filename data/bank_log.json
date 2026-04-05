@@ -1,93 +1,23 @@
 [
   {
-    "userId": "1079479751200227388",
+    "userId": "1156642624770424902",
     "action": "withdraw",
-    "amount": 12345,
-    "extra": null,
-    "timestamp": "2026-03-27T21:47:59.586Z"
-  },
-  {
-    "userId": "1079479751200227388",
-    "action": "deposit",
-    "amount": 12345,
-    "extra": null,
-    "timestamp": "2026-03-27T21:48:59.590Z"
-  },
-  {
-    "userId": "1079479751200227388",
-    "action": "withdraw",
-    "amount": 14477,
-    "extra": null,
-    "timestamp": "2026-03-27T21:51:55.742Z"
-  },
-  {
-    "userId": "1079479751200227388",
-    "action": "buy_color",
-    "amount": 10000,
-    "extra": "Color #24",
-    "timestamp": "2026-03-27T21:55:16.538Z"
+    "amount": 5000,
+    "extra": "gems: 0, honor: 0",
+    "timestamp": "2026-04-02T21:36:23.566Z"
   },
   {
     "userId": "1156642624770424902",
     "action": "withdraw",
-    "amount": 20000,
-    "extra": null,
-    "timestamp": "2026-03-28T20:25:39.717Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "action": "buy_access",
-    "amount": 10000,
-    "extra": "VIP 2 (gems:0 honor:0)",
-    "timestamp": "2026-03-28T20:40:47.858Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "action": "credit_received",
-    "amount": 0,
-    "extra": "+20,000 credit",
-    "timestamp": "2026-03-29T06:45:18.952Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "action": "gold_ticket",
     "amount": 1000,
-    "extra": "Gold paid for manual credit ticket",
-    "timestamp": "2026-03-31T19:38:32.228Z"
+    "extra": "gems: 20, honor: 2",
+    "timestamp": "2026-04-02T21:36:42.103Z"
   },
   {
-    "userId": "1156642624770424902",
-    "action": "gold_ticket",
-    "amount": 1000,
-    "extra": "Gold paid for manual credit ticket",
-    "timestamp": "2026-03-31T19:43:54.669Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "action": "gold_ticket",
-    "amount": 1000,
-    "extra": "Gold paid for manual credit ticket",
-    "timestamp": "2026-03-31T19:47:33.961Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "action": "gold_ticket",
-    "amount": 1000,
-    "extra": "Gold paid for manual credit ticket",
-    "timestamp": "2026-03-31T19:54:59.545Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "action": "gold_ticket",
-    "amount": 1000,
-    "extra": "Gold paid for manual credit ticket",
-    "timestamp": "2026-03-31T19:58:30.793Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "action": "gold_ticket",
-    "amount": 1000,
-    "extra": "Gold paid for manual credit ticket",
-    "timestamp": "2026-03-31T20:03:40.809Z"
+    "userId": "1079479751200227388",
+    "action": "withdraw",
+    "amount": 10020,
+    "extra": "gems: 0, honor: 0",
+    "timestamp": "2026-04-02T21:37:25.852Z"
   }
 ]

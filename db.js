@@ -7,6 +7,8 @@ const bankFilePath    = path.join(dataFolder, 'bank.json');
 const productsFilePath = path.join(dataFolder, 'products.json');
 const bankLogPath     = path.join(dataFolder, 'bank_log.json');
 const convLogPath     = path.join(dataFolder, 'conversion_log.json');
+const transactionLogPath = path.join(dataFolder, 'transaction_log.json');
+const commandLogPath     = path.join(dataFolder, 'command_log.json');
 
 /* ── helpers ── */
 
@@ -49,7 +51,18 @@ const DEFAULT_USER = {
     last_reward_time: 0,
     daily_gold_earned: 0,
     last_daily_reset: 0,
-    bank_access: false
+    bank_access: false,
+
+    // Daily tasks (active now)
+    task_daily_date: '',
+    task_daily_messages: 0,
+    task_daily_message_bonus_claimed: false,
+    task_daily_voice_seconds: 0,
+    task_daily_voice_bonus_claimed: false,
+
+    // Future slots (not active yet)
+    task_weekly: { slots: {} },
+    task_monthly: { slots: {} }
 };
 
 /* ── init ── */
@@ -60,6 +73,8 @@ async function initDB() {
     await ensureFile(productsFilePath, []);
     await ensureFile(bankLogPath, []);
     await ensureFile(convLogPath, []);
+    await ensureFile(transactionLogPath, []);
+    await ensureFile(commandLogPath, []);
 
     const bank = await safeRead(bankFilePath, DEFAULT_BANK);
     let bankChanged = false;
@@ -96,6 +111,13 @@ async function getUser(userId) {
     if (user.monthly_gold_to_gems    === undefined) user.monthly_gold_to_gems    = 0;
     if (user.monthly_gems_to_honor   === undefined) user.monthly_gems_to_honor   = 0;
     if (user.conversion_month        === undefined) user.conversion_month        = '';
+    if (user.task_daily_date         === undefined) user.task_daily_date         = '';
+    if (user.task_daily_messages     === undefined) user.task_daily_messages     = 0;
+    if (user.task_daily_message_bonus_claimed === undefined) user.task_daily_message_bonus_claimed = false;
+    if (user.task_daily_voice_seconds === undefined) user.task_daily_voice_seconds = 0;
+    if (user.task_daily_voice_bonus_claimed === undefined) user.task_daily_voice_bonus_claimed = false;
+    if (!user.task_weekly || typeof user.task_weekly !== 'object') user.task_weekly = { slots: {} };
+    if (!user.task_monthly || typeof user.task_monthly !== 'object') user.task_monthly = { slots: {} };
     // Remove credit field if it exists (migration)
     if (user.credit !== undefined) delete user.credit;
 
@@ -119,6 +141,14 @@ async function getAuthorizedUsers() {
     return new Set(db.users.filter(u => u.bank_access === true).map(u => u.user_id));
 }
 
+async function getAllUsers() {
+    await ensureFile(filePath, { users: [] });
+    const db = await safeRead(filePath, { users: [] });
+    db.users ||= [];
+    // Return the array (note: callers should not mutate the returned array directly)
+    return db.users.slice();
+}
+
 async function setBankAccess(userId, value) {
     const user = await getUser(userId);
     user.bank_access = value;
@@ -129,12 +159,37 @@ async function resetAllUsers() {
     await ensureFile(filePath, { users: [] });
     const db = await safeRead(filePath, { users: [] });
     db.users ||= [];
-    db.users = db.users.map(u => ({
-        user_id: u.user_id,
-        ...DEFAULT_USER,
-        bank_access: u.bank_access ?? false
-    }));
+    // Preserve punishment-related fields (if any) so a later punishment system
+    // can remain intact while everything else is reset.
+    const preservedRE = /punish|punishment|ban|mute|strike|moderation/i;
+    db.users = db.users.map(u => {
+        const base = { user_id: u.user_id, ...DEFAULT_USER, bank_access: u.bank_access ?? false };
+        for (const k of Object.keys(u)) {
+            if (preservedRE.test(k)) base[k] = u[k];
+        }
+        // Reset GIF monthly counters and remove any GIF expiry metadata so the
+        // monthly limit is cleared by this operation.
+        base.monthly_gif_buys = 0;
+        if (base.gif_expires !== undefined) delete base.gif_expires;
+        if (base.gif_month !== undefined) delete base.gif_month;
+
+        return base;
+    });
     await atomicWrite(filePath, db);
+
+    // Reset global/system files so the bot looks unused:
+    // - bank (balances)
+    // - bank log
+    // - conversion log
+    // - products
+    await ensureFile(bankFilePath, DEFAULT_BANK);
+    await atomicWrite(bankFilePath, DEFAULT_BANK);
+    await ensureFile(bankLogPath, []);
+    await atomicWrite(bankLogPath, []);
+    await ensureFile(convLogPath, []);
+    await atomicWrite(convLogPath, []);
+    await ensureFile(productsFilePath, []);
+    await atomicWrite(productsFilePath, []);
 }
 
 /* ── leaderboard ── */
@@ -194,6 +249,14 @@ async function logBankAction({ userId, action, amount, extra }) {
     await atomicWrite(bankLogPath, log);
 }
 
+async function appendCappedLog(file, entry, maxEntries = 100) {
+    await ensureFile(file, []);
+    const log = await safeRead(file, []);
+    log.push(entry);
+    while (log.length > maxEntries) log.shift();
+    await atomicWrite(file, log);
+}
+
 async function getBankLog() {
     await ensureFile(bankLogPath, []);
     return safeRead(bankLogPath, []);
@@ -213,13 +276,74 @@ async function getConversionLog() {
     return safeRead(convLogPath, []);
 }
 
+/* ── transaction log (last 100) ── */
+
+async function logTransaction({ userId, action, goldAmount, reason, details }) {
+    await appendCappedLog(transactionLogPath, {
+        userId,
+        action,
+        goldAmount: goldAmount ?? 0,
+        reason: reason || action || 'unknown',
+        details: details || null,
+        timestamp: new Date().toISOString()
+    }, 100);
+}
+
+async function getTransactionLog() {
+    await ensureFile(transactionLogPath, []);
+    return safeRead(transactionLogPath, []);
+}
+
+async function clearTransactionLog() {
+    await atomicWrite(transactionLogPath, []);
+}
+
+/* ── command log (last 100) ── */
+
+async function logCommandUsage({
+    userId,
+    username,
+    guildId,
+    channelId,
+    command,
+    args,
+    rawContent,
+    status,
+    details
+}) {
+    await appendCappedLog(commandLogPath, {
+        userId,
+        username: username || null,
+        guildId: guildId || null,
+        channelId: channelId || null,
+        command,
+        args: Array.isArray(args) ? args : [],
+        rawContent: rawContent || '',
+        status: status || 'unknown',
+        details: details || null,
+        timestamp: new Date().toISOString()
+    }, 100);
+}
+
+async function getCommandLog() {
+    await ensureFile(commandLogPath, []);
+    return safeRead(commandLogPath, []);
+}
+
+async function clearCommandLog() {
+    await atomicWrite(commandLogPath, []);
+}
+
 module.exports = {
     initDB,
     getUser, saveUser,
     getAuthorizedUsers, setBankAccess, resetAllUsers,
     getLeaderboard,
+    getAllUsers,
     getBank, saveBank,
     getProducts, saveProducts,
     logBankAction, getBankLog,
-    logConversion, getConversionLog
+    logConversion, getConversionLog,
+    logTransaction, getTransactionLog, clearTransactionLog,
+    logCommandUsage, getCommandLog, clearCommandLog
 };
