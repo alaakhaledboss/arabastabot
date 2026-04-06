@@ -265,6 +265,7 @@ client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
 
     const content = message.content.trim();
+    const isCommandMessage = content.startsWith('%');
 
     if (content.startsWith('السلام')) {
         const phrases = ['نورت المكان', 'نورت السيرفر', 'أهلاً وسهلاً بك', 'سعداء بوجودك'];
@@ -282,17 +283,25 @@ client.on('messageCreate', async (message) => {
         return message.reply(`**${phrase}** 🌟`);
     }
 
-    try {
-        await progressionService.syncMemberState(message.member, { allowRestoreFromDb: false });
-    } catch (err) {
-        console.error('message progression sync error:', err);
-    }
+    const runMessageProgression = async () => {
+        try {
+            await progressionService.syncMemberState(message.member, { allowRestoreFromDb: false });
+        } catch (err) {
+            console.error('message progression sync error:', err);
+        }
 
-    const xpMultiplier = await progressionService.getXpMultiplierForMessage(message);
-    await rewardService.handleRewards(message, { xpMultiplier });
-    await taskService.handleMessageTask(message);
+        try {
+            const xpMultiplier = await progressionService.getXpMultiplierForMessage(message);
+            await rewardService.handleRewards(message, { xpMultiplier });
+            await taskService.handleMessageTask(message);
+        } catch (err) {
+            console.error('message reward/task error:', err);
+        }
+    };
 
-    if (content.startsWith('%')) {
+    if (isCommandMessage) {
+        void runMessageProgression();
+
         const args = content.slice(1).split(/ +/);
         const cmd = args.shift().toLowerCase();
         try {
@@ -301,7 +310,11 @@ client.on('messageCreate', async (message) => {
             console.error('Command error:', err);
             message.reply('Error running that command. خطأ في تنفيذ الأمر.').catch(() => {});
         }
+
+        return;
     }
+
+    await runMessageProgression();
 });
 
 // ── start ─────────────────────────────────────────────────────

@@ -168,6 +168,21 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
         // Normalize command names to support aliases and case-insensitive checks
         const rawCommand = String(cmd || '').trim().toLowerCase();
         const commandName = normalizeCommandName(rawCommand);
+        const isOwner = message.author.id === OWNER_ID;
+        let authorizedUsersPromise = null;
+
+        const getAuthorizedUsersCached = async () => {
+            if (!authorizedUsersPromise) {
+                authorizedUsersPromise = db.getAuthorizedUsers();
+            }
+            return authorizedUsersPromise;
+        };
+
+        const isAuthorizedUser = async () => {
+            if (isOwner) return true;
+            const authorized = await getAuthorizedUsersCached();
+            return authorized.has(message.author.id);
+        };
 
         // Persistent command log (last 100)
         await db.logCommandUsage({
@@ -216,8 +231,7 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
 
                 case 'specialty':
                 {
-                    const authorized = await db.getAuthorizedUsers();
-                    const isAllowed = message.author.id === OWNER_ID || authorized.has(message.author.id);
+                    const isAllowed = await isAuthorizedUser();
                     if (!isAllowed) {
                         return message.reply('❌ ليس لديك صلاحية لاستخدام أوامر التقدم. | You do not have permission to use progression commands.');
                     }
@@ -225,8 +239,7 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
                 }
 
                 case 'prestige': {
-                    const authorized = await db.getAuthorizedUsers();
-                    const isAllowed = message.author.id === OWNER_ID || authorized.has(message.author.id);
+                    const isAllowed = await isAuthorizedUser();
                     if (!isAllowed) {
                         return message.reply('❌ ليس لديك صلاحية لاستخدام أوامر التقدم. | You do not have permission to use progression commands.');
                     }
@@ -234,8 +247,7 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
                 }
 
                 case 'rebirth': {
-                    const authorized = await db.getAuthorizedUsers();
-                    const isAllowed = message.author.id === OWNER_ID || authorized.has(message.author.id);
+                    const isAllowed = await isAuthorizedUser();
                     if (!isAllowed) {
                         return message.reply('❌ ليس لديك صلاحية لاستخدام أوامر التقدم. | You do not have permission to use progression commands.');
                     }
@@ -243,8 +255,7 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
                 }
 
                 case 'setlevel': {
-                    const authorized = await db.getAuthorizedUsers();
-                    const isAllowed = message.author.id === OWNER_ID || authorized.has(message.author.id);
+                    const isAllowed = await isAuthorizedUser();
                     if (!isAllowed) {
                         return message.reply('❌ You do not have permission to use testing commands.');
                     }
@@ -252,8 +263,7 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
                 }
 
                 case 'setxp': {
-                    const authorized = await db.getAuthorizedUsers();
-                    const isAllowed = message.author.id === OWNER_ID || authorized.has(message.author.id);
+                    const isAllowed = await isAuthorizedUser();
                     if (!isAllowed) {
                         return message.reply('❌ You do not have permission to use testing commands.');
                     }
@@ -309,8 +319,7 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
 
             // ── Admin + Owner: view conversion log ────────────────
             case 'log': {
-                const authorized = await db.getAuthorizedUsers();
-                if (message.author.id !== OWNER_ID && !authorized.has(message.author.id)) {
+                if (!(await isAuthorizedUser())) {
                     return message.reply('❌ ليس لديك صلاحية. | You don\'t have permission.');
                 }
 
@@ -338,8 +347,7 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
 
             // ── Admin + Owner: transaction log (last 100) ───────
             case 'logtransaction': {
-                const authorized = await db.getAuthorizedUsers();
-                if (message.author.id !== OWNER_ID && !authorized.has(message.author.id)) {
+                if (!(await isAuthorizedUser())) {
                     return message.reply('❌ ليس لديك صلاحية. | You don\'t have permission.');
                 }
 
@@ -386,8 +394,7 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
 
             // ── Admin + Owner: command log (last 100) ───────────
             case 'logcommands': {
-                const authorized = await db.getAuthorizedUsers();
-                if (message.author.id !== OWNER_ID && !authorized.has(message.author.id)) {
+                if (!(await isAuthorizedUser())) {
                     return message.reply('❌ ليس لديك صلاحية. | You don\'t have permission.');
                 }
 

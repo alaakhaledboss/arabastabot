@@ -1,73 +1,5 @@
 [
   {
-    "userId": "747389646232748123",
-    "username": "_a84.",
-    "guildId": "1209486578812981288",
-    "channelId": "1483557855633342575",
-    "command": "prestige",
-    "args": [],
-    "rawContent": "%prestige",
-    "status": "invoked",
-    "details": "normalized:prestige",
-    "timestamp": "2026-04-05T07:27:24.828Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1483557855633342575",
-    "command": "setlevel",
-    "args": [
-      "<@747389646232748123>",
-      "25"
-    ],
-    "rawContent": "%setlevel <@747389646232748123> 25",
-    "status": "invoked",
-    "details": "normalized:setlevel",
-    "timestamp": "2026-04-05T07:28:35.705Z"
-  },
-  {
-    "userId": "1337522756048392303",
-    "username": "onlya7mad",
-    "guildId": "1209486578812981288",
-    "channelId": "1258935044441899048",
-    "command": "profile",
-    "args": [],
-    "rawContent": "%p",
-    "status": "invoked",
-    "details": "normalized:profile",
-    "timestamp": "2026-04-05T07:28:36.283Z"
-  },
-  {
-    "userId": "747389646232748123",
-    "username": "_a84.",
-    "guildId": "1209486578812981288",
-    "channelId": "1483557855633342575",
-    "command": "setlevel",
-    "args": [
-      "<@1440608339141857311>",
-      "25"
-    ],
-    "rawContent": "%setlevel <@1440608339141857311>  25",
-    "status": "invoked",
-    "details": "normalized:setlevel",
-    "timestamp": "2026-04-05T07:31:45.886Z"
-  },
-  {
-    "userId": "747389646232748123",
-    "username": "_a84.",
-    "guildId": "1209486578812981288",
-    "channelId": "1483557855633342575",
-    "command": "specialty",
-    "args": [
-      "combat"
-    ],
-    "rawContent": "%specialty combat",
-    "status": "invoked",
-    "details": "normalized:specialty",
-    "timestamp": "2026-04-05T07:31:52.893Z"
-  },
-  {
     "userId": "1337522756048392303",
     "username": "onlya7mad",
     "guildId": "1209486578812981288",
@@ -1448,5 +1380,85 @@
     "status": "invoked",
     "details": "normalized:profile",
     "timestamp": "2026-04-06T07:09:29.244Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-06T08:06:43.713Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "monitoring"
+    ],
+    "rawContent": "%play monitoring",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-06T08:07:21.810Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "moe",
+      "chakka",
+      "fire",
+      "ellen",
+      "va"
+    ],
+    "rawContent": "%play moe chakka fire ellen va",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-06T08:08:10.953Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "zzz",
+      "moe",
+      "chakka",
+      "fire"
+    ],
+    "rawContent": "%play zzz moe chakka fire",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-06T08:09:00.397Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "moe",
+      "chakka",
+      "fire",
+      "ellen"
+    ],
+    "rawContent": "%play moe chakka fire ellen",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-04-06T08:09:31.192Z"
   }
 ]
