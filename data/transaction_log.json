@@ -262,5 +262,85 @@
     "reason": "Daily task bonus: 10 minutes voice",
     "details": "xp:+100",
     "timestamp": "2026-04-05T20:21:07.367Z"
+  },
+  {
+    "userId": "747389646232748123",
+    "action": "daily_voice_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 10 minutes voice",
+    "details": "xp:+100",
+    "timestamp": "2026-04-05T21:13:29.186Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "action": "daily_voice_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 10 minutes voice",
+    "details": "xp:+100",
+    "timestamp": "2026-04-05T21:13:29.192Z"
+  },
+  {
+    "userId": "1079479751200227388",
+    "action": "bank_withdraw",
+    "goldAmount": 10000,
+    "reason": "Withdraw from bank",
+    "details": "gems:100 honor:10",
+    "timestamp": "2026-04-05T21:24:23.934Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "action": "manual_pay_to_bank",
+    "goldAmount": -2395,
+    "reason": "Manual pay (gold) approved",
+    "details": "currency:gold amount:2395 approved_by:1079479751200227388",
+    "timestamp": "2026-04-05T21:38:28.678Z"
+  },
+  {
+    "userId": "1079479751200227388",
+    "action": "daily_voice_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 10 minutes voice",
+    "details": "xp:+100",
+    "timestamp": "2026-04-05T21:38:59.486Z"
+  },
+  {
+    "userId": "747389646232748123",
+    "action": "daily_voice_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 10 minutes voice",
+    "details": "xp:+100",
+    "timestamp": "2026-04-06T06:14:24.948Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "action": "daily_voice_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 10 minutes voice",
+    "details": "xp:+100",
+    "timestamp": "2026-04-06T06:14:25.587Z"
+  },
+  {
+    "userId": "1337522756048392303",
+    "action": "daily_message_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 100 messages",
+    "details": "outside daily 350 cap",
+    "timestamp": "2026-04-06T07:39:47.981Z"
+  },
+  {
+    "userId": "1440608339141857311",
+    "action": "daily_message_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 100 messages",
+    "details": "outside daily 350 cap",
+    "timestamp": "2026-04-06T07:50:40.758Z"
+  },
+  {
+    "userId": "973786719394603020",
+    "action": "daily_message_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 100 messages",
+    "details": "outside daily 350 cap",
+    "timestamp": "2026-04-06T07:50:41.930Z"
   }
 ]

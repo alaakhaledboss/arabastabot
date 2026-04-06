@@ -1,4 +1,4 @@
-const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, PermissionFlagsBits } = require('discord.js');
 const db = require('../db');
 const cfg = require('../config/progressionConfig');
 
@@ -47,6 +47,14 @@ function isVerifiedMember(member) {
     return memberHasRole(member, cfg.VERIFIED_ROLE_ID);
 }
 
+function isProgressionExcluded(member) {
+    return !!member?.permissions?.has?.(PermissionFlagsBits.Administrator);
+}
+
+function progressionExcludedMessage() {
+    return 'Admins are excluded from the route system. You still earn XP/levels, but cannot use specialty, prestige, or rebirth.';
+}
+
 function routeFromMemberRoles(member) {
     if (!member?.roles?.cache) return null;
 
@@ -58,6 +66,89 @@ function routeFromMemberRoles(member) {
     }
 
     return null;
+}
+
+function routeFromSpecialtyRoles(specialties) {
+    if (!specialties || typeof specialties !== 'object') return null;
+    for (const route of cfg.ROUTES) {
+        if (specialties[route]) return route;
+    }
+    return null;
+}
+
+function getRouteThresholds(route) {
+    const thresholds = cfg.ROUTE_LEVEL_THRESHOLDS?.[route]
+        || cfg.ROUTE_LEVEL_THRESHOLDS_DEFAULT
+        || [1, 3, 7, 11, 15, 19, 22];
+
+    return Array.isArray(thresholds) ? thresholds : [1, 3, 7, 11, 15, 19, 22];
+}
+
+function getRouteLevelIndexForLevel(route, level) {
+    const roleIds = cfg.ROUTE_LEVEL_ROLE_IDS?.[route] || [];
+    const thresholds = getRouteThresholds(route);
+    const safeLevel = Math.max(1, Number(level || 1));
+    const maxIndex = Math.max(0, roleIds.length - 1);
+
+    for (let i = Math.min(maxIndex, thresholds.length - 1); i >= 0; i -= 1) {
+        if (safeLevel >= Number(thresholds[i] || 1)) {
+            return i;
+        }
+    }
+
+    return 0;
+}
+
+function getAllRouteLevelRoleIds() {
+    const ids = [];
+    for (const route of cfg.ROUTES) {
+        ids.push(...(cfg.ROUTE_LEVEL_ROLE_IDS[route] || []));
+    }
+    return ids.filter(Boolean);
+}
+
+async function clearAllRouteLevelRoles(member) {
+    const allIds = getAllRouteLevelRoleIds();
+    const presentIds = allIds.filter((id) => memberHasRole(member, id));
+    if (!presentIds.length) return;
+
+    for (const roleId of presentIds) {
+        await removeRole(member, roleId);
+    }
+}
+
+async function syncRouteLevelRoleForUser(member, user) {
+    const route = user?.currentRoute;
+    if (!route) return;
+
+    const hasSpecialtyInRoute = !!user?.specialties?.[route];
+    const allIds = getAllRouteLevelRoleIds();
+    const presentIds = allIds.filter((id) => memberHasRole(member, id));
+
+    if (hasSpecialtyInRoute) {
+        if (!presentIds.length) return;
+        for (const roleId of presentIds) {
+            await removeRole(member, roleId);
+        }
+        return;
+    }
+
+    const roleIds = cfg.ROUTE_LEVEL_ROLE_IDS[route] || [];
+    const desiredIndex = getRouteLevelIndexForLevel(route, user.level);
+    const desiredRoleId = roleIds[desiredIndex];
+    if (!desiredRoleId) return;
+
+    if (presentIds.length === 1 && presentIds[0] === desiredRoleId) {
+        return;
+    }
+
+    for (const roleId of presentIds) {
+        if (roleId !== desiredRoleId) {
+            await removeRole(member, roleId);
+        }
+    }
+
+    await addRole(member, desiredRoleId);
 }
 
 function getRouteLevelInfo(member) {
@@ -179,6 +270,16 @@ async function syncMemberState(member, { allowRestoreFromDb = false } = {}) {
     if (!member || !member.id) return null;
 
     const user = ensureProgressFields(await db.getUser(member.id));
+
+    if (isProgressionExcluded(member)) {
+        user.currentRoute = null;
+        user.currentSpecialty = null;
+        user.pendingFinalRestoreRoute = '';
+        await updateSpecialtyChannelVisibility(member, user);
+        await db.saveUser(user);
+        return user;
+    }
+
     const verified = isVerifiedMember(member);
 
     if (!verified) {
@@ -187,11 +288,15 @@ async function syncMemberState(member, { allowRestoreFromDb = false } = {}) {
         return user;
     }
 
-    let detectedRoute = routeFromMemberRoles(member);
     const detectedSpecialties = specialtiesFromMemberRoles(member);
+    let detectedRoute = routeFromMemberRoles(member) || routeFromSpecialtyRoles(detectedSpecialties);
 
     // Restore route role from DB if user rejoined and has verified role but no route roles.
-    if (!detectedRoute && allowRestoreFromDb && user.currentRoute && cfg.ROUTES.includes(user.currentRoute)) {
+    if (!detectedRoute
+        && allowRestoreFromDb
+        && user.currentRoute
+        && cfg.ROUTES.includes(user.currentRoute)
+        && !user.specialties[user.currentRoute]) {
         await setRouteLevelRoles(member, user.currentRoute);
         detectedRoute = user.currentRoute;
     }
@@ -206,6 +311,8 @@ async function syncMemberState(member, { allowRestoreFromDb = false } = {}) {
 
     user.currentSpecialty = user.currentRoute ? (user.specialties[user.currentRoute] || null) : null;
 
+    await syncRouteLevelRoleForUser(member, user);
+
     // If final role exists on Discord, keep DB pending restore clear.
     if (memberHasRole(member, cfg.FINAL_COMPLETION_ROLE)) {
         user.pendingFinalRestoreRoute = '';
@@ -219,6 +326,7 @@ async function syncMemberState(member, { allowRestoreFromDb = false } = {}) {
 async function getXpMultiplierForMessage(message) {
     const member = message.member;
     if (!member) return 1;
+    if (isProgressionExcluded(member)) return 1;
     if (!isVerifiedMember(member)) return 1;
 
     const route = routeFromMemberRoles(member);
@@ -251,6 +359,7 @@ function applyCost(user, cost) {
 async function handleSpecialtySelection(message, args) {
     const member = message.member;
     if (!member || !message.guild) return 'This command can only be used in a server.';
+    if (isProgressionExcluded(member)) return progressionExcludedMessage();
     if (!isVerifiedMember(member)) return 'You must be verified to use progression commands.';
 
     const user = await syncMemberState(member);
@@ -279,6 +388,7 @@ async function handleSpecialtySelection(message, args) {
     if (!roleId) return 'Specialty role is not configured.';
 
     await addRole(member, roleId);
+    await clearAllRouteLevelRoles(member);
 
     user.specialties[route] = requested;
     user.currentSpecialty = requested;
@@ -297,6 +407,7 @@ async function handleSpecialtySelection(message, args) {
 async function handlePrestige(message, args) {
     const member = message.member;
     if (!member || !message.guild) return 'This command can only be used in a server.';
+    if (isProgressionExcluded(member)) return progressionExcludedMessage();
     if (!isVerifiedMember(member)) return 'You must be verified to use progression commands.';
 
     if (message.channelId !== cfg.PRESTIGE_CHANNEL_ID) {
@@ -361,6 +472,7 @@ async function handlePrestige(message, args) {
 async function handleRebirth(message, args) {
     const member = message.member;
     if (!member || !message.guild) return 'This command can only be used in a server.';
+    if (isProgressionExcluded(member)) return progressionExcludedMessage();
     if (!isVerifiedMember(member)) return 'You must be verified to use progression commands.';
 
     if (message.channelId !== cfg.REBIRTH_CHANNEL_ID) {
@@ -477,14 +589,14 @@ function buildRouteButtons(prefix, routes, userId, disabledRoute = null) {
 
 async function sendSpecialtySelectionEmbed(message, args = []) {
     const member = message.member;
-    if (!member || !message.guild) return message.reply('This command can only be used in a server.');
+    if (!member || !message.guild) return message.channel.send('This command can only be used in a server.');
 
     const user = await syncMemberState(member);
     const currentRoute = user.currentRoute;
     const requestedRoute = normalizeRoute(args[0]) || currentRoute;
 
     if (!requestedRoute) {
-        return message.reply('Usage: `%speciality <combat|scholar|atelier|merchant>`');
+        return message.channel.send('Usage: `%specialty <combat|scholar|atelier|merchant>`');
     }
 
     const embed = new EmbedBuilder()
@@ -497,7 +609,7 @@ async function sendSpecialtySelectionEmbed(message, args = []) {
         })
         .setFooter({ text: `Requested by ${message.author.tag}` });
 
-    return message.reply({
+    return message.channel.send({
         embeds: [embed],
         components: buildSpecialtyButtons(requestedRoute, message.author.id)
     });
@@ -505,7 +617,7 @@ async function sendSpecialtySelectionEmbed(message, args = []) {
 
 async function sendPrestigeSelectionEmbed(message) {
     const member = message.member;
-    if (!member || !message.guild) return message.reply('This command can only be used in a server.');
+    if (!member || !message.guild) return message.channel.send('This command can only be used in a server.');
 
     const user = await syncMemberState(member);
     const currentRoute = user.currentRoute;
@@ -521,7 +633,7 @@ async function sendPrestigeSelectionEmbed(message) {
         )
         .setFooter({ text: `Requested by ${message.author.tag}` });
 
-    return message.reply({
+    return message.channel.send({
         embeds: [embed],
         components: buildRouteButtons('prestige', cfg.ROUTES, message.author.id, currentRoute)
     });
@@ -529,7 +641,7 @@ async function sendPrestigeSelectionEmbed(message) {
 
 async function sendRebirthSelectionEmbed(message) {
     const member = message.member;
-    if (!member || !message.guild) return message.reply('This command can only be used in a server.');
+    if (!member || !message.guild) return message.channel.send('This command can only be used in a server.');
 
     await syncMemberState(member);
 
@@ -544,7 +656,7 @@ async function sendRebirthSelectionEmbed(message) {
         )
         .setFooter({ text: `Requested by ${message.author.tag}` });
 
-    return message.reply({
+    return message.channel.send({
         embeds: [embed],
         components: buildRouteButtons('rebirth', cfg.ROUTES, message.author.id)
     });
@@ -596,6 +708,11 @@ async function handleButtonInteraction(interaction) {
     const system = parts[0];
     if (system !== 'progression') return false;
 
+    if (isProgressionExcluded(interaction.member)) {
+        await interaction.reply({ content: progressionExcludedMessage(), ephemeral: true }).catch(() => {});
+        return true;
+    }
+
     const action = parts[1];
     const targetRoute = normalizeRoute(parts[2]);
     const maybeSpecialty = parts[3];
@@ -613,6 +730,7 @@ async function handleButtonInteraction(interaction) {
 
 module.exports = {
     normalizeRoute,
+    isProgressionExcluded,
     getXpMultiplierForMessage,
     syncMemberState,
     getRouteLevelInfo,

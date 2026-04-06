@@ -2,57 +2,23 @@
   "users": [
     {
       "user_id": "830069755599519757",
-      "gold": 0,
-      "xp": 0,
+      "gold": 75,
+      "xp": 15,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 0,
-      "daily_gold_earned": 0,
-      "last_daily_reset": 0,
+      "last_reward_time": 1775458268445,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775458268445,
       "bank_access": false,
-      "task_daily_date": "",
-      "task_daily_messages": 0,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "1315569013690073088",
-      "gold": 3275,
-      "xp": 255,
-      "level": 3,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775418496533,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775418496533,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 100,
-      "task_daily_message_bonus_claimed": true,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -65,7 +31,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1315569013690073088",
+      "gold": 375,
+      "xp": 75,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775459743004,
+      "daily_gold_earned": 375,
+      "last_daily_reset": 1775456951314,
+      "bank_access": false,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 8,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "832656205952188437",
@@ -86,6 +99,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -96,30 +122,23 @@
     },
     {
       "user_id": "973786719394603020",
-      "gold": 1650,
-      "xp": 30,
+      "gold": 2525,
+      "xp": 105,
       "level": 3,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775419069728,
-      "daily_gold_earned": 450,
-      "last_daily_reset": 1775418556289,
+      "last_reward_time": 1775462016676,
+      "daily_gold_earned": 2025,
+      "last_daily_reset": 1775459587459,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 54,
-      "task_daily_message_bonus_claimed": false,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 100,
+      "task_daily_message_bonus_claimed": true,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -132,34 +151,34 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1156642624770424902",
-      "gold": 68500,
-      "xp": 0,
-      "level": 7,
-      "gems": 20,
-      "honor": 2,
+      "gold": 1775,
+      "xp": 55,
+      "level": 3,
+      "gems": 0,
+      "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775420842232,
-      "daily_gold_earned": 3500,
-      "last_daily_reset": 1775336686203,
+      "last_reward_time": 1775461610601,
+      "daily_gold_earned": 1275,
+      "last_daily_reset": 1775455501177,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 100,
-      "task_daily_message_bonus_claimed": true,
-      "task_daily_voice_seconds": 12144,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 48,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 960,
       "task_daily_voice_bonus_claimed": true,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -172,7 +191,14 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1277746952657965078",
@@ -193,40 +219,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "1079479751200227388",
-      "gold": 107950,
-      "xp": 360,
-      "level": 25,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775420778216,
-      "daily_gold_earned": 3500,
-      "last_daily_reset": 1775371258779,
-      "bank_access": true,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 100,
-      "task_daily_message_bonus_claimed": true,
-      "task_daily_voice_seconds": 5846,
-      "task_daily_voice_bonus_claimed": true,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -239,7 +231,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1079479751200227388",
+      "gold": 300,
+      "xp": 60,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775456160399,
+      "daily_gold_earned": 300,
+      "last_daily_reset": 1775455921650,
+      "bank_access": true,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 7,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1136437335278485544",
@@ -260,6 +299,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -270,70 +322,23 @@
     },
     {
       "user_id": "677860550729793563",
-      "gold": 4000,
-      "xp": 105,
-      "level": 4,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775420712669,
-      "daily_gold_earned": 3500,
-      "last_daily_reset": 1775370209743,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 100,
-      "task_daily_message_bonus_claimed": true,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
-      "currentRoute": null,
-      "currentSpecialty": null,
-      "specialties": {
-        "combat": null,
-        "scholar": null,
-        "atelier": null,
-        "merchant": null
-      },
-      "completedRoutes": [],
-      "prestigeRoles": [],
-      "prestigeCount": 0,
-      "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
-    },
-    {
-      "user_id": "1285197348900962337",
-      "gold": 1575,
-      "xp": 15,
+      "gold": 1650,
+      "xp": 30,
       "level": 3,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775420625037,
-      "daily_gold_earned": 750,
-      "last_daily_reset": 1775336910555,
+      "last_reward_time": 1775461988811,
+      "daily_gold_earned": 1650,
+      "last_daily_reset": 1775456834831,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 30,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 59,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -346,7 +351,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1285197348900962337",
+      "gold": 825,
+      "xp": 65,
+      "level": 2,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775462046973,
+      "daily_gold_earned": 825,
+      "last_daily_reset": 1775456352056,
+      "bank_access": false,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 23,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "765288847810101320",
@@ -367,6 +419,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -394,6 +459,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -421,40 +499,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "1252315782692605964",
-      "gold": 1050,
-      "xp": 110,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775420821660,
-      "daily_gold_earned": 1050,
-      "last_daily_reset": 1775419075226,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 35,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -467,7 +511,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1252315782692605964",
+      "gold": 525,
+      "xp": 5,
+      "level": 2,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775461829140,
+      "daily_gold_earned": 525,
+      "last_daily_reset": 1775456862335,
+      "bank_access": false,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 10,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1473839537863262442",
@@ -488,6 +579,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -515,6 +619,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -525,30 +642,23 @@
     },
     {
       "user_id": "1075749526402506832",
-      "gold": 225,
-      "xp": 45,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775420428428,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775420428428,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 5,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -561,34 +671,34 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1337522756048392303",
-      "gold": 4225,
-      "xp": 255,
-      "level": 4,
+      "gold": 2675,
+      "xp": 135,
+      "level": 3,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775419949387,
-      "daily_gold_earned": 3500,
-      "last_daily_reset": 1775370859617,
+      "last_reward_time": 1775461734832,
+      "daily_gold_earned": 2175,
+      "last_daily_reset": 1775455838373,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
+      "task_daily_date": "2026-04-06",
       "task_daily_messages": 100,
       "task_daily_message_bonus_claimed": true,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -601,34 +711,34 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1485993417703034914",
-      "gold": 225,
-      "xp": 45,
+      "gold": 75,
+      "xp": 15,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775373946392,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1775332332900,
+      "last_reward_time": 1775456830086,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775456830086,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 2,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -641,34 +751,34 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1440608339141857311",
-      "gold": 3800,
+      "gold": 2300,
       "xp": 60,
-      "level": 4,
+      "level": 3,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775374593889,
-      "daily_gold_earned": 3300,
-      "last_daily_reset": 1775370234190,
+      "last_reward_time": 1775462028002,
+      "daily_gold_earned": 1800,
+      "last_daily_reset": 1775460081968,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
+      "task_daily_date": "2026-04-06",
       "task_daily_messages": 100,
       "task_daily_message_bonus_claimed": true,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -681,7 +791,14 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "854474572832702495",
@@ -702,6 +819,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -712,23 +842,36 @@
     },
     {
       "user_id": "735159539200032820",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775249924765,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775249924765,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-03",
-      "task_daily_messages": 1,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -756,6 +899,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -766,34 +922,27 @@
     },
     {
       "user_id": "747389646232748123",
-      "gold": 6100,
-      "xp": 1005,
-      "level": 25,
+      "gold": 1175,
+      "xp": 135,
+      "level": 2,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775420825802,
-      "daily_gold_earned": 3500,
-      "last_daily_reset": 1775336423416,
+      "last_reward_time": 1775457001783,
+      "daily_gold_earned": 675,
+      "last_daily_reset": 1775455730049,
       "bank_access": true,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 100,
-      "task_daily_message_bonus_claimed": true,
-      "task_daily_voice_seconds": 10882,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 16,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 5730,
       "task_daily_voice_bonus_claimed": true,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
-      "currentRoute": "combat",
-      "currentSpecialty": "berserker",
+      "currentRoute": null,
+      "currentSpecialty": null,
       "specialties": {
-        "combat": "berserker",
+        "combat": null,
         "scholar": null,
         "atelier": null,
         "merchant": null
@@ -802,7 +951,14 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1485437701694947420",
@@ -823,40 +979,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "1148344234982789271",
-      "gold": 2475,
-      "xp": 195,
-      "level": 3,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775420186792,
-      "daily_gold_earned": 975,
-      "last_daily_reset": 1775416583659,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 35,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 3897,
-      "task_daily_voice_bonus_claimed": true,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -869,7 +991,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1148344234982789271",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1232769958451220534",
@@ -890,6 +1059,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -900,46 +1082,6 @@
     },
     {
       "user_id": "763369535444615168",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775417233813,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775417233813,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
-      "currentRoute": null,
-      "currentSpecialty": null,
-      "specialties": {
-        "combat": null,
-        "scholar": null,
-        "atelier": null,
-        "merchant": null
-      },
-      "completedRoutes": [],
-      "prestigeRoles": [],
-      "prestigeCount": 0,
-      "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
-    },
-    {
-      "user_id": "1448468254946365490",
       "gold": 75,
       "xp": 15,
       "level": 1,
@@ -948,22 +1090,15 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775413950958,
+      "last_reward_time": 1775460437864,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1775413950958,
+      "last_daily_reset": 1775460437864,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
+      "task_daily_date": "2026-04-06",
       "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -976,7 +1111,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1448468254946365490",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1072147271090708541",
@@ -997,6 +1179,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1024,6 +1219,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1051,6 +1259,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1061,23 +1282,36 @@
     },
     {
       "user_id": "1256734018377089068",
-      "gold": 150,
-      "xp": 30,
+      "gold": 75,
+      "xp": 15,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775336291363,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1775251715771,
+      "last_reward_time": 1775457912322,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775457912322,
       "bank_access": false,
-      "task_daily_date": "2026-04-04",
-      "task_daily_messages": 2,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1088,30 +1322,23 @@
     },
     {
       "user_id": "1440409619104272414",
-      "gold": 150,
-      "xp": 30,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775420775441,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775420775441,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -1124,34 +1351,34 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "561155639292854283",
-      "gold": 150,
-      "xp": 30,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775413726692,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1775334552482,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -1164,34 +1391,34 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1271107907517419563",
-      "gold": 1125,
-      "xp": 125,
+      "gold": 600,
+      "xp": 20,
       "level": 2,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775418948728,
-      "daily_gold_earned": 1125,
-      "last_daily_reset": 1775335902546,
+      "last_reward_time": 1775460454112,
+      "daily_gold_earned": 600,
+      "last_daily_reset": 1775459389314,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 24,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 21,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -1204,7 +1431,14 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1138391047874039849",
@@ -1225,6 +1459,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1252,6 +1499,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1279,6 +1539,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1306,6 +1579,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1324,15 +1610,28 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775250559089,
+      "last_reward_time": 1775461776725,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1775250559089,
+      "last_daily_reset": 1775461776725,
       "bank_access": false,
-      "task_daily_date": "2026-04-04",
-      "task_daily_messages": 2,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1343,23 +1642,36 @@
     },
     {
       "user_id": "736063384339873832",
-      "gold": 150,
-      "xp": 30,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775335066123,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1775251579913,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-04",
-      "task_daily_messages": 2,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1387,6 +1699,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1397,70 +1722,23 @@
     },
     {
       "user_id": "1172971479093215297",
-      "gold": 2175,
-      "xp": 135,
-      "level": 3,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775415126167,
-      "daily_gold_earned": 2175,
-      "last_daily_reset": 1775332596349,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 55,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
-      "currentRoute": null,
-      "currentSpecialty": null,
-      "specialties": {
-        "combat": null,
-        "scholar": null,
-        "atelier": null,
-        "merchant": null
-      },
-      "completedRoutes": [],
-      "prestigeRoles": [],
-      "prestigeCount": 0,
-      "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
-    },
-    {
-      "user_id": "1473344571973963939",
-      "gold": 150,
-      "xp": 30,
+      "gold": 225,
+      "xp": 45,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775416489306,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1775331477794,
+      "last_reward_time": 1775458756570,
+      "daily_gold_earned": 225,
+      "last_daily_reset": 1775457120644,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 3,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -1473,7 +1751,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1473344571973963939",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1171511465782546432",
@@ -1494,40 +1819,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "1118938978851246140",
-      "gold": 1950,
-      "xp": 90,
-      "level": 3,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775420073031,
-      "daily_gold_earned": 450,
-      "last_daily_reset": 1775336919183,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 10,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 1528,
-      "task_daily_voice_bonus_claimed": true,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -1540,7 +1831,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1118938978851246140",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "840725072075161690",
@@ -1561,6 +1899,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1588,6 +1939,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1615,40 +1979,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "1267904509040918553",
-      "gold": 2550,
-      "xp": 210,
-      "level": 3,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775419451929,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1775419296239,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 26,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -1661,47 +1991,94 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
-    },
-    {
-      "user_id": "1137011106620129343",
-      "gold": 1450,
-      "xp": 190,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775419331891,
-      "daily_gold_earned": 450,
-      "last_daily_reset": 1775335920406,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 6,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 4287,
-      "task_daily_voice_bonus_claimed": true,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
       "task_monthly": {
         "slots": {}
       },
-      "monthly_gif_buys": 0,
-      "currentRoute": "combat",
-      "currentSpecialty": "duelist",
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1267904509040918553",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
       "specialties": {
-        "combat": "duelist",
-        "scholar": "theorist",
-        "atelier": "illustrator",
-        "merchant": "patrician"
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
       },
       "completedRoutes": [],
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1137011106620129343",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1172203270131953745",
@@ -1722,6 +2099,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1749,6 +2139,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1776,6 +2179,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1803,6 +2219,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1830,6 +2259,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1857,6 +2299,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1884,6 +2339,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1911,6 +2379,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1938,6 +2419,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1965,6 +2459,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -1992,6 +2499,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2019,6 +2539,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2046,6 +2579,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2073,6 +2619,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2100,40 +2659,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "1254455804287782916",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775376764317,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775376764317,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 2,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -2146,7 +2671,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1254455804287782916",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "898972502389317642",
@@ -2167,6 +2739,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2194,6 +2779,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2212,22 +2810,15 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775417954624,
+      "last_reward_time": 1775459371187,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1775417954624,
+      "last_daily_reset": 1775459371187,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
+      "task_daily_date": "2026-04-06",
       "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -2240,7 +2831,14 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "790210259414417458",
@@ -2261,40 +2859,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "602596278227959810",
-      "gold": 225,
-      "xp": 45,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775418990106,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1775333467336,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 2,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -2307,10 +2871,17 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
-      "user_id": "1235687228546482326",
+      "user_id": "602596278227959810",
       "gold": 75,
       "xp": 15,
       "level": 1,
@@ -2319,15 +2890,68 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775331393892,
+      "last_reward_time": 1775461789283,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1775331393892,
+      "last_daily_reset": 1775461789283,
       "bank_access": false,
-      "task_daily_date": "2026-04-04",
+      "task_daily_date": "2026-04-06",
       "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1235687228546482326",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2355,40 +2979,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "834053366001958933",
-      "gold": 525,
-      "xp": 5,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775420883955,
-      "daily_gold_earned": 525,
-      "last_daily_reset": 1775419764868,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 19,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -2401,7 +2991,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "834053366001958933",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1172941435998306419",
@@ -2422,6 +3059,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2449,6 +3099,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2476,6 +3139,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2503,6 +3179,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2530,6 +3219,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2557,6 +3259,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2584,40 +3299,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "965678893883330610",
-      "gold": 825,
-      "xp": 65,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775419212502,
-      "daily_gold_earned": 750,
-      "last_daily_reset": 1775373139252,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 27,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -2630,7 +3311,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "965678893883330610",
+      "gold": 450,
+      "xp": 90,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775460780289,
+      "daily_gold_earned": 450,
+      "last_daily_reset": 1775460164475,
+      "bank_access": false,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 21,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1377800981277970553",
@@ -2651,6 +3379,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2678,40 +3419,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "1403140132885758065",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775375026518,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775375026518,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -2724,7 +3431,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1403140132885758065",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1363568131951558769",
@@ -2745,6 +3499,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2755,23 +3522,36 @@
     },
     {
       "user_id": "712279696385114124",
-      "gold": 0,
-      "xp": 0,
+      "gold": 75,
+      "xp": 15,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 0,
-      "daily_gold_earned": 0,
-      "last_daily_reset": 0,
+      "last_reward_time": 1775457932774,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775457932774,
       "bank_access": false,
-      "task_daily_date": "",
-      "task_daily_messages": 0,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2799,6 +3579,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2826,6 +3619,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2836,23 +3642,36 @@
     },
     {
       "user_id": "1063730734570946560",
-      "gold": 0,
-      "xp": 0,
+      "gold": 75,
+      "xp": 15,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 0,
-      "daily_gold_earned": 0,
-      "last_daily_reset": 0,
+      "last_reward_time": 1775461005858,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775461005858,
       "bank_access": false,
-      "task_daily_date": "",
-      "task_daily_messages": 0,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2880,6 +3699,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2907,6 +3739,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -2917,30 +3762,23 @@
     },
     {
       "user_id": "1474341643250438272",
-      "gold": 225,
-      "xp": 45,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775415410538,
-      "daily_gold_earned": 225,
-      "last_daily_reset": 1775333859180,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 2,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -2953,34 +3791,34 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1061679429983670342",
-      "gold": 1425,
-      "xp": 185,
-      "level": 2,
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775376120068,
-      "daily_gold_earned": 450,
-      "last_daily_reset": 1775374063304,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 18,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -2993,7 +3831,14 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1170755254044852270",
@@ -3014,40 +3859,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "1213134596804186196",
-      "gold": 4025,
-      "xp": 105,
-      "level": 4,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775420723168,
-      "daily_gold_earned": 1575,
-      "last_daily_reset": 1775418820133,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 100,
-      "task_daily_message_bonus_claimed": true,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -3060,7 +3871,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1213134596804186196",
+      "gold": 450,
+      "xp": 90,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775459812819,
+      "daily_gold_earned": 450,
+      "last_daily_reset": 1775458509987,
+      "bank_access": false,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 15,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1421585514015887370",
@@ -3081,40 +3939,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "1226674704778268703",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775415925974,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775415925974,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -3127,7 +3951,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1226674704778268703",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1412614554084442202",
@@ -3148,6 +4019,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3175,6 +4059,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3202,6 +4099,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3229,40 +4139,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "1038805072303374406",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775415836315,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775415836315,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -3275,27 +4151,87 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
-      "user_id": "494489850645446656",
-      "gold": 0,
-      "xp": 0,
+      "user_id": "1038805072303374406",
+      "gold": 75,
+      "xp": 15,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 0,
-      "daily_gold_earned": 0,
-      "last_daily_reset": 0,
+      "last_reward_time": 1775459152172,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775459152172,
       "bank_access": false,
-      "task_daily_date": "",
-      "task_daily_messages": 0,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "494489850645446656",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1775460813963,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775460813963,
+      "bank_access": false,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3323,6 +4259,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3350,6 +4299,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3377,40 +4339,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "701176406125576232",
-      "gold": 3025,
-      "xp": 5,
-      "level": 4,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775420771183,
-      "daily_gold_earned": 2025,
-      "last_daily_reset": 1775336281562,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 60,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 2548,
-      "task_daily_voice_bonus_claimed": true,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -3423,27 +4351,87 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
-      "user_id": "1261794722712915982",
-      "gold": 150,
-      "xp": 30,
+      "user_id": "701176406125576232",
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775334334574,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775334334574,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-04",
-      "task_daily_messages": 1,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1261794722712915982",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3454,23 +4442,36 @@
     },
     {
       "user_id": "992216758683447397",
-      "gold": 150,
-      "xp": 30,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775332799814,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1775332169144,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-04",
-      "task_daily_messages": 7,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3498,6 +4499,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3525,6 +4539,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3535,23 +4562,36 @@
     },
     {
       "user_id": "856098490333003786",
-      "gold": 600,
-      "xp": 20,
-      "level": 2,
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775336412514,
-      "daily_gold_earned": 600,
-      "last_daily_reset": 1775335206562,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3579,6 +4619,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3606,6 +4659,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3633,6 +4699,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3660,6 +4739,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3687,6 +4779,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3714,6 +4819,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3741,6 +4859,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3751,49 +4882,9 @@
     },
     {
       "user_id": "1261507646595399720",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775418263565,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775418263565,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 3,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
-      "currentRoute": null,
-      "currentSpecialty": null,
-      "specialties": {
-        "combat": null,
-        "scholar": null,
-        "atelier": null,
-        "merchant": null
-      },
-      "completedRoutes": [],
-      "prestigeRoles": [],
-      "prestigeCount": 0,
-      "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
-    },
-    {
-      "user_id": "980146635243925586",
-      "gold": 500,
+      "gold": 0,
       "xp": 0,
-      "level": 2,
+      "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
@@ -3803,18 +4894,11 @@
       "daily_gold_earned": 0,
       "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
+      "task_daily_date": "",
       "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 1018,
-      "task_daily_voice_bonus_claimed": true,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -3827,7 +4911,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "980146635243925586",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1446147697558950022",
@@ -3848,6 +4979,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3875,40 +5019,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "1008812397240258600",
-      "gold": 5800,
-      "xp": 275,
-      "level": 5,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775420881264,
-      "daily_gold_earned": 3500,
-      "last_daily_reset": 1775336432132,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 100,
-      "task_daily_message_bonus_claimed": true,
-      "task_daily_voice_seconds": 5576,
-      "task_daily_voice_bonus_claimed": true,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -3921,7 +5031,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1008812397240258600",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1451135937017938044",
@@ -3942,6 +5099,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3969,6 +5139,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -3996,6 +5179,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4023,6 +5219,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4050,40 +5259,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "730022675615055953",
-      "gold": 575,
-      "xp": 15,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775420106936,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775420106936,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 809,
-      "task_daily_voice_bonus_claimed": true,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -4096,7 +5271,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "730022675615055953",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1171786771365888113",
@@ -4117,40 +5339,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "969264330149339187",
-      "gold": 1325,
-      "xp": 165,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775420837873,
-      "daily_gold_earned": 825,
-      "last_daily_reset": 1775416947764,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 17,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 3777,
-      "task_daily_voice_bonus_claimed": true,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -4163,7 +5351,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "969264330149339187",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1484911255021031465",
@@ -4184,6 +5419,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4211,6 +5459,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4238,6 +5499,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4265,6 +5539,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4292,6 +5579,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4319,6 +5619,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4346,40 +5659,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "1128972835990286427",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775420527851,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775420527851,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -4392,7 +5671,54 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1128972835990286427",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1341473696656916564",
@@ -4413,6 +5739,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4440,6 +5779,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4467,6 +5819,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4494,6 +5859,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4504,23 +5882,36 @@
     },
     {
       "user_id": "883825925370826762",
-      "gold": 0,
-      "xp": 0,
+      "gold": 75,
+      "xp": 15,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 0,
-      "daily_gold_earned": 0,
-      "last_daily_reset": 0,
+      "last_reward_time": 1775460737512,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775460737512,
       "bank_access": false,
-      "task_daily_date": "",
-      "task_daily_messages": 0,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4548,6 +5939,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4575,6 +5979,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4602,6 +6019,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4629,6 +6059,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4656,6 +6099,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4683,6 +6139,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4710,6 +6179,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4737,6 +6219,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4764,6 +6259,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4791,40 +6299,6 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0
-    },
-    {
-      "user_id": "1459866775184347343",
-      "gold": 150,
-      "xp": 30,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775416437002,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775416437002,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -4837,27 +6311,87 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
-      "user_id": "1109423536621244467",
-      "gold": 575,
-      "xp": 15,
-      "level": 2,
+      "user_id": "1459866775184347343",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775164532458,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775164532458,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-03",
-      "task_daily_messages": 1,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 1228,
-      "task_daily_voice_bonus_claimed": true,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1109423536621244467",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4868,23 +6402,36 @@
     },
     {
       "user_id": "917525675957682308",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775332770163,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775332770163,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-04",
-      "task_daily_messages": 1,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4912,6 +6459,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4939,6 +6499,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4966,6 +6539,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -4976,23 +6562,36 @@
     },
     {
       "user_id": "1243204720613527633",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775250498883,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775250498883,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-04",
-      "task_daily_messages": 1,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -5020,6 +6619,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -5030,30 +6642,23 @@
     },
     {
       "user_id": "1438290040378622002",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775417805166,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775417805166,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -5066,34 +6671,34 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1209010793731989525",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775373980325,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775373980325,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      },
-      "monthly_gif_buys": 0,
       "currentRoute": null,
       "currentSpecialty": null,
       "specialties": {
@@ -5106,7 +6711,14 @@
       "prestigeRoles": [],
       "prestigeCount": 0,
       "rebirthCount": 0,
-      "pendingFinalRestoreRoute": ""
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1465368712516337719",
@@ -5127,6 +6739,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -5154,6 +6779,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -5164,23 +6802,36 @@
     },
     {
       "user_id": "1111815766816342148",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775336269148,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775336269148,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-04",
-      "task_daily_messages": 1,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -5208,6 +6859,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -5235,6 +6899,19 @@
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
       "task_weekly": {
         "slots": {}
       },
@@ -5257,164 +6934,8 @@
       "daily_gold_earned": 0,
       "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-04",
+      "task_daily_date": "",
       "task_daily_messages": 0,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 210,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      }
-    },
-    {
-      "user_id": "1483644501527494819",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775331987138,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775331987138,
-      "bank_access": false,
-      "task_daily_date": "2026-04-04",
-      "task_daily_messages": 1,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      }
-    },
-    {
-      "user_id": "1132115457277702205",
-      "gold": 750,
-      "xp": 50,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775336297849,
-      "daily_gold_earned": 750,
-      "last_daily_reset": 1775332951283,
-      "bank_access": false,
-      "task_daily_date": "2026-04-04",
-      "task_daily_messages": 11,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      }
-    },
-    {
-      "user_id": "861941577655123968",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775334979216,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775334979216,
-      "bank_access": false,
-      "task_daily_date": "2026-04-04",
-      "task_daily_messages": 1,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      }
-    },
-    {
-      "user_id": "1168189476384817216",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775335472254,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775335472254,
-      "bank_access": false,
-      "task_daily_date": "2026-04-04",
-      "task_daily_messages": 1,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      }
-    },
-    {
-      "user_id": "738098396790784102",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775336911852,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775336911852,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 0,
-      "task_daily_voice_bonus_claimed": false,
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      }
-    },
-    {
-      "user_id": "1389943729951080489",
-      "gold": 75,
-      "xp": 15,
-      "level": 1,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 1775370490714,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775370490714,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
@@ -5436,7 +6957,248 @@
       },
       "task_monthly": {
         "slots": {}
-      }
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1483644501527494819",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1132115457277702205",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "861941577655123968",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1168189476384817216",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "738098396790784102",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1389943729951080489",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "test",
@@ -5475,24 +7237,25 @@
       },
       "task_monthly": {
         "slots": {}
-      }
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1485042653736337428",
-      "gold": 150,
-      "xp": 30,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775420674617,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1775377372270,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 2,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
@@ -5514,24 +7277,25 @@
       },
       "task_monthly": {
         "slots": {}
-      }
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1489292093179564266",
-      "gold": 150,
-      "xp": 30,
+      "gold": 75,
+      "xp": 15,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775418982504,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1775415068110,
+      "last_reward_time": 1775460206285,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1775460206285,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 2,
+      "task_daily_date": "2026-04-06",
+      "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
@@ -5553,102 +7317,25 @@
       },
       "task_monthly": {
         "slots": {}
-      }
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "465620103799767110",
-      "gold": 500,
+      "gold": 0,
       "xp": 0,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 0,
-      "daily_gold_earned": 0,
-      "last_daily_reset": 0,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 0,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 840,
-      "task_daily_voice_bonus_claimed": true,
-      "currentRoute": null,
-      "currentSpecialty": null,
-      "specialties": {
-        "combat": null,
-        "scholar": null,
-        "atelier": null,
-        "merchant": null
-      },
-      "completedRoutes": [],
-      "prestigeRoles": [],
-      "prestigeCount": 0,
-      "rebirthCount": 0,
-      "pendingFinalRestoreRoute": "",
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      }
-    },
-    {
-      "user_id": "869215659396051065",
-      "gold": 500,
-      "xp": 0,
-      "level": 2,
-      "gems": 0,
-      "honor": 0,
-      "monthly_gold_to_gems": 0,
-      "monthly_gems_to_honor": 0,
-      "conversion_month": "",
-      "last_reward_time": 0,
-      "daily_gold_earned": 0,
-      "last_daily_reset": 0,
-      "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 0,
-      "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 929,
-      "task_daily_voice_bonus_claimed": true,
-      "currentRoute": null,
-      "currentSpecialty": null,
-      "specialties": {
-        "combat": null,
-        "scholar": null,
-        "atelier": null,
-        "merchant": null
-      },
-      "completedRoutes": [],
-      "prestigeRoles": [],
-      "prestigeCount": 0,
-      "rebirthCount": 0,
-      "pendingFinalRestoreRoute": "",
-      "task_weekly": {
-        "slots": {}
-      },
-      "task_monthly": {
-        "slots": {}
-      }
-    },
-    {
-      "user_id": "1489280001256984617",
-      "gold": 150,
-      "xp": 30,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775417657922,
-      "daily_gold_earned": 150,
-      "last_daily_reset": 1775417273610,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 2,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
@@ -5670,7 +7357,88 @@
       },
       "task_monthly": {
         "slots": {}
-      }
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "869215659396051065",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1489280001256984617",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1183828908504780923",
@@ -5709,7 +7477,8 @@
       },
       "task_monthly": {
         "slots": {}
-      }
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1146434681814921256",
@@ -5725,10 +7494,10 @@
       "daily_gold_earned": 0,
       "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
+      "task_daily_date": "",
       "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 330,
+      "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
       "currentRoute": null,
       "currentSpecialty": null,
@@ -5748,7 +7517,8 @@
       },
       "task_monthly": {
         "slots": {}
-      }
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "890318703042899978",
@@ -5787,24 +7557,25 @@
       },
       "task_monthly": {
         "slots": {}
-      }
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1224494701412093994",
-      "gold": 75,
-      "xp": 15,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775418757688,
-      "daily_gold_earned": 75,
-      "last_daily_reset": 1775418757688,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 1,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
@@ -5826,24 +7597,25 @@
       },
       "task_monthly": {
         "slots": {}
-      }
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1275275576558747719",
-      "gold": 375,
-      "xp": 75,
+      "gold": 0,
+      "xp": 0,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775420796606,
-      "daily_gold_earned": 375,
-      "last_daily_reset": 1775420287111,
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
-      "task_daily_messages": 9,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
@@ -5865,10 +7637,251 @@
       },
       "task_monthly": {
         "slots": {}
-      }
+      },
+      "monthly_gif_buys": 0
     },
     {
       "user_id": "1088872511472668805",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1483296858981011547",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "990737482733727754",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1489356069506514985",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1415007077763649587",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1424869273125257270",
+      "gold": 0,
+      "xp": 0,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 0,
+      "daily_gold_earned": 0,
+      "last_daily_reset": 0,
+      "bank_access": false,
+      "task_daily_date": "",
+      "task_daily_messages": 0,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "monthly_gif_buys": 0
+    },
+    {
+      "user_id": "1229685853488545825",
       "gold": 75,
       "xp": 15,
       "level": 1,
@@ -5877,11 +7890,11 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1775420774839,
+      "last_reward_time": 1775461881459,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1775420774839,
+      "last_daily_reset": 1775461881459,
       "bank_access": false,
-      "task_daily_date": "2026-04-05",
+      "task_daily_date": "2026-04-06",
       "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,

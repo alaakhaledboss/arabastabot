@@ -1,4 +1,5 @@
 const db = require('../db');
+const levelUpAnnounceService = require('./levelUpAnnounceService');
 
 const COOLDOWN_MS  = 60 * 1000;       // 1 minute between rewards
 const DAILY_CAP    = 350 * 10;        // 3500 internal units = 350 display gold
@@ -9,6 +10,7 @@ const ONE_DAY_MS   = 24 * 60 * 60 * 1000;
 async function handleRewards(message, options = {}) {
     try {
         const user = await db.getUser(message.author.id);
+        const oldLevel = Number(user.level || 1);
         const now = Date.now();
         const xpMultiplier = Number(options.xpMultiplier || 1);
         const effectiveXpReward = Math.max(0, Math.round(XP_REWARD * xpMultiplier));
@@ -39,6 +41,16 @@ async function handleRewards(message, options = {}) {
         }
 
         await db.saveUser(user);
+
+        if (leveledUp) {
+            await levelUpAnnounceService.announceLevelUps({
+                guild: message.guild,
+                member: message.member,
+                userId: message.author.id,
+                oldLevel,
+                newLevel: user.level
+            });
+        }
 
         
     } catch (err) {

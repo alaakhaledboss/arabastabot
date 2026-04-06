@@ -10,8 +10,10 @@ const permissionCmd  = require('./permission');
 const convertCmd     = require('./convert');
 const musicCmd       = require('./music');
 const progressionCmd = require('./progression');
+const payCmd         = require('./pay');
 const testingCmd     = require('./testing');
 const taskService    = require('../services/taskService');
+const progressionService = require('../services/progressionService');
 const disabledCommandsService = require('../services/disabledCommandsService');
 
 // ── Command normalization / aliases ──────────────────────────
@@ -29,13 +31,12 @@ const COMMAND_ALIAS_TO_CANONICAL = {
 
     ping: 'ping',
     play: 'play',
+    pay: 'pay',
     specialty: 'specialty',
-    speciality: 'specialty',
-    specialties: 'specialty',
-    specialities: 'specialty',
     prestige: 'prestige',
     rebirth: 'rebirth',
     setlevel: 'setlevel',
+    setxp: 'setxp',
 
     p: 'profile',
     profile: 'profile',
@@ -93,8 +94,8 @@ async function showHelp(message) {
                 { name: '💰 Bank | البنك',            value: '`%b` أو `%bank` — فتح البنك (للمصرّح لهم)', inline: false },
                 { name: '🗓️ Tasks | المهام',          value: '`%t` أو `%task` — تقدم المهام اليومية', inline: false },
                 { name: '🎵 Music | الموسيقى',        value: '`%play` [query] — تشغيل/إضافة للأغاني مع أزرار تحكم (Pause/Skip/Stop/Queue)', inline: false },
-                { name: '🧭 Progression | التقدم',     value: '`%speciality <route>` — لوحة اختيار التخصص\n`%prestige` — لوحة الانتقال\n`%rebirth` — لوحة إعادة الولادة', inline: false },
-                { name: '🧪 Testing | الاختبار',        value: '`%setlevel @user <value>` — ضبط المستوى للاختبار (Owner/Authorized)', inline: false },
+                { name: '🧭 Progression | التقدم',     value: '`%specialty <name>` — لوحة اختيار التخصص\n`%prestige` — لوحة الانتقال\n`%rebirth` — لوحة إعادة الولادة', inline: false },
+                { name: '🧪 Testing | الاختبار',        value: '`%setlevel @user <value>` — ضبط المستوى للاختبار (Owner/Authorized)\n`%setxp @user <value>` — ضبط XP تحت حد المستوى الحالي', inline: false },
                 { name: '🔧 Utility | أدوات',         value: '`%ping` — التحقق من البوت\n`%convert` [@user] — تحويل لوحة المفاتيح', inline: false }
             )
             .setFooter({ text: 'ArabastaBot | وزارة المالية • مملكة أراباستا' })
@@ -120,17 +121,18 @@ async function showAllCommands(message, OWNER_ID) {
                 { name: '👤 Profile | الملف الشخصي', value: '`%p` / `%profile` [@user]\n`%lb` / `%leaderboard` [xp|gold|gems|honor]', inline: false },
                 { name: '🛍️ Shop | المتجر',           value: '`%s` / `%shop` — المتجر (للمصرّح لهم فقط)', inline: false },
                 { name: '💰 Bank | البنك',             value: '`%b` / `%bank` — البنك (للمصرّح لهم فقط)', inline: false },
-                { name: '�️ Tasks | المهام',          value: '`%t` / `%task` / `%tasks` — عرض تقدم المهام اليومية', inline: false },
+                { name: '🗓️ Tasks | المهام',          value: '`%t` / `%task` / `%tasks` — عرض تقدم المهام اليومية', inline: false },
                 { name: '🎵 Music | الموسيقى',        value: '`%play` [query] — play or queue YouTube tracks with button controls', inline: false },
-                { name: '🧭 Progression',             value: '`%speciality <route>` `%prestige` `%rebirth`', inline: false },
-                { name: '🧪 Testing',                 value: '`%setlevel @user <value>` (Owner/Authorized)', inline: false },
-                { name: '�🔧 Utility | أدوات',          value: '`%ping` `%help` `%command` `%convert` [@user]', inline: false }
+                { name: '🧭 Progression | التقدم',     value: '`%specialty <name>`\n`%prestige <route>`\n`%rebirth <route>`', inline: false },
+                { name: '💸 Pay | التحويل اليدوي',      value: '`%pay gold|gems|honor @user <amount>` — transfer and require approver confirmation', inline: false },
+                { name: '🧪 Testing',                 value: '`%setlevel @user <value>`\n`%setxp @user <value>` (Owner/Authorized)', inline: false },
+                { name: '🔧 Utility | أدوات',          value: '`%ping` `%help` `%command` `%commands` `%convert` [@user]', inline: false }
             );
 
         if (isAdmin) {
             embed.addFields({
                 name: '🛡️ Admin Commands | أوامر الإدارة',
-                value: '`%a @user` — منح الصلاحية الخاصة | Grant special authorization\n`%da @user` — سحب الصلاحية الخاصة | Revoke special authorization\n`%log` — سجل تحويل العملات',
+                value: '`%a @user` — منح الصلاحية الخاصة | Grant special authorization\n`%da @user` — سحب الصلاحية الخاصة | Revoke special authorization\n`%log` — سجل تحويل العملات\n`%logtransaction` — Gold transaction log\n`%logcommands` — Command usage log',
                 inline: false
             });
         }
@@ -138,7 +140,7 @@ async function showAllCommands(message, OWNER_ID) {
         if (isOwner) {
             embed.addFields({
                 name: '👑 Owner Commands | أوامر المالك',
-                value: '`%bank` → Credit buttons | البنك → أزرار إدارة الرصيد\n`%showbanklog` — سجل البنك الكامل\n`%reseteverything` — إعادة تعيين جميع المستخدمين',
+                value: '`%showbanklog` — سجل البنك الكامل\n`%logtransactionreset` — reset transaction log\n`%logcommandsreset` — reset command log\n`%disablecommand <name>` — تعطيل أمر\n`%enablecommand <name>` — تفعيل أمر\n`%reseteverything` — إعادة تعيين جميع المستخدمين',
                 inline: false
             });
         }
@@ -209,10 +211,11 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
             case 'play':
                 return await musicCmd.play(message, args);
 
+            case 'pay':
+                return await payCmd.pay(message, args, OWNER_ID);
+
                 case 'specialty':
-                case 'speciality':
-                case 'specialties':
-                case 'specialities': {
+                {
                     const authorized = await db.getAuthorizedUsers();
                     const isAllowed = message.author.id === OWNER_ID || authorized.has(message.author.id);
                     if (!isAllowed) {
@@ -246,6 +249,15 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
                         return message.reply('❌ You do not have permission to use testing commands.');
                     }
                     return await testingCmd.setLevel(message, args);
+                }
+
+                case 'setxp': {
+                    const authorized = await db.getAuthorizedUsers();
+                    const isAllowed = message.author.id === OWNER_ID || authorized.has(message.author.id);
+                    if (!isAllowed) {
+                        return message.reply('❌ You do not have permission to use testing commands.');
+                    }
+                    return await testingCmd.setXp(message, args);
                 }
 
             case 'p':

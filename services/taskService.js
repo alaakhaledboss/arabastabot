@@ -1,6 +1,7 @@
 const db = require('../db');
 const { EmbedBuilder } = require('discord.js');
 const { COLORS, EMOJIS, FOOTER_TEXT, formatError, createCurrencyField } = require('../utils/uiConstants');
+const levelUpAnnounceService = require('./levelUpAnnounceService');
 
 const DAILY_GOLD_CAP_INTERNAL = 350 * 10;
 const MESSAGE_TARGET = 100;
@@ -43,10 +44,15 @@ function resetDailyTasksIfNeeded(user) {
 }
 
 function applyLevelUps(user) {
+    const oldLevel = Number(user.level || 1);
     while (user.xp >= 100 * user.level) {
         user.xp -= 100 * user.level;
         user.level += 1;
     }
+    return {
+        oldLevel,
+        newLevel: Number(user.level || oldLevel)
+    };
 }
 
 async function handleMessageTask(message) {
@@ -77,8 +83,12 @@ async function handleMessageTask(message) {
     }
 }
 
-async function addVoiceSeconds(userId, seconds) {
+async function addVoiceSeconds(memberOrUserId, seconds) {
     try {
+        const member = typeof memberOrUserId === 'object' && memberOrUserId?.id ? memberOrUserId : null;
+        const userId = member?.id || String(memberOrUserId || '');
+        if (!userId) return;
+
         const addSeconds = Math.floor(Number(seconds) || 0);
         if (addSeconds <= 0) return;
 
@@ -99,7 +109,17 @@ async function addVoiceSeconds(userId, seconds) {
                 reason: 'Daily task bonus: 10 minutes voice',
                 details: `xp:+${VOICE_BONUS_XP}`
             });
-            applyLevelUps(user);
+            const { oldLevel, newLevel } = applyLevelUps(user);
+
+            if (newLevel > oldLevel && member?.guild) {
+                await levelUpAnnounceService.announceLevelUps({
+                    guild: member.guild,
+                    member,
+                    userId,
+                    oldLevel,
+                    newLevel
+                });
+            }
         }
 
         await db.saveUser(user);

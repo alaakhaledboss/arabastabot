@@ -3,6 +3,10 @@ const ROUTES = ['combat', 'scholar', 'atelier', 'merchant'];
 module.exports = {
     VERIFIED_ROLE_ID: '1490079203087876206',
 
+    // Route level progression thresholds (index maps to ROUTE_LEVEL_ROLE_IDS index).
+    // Last route-tier unlocks before specialty gate at level 25.
+    ROUTE_LEVEL_THRESHOLDS_DEFAULT: [1, 3, 7, 11, 15, 19, 22],
+
     // Any role in each array means the member belongs to that route.
     ROUTE_LEVEL_ROLE_IDS: {
         combat: [

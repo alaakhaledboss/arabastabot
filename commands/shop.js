@@ -8,7 +8,7 @@ module.exports = async function (message, OWNER_ID) {
         const isOwner    = message.author.id === OWNER_ID;
 
         if (!isOwner && !authorized.has(message.author.id)) {
-            return message.reply(formatError('ليس لديك إذن لفتح المتجر.', 'You don\'t have permission to open the shop.'));
+            return message.channel.send(formatError('ليس لديك إذن لفتح المتجر.', 'You don\'t have permission to open the shop.'));
         }
 
         const embed = new EmbedBuilder()
@@ -51,9 +51,9 @@ module.exports = async function (message, OWNER_ID) {
                 .setStyle(BUTTON_STYLES.SECONDARY)
         );
 
-        return message.reply({ embeds: [embed], components: [row1, row2] });
+        return message.channel.send({ embeds: [embed], components: [row1, row2] });
     } catch (err) {
         console.error('shop command error:', err);
-        return message.reply(formatError('خطأ في تحميل المتجر.', 'Error loading shop.')).catch(() => {});
+        return message.channel.send(formatError('خطأ في تحميل المتجر.', 'Error loading shop.')).catch(() => {});
     }
 };
