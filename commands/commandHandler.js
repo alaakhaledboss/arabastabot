@@ -1,5 +1,5 @@
 const db = require('../db');
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, PermissionFlagsBits } = require('discord.js');
 
 const bankCmd        = require('./bank');
 const shopCmd        = require('./shop');
@@ -12,16 +12,29 @@ const musicCmd       = require('./music');
 const progressionCmd = require('./progression');
 const payCmd         = require('./pay');
 const testingCmd     = require('./testing');
+const warnCmd        = require('./warn');
+const clanCmd        = require('./clan');
+const huntCmd        = require('./hunt');
+const gearCmd        = require('./gear');
 const taskService    = require('../services/taskService');
 const progressionService = require('../services/progressionService');
 const disabledCommandsService = require('../services/disabledCommandsService');
+const ownerOpsService = require('../services/ownerOpsService');
+const qaAccessService = require('../services/qaAccessService');
+const manualCmd = require('./manual');
 
 // ── Command normalization / aliases ──────────────────────────
 
 const COMMAND_ALIAS_TO_CANONICAL = {
     help: 'help',
+    man: 'man',
+    manual: 'man',
     command: 'commands',
     commands: 'commands',
+    owner: 'owner',
+    enableqa: 'enableqa',
+    disableqa: 'disableqa',
+    qalist: 'qalist',
 
     b: 'bank',
     bank: 'bank',
@@ -31,12 +44,23 @@ const COMMAND_ALIAS_TO_CANONICAL = {
 
     ping: 'ping',
     play: 'play',
+    song: 'song',
     pay: 'pay',
+    give: 'give',
     specialty: 'specialty',
     prestige: 'prestige',
     rebirth: 'rebirth',
     setlevel: 'setlevel',
     setxp: 'setxp',
+    warn: 'warn',
+    warning: 'warn',
+    removewarning: 'removewarning',
+    unwarn: 'removewarning',
+    reblacklist: 'reblacklist',
+    removeblacklist: 'reblacklist',
+    clan: 'clan',
+    hunt: 'hunt',
+    gear: 'gear',
 
     p: 'profile',
     profile: 'profile',
@@ -51,6 +75,7 @@ const COMMAND_ALIAS_TO_CANONICAL = {
     a: 'permission',
     da: 'permission',
 
+    c: 'convert',
     convert: 'convert',
     showbanklog: 'showbanklog',
     log: 'log',
@@ -60,10 +85,47 @@ const COMMAND_ALIAS_TO_CANONICAL = {
     logcommandsreset: 'logcommandsreset',
     reseteverything: 'reseteverything',
     disablecommand: 'disablecommand',
-    enablecommand: 'enablecommand'
+    enablecommand: 'enablecommand',
+    disableallcommands: 'disableallcommands',
+    enableallcommands: 'enableallcommands',
+
+    shutdown: 'shutdown',
+    restart: 'restart',
+    update: 'update',
+    status: 'status',
+    eval: 'eval',
+    exportdb: 'exportdb',
+    importdb: 'importdb',
+    resetuser: 'resetuser',
+    transferall: 'transferall',
+    alert: 'alert',
+    simulate: 'simulate',
+    forceprestige: 'forceprestige',
+    forcerebirth: 'forcerebirth',
+    forcerrebirth: 'forcerebirth',
+    giveall: 'giveall',
+    viewlogs: 'viewlogs',
+    clearspecificlog: 'clearspecificlog',
+    reloadcommand: 'reloadcommand',
+    togglefeature: 'togglefeature'
 };
 
-const PROTECTED_COMMANDS = new Set(['disablecommand', 'enablecommand', 'reseteverything']);
+const PROTECTED_COMMANDS = new Set([
+    'disablecommand',
+    'enablecommand',
+    'disableallcommands',
+    'enableallcommands',
+    'enableqa',
+    'disableqa',
+    'qalist',
+    'owner',
+    'status',
+    'eval',
+    'shutdown',
+    'restart',
+    'update',
+    'reseteverything'
+]);
 
 function normalizeCommandName(input) {
     const key = String(input || '').trim().toLowerCase();
@@ -80,23 +142,53 @@ function canManageCommandState(userId, OWNER_ID) {
     return userId === OWNER_ID;
 }
 
+const PUBLIC_COMMANDS = new Set([
+    'help', 'man',
+    'ping', 'play', 'song', 'profile', 'tasks', 'leaderboard', 'convert', 'clan', 'hunt', 'gear'
+]);
+
+const AUTHORIZED_OR_ADMIN_COMMANDS = new Set(['commands']);
+
+const AUTHORIZED_COMMANDS = new Set([
+    'bank', 'shop',
+    'pay', 'give',
+    'specialty', 'prestige', 'rebirth',
+    'setlevel', 'setxp',
+    'log', 'logtransaction', 'logcommands'
+]);
+
+const OWNER_ONLY_NON_ADVANCED_COMMANDS = new Set([
+    'owner',
+    'permission',
+    'showbanklog',
+    'logtransactionreset',
+    'logcommandsreset',
+    'reseteverything',
+    'disablecommand',
+    'enablecommand',
+    'disableallcommands',
+    'enableallcommands',
+    'enableqa',
+    'disableqa',
+    'qalist'
+]);
+
 // ── Help ──────────────────────────────────────────────────────
 
 async function showHelp(message) {
     try {
         const embed = new EmbedBuilder()
             .setColor('#FFD700')
-            .setTitle('📖 **ArabastaBot Commands | أوامر البوت**')
+            .setTitle('📖 **Public Commands | الأوامر العامة**')
+            .setDescription('Available to everyone | متاحة للجميع')
             .addFields(
-                { name: '👤 Profile | الملف الشخصي', value: '`%p` أو `%profile` [@user] — عرض الملف الشخصي', inline: false },
-                { name: '🏆 Rankings | المتصدرين',   value: '`%lb` أو `%leaderboard` [xp|gold|gems|honor] — أفضل 10', inline: false },
-                { name: '🛍️ Shop | المتجر',          value: '`%s` أو `%shop` — فتح المتجر (للمصرّح لهم)', inline: false },
-                { name: '💰 Bank | البنك',            value: '`%b` أو `%bank` — فتح البنك (للمصرّح لهم)', inline: false },
-                { name: '🗓️ Tasks | المهام',          value: '`%t` أو `%task` — تقدم المهام اليومية', inline: false },
-                { name: '🎵 Music | الموسيقى',        value: '`%play` [query] — تشغيل/إضافة للأغاني مع أزرار تحكم (Pause/Skip/Stop/Queue)', inline: false },
-                { name: '🧭 Progression | التقدم',     value: '`%specialty <name>` — لوحة اختيار التخصص\n`%prestige` — لوحة الانتقال\n`%rebirth` — لوحة إعادة الولادة', inline: false },
-                { name: '🧪 Testing | الاختبار',        value: '`%setlevel @user <value>` — ضبط المستوى للاختبار (Owner/Authorized)\n`%setxp @user <value>` — ضبط XP تحت حد المستوى الحالي', inline: false },
-                { name: '🔧 Utility | أدوات',         value: '`%ping` — التحقق من البوت\n`%convert` [@user] — تحويل لوحة المفاتيح', inline: false }
+                { name: '👤 Profile | الملف الشخصي', value: '`%p` / `%profile` [@user] — Show profile | عرض الملف الشخصي', inline: false },
+                { name: '🏆 Leaderboard | المتصدرين', value: '`%lb` / `%leaderboard` [xp|gold|gems|honor] — Top rankings | أفضل المتصدرين', inline: false },
+                { name: '🗓️ Tasks | المهام', value: '`%t` / `%task` / `%tasks` — Daily progress | تقدم المهام اليومية', inline: false },
+                { name: '🧩 Gameplay | اللعب', value: '`%clan` — Clan system | نظام الكلان\n`%hunt forest|lake` — Hunt runs | جولات الصيد\n`%gear status` — Gear management | إدارة العتاد', inline: false },
+                { name: '🎵 Music | الموسيقى', value: '`%play <query>` — Play/queue music | تشغيل/إضافة أغاني\n`%song <query>` — Get YouTube URL only | جلب رابط يوتيوب فقط', inline: false },
+                { name: '🔧 Utility | أدوات', value: '`%ping` — Ping bot | التحقق من البوت\n`%convert` [@user] — Keyboard convert | تحويل لوحة المفاتيح', inline: false },
+                { name: '🔐 Restricted Menus | قوائم الصلاحيات', value: '`%command` — Authorized/Admin commands | أوامر المصرّح لهم/الإداريين\n`%owner` — Owner-only commands | أوامر المالك فقط', inline: false }
             )
             .setFooter({ text: 'ArabastaBot | وزارة المالية • مملكة أراباستا' })
             .setTimestamp();
@@ -108,50 +200,73 @@ async function showHelp(message) {
     }
 }
 
-async function showAllCommands(message, OWNER_ID) {
+async function showAuthorizedCommands(message, OWNER_ID) {
     try {
         const isOwner = message.author.id === OWNER_ID;
         const authorized = await db.getAuthorizedUsers();
-        const isAdmin = isOwner || authorized.has(message.author.id);
+        const isAuthorized = isOwner || authorized.has(message.author.id);
+        const isServerAdmin = message.member?.permissions?.has?.(PermissionFlagsBits.Administrator) || false;
+
+        if (!isAuthorized && !isServerAdmin) {
+            return message.reply('❌ هذا الأمر للمصرّح لهم أو الإداريين فقط. | This command is only for authorized users or server admins.').catch(() => {});
+        }
 
         const embed = new EmbedBuilder()
             .setColor('#FFD700')
-            .setTitle('📖 **ArabastaBot — All Commands | جميع الأوامر**')
+            .setTitle('�️ **Authorized/Admin Commands | أوامر المصرّح لهم والإداريين**')
             .addFields(
-                { name: '👤 Profile | الملف الشخصي', value: '`%p` / `%profile` [@user]\n`%lb` / `%leaderboard` [xp|gold|gems|honor]', inline: false },
-                { name: '🛍️ Shop | المتجر',           value: '`%s` / `%shop` — المتجر (للمصرّح لهم فقط)', inline: false },
-                { name: '💰 Bank | البنك',             value: '`%b` / `%bank` — البنك (للمصرّح لهم فقط)', inline: false },
-                { name: '🗓️ Tasks | المهام',          value: '`%t` / `%task` / `%tasks` — عرض تقدم المهام اليومية', inline: false },
-                { name: '🎵 Music | الموسيقى',        value: '`%play` [query] — play or queue YouTube tracks with button controls', inline: false },
-                { name: '🧭 Progression | التقدم',     value: '`%specialty <name>`\n`%prestige <route>`\n`%rebirth <route>`', inline: false },
-                { name: '💸 Pay | التحويل اليدوي',      value: '`%pay gold|gems|honor @user <amount>` — transfer and require approver confirmation', inline: false },
-                { name: '🧪 Testing',                 value: '`%setlevel @user <value>`\n`%setxp @user <value>` (Owner/Authorized)', inline: false },
-                { name: '🔧 Utility | أدوات',          value: '`%ping` `%help` `%command` `%commands` `%convert` [@user]', inline: false }
+                { name: '� Bank/Shop | البنك/المتجر', value: '`%b` / `%bank`\n`%s` / `%shop`', inline: false },
+                { name: '� Transfers | التحويلات', value: '`%pay gold|gems|honor @user <amount>` — Manual pay flow\n`%give gold|gems|honor @user <amount>` — Bank give + claim', inline: false },
+                { name: '🧭 Progression | التقدم', value: '`%specialty <name>`\n`%prestige <route>`\n`%rebirth <route>`', inline: false },
+                { name: '🧩 Gameplay | اللعب', value: '`%clan`\n`%clan admincreate <@Leader> <@Deputy> "Clan Name" <@Member3> ...`\n`%hunt forest|lake|valley|maze`\n`%gear status`', inline: false },
+                { name: '🧪 Testing | الاختبار', value: '`%setlevel @user <value>`\n`%setxp @user <value>`', inline: false },
+                { name: '📜 Logs | السجلات', value: '`%log`\n`%logtransaction`\n`%logcommands`', inline: false }
             );
 
-        if (isAdmin) {
+        if (isAuthorized || isServerAdmin) {
             embed.addFields({
-                name: '🛡️ Admin Commands | أوامر الإدارة',
-                value: '`%a @user` — منح الصلاحية الخاصة | Grant special authorization\n`%da @user` — سحب الصلاحية الخاصة | Revoke special authorization\n`%log` — سجل تحويل العملات\n`%logtransaction` — Gold transaction log\n`%logcommands` — Command usage log',
+                name: 'ℹ️ Access Note | ملاحظة الصلاحيات',
+                value: 'Some commands may still enforce owner/%a checks at execution time depending on server policy.\nبعض الأوامر قد تتحقق من صلاحية المالك/%a أثناء التنفيذ حسب سياسة السيرفر.',
                 inline: false
             });
         }
 
-        if (isOwner) {
-            embed.addFields({
-                name: '👑 Owner Commands | أوامر المالك',
-                value: '`%showbanklog` — سجل البنك الكامل\n`%logtransactionreset` — reset transaction log\n`%logcommandsreset` — reset command log\n`%disablecommand <name>` — تعطيل أمر\n`%enablecommand <name>` — تفعيل أمر\n`%reseteverything` — إعادة تعيين جميع المستخدمين',
-                inline: false
-            });
-        }
-
-        embed.setFooter({ text: isOwner ? '👑 You are the owner | أنت المالك' : 'Contact owner for admin access' })
+        embed.setFooter({ text: isOwner ? '👑 Owner view | عرض المالك' : 'Authorized/Admin view | عرض المصرّح/الإداري' })
              .setTimestamp();
 
         return message.reply({ embeds: [embed] });
     } catch (err) {
-        console.error('showAllCommands error:', err);
+        console.error('showAuthorizedCommands error:', err);
         return message.reply('❌ Error displaying commands.').catch(() => {});
+    }
+}
+
+async function showOwnerCommands(message, OWNER_ID) {
+    try {
+        if (message.author.id !== OWNER_ID) return;
+
+        const embed = new EmbedBuilder()
+            .setColor('#FFD700')
+            .setTitle('👑 **Owner Commands | أوامر المالك**')
+            .addFields(
+                {
+                    name: '✅ Implemented | متاح حالياً',
+                    value: '`%a @user` — Grant authorization\n`%da @user` — Revoke authorization\n`%enableqa @user` `%disableqa @user` `%qalist`\n`%showbanklog`\n`%logtransactionreset`\n`%logcommandsreset`\n`%disablecommand <name>`\n`%enablecommand <name>`\n`%disableallcommands`\n`%enableallcommands`\n`%reseteverything`',
+                    inline: false
+                },
+                {
+                    name: '🛠️ Advanced Owner Ops | أوامر المالك المتقدمة',
+                    value: '`%status` `%eval` `%shutdown` `%restart` `%update`\n`%exportdb` `%importdb` `%resetuser` `%transferall`\n`%alert` `%simulate` `%forceprestige` `%forcerebirth` `%giveall`\n`%viewlogs` `%clearspecificlog` `%reloadcommand` `%togglefeature`',
+                    inline: false
+                }
+            )
+            .setFooter({ text: 'Owner-only menu (silent to non-owner) | قائمة المالك فقط' })
+            .setTimestamp();
+
+        return message.reply({ embeds: [embed] });
+    } catch (err) {
+        console.error('showOwnerCommands error:', err);
+        return message.reply('❌ Error displaying owner commands.').catch(() => {});
     }
 }
 
@@ -184,6 +299,28 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
             return authorized.has(message.author.id);
         };
 
+        const canAccessCommandManual = async (targetCommandName) => {
+            const normalizedTarget = normalizeCommandName(targetCommandName);
+
+            if (PUBLIC_COMMANDS.has(normalizedTarget)) return true;
+            if (AUTHORIZED_OR_ADMIN_COMMANDS.has(normalizedTarget)) {
+                const isServerAdmin = message.member?.permissions?.has?.(PermissionFlagsBits.Administrator) || false;
+                return isServerAdmin || await isAuthorizedUser();
+            }
+            if (AUTHORIZED_COMMANDS.has(normalizedTarget)) return await isAuthorizedUser();
+            if (OWNER_ONLY_NON_ADVANCED_COMMANDS.has(normalizedTarget)) return isOwner;
+
+            if (ownerOpsService.isAdvancedOwnerCommand(normalizedTarget)) {
+                return ownerOpsService.canUseAdvancedOwnerCommand({
+                    userId: message.author.id,
+                    ownerId: OWNER_ID,
+                    commandName: normalizedTarget
+                });
+            }
+
+            return false;
+        };
+
         // Persistent command log (last 100)
         await db.logCommandUsage({
             userId: message.author.id,
@@ -198,19 +335,104 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
         });
 
         // Block disabled commands before execution
+        if (!PROTECTED_COMMANDS.has(commandName) && disabledCommandsService.isAllCommandsDisabled()) {
+            return message.reply('All commands are currently disabled by owner control.').catch(() => {});
+        }
+
         if (disabledCommandsService.isCommandDisabled(commandName)) {
             return message.reply('This command is currently disabled.').catch(() => {});
         }
+
+        const handledByOwnerOps = await ownerOpsService.handleOwnerAdvancedCommand({
+            client,
+            message,
+            commandName,
+            args,
+            ownerId: OWNER_ID
+        });
+        if (handledByOwnerOps) return;
 
         switch (rawCommand) {
 
             case 'help':
                 return await showHelp(message);
 
+            case 'man': {
+                const targetRaw = String(args?.[0] || '').trim().toLowerCase();
+                if (!targetRaw) {
+                    return message.reply('Usage: `%man <command>`').catch(() => {});
+                }
+
+                const targetCommand = normalizeCommandName(targetRaw);
+                const manual = manualCmd.getManual(targetCommand);
+
+                if (!manual) {
+                    return message.reply('❌ No manual found for that command.').catch(() => {});
+                }
+
+                const canView = await canAccessCommandManual(targetCommand);
+                if (!canView) {
+                    return message.reply('❌ You cannot view this command manual.').catch(() => {});
+                }
+
+                const embed = manualCmd.buildManualEmbed({
+                    commandName: targetCommand,
+                    manual,
+                    requesterTag: message.author.tag
+                });
+                return message.reply({ embeds: [embed] }).catch(() => {});
+            }
+
             case 'command':
             case 'commands':
             case '':
-                return await showAllCommands(message, OWNER_ID);
+                return await showAuthorizedCommands(message, OWNER_ID);
+
+            case 'owner':
+                return await showOwnerCommands(message, OWNER_ID);
+
+            case 'enableqa': {
+                if (!isOwner) return;
+                const userId = qaAccessService.normalizeUserId(args?.[0]);
+                if (!userId) {
+                    return message.reply('Usage: `%enableqa @user`').catch(() => {});
+                }
+
+                const result = await qaAccessService.addQAUser(userId);
+                if (!result.ok) {
+                    return message.reply('❌ Invalid user id.').catch(() => {});
+                }
+
+                return message.reply(result.added
+                    ? `✅ QA enabled for <@${userId}>.`
+                    : `ℹ️ <@${userId}> is already QA.`).catch(() => {});
+            }
+
+            case 'disableqa': {
+                if (!isOwner) return;
+                const userId = qaAccessService.normalizeUserId(args?.[0]);
+                if (!userId) {
+                    return message.reply('Usage: `%disableqa @user`').catch(() => {});
+                }
+
+                const result = await qaAccessService.removeQAUser(userId);
+                if (!result.ok) {
+                    return message.reply('❌ Invalid user id.').catch(() => {});
+                }
+
+                return message.reply(result.removed
+                    ? `✅ QA disabled for <@${userId}>.`
+                    : `ℹ️ <@${userId}> was not in QA list.`).catch(() => {});
+            }
+
+            case 'qalist': {
+                if (!isOwner) return;
+                const users = await qaAccessService.listQAUsers();
+                if (!users.length) {
+                    return message.reply('📋 QA list is empty.').catch(() => {});
+                }
+                return message.reply(`📋 QA Users:\n${users.map((id) => `• <@${id}>`).join('\n')}`).catch(() => {});
+            }
 
             case 'b':
             case 'bank':
@@ -226,8 +448,23 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
             case 'play':
                 return await musicCmd.play(message, args);
 
+            case 'song':
+                return await musicCmd.song(message, args);
+
             case 'pay':
                 return await payCmd.pay(message, args, OWNER_ID);
+
+            case 'give':
+                return await payCmd.give(message, args, OWNER_ID);
+
+            case 'clan':
+                return await clanCmd(message, args);
+
+            case 'hunt':
+                return await huntCmd(message, args);
+
+            case 'gear':
+                return await gearCmd(message, args);
 
                 case 'specialty':
                 {
@@ -270,6 +507,18 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
                     return await testingCmd.setXp(message, args);
                 }
 
+                case 'warn':
+                case 'warning':
+                    return await warnCmd.warn(message, args);
+
+                case 'removewarning':
+                case 'unwarn':
+                    return await warnCmd.removeWarning(message, args);
+
+                case 'reblacklist':
+                case 'removeblacklist':
+                    return await warnCmd.reblacklist(message, args);
+
             case 'p':
             case 'profile':
                 return await profileCmd(message, args);
@@ -287,6 +536,7 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
             case 'da':
                 return await permissionCmd.handlePermission(message, cmd, args, OWNER_ID);
 
+            case 'c':
             case 'convert':
                 return await convertCmd(message, args);
 
@@ -494,6 +744,26 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
 
                 disabledCommandsService.enableCommand(target);
                 return message.reply(`✅ Command \`%${target}\` has been enabled.`).catch(() => {});
+            }
+
+            case 'disableallcommands': {
+                const canManage = canManageCommandState(message.author.id, OWNER_ID);
+                if (!canManage) {
+                    return;
+                }
+
+                disabledCommandsService.disableAllCommandsGlobally();
+                return message.reply('✅ Global command lock enabled.').catch(() => {});
+            }
+
+            case 'enableallcommands': {
+                const canManage = canManageCommandState(message.author.id, OWNER_ID);
+                if (!canManage) {
+                    return;
+                }
+
+                disabledCommandsService.enableAllCommandsGlobally();
+                return message.reply('✅ Global command lock disabled.').catch(() => {});
             }
 
             default:

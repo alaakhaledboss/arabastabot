@@ -10,6 +10,8 @@ const rewardService = require('./services/rewardService');
 const taskService = require('./services/taskService');
 const progressionService = require('./services/progressionService');
 const restartGuardService = require('./services/restartGuardService');
+const moderationService = require('./services/moderationService');
+const clanService = require('./services/clanService');
 
 const client = new Client({
     intents: [
@@ -28,6 +30,7 @@ const ACTIVE_HEARTBEAT_INTERVAL_MS = 10 * 60 * 1000;
 // Background cleanup interval (ms)
 const GIF_CLEANUP_INTERVAL_MS = 60 * 1000; // run every 60s
 const VOICE_PROGRESS_TICK_MS = 30 * 1000;  // award voice task progress every 30s
+const BLACKLIST_CHECK_INTERVAL_MS = 60 * 1000;
 
 // Lazy require of shopService to avoid circular dependency at module load
 const shopService = require('./services/shopService');
@@ -165,7 +168,7 @@ async function sendActiveHeartbeat() {
         return;
     }
 
-    await channel.send(`🔔 <@${OWNER_ID}> Bot is active.\n🔔 <@${OWNER_ID}> البوت شغال.`).catch((err) => {
+    await channel.send(`🔔 <@${OWNER_ID}> Bot is active.\n🔔 <@${OWNER_ID}> البوت شغال.\n────────────────────────`).catch((err) => {
         console.error('[active-heartbeat] Failed to send active message:', err?.message || err);
     });
 }
@@ -218,6 +221,22 @@ client.on('clientReady', () => {
 });
 
 client.on('clientReady', () => {
+    console.log('Starting blacklist expiry checker...');
+    setInterval(() => {
+        moderationService.checkExpiredBlacklists(client);
+    }, BLACKLIST_CHECK_INTERVAL_MS);
+});
+
+client.on('clientReady', () => {
+    console.log('Starting clan maintenance checker...');
+    setInterval(() => {
+        clanService.runClanMaintenance(client).catch((err) => {
+            console.error('clan maintenance error:', err);
+        });
+    }, 60 * 60 * 1000);
+});
+
+client.on('clientReady', () => {
     startActiveHeartbeatScheduler();
 });
 
@@ -233,8 +252,9 @@ client.on('guildMemberAdd', async (member) => {
     }
 });
 
-client.on('guildMemberUpdate', async (_, newMember) => {
+client.on('guildMemberUpdate', async (oldMember, newMember) => {
     try {
+        await moderationService.handleManualRemoval(oldMember, newMember);
         await progressionService.syncMemberState(newMember, { allowRestoreFromDb: false });
     } catch (err) {
         console.error('guildMemberUpdate progression sync error:', err);
@@ -264,7 +284,17 @@ client.on('interactionCreate', async (interaction) => {
 client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
 
+    try {
+        const user = await db.getUser(message.author.id);
+        user.lastActiveAt = Date.now();
+        await db.saveUser(user);
+    } catch (err) {
+        console.error('lastActiveAt update error:', err);
+    }
+
     const content = message.content.trim();
+    const shouldCountForProgression = !content.startsWith('# ');
+
     const isCommandMessage = content.startsWith('%');
 
     if (content.startsWith('السلام')) {
@@ -300,7 +330,9 @@ client.on('messageCreate', async (message) => {
     };
 
     if (isCommandMessage) {
-        void runMessageProgression();
+        if (shouldCountForProgression) {
+            void runMessageProgression();
+        }
 
         const args = content.slice(1).split(/ +/);
         const cmd = args.shift().toLowerCase();
@@ -314,7 +346,9 @@ client.on('messageCreate', async (message) => {
         return;
     }
 
-    await runMessageProgression();
+    if (shouldCountForProgression) {
+        await runMessageProgression();
+    }
 });
 
 // ── start ─────────────────────────────────────────────────────

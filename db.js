@@ -72,6 +72,7 @@ const DEFAULT_USER = {
     monthly_gems_to_honor: 0,
     conversion_month: '',
     last_reward_time: 0,
+    lastActiveAt: 0,
     daily_gold_earned: 0,
     last_daily_reset: 0,
     bank_access: false,
@@ -97,6 +98,45 @@ const DEFAULT_USER = {
     prestigeCount: 0,
     rebirthCount: 0,
     pendingFinalRestoreRoute: '',
+
+    gearInventory: {
+        helmet: [],
+        chest: [],
+        pants: [],
+        shoes: [],
+        weapon: [],
+        shield: []
+    },
+    gearEquipment: {
+        helmet: null,
+        chest: null,
+        pants: null,
+        shoes: null,
+        weapon: null,
+        shield: null
+    },
+    materials: {},
+    hunting: {
+        lastHuntAt: 0,
+        cooldownUntil: 0,
+        history: []
+    },
+    clan: {
+        id: null,
+        role: null,
+        joinedAt: 0,
+        contribution: 0
+    },
+    monthly_gif_buys: 0,
+    gif_expires: 0,
+    gif_month: '',
+
+    // Moderation
+    warnings: 0,
+    blacklist: {
+        active: false,
+        expiresAt: 0
+    },
 
     // Future slots (not active yet)
     task_weekly: { slots: {} },
@@ -167,6 +207,34 @@ async function getUser(userId) {
     if (user.prestigeCount === undefined) user.prestigeCount = user.prestigeRoles.length || 0;
     if (user.rebirthCount === undefined) user.rebirthCount = 0;
     if (user.pendingFinalRestoreRoute === undefined) user.pendingFinalRestoreRoute = '';
+    if (user.lastActiveAt === undefined) user.lastActiveAt = 0;
+    if (!user.gearInventory || typeof user.gearInventory !== 'object') {
+        user.gearInventory = { helmet: [], chest: [], pants: [], shoes: [], weapon: [], shield: [] };
+    }
+    if (!user.gearEquipment || typeof user.gearEquipment !== 'object') {
+        user.gearEquipment = { helmet: null, chest: null, pants: null, shoes: null, weapon: null, shield: null };
+    }
+    if (!user.materials || typeof user.materials !== 'object') user.materials = {};
+    if (!user.hunting || typeof user.hunting !== 'object') {
+        user.hunting = { lastHuntAt: 0, cooldownUntil: 0, history: [] };
+    }
+    if (!Array.isArray(user.hunting.history)) user.hunting.history = [];
+    if (!user.clan || typeof user.clan !== 'object') {
+        user.clan = { id: null, role: null, joinedAt: 0, contribution: 0 };
+    }
+    if (user.clan.id === undefined) user.clan.id = null;
+    if (user.clan.role === undefined) user.clan.role = null;
+    if (user.clan.joinedAt === undefined) user.clan.joinedAt = 0;
+    if (user.clan.contribution === undefined) user.clan.contribution = 0;
+    if (user.monthly_gif_buys === undefined) user.monthly_gif_buys = 0;
+    if (user.gif_expires === undefined) user.gif_expires = 0;
+    if (user.gif_month === undefined) user.gif_month = '';
+    if (user.warnings === undefined) user.warnings = 0;
+    if (!user.blacklist || typeof user.blacklist !== 'object') {
+        user.blacklist = { active: false, expiresAt: 0 };
+    }
+    if (user.blacklist.active === undefined) user.blacklist.active = false;
+    if (user.blacklist.expiresAt === undefined) user.blacklist.expiresAt = 0;
     // Remove credit field if it exists (migration)
     if (user.credit !== undefined) delete user.credit;
 

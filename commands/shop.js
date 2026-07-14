@@ -1,9 +1,11 @@
+const path = require('path');
 const { ActionRowBuilder, ButtonBuilder, EmbedBuilder } = require('discord.js');
 const db = require('../db');
 const { COLORS, BUTTON_STYLES, EMOJIS, FOOTER_TEXT, formatError } = require('../utils/uiConstants');
 
 module.exports = async function (message, OWNER_ID) {
     try {
+        const shopImagePath = path.join(__dirname, '..', 'images', '%shop.png');
         const authorized = await db.getAuthorizedUsers();
         const isOwner    = message.author.id === OWNER_ID;
 
@@ -20,8 +22,9 @@ module.exports = async function (message, OWNER_ID) {
                 `> **${EMOJIS.GOLD} ذهب Gold** — يُكسب بالمحادثة | Earned by chatting\n` +
                 `> **${EMOJIS.GEMS} جواهر Gems** — عملة نادرة | Rare currency\n` +
                 `> **${EMOJIS.HONOR} شرف Honor** — عملة المكانة | Prestige currency\n` +
-                `> **${EMOJIS.CREDIT} رصيد Credit** — رصيد بروبوت | ProBot credit`
+                `> **${EMOJIS.CREDIT} كريديت Credit** — كريديت بروبوت | ProBot credit`
             )
+            .setImage('attachment://shop.png')
             .setFooter({ text: FOOTER_TEXT })
             .setTimestamp();
 
@@ -47,11 +50,15 @@ module.exports = async function (message, OWNER_ID) {
                 .setStyle(BUTTON_STYLES.SECONDARY),
             new ButtonBuilder()
                 .setCustomId(`shop:gold_credit:0:${message.author.id}`)
-                .setLabel(`${EMOJIS.CREDIT} ذهب → رصيد | Gold → Credit`)
+                .setLabel(`${EMOJIS.CREDIT} ذهب إلى كريديت | Gold to Credit`)
                 .setStyle(BUTTON_STYLES.SECONDARY)
         );
 
-        return message.channel.send({ embeds: [embed], components: [row1, row2] });
+        return message.channel.send({
+            embeds: [embed],
+            components: [row1, row2],
+            files: [{ attachment: shopImagePath, name: 'shop.png' }]
+        });
     } catch (err) {
         console.error('shop command error:', err);
         return message.channel.send(formatError('خطأ في تحميل المتجر.', 'Error loading shop.')).catch(() => {});

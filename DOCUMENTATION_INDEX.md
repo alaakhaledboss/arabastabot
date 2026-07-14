@@ -8,6 +8,14 @@
 
 ## 📖 Documentation Files
 
+### Bot Operations Manual
+0. **`BOT_MANUAL.md`** 🧭
+   - Full architecture and runtime flow
+   - Command/access model and data storage
+   - Operational jobs, owner/QA controls
+   - Recommended reading path for humans and AI agents
+   - **Use this as the main context manual**
+
 ### Quick Start
 1. **`COMPLETION_SUMMARY.md`** 📊
    - High-level overview of all changes

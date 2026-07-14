@@ -28,6 +28,11 @@ module.exports = async function (interaction) {
             return await payService.handleConfirmInteraction(interaction);
         }
 
+        // ── Manual give claim buttons ───────────────────────
+        if (system === 'give') {
+            return await payService.handleGiveClaimInteraction(interaction);
+        }
+
         // ── Progression buttons ───────────────────────────────
         if (system === 'progression') {
             return await progressionService.handleButtonInteraction(interaction);

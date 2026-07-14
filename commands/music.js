@@ -92,6 +92,33 @@ async function play(message, args) {
     }
 }
 
+async function song(message, args) {
+    try {
+        const query = (args || []).join(' ').trim();
+
+        if (!query) {
+            return message.reply('Usage: `%song <search query or YouTube URL>`');
+        }
+
+        const track = await musicService.searchYouTubeFirst(query);
+        if (!track?.url) {
+            return message.reply('No results found on YouTube for your query.');
+        }
+
+        return message.reply(track.url);
+    } catch (err) {
+        if (err.message === 'SEARCH_FAILED') {
+            console.warn('[music] %song search failed after all providers.');
+            return message.reply('Could not search YouTube right now (provider issue). Please try again in a moment.');
+        }
+
+        console.error('[music] %song error:', err);
+
+        return message.reply('Failed to find a song URL. Please try again.');
+    }
+}
+
 module.exports = {
-    play
+    play,
+    song
 };

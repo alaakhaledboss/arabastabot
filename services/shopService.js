@@ -34,11 +34,11 @@ const BANK_CATEGORY_ID = '1258935899031601243';
 //  COLOR CONFIG
 // ════════════════════════════════════════════════════════════════
 
-const DEFAULT_COLOR_PRICE = 2000;
+const DEFAULT_COLOR_PRICE = 5000;
 
 const ROLE_COLOR_PRICES = {
-    22: 5000,
-    24: 10000
+    22: 15000,
+    24: 20000
 };
 
 const COLOR_HEX_MAP = {
@@ -184,6 +184,14 @@ function getCurrentAccessRole(member) {
     return { config: currentConfig, level: currentLevel };
 }
 
+function formatAccessPriceCompact(price) {
+    const parts = [];
+    if ((price.gold || 0) > 0) parts.push(`${price.gold.toLocaleString()} ذهب`);
+    if ((price.gems || 0) > 0) parts.push(`${price.gems} جواهر`);
+    if ((price.honor || 0) > 0) parts.push(`${price.honor} شرف`);
+    return parts.join(' + ') || 'مجاني';
+}
+
 // ════════════════════════════════════════════════════════════════
 //  MODAL BUILDERS (for currency exchange + gold→credit)
 // ════════════════════════════════════════════════════════════════
@@ -191,7 +199,7 @@ function getCurrentAccessRole(member) {
 function createGoldCreditModal(userId) {
     const modal = new ModalBuilder()
         .setCustomId(`gold_credit:amount:${userId}`)
-        .setTitle(`${EMOJIS.CREDIT} ذهب → رصيد | Gold → Credit`);
+        .setTitle(`${EMOJIS.CREDIT} ذهب إلى كريديت | Gold to Credit`);
 
     const input = new TextInputBuilder()
         .setCustomId('amount')
@@ -269,7 +277,7 @@ async function showBag(interaction) {
                 createCurrencyField(`${EMOJIS.GOLD} ذهب | Gold`, (user.gold / 10).toLocaleString(), '', true),
                 createCurrencyField(`${EMOJIS.GEMS} جواهر | Gems`, user.gems, '', true),
                 createCurrencyField(`${EMOJIS.HONOR} شرف | Honor`, user.honor, '', true),
-                createCurrencyField(`${EMOJIS.CREDIT} رصيد | Credit`, (user.credit || 0).toLocaleString(), '', true),
+                createCurrencyField(`${EMOJIS.CREDIT} كريديت | Credit`, (user.credit || 0).toLocaleString(), '', true),
                 createCurrencyField(`${EMOJIS.XP} XP`, user.xp, '', true),
                 createCurrencyField(`${EMOJIS.LEVEL} المستوى | Level`, user.level, '', true),
                 createCurrencyField('💱 ذهب→جواهر هذا الشهر', `**${user.monthly_gold_to_gems || 0}/10**`, '', true),
@@ -306,11 +314,11 @@ async function showProducts(interaction) {
         const row = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
                 .setCustomId(`shop:color_menu:0:${interaction.user.id}`)
-                .setLabel(`${EMOJIS.COLOR} لون الرتبة | Role Color`)
+                .setLabel(`${EMOJIS.COLOR} رتب اللون | Color Roles`)
                 .setStyle(BUTTON_STYLES.PRIMARY),
             new ButtonBuilder()
                 .setCustomId(`shop:access_menu:0:${interaction.user.id}`)
-                .setLabel(`${EMOJIS.ACCESS} صلاحية الرتبة | Role Access`)
+                .setLabel(`الرتب المميزة | Special Roles`)
                 .setStyle(BUTTON_STYLES.SUCCESS)
         );
 
@@ -350,7 +358,7 @@ async function showColorMenu(interaction) {
 
         const embed = new EmbedBuilder()
             .setColor(COLORS.SHOP)
-            .setTitle(`${EMOJIS.COLOR} **ألوان الرتب | Role Colors**`)
+            .setTitle(`${EMOJIS.COLOR} **رتب اللون | Color Roles**`)
             .setDescription(
                 `اختر اللون من القائمة أدناه.\nSelect a color from the dropdown.\n\n` +
                 lines.join('\n')
@@ -470,27 +478,32 @@ async function showAccessMenu(interaction) {
         const member = interaction.member;
         const { level: currentLevel } = getCurrentAccessRole(member);
 
-        const options = ROLE_ACCESS_CONFIG.map(role => ({
-            label:       `${role.emoji || ''} ${role.label}`,
+        const displayRoles = [...ROLE_ACCESS_CONFIG].sort((a, b) => {
+            if (a.value === 'gif' && b.value !== 'gif') return -1;
+            if (b.value === 'gif' && a.value !== 'gif') return 1;
+            return a.level - b.level;
+        });
+
+        const options = displayRoles.map(role => ({
+            label:       role.label,
             value:       role.value,
-            description: role.description.replace(/\*\*/g, '')
+            description: formatAccessPriceCompact(role.price)
         }));
 
-        const lines = ROLE_ACCESS_CONFIG.map(r => {
+        const lines = displayRoles.map(r => {
             const isCurrent = member && getRoleId(r) && member.roles.cache.has(getRoleId(r));
             const canBuy    = r.level > currentLevel;
-            const status    = isCurrent ? ' ✅ **(لديك)**' : (!canBuy ? ' ❌ **(لا يمكن)**' : '');
-            return `${r.emoji || '•'} **${r.label}** — ${r.description}${status}`;
+            const status    = isCurrent ? ' (لديك حالياً)' : (!canBuy ? ' (غير متاح حالياً)' : '');
+            return `• ${r.label}${status}\n  السعر: ${formatAccessPriceCompact(r.price)}`;
         });
 
         const embed = new EmbedBuilder()
             .setColor(COLORS.ACCESS)
-            .setTitle(`${EMOJIS.ACCESS} **صلاحيات الرتب | Role Access**`)
+            .setTitle('الرتب المميزة | Special Roles')
             .setDescription(
-                '> الترتيب: VIP 2 → VIP 1 → مخمل → برجوازي\n' +
-                '> يمكنك الشراء فقط إلى رتبة **أعلى** من رتبتك الحالية.\n' +
-                '> You can only buy **higher** than your current role.\n\n' +
-                lines.join('\n')
+                'الترتيب: GIF → VIP 2 → VIP 1 → مخمل → برجوازي\n' +
+                'يمكنك شراء رتبة أعلى فقط من رتبتك الحالية.\n\n' +
+                lines.join('\n\n')
             )
             .setFooter({ text: FOOTER_TEXT })
             .setTimestamp();
@@ -498,7 +511,7 @@ async function showAccessMenu(interaction) {
         const row = new ActionRowBuilder().addComponents(
             new StringSelectMenuBuilder()
                 .setCustomId(`shop:buy_access:0:${interaction.user.id}`)
-                .setPlaceholder(`${EMOJIS.ACCESS} اختر رتبة — Pick a role...`)
+                .setPlaceholder('اختر رتبة مميزة | Choose a special role')
                 .addOptions(options)
         );
 
@@ -682,17 +695,31 @@ async function showCurrencyExchange(interaction) {
 
         const embed = new EmbedBuilder()
             .setColor(COLORS.ACCESS)
-            .setTitle(`${EMOJIS.EXCHANGE} **تحويل عملات | Currency Exchange**`)
+            .setTitle('تحويل العملات\nCurrency Exchange')
             .setDescription(
-                `**معدلات التحويل | Exchange Rates:**\n\n` +
-                `> ${EMOJIS.GOLD} → ${EMOJIS.GEMS} **1,000 ذهب = 1 جوهر** | 1000 gold = 1 gem\n` +
-                `> *(استخدمت ${usedGoldToGems}/10 جواهر هذا الشهر | Used ${usedGoldToGems}/10 gems this month)*\n\n` +
-                `> ${EMOJIS.GEMS} → ${EMOJIS.HONOR} **100 جوهر = 1 شرف** | 100 gems = 1 honor\n` +
-                `> *(استخدمت ${usedGemsToHonor}/10 شرف هذا الشهر | Used ${usedGemsToHonor}/10 honor this month)*\n\n` +
-                `**🔄 الحدود الشهرية | Monthly Limits:**\n` +
-                `> أقصى **10 جواهر** و **10 شرف** في الشهر الواحد.\n` +
-                `> Maximum **10 gems** and **10 honor** per month.\n` +
-                `> يُعاد التعيين في أول كل شهر. | Resets on the 1st of every month.`
+                `${EMOJIS.EXCHANGE}\n` +
+                `معدلات التحويل\n` +
+                `Exchange Rates\n\n` +
+                `${EMOJIS.GOLD} ${EMOJIS.GEMS}\n` +
+                `ذهب إلى جواهر\n` +
+                `Gold to Gems\n` +
+                `كل 1000 ذهب يعطي 1 جوهر\n` +
+                `Every 1000 gold gives 1 gem\n` +
+                `استخدمت هذا الشهر ${usedGoldToGems} من أصل 10\n` +
+                `Used this month ${usedGoldToGems} out of 10\n\n` +
+                `${EMOJIS.GEMS} ${EMOJIS.HONOR}\n` +
+                `جواهر إلى شرف\n` +
+                `Gems to Honor\n` +
+                `كل 100 جوهر يعطي 1 شرف\n` +
+                `Every 100 gems gives 1 honor\n` +
+                `استخدمت هذا الشهر ${usedGemsToHonor} من أصل 10\n` +
+                `Used this month ${usedGemsToHonor} out of 10\n\n` +
+                `الحدود الشهرية\n` +
+                `Monthly Limits\n` +
+                `الحد الأقصى 10 جواهر و10 شرف كل شهر\n` +
+                `Maximum 10 gems and 10 honor each month\n` +
+                `إعادة التعيين في أول كل شهر\n` +
+                `Resets on the first day of each month`
             )
             .addFields(
                 createCurrencyField(`${EMOJIS.GOLD} رصيدك الحالي`, (user.gold / 10).toLocaleString(), '', true),
@@ -704,12 +731,12 @@ async function showCurrencyExchange(interaction) {
         const row = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
                 .setCustomId(`shop:convert_to_gems:0:${interaction.user.id}`)
-                .setLabel(`${EMOJIS.GOLD} → ${EMOJIS.GEMS} ذهب → جواهر`)
+                .setLabel('Gold to Gems')
                 .setStyle(BUTTON_STYLES.PRIMARY)
                 .setDisabled(usedGoldToGems >= 10),
             new ButtonBuilder()
                 .setCustomId(`shop:convert_to_honor:0:${interaction.user.id}`)
-                .setLabel(`${EMOJIS.GEMS} → ${EMOJIS.HONOR} جواهر → شرف`)
+                .setLabel('Gems to Honor')
                 .setStyle(BUTTON_STYLES.SUCCESS)
                 .setDisabled(usedGemsToHonor >= 10)
         );
@@ -832,7 +859,7 @@ async function processGoldCredit(interaction, userId) {
 
         const embed = new EmbedBuilder()
             .setColor(COLORS.SUCCESS)
-            .setTitle(`${EMOJIS.GOLD} طلب تحويل ذهب → رصيد (يدوي)`)
+            .setTitle(`${EMOJIS.GOLD} طلب تحويل ذهب إلى كريديت (يدوي)`)
             .setDescription([
                 `المستخدم: <@${interaction.user.id}>`,
                 `الكمية المدفوعة: **${goldDisplay.toLocaleString()} ذهب**`,

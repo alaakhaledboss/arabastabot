@@ -1,6 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 const db = require('../db');
 const progressionService = require('../services/progressionService');
+const gearService = require('../services/gearService');
 const { COLORS, EMOJIS, FOOTER_TEXT, formatError } = require('../utils/uiConstants');
 
 module.exports = async (message, args) => {
@@ -12,7 +13,7 @@ module.exports = async (message, args) => {
             return message.reply(formatError('المستخدم غير موجود.', 'User not found.'));
         }
 
-        const user = await db.getUser(targetId);
+        const user = gearService.ensureGearFields(await db.getUser(targetId));
         const xpNeeded = 100 * user.level;
         const targetMember = message.guild
             ? await message.guild.members.fetch(targetId).catch(() => null)
@@ -21,6 +22,10 @@ module.exports = async (message, args) => {
         const routeText = routeInfo.route
             ? `${routeInfo.route} • ${routeInfo.levelName || 'unknown'}`
             : 'Not assigned';
+
+        const gearText = Object.entries(user.gearEquipment || {})
+            .map(([slot, item]) => `${slot}: ${item || '-'}`)
+            .join('\n');
 
         // simple ASCII-style progress bar
         const filled = Math.round((user.xp / xpNeeded) * 10);
@@ -36,7 +41,8 @@ module.exports = async (message, args) => {
                 { name: `${EMOJIS.XP} XP Progress`, value: `**${user.xp}** / ${xpNeeded}\n[${bar}]`, inline: false },
                 { name: `${EMOJIS.GOLD} ذهب | Gold`, value: `**${(user.gold / 10).toLocaleString()}**`, inline: true },
                 { name: `${EMOJIS.GEMS} جواهر | Gems`, value: `**${user.gems}**`, inline: true },
-                { name: `${EMOJIS.HONOR} شرف | Honor`, value: `**${user.honor}**`, inline: true }
+                { name: `${EMOJIS.HONOR} شرف | Honor`, value: `**${user.honor}**`, inline: true },
+                { name: '🧰 Gear | العتاد', value: gearText || '-', inline: false }
             )
             .setFooter({ text: FOOTER_TEXT })
             .setTimestamp();

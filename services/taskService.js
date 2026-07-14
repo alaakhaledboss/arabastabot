@@ -2,8 +2,10 @@ const db = require('../db');
 const { EmbedBuilder } = require('discord.js');
 const { COLORS, EMOJIS, FOOTER_TEXT, formatError, createCurrencyField } = require('../utils/uiConstants');
 const levelUpAnnounceService = require('./levelUpAnnounceService');
+const progressionService = require('./progressionService');
 
-const DAILY_GOLD_CAP_INTERNAL = 350 * 10;
+const DEFAULT_DAILY_GOLD_CAP_DISPLAY = 350;
+const CLAN_DAILY_GOLD_CAP_DISPLAY = 450;
 const MESSAGE_TARGET = 100;
 const MESSAGE_BONUS_GOLD_INTERNAL = 50 * 10;
 const VOICE_TARGET_SECONDS = 10 * 60;
@@ -144,6 +146,16 @@ function resolveTargetUser(message, args = []) {
     return message.author;
 }
 
+async function resolveDailyGoldCapDisplay(message, targetUserId) {
+    if (!message?.guild || !targetUserId) return DEFAULT_DAILY_GOLD_CAP_DISPLAY;
+
+    const member = message.guild.members.cache.get(targetUserId)
+        || await message.guild.members.fetch(targetUserId).catch(() => null);
+
+    const routeInfo = progressionService.getRouteLevelInfo(member);
+    return routeInfo.route === 'merchant' ? CLAN_DAILY_GOLD_CAP_DISPLAY : DEFAULT_DAILY_GOLD_CAP_DISPLAY;
+}
+
 async function showTaskProgress(message, args = []) {
     try {
         const targetUser = resolveTargetUser(message, args);
@@ -153,6 +165,7 @@ async function showTaskProgress(message, args = []) {
         await db.saveUser(user);
 
         const dailyGoldEarnedDisplay = Math.floor((user.daily_gold_earned || 0) / 10);
+    const dailyGoldCapDisplay = await resolveDailyGoldCapDisplay(message, targetUser.id);
 
         const msgProgress = Math.min(user.task_daily_messages || 0, MESSAGE_TARGET);
         const voiceSeconds = Math.min(user.task_daily_voice_seconds || 0, VOICE_TARGET_SECONDS);
@@ -163,7 +176,7 @@ async function showTaskProgress(message, args = []) {
             .setTitle(`${EMOJIS.INFO} **المهام اليومية | Daily Tasks Progress**`)
             .setDescription(`> 👤 ${targetUser.id === message.author.id ? 'Your progress' : `Progress for <@${targetUser.id}>`}\n> Weekly/Monthly task slots are ready and will be activated later.`)
             .addFields(
-                createCurrencyField('💰 الذهب المكتسب اليوم | Daily gold gained', `${dailyGoldEarnedDisplay}/350`, '', false),
+                createCurrencyField('💰 الذهب المكتسب اليوم | Daily gold gained', `${dailyGoldEarnedDisplay}/${dailyGoldCapDisplay}`, '', false),
                 createCurrencyField('📝 رسائل اليوم | Messages today', `${msgProgress}/${MESSAGE_TARGET}`, '', false),
                 createCurrencyField('🎁 مكافأة الرسائل | Message bonus', user.task_daily_message_bonus_claimed ? 'Claimed ✅ (+50 gold)' : 'Not yet', '', false),
                 createCurrencyField('🎙️ وقت المكالمة اليوم | Voice time today', `${voiceMinutes}/10.0 minutes`, '', false),

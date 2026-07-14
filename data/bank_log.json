@@ -1,1 +1,51 @@
-[]
+[
+  {
+    "userId": "1156642624770424902",
+    "action": "buy_color",
+    "amount": 2000,
+    "extra": "Color #4",
+    "timestamp": "2026-04-07T07:29:51.659Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "action": "buy_color",
+    "amount": 5000,
+    "extra": "Color #22",
+    "timestamp": "2026-04-07T07:30:14.019Z"
+  },
+  {
+    "userId": "1079479751200227388",
+    "action": "withdraw",
+    "amount": 100000,
+    "extra": "gems: 1000, honor: 100",
+    "timestamp": "2026-04-07T09:46:59.238Z"
+  },
+  {
+    "userId": "1061679429983670342",
+    "action": "manual_give_gold",
+    "amount": 100,
+    "extra": "given_by:1079479751200227388 claimed_by:1061679429983670342",
+    "timestamp": "2026-04-07T09:48:40.075Z"
+  },
+  {
+    "userId": "1079479751200227388",
+    "action": "buy_color",
+    "amount": 15000,
+    "extra": "Color #22",
+    "timestamp": "2026-04-18T07:35:22.593Z"
+  },
+  {
+    "userId": "1079479751200227388",
+    "action": "gold_ticket",
+    "amount": 10000,
+    "extra": "Gold paid for manual credit ticket",
+    "timestamp": "2026-04-21T20:04:47.653Z"
+  },
+  {
+    "userId": "1079479751200227388",
+    "action": "buy_color",
+    "amount": 20000,
+    "extra": "Color #24",
+    "timestamp": "2026-04-21T20:05:42.447Z"
+  }
+]

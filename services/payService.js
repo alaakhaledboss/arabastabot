@@ -6,6 +6,7 @@ const OWNER_ID = process.env.OWNER_ID || '1156642624770424902';
 const PAY_TIMEOUT_MS = 5 * 60 * 1000;
 
 const pendingTransfers = new Map();
+const pendingGives = new Map();
 
 function normalizeCurrency(input) {
     const key = String(input || '').trim().toLowerCase();
@@ -68,6 +69,18 @@ function buildConfirmRow(customId, disabled = false) {
     ];
 }
 
+function buildClaimRow(customId, disabled = false) {
+    return [
+        new ActionRowBuilder().addComponents(
+            new ButtonBuilder()
+                .setCustomId(customId)
+                .setLabel('🎁 Claim | استلام')
+                .setStyle(BUTTON_STYLES.PRIMARY)
+                .setDisabled(disabled)
+        )
+    ];
+}
+
 function buildRequestEmbed({ requesterId, approverId, currency, amountDisplay }) {
     const meta = getCurrencyMeta(currency);
     return new EmbedBuilder()
@@ -97,6 +110,26 @@ function buildResolvedEmbed({ baseEmbed, statusEn, statusAr, approverId }) {
     });
     clone.setTimestamp();
     return clone;
+}
+
+function buildGiveRequestEmbed({ giverId, recipientId, currency, amountDisplay }) {
+    const meta = getCurrencyMeta(currency);
+    return new EmbedBuilder()
+        .setColor(COLORS.BANK)
+        .setTitle(`${EMOJIS.TRANSFER} Bank Give Request | طلب منح من البنك`)
+        .setDescription([
+            `<@${recipientId}> must press **Claim** to receive this amount from the bank.`,
+            `يجب على <@${recipientId}> الضغط على **Claim** لاستلام هذا المبلغ من البنك.`
+        ].join('\n'))
+        .addFields(
+            { name: 'Given By | بواسطة', value: `<@${giverId}>`, inline: true },
+            { name: 'Recipient | المستلم', value: `<@${recipientId}>`, inline: true },
+            { name: 'Currency | العملة', value: `${meta.emoji} ${meta.labelEn} | ${meta.labelAr}`, inline: true },
+            { name: 'Amount | القيمة', value: `**${amountDisplay.toLocaleString()}**`, inline: true },
+            { name: 'Source | المصدر', value: 'Bank balance | رصيد البنك', inline: true }
+        )
+        .setFooter({ text: FOOTER_TEXT })
+        .setTimestamp();
 }
 
 async function createPayRequest(message, args, ownerId = OWNER_ID) {
@@ -188,6 +221,107 @@ async function createPayRequest(message, args, ownerId = OWNER_ID) {
     return { ok: true };
 }
 
+async function createGiveRequest(message, args, ownerId = OWNER_ID) {
+    if (!message?.guild || !message?.author) {
+        return { ok: false, reply: formatError('هذا الأمر يعمل داخل السيرفر فقط.', 'This command can only be used in a server.') };
+    }
+
+    const authorized = await db.getAuthorizedUsers();
+    const isAllowed = message.author.id === ownerId || authorized.has(message.author.id);
+    if (!isAllowed) {
+        return { ok: false, reply: formatError('ليس لديك صلاحية استخدام أمر المنح.', 'You are not allowed to use give commands.') };
+    }
+
+    const currency = normalizeCurrency(args?.[0]);
+    if (!currency) {
+        return { ok: false, reply: formatError('الاستخدام: %give gold|gems|honor @user <value>', 'Usage: %give gold|gems|honor @user <value>') };
+    }
+
+    const recipientId = args?.[1]?.replace(/<@!?|>/g, '');
+    if (!recipientId || !/^\d+$/.test(recipientId)) {
+        return { ok: false, reply: formatError('يرجى منشن مستخدم صحيح للاستلام.', 'Please mention a valid user to receive.') };
+    }
+
+    const recipientMember = await message.guild.members.fetch(recipientId).catch(() => null);
+    if (!recipientMember) {
+        return { ok: false, reply: formatError('المستخدم المطلوب غير موجود في السيرفر.', 'The requested recipient is not in this server.') };
+    }
+
+    if (recipientMember.user?.bot) {
+        return { ok: false, reply: formatError('لا يمكن منح العملات للبوتات.', 'You cannot give currency to bots.') };
+    }
+
+    const amountDisplay = parsePositiveInt(args?.[2]);
+    if (!amountDisplay) {
+        return { ok: false, reply: formatError('القيمة يجب أن تكون رقم صحيح أكبر من 0.', 'Amount must be a whole number greater than 0.') };
+    }
+
+    const meta = getCurrencyMeta(currency);
+    const amountInternal = meta.toInternal(amountDisplay);
+
+    const bank = await db.getBank();
+    const bankBalance = Number(bank[meta.bankField] || 0);
+    if (bankBalance < amountInternal) {
+        return {
+            ok: false,
+            reply: formatError(
+                'رصيد البنك غير كافٍ لهذه المنحة.',
+                `Bank has insufficient ${meta.labelEn.toLowerCase()} for this give request.`
+            )
+        };
+    }
+
+    const requestId = `${Date.now()}_${message.author.id}_${Math.floor(Math.random() * 1000)}`;
+    const buttonId = `give:claim:${requestId}`;
+
+    const embed = buildGiveRequestEmbed({
+        giverId: message.author.id,
+        recipientId,
+        currency,
+        amountDisplay
+    });
+
+    const sent = await message.reply({
+        content: `Gift prepared for <@${recipientId}>. Press **Claim** to receive.\nتم تجهيز المنحة لـ <@${recipientId}>. اضغط **Claim** للاستلام.`,
+        embeds: [embed],
+        components: buildClaimRow(buttonId, false)
+    });
+
+    const timeoutId = setTimeout(async () => {
+        const pending = pendingGives.get(requestId);
+        if (!pending) return;
+
+        pendingGives.delete(requestId);
+
+        const timedOutEmbed = buildResolvedEmbed({
+            baseEmbed: pending.embed,
+            statusEn: 'Claim timed out (not claimed in time).',
+            statusAr: 'انتهت مهلة الاستلام بدون Claim.'
+        });
+
+        await pending.message.edit({
+            embeds: [timedOutEmbed],
+            components: buildClaimRow(pending.buttonId, true)
+        }).catch(() => {});
+    }, PAY_TIMEOUT_MS);
+
+    pendingGives.set(requestId, {
+        requestId,
+        buttonId,
+        message: sent,
+        giverId: message.author.id,
+        recipientId,
+        currency,
+        amountInternal,
+        amountDisplay,
+        embed,
+        timeoutId,
+        createdAt: Date.now()
+    });
+
+    return { ok: true };
+}
+
 async function handleConfirmInteraction(interaction) {
     const parts = String(interaction.customId || '').split(':');
     if (parts[0] !== 'pay' || parts[1] !== 'confirm') return false;
@@ -267,8 +401,89 @@ async function handleConfirmInteraction(interaction) {
     return true;
 }
 
+async function handleGiveClaimInteraction(interaction) {
+    const parts = String(interaction.customId || '').split(':');
+    if (parts[0] !== 'give' || parts[1] !== 'claim') return false;
+
+    const requestId = parts[2];
+    const pending = pendingGives.get(requestId);
+    if (!pending) {
+        await interaction.reply({
+            content: formatError('هذا الطلب غير متاح أو انتهت صلاحيته.', 'This give request is no longer available or has expired.'),
+            ephemeral: true
+        }).catch(() => {});
+        return true;
+    }
+
+    if (interaction.user.id !== pending.recipientId) {
+        await interaction.reply({
+            content: formatError('فقط المستلم المحدد يمكنه استلام هذه المنحة.', 'Only the specified recipient can claim this give request.'),
+            ephemeral: true
+        }).catch(() => {});
+        return true;
+    }
+
+    const recipient = await db.getUser(pending.recipientId);
+    const bank = await db.getBank();
+    const meta = getCurrencyMeta(pending.currency);
+
+    const bankBalance = Number(bank[meta.bankField] || 0);
+    if (bankBalance < pending.amountInternal) {
+        await interaction.reply({
+            content: formatError('رصيد البنك غير كافٍ الآن لتنفيذ المنحة.', 'Bank balance is insufficient now to process this give request.'),
+            ephemeral: true
+        }).catch(() => {});
+        return true;
+    }
+
+    bank[meta.bankField] = bankBalance - pending.amountInternal;
+    recipient[meta.userField] = Number(recipient[meta.userField] || 0) + pending.amountInternal;
+
+    await db.saveBank(bank);
+    await db.saveUser(recipient);
+
+    await db.logBankAction({
+        userId: pending.recipientId,
+        action: `manual_give_${pending.currency}`,
+        amount: pending.amountDisplay,
+        extra: `given_by:${pending.giverId} claimed_by:${interaction.user.id}`
+    });
+
+    await db.logTransaction({
+        userId: pending.recipientId,
+        action: 'manual_give_from_bank',
+        goldAmount: pending.currency === 'gold' ? pending.amountDisplay : 0,
+        reason: `Manual give (${pending.currency}) claimed`,
+        details: `currency:${pending.currency} amount:${pending.amountDisplay} given_by:${pending.giverId} claimed_by:${interaction.user.id}`
+    });
+
+    clearTimeout(pending.timeoutId);
+    pendingGives.delete(requestId);
+
+    const claimedEmbed = buildResolvedEmbed({
+        baseEmbed: pending.embed,
+        statusEn: 'Claimed and credited successfully.',
+        statusAr: 'تم الاستلام والإضافة بنجاح.',
+        approverId: interaction.user.id
+    });
+
+    await interaction.update({
+        embeds: [claimedEmbed],
+        components: buildClaimRow(pending.buttonId, true)
+    }).catch(async () => {
+        await pending.message.edit({
+            embeds: [claimedEmbed],
+            components: buildClaimRow(pending.buttonId, true)
+        }).catch(() => {});
+    });
+
+    return true;
+}
+
 module.exports = {
     createPayRequest,
+    createGiveRequest,
     handleConfirmInteraction,
+    handleGiveClaimInteraction,
     PAY_TIMEOUT_MS
 };

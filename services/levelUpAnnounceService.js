@@ -85,7 +85,8 @@ async function announceLevelUps({ guild, member, userId, oldLevel, newLevel }) {
             : '';
         const content = [
             `🎉 Congrats <@${userId}>! Level up: **${event.from} → ${event.to}**`,
-            `🎉 مبروك <@${userId}>! لفل أب: **${event.from} → ${event.to}**${rankText}`
+            `🎉 مبروك <@${userId}>! لفل أب: **${event.from} → ${event.to}**${rankText}`,
+            '────────────────────────'
         ].join('\n');
 
         await channel.send(content).catch(() => {});
