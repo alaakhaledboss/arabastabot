@@ -2,6 +2,7 @@ const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('
 const db = require('../db');
 const { COLORS, FOOTER_TEXT, formatError, formatSuccess } = require('../utils/uiConstants');
 const cfg = require('../config/gameplayConfig');
+const progressionService = require('./progressionService');
 
 const CRAFT_RECIPES = {
     life_elixir: {
@@ -156,6 +157,11 @@ function ensureCraftFields(user) {
     if (!user.path) user.path = user.currentRoute || null;
     if (!user.clanId && user.clan?.id) user.clanId = user.clan.id;
     return user;
+}
+
+async function loadCraftUser(message) {
+    const synced = message.member ? await progressionService.syncMemberState(message.member).catch(() => null) : null;
+    return ensureCraftFields(synced || await db.getUser(message.author.id));
 }
 
 function getRecipe(recipeId) {
@@ -334,7 +340,7 @@ async function refreshCraftMessage(interaction, ownerUser) {
 }
 
 async function handleCraftCommand(message) {
-    const user = ensureCraftFields(await db.getUser(message.author.id));
+    const user = await loadCraftUser(message);
     const path = String(user.path || user.currentRoute || '').toLowerCase();
 
     if (path !== 'atelier') {
@@ -356,7 +362,8 @@ async function handleCraftInteraction(interaction, parts) {
     }
 
     const ownerUser = ensureCraftFields(await db.getUser(ownerId));
-    const clickerUser = ensureCraftFields(await db.getUser(interaction.user.id));
+    const clickerSynced = interaction.member ? await progressionService.syncMemberState(interaction.member).catch(() => null) : null;
+    const clickerUser = ensureCraftFields(clickerSynced || await db.getUser(interaction.user.id));
 
     if (!ownerUser.clanId || ownerUser.clanId !== clickerUser.clanId) {
         return interaction.reply({ content: formatError('يمكن لأعضاء نفس الكلان فقط المساهمة.', 'Only clan members can contribute.'), ephemeral: true });

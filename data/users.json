@@ -213,22 +213,22 @@
     },
     {
       "user_id": "1156642624770424902",
-      "gold": 147650,
-      "xp": 489,
+      "gold": 148400,
+      "xp": 639,
       "level": 9,
       "gems": 100,
       "honor": 5,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "2026-04",
-      "last_reward_time": 1786354219177,
-      "daily_gold_earned": 75,
+      "last_reward_time": 1786360922319,
+      "daily_gold_earned": 825,
       "last_daily_reset": 1786354219177,
       "bank_access": false,
       "task_daily_date": "2026-08-10",
-      "task_daily_messages": 1,
+      "task_daily_messages": 20,
       "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 2729,
+      "task_daily_voice_seconds": 6687,
       "task_daily_voice_bonus_claimed": true,
       "currentRoute": null,
       "currentSpecialty": null,
@@ -256,7 +256,7 @@
         "active": false,
         "expiresAt": 0
       },
-      "lastActiveAt": 1786354217917,
+      "lastActiveAt": 1786360959561,
       "gearInventory": {
         "helmet": [],
         "chest": [],
@@ -359,22 +359,22 @@
     },
     {
       "user_id": "1079479751200227388",
-      "gold": 462450,
-      "xp": 165,
+      "gold": 462675,
+      "xp": 210,
       "level": 8,
       "gems": 10,
       "honor": 110,
       "monthly_gold_to_gems": 10,
       "monthly_gems_to_honor": 10,
       "conversion_month": "2026-04",
-      "last_reward_time": 1786355267622,
-      "daily_gold_earned": 150,
+      "last_reward_time": 1786360713518,
+      "daily_gold_earned": 375,
       "last_daily_reset": 1786354247165,
       "bank_access": true,
       "task_daily_date": "2026-08-10",
-      "task_daily_messages": 3,
+      "task_daily_messages": 6,
       "task_daily_message_bonus_claimed": false,
-      "task_daily_voice_seconds": 2609,
+      "task_daily_voice_seconds": 6567,
       "task_daily_voice_bonus_claimed": true,
       "currentRoute": null,
       "currentSpecialty": null,
@@ -402,7 +402,7 @@
         "expiresAt": 0
       },
       "gif_month": "2026-04",
-      "lastActiveAt": 1786355266560,
+      "lastActiveAt": 1786360712176,
       "gearInventory": {
         "helmet": [],
         "chest": [],
@@ -505,20 +505,20 @@
     },
     {
       "user_id": "677860550729793563",
-      "gold": 7025,
-      "xp": 330,
+      "gold": 7175,
+      "xp": 360,
       "level": 6,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1776504213739,
-      "daily_gold_earned": 2175,
-      "last_daily_reset": 1776443323354,
+      "last_reward_time": 1786360699234,
+      "daily_gold_earned": 150,
+      "last_daily_reset": 1786359813316,
       "bank_access": false,
-      "task_daily_date": "2026-04-18",
-      "task_daily_messages": 32,
+      "task_daily_date": "2026-08-10",
+      "task_daily_messages": 2,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
@@ -546,7 +546,63 @@
       "blacklist": {
         "active": false,
         "expiresAt": 0
-      }
+      },
+      "hp": 100,
+      "path": null,
+      "specialization": null,
+      "lastActiveAt": 1786360697997,
+      "clanId": null,
+      "inventory": {
+        "materials": {},
+        "items": [],
+        "gear": {
+          "helmet": [],
+          "chest": [],
+          "pants": [],
+          "shoes": [],
+          "weapon": [],
+          "shield": []
+        }
+      },
+      "gearInventory": {
+        "helmet": [],
+        "chest": [],
+        "pants": [],
+        "shoes": [],
+        "weapon": [],
+        "shield": []
+      },
+      "gearEquipment": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "equippedGear": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "materials": {},
+      "hunting": {
+        "lastHuntAt": 0,
+        "cooldownUntil": 0,
+        "history": []
+      },
+      "clan": {
+        "id": null,
+        "role": null,
+        "joinedAt": 0,
+        "contribution": 0
+      },
+      "gif_expires": 0,
+      "gif_month": "",
+      "gift_month": ""
     },
     {
       "user_id": "1285197348900962337",
@@ -3118,30 +3174,30 @@
     },
     {
       "user_id": "683267371703468039",
-      "gold": 525,
-      "xp": 5,
-      "level": 2,
+      "gold": 1125,
+      "xp": 60,
+      "level": 25,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1776501748164,
-      "daily_gold_earned": 450,
-      "last_daily_reset": 1776501394843,
+      "last_reward_time": 1786360931643,
+      "daily_gold_earned": 600,
+      "last_daily_reset": 1786359522131,
       "bank_access": false,
-      "task_daily_date": "2026-04-18",
-      "task_daily_messages": 18,
+      "task_daily_date": "2026-08-10",
+      "task_daily_messages": 11,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
-      "currentRoute": null,
-      "currentSpecialty": null,
+      "currentRoute": "combat",
+      "currentSpecialty": "duelist",
       "specialties": {
-        "combat": null,
-        "scholar": null,
-        "atelier": null,
-        "merchant": null
+        "combat": "duelist",
+        "scholar": "dialectician",
+        "atelier": "auteur",
+        "merchant": "syndicate"
       },
       "completedRoutes": [],
       "prestigeRoles": [],
@@ -3159,7 +3215,63 @@
       "blacklist": {
         "active": false,
         "expiresAt": 0
-      }
+      },
+      "hp": 100,
+      "path": "combat",
+      "specialization": "berserker",
+      "lastActiveAt": 1786360982487,
+      "clanId": null,
+      "inventory": {
+        "materials": {},
+        "items": [],
+        "gear": {
+          "helmet": [],
+          "chest": [],
+          "pants": [],
+          "shoes": [],
+          "weapon": [],
+          "shield": []
+        }
+      },
+      "gearInventory": {
+        "helmet": [],
+        "chest": [],
+        "pants": [],
+        "shoes": [],
+        "weapon": [],
+        "shield": []
+      },
+      "gearEquipment": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "equippedGear": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "materials": {},
+      "hunting": {
+        "lastHuntAt": 0,
+        "cooldownUntil": 0,
+        "history": []
+      },
+      "clan": {
+        "id": null,
+        "role": null,
+        "joinedAt": 0,
+        "contribution": 0
+      },
+      "gif_expires": 0,
+      "gif_month": "",
+      "gift_month": ""
     },
     {
       "user_id": "888747212790706176",
@@ -4603,20 +4715,20 @@
     },
     {
       "user_id": "1213134596804186196",
-      "gold": 4800,
-      "xp": 360,
+      "gold": 4950,
+      "xp": 390,
       "level": 4,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1776504279089,
-      "daily_gold_earned": 2025,
-      "last_daily_reset": 1776498610011,
+      "last_reward_time": 1786359831653,
+      "daily_gold_earned": 150,
+      "last_daily_reset": 1786357970557,
       "bank_access": false,
-      "task_daily_date": "2026-04-18",
-      "task_daily_messages": 86,
+      "task_daily_date": "2026-08-10",
+      "task_daily_messages": 3,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
@@ -4644,7 +4756,63 @@
       "blacklist": {
         "active": false,
         "expiresAt": 0
-      }
+      },
+      "hp": 100,
+      "path": null,
+      "specialization": null,
+      "lastActiveAt": 1786359840662,
+      "clanId": null,
+      "inventory": {
+        "materials": {},
+        "items": [],
+        "gear": {
+          "helmet": [],
+          "chest": [],
+          "pants": [],
+          "shoes": [],
+          "weapon": [],
+          "shield": []
+        }
+      },
+      "gearInventory": {
+        "helmet": [],
+        "chest": [],
+        "pants": [],
+        "shoes": [],
+        "weapon": [],
+        "shield": []
+      },
+      "gearEquipment": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "equippedGear": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "materials": {},
+      "hunting": {
+        "lastHuntAt": 0,
+        "cooldownUntil": 0,
+        "history": []
+      },
+      "clan": {
+        "id": null,
+        "role": null,
+        "joinedAt": 0,
+        "contribution": 0
+      },
+      "gif_expires": 0,
+      "gif_month": "",
+      "gift_month": ""
     },
     {
       "user_id": "1421585514015887370",
@@ -4873,20 +5041,20 @@
     },
     {
       "user_id": "333752029258317837",
-      "gold": 0,
-      "xp": 0,
+      "gold": 75,
+      "xp": 15,
       "level": 1,
       "gems": 0,
       "honor": 0,
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 0,
-      "daily_gold_earned": 0,
-      "last_daily_reset": 0,
+      "last_reward_time": 1786357683742,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1786357683742,
       "bank_access": false,
-      "task_daily_date": "",
-      "task_daily_messages": 0,
+      "task_daily_date": "2026-08-10",
+      "task_daily_messages": 1,
       "task_daily_message_bonus_claimed": false,
       "task_daily_voice_seconds": 0,
       "task_daily_voice_bonus_claimed": false,
@@ -4914,7 +5082,63 @@
       "blacklist": {
         "active": false,
         "expiresAt": 0
-      }
+      },
+      "hp": 100,
+      "path": null,
+      "specialization": null,
+      "lastActiveAt": 1786357683742,
+      "clanId": null,
+      "inventory": {
+        "materials": {},
+        "items": [],
+        "gear": {
+          "helmet": [],
+          "chest": [],
+          "pants": [],
+          "shoes": [],
+          "weapon": [],
+          "shield": []
+        }
+      },
+      "gearInventory": {
+        "helmet": [],
+        "chest": [],
+        "pants": [],
+        "shoes": [],
+        "weapon": [],
+        "shield": []
+      },
+      "gearEquipment": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "equippedGear": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "materials": {},
+      "hunting": {
+        "lastHuntAt": 0,
+        "cooldownUntil": 0,
+        "history": []
+      },
+      "clan": {
+        "id": null,
+        "role": null,
+        "joinedAt": 0,
+        "contribution": 0
+      },
+      "gif_expires": 0,
+      "gif_month": "",
+      "gift_month": ""
     },
     {
       "user_id": "1038805072303374406",
@@ -13070,6 +13294,107 @@
     },
     {
       "user_id": "1530075416352653332",
+      "gold": 150,
+      "xp": 30,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "hp": 100,
+      "path": null,
+      "specialization": null,
+      "inventory": {
+        "materials": {},
+        "items": [],
+        "gear": {
+          "helmet": [],
+          "chest": [],
+          "pants": [],
+          "shoes": [],
+          "weapon": [],
+          "shield": []
+        }
+      },
+      "equippedGear": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "clanId": null,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1786359985263,
+      "lastActiveAt": 1786359985262,
+      "daily_gold_earned": 150,
+      "last_daily_reset": 1786356153621,
+      "bank_access": false,
+      "task_daily_date": "2026-08-10",
+      "task_daily_messages": 2,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "gearInventory": {
+        "helmet": [],
+        "chest": [],
+        "pants": [],
+        "shoes": [],
+        "weapon": [],
+        "shield": []
+      },
+      "gearEquipment": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "materials": {},
+      "hunting": {
+        "lastHuntAt": 0,
+        "cooldownUntil": 0,
+        "history": []
+      },
+      "clan": {
+        "id": null,
+        "role": null,
+        "joinedAt": 0,
+        "contribution": 0
+      },
+      "monthly_gif_buys": 0,
+      "gif_expires": 0,
+      "gif_month": "",
+      "warnings": 0,
+      "blacklist": {
+        "active": false,
+        "expiresAt": 0
+      },
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "gift_month": ""
+    },
+    {
+      "user_id": "761533752630706176",
       "gold": 75,
       "xp": 15,
       "level": 1,
@@ -13102,10 +13427,515 @@
       "monthly_gold_to_gems": 0,
       "monthly_gems_to_honor": 0,
       "conversion_month": "",
-      "last_reward_time": 1786356153621,
-      "lastActiveAt": 1786356153620,
+      "last_reward_time": 1786357178371,
+      "lastActiveAt": 1786357178368,
       "daily_gold_earned": 75,
-      "last_daily_reset": 1786356153621,
+      "last_daily_reset": 1786357178371,
+      "bank_access": false,
+      "task_daily_date": "2026-08-10",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "gearInventory": {
+        "helmet": [],
+        "chest": [],
+        "pants": [],
+        "shoes": [],
+        "weapon": [],
+        "shield": []
+      },
+      "gearEquipment": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "materials": {},
+      "hunting": {
+        "lastHuntAt": 0,
+        "cooldownUntil": 0,
+        "history": []
+      },
+      "clan": {
+        "id": null,
+        "role": null,
+        "joinedAt": 0,
+        "contribution": 0
+      },
+      "monthly_gif_buys": 0,
+      "gif_expires": 0,
+      "gif_month": "",
+      "warnings": 0,
+      "blacklist": {
+        "active": false,
+        "expiresAt": 0
+      },
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "gift_month": ""
+    },
+    {
+      "user_id": "1118091045650055169",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "hp": 100,
+      "path": null,
+      "specialization": null,
+      "inventory": {
+        "materials": {},
+        "items": [],
+        "gear": {
+          "helmet": [],
+          "chest": [],
+          "pants": [],
+          "shoes": [],
+          "weapon": [],
+          "shield": []
+        }
+      },
+      "equippedGear": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "clanId": null,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1786357410090,
+      "lastActiveAt": 1786357410090,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1786357410090,
+      "bank_access": false,
+      "task_daily_date": "2026-08-10",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "gearInventory": {
+        "helmet": [],
+        "chest": [],
+        "pants": [],
+        "shoes": [],
+        "weapon": [],
+        "shield": []
+      },
+      "gearEquipment": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "materials": {},
+      "hunting": {
+        "lastHuntAt": 0,
+        "cooldownUntil": 0,
+        "history": []
+      },
+      "clan": {
+        "id": null,
+        "role": null,
+        "joinedAt": 0,
+        "contribution": 0
+      },
+      "monthly_gif_buys": 0,
+      "gif_expires": 0,
+      "gif_month": "",
+      "warnings": 0,
+      "blacklist": {
+        "active": false,
+        "expiresAt": 0
+      },
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "gift_month": ""
+    },
+    {
+      "user_id": "1310018988193087528",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "hp": 100,
+      "path": null,
+      "specialization": null,
+      "inventory": {
+        "materials": {},
+        "items": [],
+        "gear": {
+          "helmet": [],
+          "chest": [],
+          "pants": [],
+          "shoes": [],
+          "weapon": [],
+          "shield": []
+        }
+      },
+      "equippedGear": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "clanId": null,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1786358118355,
+      "lastActiveAt": 1786358118355,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1786358118355,
+      "bank_access": false,
+      "task_daily_date": "2026-08-10",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "gearInventory": {
+        "helmet": [],
+        "chest": [],
+        "pants": [],
+        "shoes": [],
+        "weapon": [],
+        "shield": []
+      },
+      "gearEquipment": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "materials": {},
+      "hunting": {
+        "lastHuntAt": 0,
+        "cooldownUntil": 0,
+        "history": []
+      },
+      "clan": {
+        "id": null,
+        "role": null,
+        "joinedAt": 0,
+        "contribution": 0
+      },
+      "monthly_gif_buys": 0,
+      "gif_expires": 0,
+      "gif_month": "",
+      "warnings": 0,
+      "blacklist": {
+        "active": false,
+        "expiresAt": 0
+      },
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "gift_month": ""
+    },
+    {
+      "user_id": "1315642956161482775",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "hp": 100,
+      "path": null,
+      "specialization": null,
+      "inventory": {
+        "materials": {},
+        "items": [],
+        "gear": {
+          "helmet": [],
+          "chest": [],
+          "pants": [],
+          "shoes": [],
+          "weapon": [],
+          "shield": []
+        }
+      },
+      "equippedGear": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "clanId": null,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1786360046081,
+      "lastActiveAt": 1786360046081,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1786360046081,
+      "bank_access": false,
+      "task_daily_date": "2026-08-10",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "gearInventory": {
+        "helmet": [],
+        "chest": [],
+        "pants": [],
+        "shoes": [],
+        "weapon": [],
+        "shield": []
+      },
+      "gearEquipment": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "materials": {},
+      "hunting": {
+        "lastHuntAt": 0,
+        "cooldownUntil": 0,
+        "history": []
+      },
+      "clan": {
+        "id": null,
+        "role": null,
+        "joinedAt": 0,
+        "contribution": 0
+      },
+      "monthly_gif_buys": 0,
+      "gif_expires": 0,
+      "gif_month": "",
+      "warnings": 0,
+      "blacklist": {
+        "active": false,
+        "expiresAt": 0
+      },
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "gift_month": ""
+    },
+    {
+      "user_id": "1247328293569429688",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "hp": 100,
+      "path": null,
+      "specialization": null,
+      "inventory": {
+        "materials": {},
+        "items": [],
+        "gear": {
+          "helmet": [],
+          "chest": [],
+          "pants": [],
+          "shoes": [],
+          "weapon": [],
+          "shield": []
+        }
+      },
+      "equippedGear": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "clanId": null,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1786360047317,
+      "lastActiveAt": 1786360047316,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1786360047317,
+      "bank_access": false,
+      "task_daily_date": "2026-08-10",
+      "task_daily_messages": 1,
+      "task_daily_message_bonus_claimed": false,
+      "task_daily_voice_seconds": 0,
+      "task_daily_voice_bonus_claimed": false,
+      "currentRoute": null,
+      "currentSpecialty": null,
+      "specialties": {
+        "combat": null,
+        "scholar": null,
+        "atelier": null,
+        "merchant": null
+      },
+      "completedRoutes": [],
+      "prestigeRoles": [],
+      "prestigeCount": 0,
+      "rebirthCount": 0,
+      "pendingFinalRestoreRoute": "",
+      "gearInventory": {
+        "helmet": [],
+        "chest": [],
+        "pants": [],
+        "shoes": [],
+        "weapon": [],
+        "shield": []
+      },
+      "gearEquipment": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "materials": {},
+      "hunting": {
+        "lastHuntAt": 0,
+        "cooldownUntil": 0,
+        "history": []
+      },
+      "clan": {
+        "id": null,
+        "role": null,
+        "joinedAt": 0,
+        "contribution": 0
+      },
+      "monthly_gif_buys": 0,
+      "gif_expires": 0,
+      "gif_month": "",
+      "warnings": 0,
+      "blacklist": {
+        "active": false,
+        "expiresAt": 0
+      },
+      "task_weekly": {
+        "slots": {}
+      },
+      "task_monthly": {
+        "slots": {}
+      },
+      "gift_month": ""
+    },
+    {
+      "user_id": "1305799577181487125",
+      "gold": 75,
+      "xp": 15,
+      "level": 1,
+      "gems": 0,
+      "honor": 0,
+      "hp": 100,
+      "path": null,
+      "specialization": null,
+      "inventory": {
+        "materials": {},
+        "items": [],
+        "gear": {
+          "helmet": [],
+          "chest": [],
+          "pants": [],
+          "shoes": [],
+          "weapon": [],
+          "shield": []
+        }
+      },
+      "equippedGear": {
+        "helmet": null,
+        "chest": null,
+        "pants": null,
+        "shoes": null,
+        "weapon": null,
+        "shield": null
+      },
+      "clanId": null,
+      "monthly_gold_to_gems": 0,
+      "monthly_gems_to_honor": 0,
+      "conversion_month": "",
+      "last_reward_time": 1786360393776,
+      "lastActiveAt": 1786360393775,
+      "daily_gold_earned": 75,
+      "last_daily_reset": 1786360393776,
       "bank_access": false,
       "task_daily_date": "2026-08-10",
       "task_daily_messages": 1,

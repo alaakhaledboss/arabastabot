@@ -1,410 +1,5 @@
 [
   {
-    "userId": "1079479751200227388",
-    "username": "2m.y",
-    "guildId": "1209486578812981288",
-    "channelId": "1483171933939044516",
-    "command": "give",
-    "args": [
-      "gold",
-      "<@1061679429983670342>",
-      "100"
-    ],
-    "rawContent": "%give gold <@1061679429983670342> 100",
-    "status": "invoked",
-    "details": "normalized:give",
-    "timestamp": "2026-04-07T09:48:09.095Z"
-  },
-  {
-    "userId": "1396921926093639811",
-    "username": "shadedhome_97450",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "night",
-      "of",
-      "nights"
-    ],
-    "rawContent": "%play night of nights",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-07T10:02:15.626Z"
-  },
-  {
-    "userId": "1079479751200227388",
-    "username": "2m.y",
-    "guildId": "1209486578812981288",
-    "channelId": "1483171933939044516",
-    "command": "profile",
-    "args": [],
-    "rawContent": "%p",
-    "status": "invoked",
-    "details": "normalized:profile",
-    "timestamp": "2026-04-07T10:22:06.823Z"
-  },
-  {
-    "userId": "1079479751200227388",
-    "username": "2m.y",
-    "guildId": "1209486578812981288",
-    "channelId": "1483171933939044516",
-    "command": "profile",
-    "args": [
-      "<@1132115457277702205>"
-    ],
-    "rawContent": "%p <@1132115457277702205>",
-    "status": "invoked",
-    "details": "normalized:profile",
-    "timestamp": "2026-04-07T10:22:17.585Z"
-  },
-  {
-    "userId": "1132115457277702205",
-    "username": "killua_g80",
-    "guildId": "1209486578812981288",
-    "channelId": "1483171933939044516",
-    "command": "profile",
-    "args": [],
-    "rawContent": "%p",
-    "status": "invoked",
-    "details": "normalized:profile",
-    "timestamp": "2026-04-07T10:22:18.277Z"
-  },
-  {
-    "userId": "1079479751200227388",
-    "username": "2m.y",
-    "guildId": "1209486578812981288",
-    "channelId": "1483171933939044516",
-    "command": "profile",
-    "args": [
-      "<@1132115457277702205>"
-    ],
-    "rawContent": "%p <@1132115457277702205>",
-    "status": "invoked",
-    "details": "normalized:profile",
-    "timestamp": "2026-04-07T10:42:35.670Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1258912577828687975",
-    "command": "help",
-    "args": [],
-    "rawContent": "%help",
-    "status": "invoked",
-    "details": "normalized:help",
-    "timestamp": "2026-04-08T21:48:23.378Z"
-  },
-  {
-    "userId": "1079479751200227388",
-    "username": "2m.y",
-    "guildId": "1209486578812981288",
-    "channelId": "1258912577828687975",
-    "command": "convert",
-    "args": [],
-    "rawContent": "%c",
-    "status": "invoked",
-    "details": "normalized:convert",
-    "timestamp": "2026-04-08T21:48:33.518Z"
-  },
-  {
-    "userId": "1079479751200227388",
-    "username": "2m.y",
-    "guildId": "1209486578812981288",
-    "channelId": "1258912577828687975",
-    "command": "convert",
-    "args": [],
-    "rawContent": "%c",
-    "status": "invoked",
-    "details": "normalized:convert",
-    "timestamp": "2026-04-08T21:49:17.882Z"
-  },
-  {
-    "userId": "1079479751200227388",
-    "username": "2m.y",
-    "guildId": "1209486578812981288",
-    "channelId": "1258912577828687975",
-    "command": "convert",
-    "args": [],
-    "rawContent": "%c",
-    "status": "invoked",
-    "details": "normalized:convert",
-    "timestamp": "2026-04-08T21:49:23.515Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "owner",
-    "args": [],
-    "rawContent": "%owner",
-    "status": "invoked",
-    "details": "normalized:owner",
-    "timestamp": "2026-04-12T10:30:35.037Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "man",
-    "args": [
-      "disableallcommands"
-    ],
-    "rawContent": "%man disableallcommands",
-    "status": "invoked",
-    "details": "normalized:man",
-    "timestamp": "2026-04-12T10:31:06.863Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "disableallcommands",
-    "args": [],
-    "rawContent": "%disableallcommands",
-    "status": "invoked",
-    "details": "normalized:disableallcommands",
-    "timestamp": "2026-04-12T10:31:21.300Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "owner",
-    "args": [],
-    "rawContent": "%owner",
-    "status": "invoked",
-    "details": "normalized:owner",
-    "timestamp": "2026-04-12T10:31:25.920Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "man",
-    "args": [
-      "enableqa"
-    ],
-    "rawContent": "%man enableqa",
-    "status": "invoked",
-    "details": "normalized:man",
-    "timestamp": "2026-04-12T10:31:55.115Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "enablecommand",
-    "args": [
-      "man"
-    ],
-    "rawContent": "%enablecommand man",
-    "status": "invoked",
-    "details": "normalized:enablecommand",
-    "timestamp": "2026-04-12T10:32:14.450Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "man",
-    "args": [
-      "enableqa"
-    ],
-    "rawContent": "%man enableqa",
-    "status": "invoked",
-    "details": "normalized:man",
-    "timestamp": "2026-04-12T10:32:40.488Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "enableallcommands",
-    "args": [],
-    "rawContent": "%enableallcommands",
-    "status": "invoked",
-    "details": "normalized:enableallcommands",
-    "timestamp": "2026-04-12T10:33:08.546Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "super",
-      "adorable",
-      "gal"
-    ],
-    "rawContent": "%play super adorable gal",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T10:33:24.204Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "honey",
-      "jet",
-      "coaster"
-    ],
-    "rawContent": "%play honey jet coaster",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T10:33:33.486Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "dokuppoina"
-    ],
-    "rawContent": "%play dokuppoina",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T10:33:54.154Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "毒っぽいな"
-    ],
-    "rawContent": "%play 毒っぽいな",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T10:34:26.830Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "yoasobi",
-      "collection"
-    ],
-    "rawContent": "%play yoasobi collection",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T10:35:09.564Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "honey",
-      "jet",
-      "coaster"
-    ],
-    "rawContent": "%play honey jet coaster",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T10:39:04.319Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "毒っぽいな"
-    ],
-    "rawContent": "%play 毒っぽいな",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T10:39:13.604Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "yoasobi",
-      "collection"
-    ],
-    "rawContent": "%play yoasobi collection",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T10:39:23.916Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "yoasobi",
-      "idol"
-    ],
-    "rawContent": "%play yoasobi idol",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T11:16:24.267Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "yoasobi",
-      "yoru",
-      "ni",
-      "kakeru"
-    ],
-    "rawContent": "%play yoasobi yoru ni kakeru",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T11:16:44.615Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "yoasobi",
-      "yoru",
-      "ni",
-      "kakeru"
-    ],
-    "rawContent": "%play yoasobi yoru ni kakeru",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T11:27:50.851Z"
-  },
-  {
     "userId": "1156642624770424902",
     "username": "alaakhaledboss",
     "guildId": "1209486578812981288",
@@ -1426,5 +1021,396 @@
     "status": "invoked",
     "details": "normalized:play",
     "timestamp": "2026-08-10T09:30:17.922Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "profile",
+    "args": [],
+    "rawContent": "%profile",
+    "status": "invoked",
+    "details": "normalized:profile",
+    "timestamp": "2026-08-10T10:35:55.875Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "specialty",
+    "args": [],
+    "rawContent": "%specialty",
+    "status": "invoked",
+    "details": "normalized:specialty",
+    "timestamp": "2026-08-10T10:37:15.511Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "specialty",
+    "args": [
+      "combat"
+    ],
+    "rawContent": "%specialty combat",
+    "status": "invoked",
+    "details": "normalized:specialty",
+    "timestamp": "2026-08-10T10:37:30.016Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "profile",
+    "args": [
+      "<@1079479751200227388>"
+    ],
+    "rawContent": "%profile <@1079479751200227388>",
+    "status": "invoked",
+    "details": "normalized:profile",
+    "timestamp": "2026-08-10T10:38:28.381Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "specialty",
+    "args": [],
+    "rawContent": "%specialty",
+    "status": "invoked",
+    "details": "normalized:specialty",
+    "timestamp": "2026-08-10T10:38:55.617Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "specialty",
+    "args": [
+      "combat"
+    ],
+    "rawContent": "%specialty combat",
+    "status": "invoked",
+    "details": "normalized:specialty",
+    "timestamp": "2026-08-10T10:39:02.821Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1497870477295747154",
+    "command": "hunt",
+    "args": [
+      "lake"
+    ],
+    "rawContent": "%hunt lake",
+    "status": "invoked",
+    "details": "normalized:hunt",
+    "timestamp": "2026-08-10T10:41:47.394Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1497870477295747154",
+    "command": "hunt",
+    "args": [
+      "forest"
+    ],
+    "rawContent": "%hunt forest",
+    "status": "invoked",
+    "details": "normalized:hunt",
+    "timestamp": "2026-08-10T10:42:07.952Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1497870477295747154",
+    "command": "path",
+    "args": [
+      "combat"
+    ],
+    "rawContent": "%path combat",
+    "status": "invoked",
+    "details": "normalized:path",
+    "timestamp": "2026-08-10T10:43:00.778Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1497870477295747154",
+    "command": "help",
+    "args": [],
+    "rawContent": "%help",
+    "status": "invoked",
+    "details": "normalized:help",
+    "timestamp": "2026-08-10T10:43:09.694Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1497870477295747154",
+    "command": "clan",
+    "args": [],
+    "rawContent": "%clan",
+    "status": "invoked",
+    "details": "normalized:clan",
+    "timestamp": "2026-08-10T10:43:27.008Z"
+  },
+  {
+    "userId": "1079479751200227388",
+    "username": "2m.y",
+    "guildId": "1209486578812981288",
+    "channelId": "1483557855633342575",
+    "command": "profile",
+    "args": [],
+    "rawContent": "%p",
+    "status": "invoked",
+    "details": "normalized:profile",
+    "timestamp": "2026-08-10T10:54:56.225Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1489708291729920273",
+    "command": "hunt",
+    "args": [
+      "lake"
+    ],
+    "rawContent": "%hunt lake",
+    "status": "invoked",
+    "details": "normalized:hunt",
+    "timestamp": "2026-08-10T10:58:27.740Z"
+  },
+  {
+    "userId": "683267371703468039",
+    "username": "unme_i",
+    "guildId": "1209486578812981288",
+    "channelId": "1483171933939044516",
+    "command": "hunt",
+    "args": [
+      "lake"
+    ],
+    "rawContent": "%hunt lake",
+    "status": "invoked",
+    "details": "normalized:hunt",
+    "timestamp": "2026-08-10T10:58:42.131Z"
+  },
+  {
+    "userId": "683267371703468039",
+    "username": "unme_i",
+    "guildId": "1209486578812981288",
+    "channelId": "1489708291729920273",
+    "command": "hunt",
+    "args": [
+      "lake"
+    ],
+    "rawContent": "%hunt lake",
+    "status": "invoked",
+    "details": "normalized:hunt",
+    "timestamp": "2026-08-10T10:59:58.712Z"
+  },
+  {
+    "userId": "683267371703468039",
+    "username": "unme_i",
+    "guildId": "1209486578812981288",
+    "channelId": "1489708291729920273",
+    "command": "hunt",
+    "args": [
+      "lake"
+    ],
+    "rawContent": "%hunt lake",
+    "status": "invoked",
+    "details": "normalized:hunt",
+    "timestamp": "2026-08-10T11:02:55.873Z"
+  },
+  {
+    "userId": "683267371703468039",
+    "username": "unme_i",
+    "guildId": "1209486578812981288",
+    "channelId": "1489708291729920273",
+    "command": "hunt",
+    "args": [
+      "lake"
+    ],
+    "rawContent": "%hunt lake",
+    "status": "invoked",
+    "details": "normalized:hunt",
+    "timestamp": "2026-08-10T11:14:09.158Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1489708291729920273",
+    "command": "specialty",
+    "args": [],
+    "rawContent": "%specialty",
+    "status": "invoked",
+    "details": "normalized:specialty",
+    "timestamp": "2026-08-10T11:14:33.094Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1489708291729920273",
+    "command": "specialty",
+    "args": [
+      "combat"
+    ],
+    "rawContent": "%specialty combat",
+    "status": "invoked",
+    "details": "normalized:specialty",
+    "timestamp": "2026-08-10T11:14:42.597Z"
+  },
+  {
+    "userId": "683267371703468039",
+    "username": "unme_i",
+    "guildId": "1209486578812981288",
+    "channelId": "1489708291729920273",
+    "command": "hunt",
+    "args": [
+      "lake"
+    ],
+    "rawContent": "%hunt lake",
+    "status": "invoked",
+    "details": "normalized:hunt",
+    "timestamp": "2026-08-10T11:15:04.453Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1489708291729920273",
+    "command": "commands",
+    "args": [],
+    "rawContent": "%command",
+    "status": "invoked",
+    "details": "normalized:commands",
+    "timestamp": "2026-08-10T11:15:19.365Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1489708291729920273",
+    "command": "setlevel",
+    "args": [
+      "<@683267371703468039>",
+      "25"
+    ],
+    "rawContent": "%setlevel <@683267371703468039> 25",
+    "status": "invoked",
+    "details": "normalized:setlevel",
+    "timestamp": "2026-08-10T11:15:39.019Z"
+  },
+  {
+    "userId": "683267371703468039",
+    "username": "unme_i",
+    "guildId": "1209486578812981288",
+    "channelId": "1489708291729920273",
+    "command": "hunt",
+    "args": [
+      "lake"
+    ],
+    "rawContent": "%hunt lake",
+    "status": "invoked",
+    "details": "normalized:hunt",
+    "timestamp": "2026-08-10T11:16:36.836Z"
+  },
+  {
+    "userId": "1079479751200227388",
+    "username": "2m.y",
+    "guildId": "1209486578812981288",
+    "channelId": "1497870477295747154",
+    "command": "hunt",
+    "args": [
+      "lake"
+    ],
+    "rawContent": "%hunt lake",
+    "status": "invoked",
+    "details": "normalized:hunt",
+    "timestamp": "2026-08-10T11:18:32.177Z"
+  },
+  {
+    "userId": "683267371703468039",
+    "username": "unme_i",
+    "guildId": "1209486578812981288",
+    "channelId": "1497870477295747154",
+    "command": "hunt",
+    "args": [
+      "lake"
+    ],
+    "rawContent": "%hunt lake",
+    "status": "invoked",
+    "details": "normalized:hunt",
+    "timestamp": "2026-08-10T11:18:42.813Z"
+  },
+  {
+    "userId": "683267371703468039",
+    "username": "unme_i",
+    "guildId": "1209486578812981288",
+    "channelId": "1497870477295747154",
+    "command": "hunt",
+    "args": [
+      "lake"
+    ],
+    "rawContent": "%hunt lake",
+    "status": "invoked",
+    "details": "normalized:hunt",
+    "timestamp": "2026-08-10T11:21:08.687Z"
+  },
+  {
+    "userId": "683267371703468039",
+    "username": "unme_i",
+    "guildId": "1209486578812981288",
+    "channelId": "1497870477295747154",
+    "command": "hunt",
+    "args": [
+      "lake"
+    ],
+    "rawContent": "%hunt lake",
+    "status": "invoked",
+    "details": "normalized:hunt",
+    "timestamp": "2026-08-10T11:22:10.432Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1489708291729920273",
+    "command": "specialty",
+    "args": [
+      "scholar"
+    ],
+    "rawContent": "%specialty scholar",
+    "status": "invoked",
+    "details": "normalized:specialty",
+    "timestamp": "2026-08-10T11:22:39.562Z"
+  },
+  {
+    "userId": "683267371703468039",
+    "username": "unme_i",
+    "guildId": "1209486578812981288",
+    "channelId": "1497870477295747154",
+    "command": "hunt",
+    "args": [
+      "lake"
+    ],
+    "rawContent": "%hunt lake",
+    "status": "invoked",
+    "details": "normalized:hunt",
+    "timestamp": "2026-08-10T11:23:02.487Z"
   }
 ]

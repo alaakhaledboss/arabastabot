@@ -3,25 +3,26 @@ const { EmbedBuilder } = require('discord.js');
 const { COLORS, FOOTER_TEXT, formatError } = require('../utils/uiConstants');
 const clanService = require('./clanService');
 const cfg = require('../config/gameplayConfig');
+const progressionService = require('./progressionService');
 
 const COOLDOWN_MS = cfg.HUNTING.cooldownMinutes * 60 * 1000;
 
 const HUNT_TABLES = {
     forest: {
         scholar: {
-            professor: [
+            theorist: [
                 { name: 'herb', amount: 5, chance: 62 },
                 { name: 'poison_mushroom', amount: 2, chance: 20 },
                 { name: 'magic_flower', amount: 1, chance: 10 },
                 { name: 'forest_heart', amount: 1, chance: 6 }
             ],
-            expert: [
+            dialectician: [
                 { name: 'herb', amount: 7, chance: 50 },
                 { name: 'poison_mushroom', amount: 4, chance: 26.5 },
                 { name: 'magic_flower', amount: 2, chance: 18 },
                 { name: 'forest_heart', amount: 1, chance: 3.5 }
             ],
-            teacher: [
+            archivist: [
                 { name: 'herb', amount: 7, chance: 50 },
                 { name: 'poison_mushroom', amount: 4, chance: 26.5 },
                 { name: 'magic_flower', amount: 2, chance: 18 },
@@ -29,17 +30,17 @@ const HUNT_TABLES = {
             ]
         },
         combat: {
-            swordsman: [
+            duelist: [
                 { name: 'tiger_skin', amount: 1, chance: 37 },
                 { name: 'boar_horn', amount: 2, chance: 35 },
                 { name: 'green_mana_stone', amount: 2, chance: 25 }
             ],
-            mage: [
+            berserker: [
                 { name: 'tiger_skin', amount: 2, chance: 40 },
                 { name: 'boar_horn', amount: 3, chance: 39.5 },
                 { name: 'green_mana_stone', amount: 3, chance: 18.5 }
             ],
-            defender: [
+            marshal: [
                 { name: 'tiger_skin', amount: 1, chance: 45 },
                 { name: 'boar_horn', amount: 2, chance: 42 },
                 { name: 'green_mana_stone', amount: 3, chance: 11 }
@@ -103,42 +104,42 @@ const UNIQUE_REWARDS = {
 
 const DAMAGE_RULES = {
     scholar: {
-        professor: 5,
-        expert: 3.5,
-        teacher: 2.5
+        theorist: 5,
+        dialectician: 3.5,
+        archivist: 2.5
     },
     combat: {
         forest: {
-            swordsman: {
+            duelist: {
                 tiger_skin: [13, 25],
                 boar_horn: [5, 12.5],
                 green_mana_stone: [0, 0]
             },
-            mage: {
+            berserker: {
                 tiger_skin: [10, 17.5],
                 boar_horn: [4, 10],
                 green_mana_stone: [0, 0]
             },
-            defender: {
+            marshal: {
                 tiger_skin: [8, 14],
                 boar_horn: [3, 7],
                 green_mana_stone: [0, 0]
             }
         },
         lake: {
-            swordsman: {
+            duelist: {
                 starfish: [5, 7],
                 sea_dragon_bones: [10, 15],
                 sea_dragon_scales: [15, 30],
                 blue_mana_stone: [0, 0]
             },
-            mage: {
+            berserker: {
                 starfish: [4, 5],
                 sea_dragon_bones: [10, 13],
                 sea_dragon_scales: [13, 22],
                 blue_mana_stone: [0, 0]
             },
-            defender: {
+            marshal: {
                 starfish: [3, 5],
                 sea_dragon_bones: [8, 12],
                 sea_dragon_scales: [10, 18],
@@ -203,6 +204,12 @@ function ensureHuntingFields(user) {
     return user;
 }
 
+async function loadHuntingUser(message) {
+    const synced = message.member ? await progressionService.syncMemberState(message.member).catch(() => null) : null;
+    const user = ensureHuntingFields(synced || await db.getUser(message.author.id));
+    return user;
+}
+
 function routeLabel(route) {
     return ROUTE_LABELS[route] || route || '-';
 }
@@ -222,13 +229,13 @@ function resolveRoute(user) {
 function resolveTier(route, user) {
     const specialty = normalizeKey(user.specialization || user.currentSpecialty);
     if (route === 'scholar') {
-        if (specialty === 'professor' || specialty === 'expert' || specialty === 'teacher') return specialty;
-        return 'teacher';
+        if (specialty === 'theorist' || specialty === 'dialectician' || specialty === 'archivist') return specialty;
+        return 'theorist';
     }
 
     if (route === 'combat') {
-        if (specialty === 'swordsman' || specialty === 'mage' || specialty === 'defender') return specialty;
-        return 'swordsman';
+        if (specialty === 'duelist' || specialty === 'berserker' || specialty === 'marshal') return specialty;
+        return 'duelist';
     }
 
     return null;
@@ -369,7 +376,7 @@ function buildMenuEmbed(user) {
 }
 
 async function handleHuntCommand(message, args = []) {
-    const user = ensureHuntingFields(await db.getUser(message.author.id));
+    const user = await loadHuntingUser(message);
     const location = normalizeKey(args[0]);
     const route = resolveRoute(user);
 
@@ -382,7 +389,10 @@ async function handleHuntCommand(message, args = []) {
     }
 
     if (!route || !['combat', 'scholar'].includes(route)) {
-        return message.reply(formatError('هذا النظام متاح للمقاتل أو الباحث فقط.', 'This system is only available for Combat or Scholar.'));
+        return message.reply(formatError(
+            `الصيد في ${location === 'lake' ? 'البحيرة' : 'الغابة'} متاح فقط لمساري Combat وScholar. مسارك الحالي: ${routeLabel(route)}.`,
+            `Hunting in the ${location} is only available for the Combat and Scholar routes. Your current route is: ${routeLabel(route)}.`
+        ));
     }
 
     const hpBlockReason = getHpBlockReason(user);
@@ -409,7 +419,10 @@ async function handleHuntCommand(message, args = []) {
     const tier = resolveTier(route, user);
     const table = getTable(location, route, tier);
     if (!table || !table.length) {
-        return message.reply(formatError('هذا المسار أو التخصص غير مضبوط لهذا المكان بعد.', 'This route or specialty is not configured for this location yet.'));
+        return message.reply(formatError(
+            `لا يوجد إعداد صيد مطابق لمسارك ${routeLabel(route)} وتخصصك ${tierLabel(tier)} داخل ${location === 'lake' ? 'البحيرة' : 'الغابة'}.`,
+            `No hunting setup matches your ${routeLabel(route)} route and ${tierLabel(tier)} specialty in the ${location}.`
+        ));
     }
 
     const drop = pickOne(table);
