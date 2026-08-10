@@ -5,25 +5,21 @@ const CLAN_ROLES = {
 };
 
 const CHANNELS = {
-    clanPanel: '',
-    clanAdminReview: '',
     forestHunt: '1497870261234565151',
     lakeHunt: '1497870477295747154',
     theValley: '1497870721202913351',
     theMaze: '1499687080714829834',
-    gearStore: '',
-    gearPostStore: ''
+    clanPanel: '1526679696840851656',
+    clanAdminReview: '1526680260341666037',
+    gearStore: '1526680744196440104',
+    gearPostStore: '1526680918721302818'
 };
 
 const CLAN = {
     maxMembers: 12,
-    founderLevel: 25,
-    deputyLevel: 15,
-    memberLevel: 10,
+    minMembers: 5,
     founderAbsenceDays: 21,
-    voteFallbackDays: 7,
     approvalRequiredMembers: 5,
-    foundingCost: { gold: 10000, gems: 10, credit: 1000000 },
     monthlyResetDay: 1
 };
 
@@ -33,20 +29,30 @@ const HUNTING = {
         forest_dark_sword: { gold: 1000, gems: 3 },
         forest_dark_armor: { gold: 500, gems: 1 },
         sea_dragon_vest: { gold: 1000, gems: 3 },
-        sea_dragon_waist_armor: { gold: 1000, gems: 3 }
+        sea_dragon_waist: { gold: 1000, gems: 3 }
     }
 };
 
 const GEAR = {
     slots: ['helmet', 'chest', 'pants', 'shoes', 'weapon', 'shield'],
     slotLabels: {
-        helmet: 'الخوذة/القبعة',
+        helmet: 'الخوذة',
         chest: 'السترة',
         pants: 'البنطلون',
         shoes: 'الحذاء',
         weapon: 'السلاح',
         shield: 'الدرع'
-    }
+    },
+    storeItems: [
+        { slot: 'helmet', name: 'Leather Cap', priceGold: 500 },
+        { slot: 'helmet', name: 'Iron Helmet', priceGold: 1500 },
+        { slot: 'chest', name: 'Tattered Tunic', priceGold: 300 },
+        { slot: 'chest', name: 'Iron Plate', priceGold: 2000 },
+        { slot: 'pants', name: 'Cloth Pants', priceGold: 400 },
+        { slot: 'shoes', name: 'Worn Boots', priceGold: 250 },
+        { slot: 'weapon', name: 'Rusty Sword', priceGold: 1000 },
+        { slot: 'shield', name: 'Wooden Shield', priceGold: 800 }
+    ]
 };
 
 function getMissingPlaceholders() {
@@ -54,10 +60,12 @@ function getMissingPlaceholders() {
         'CLAN_ROLES.founder',
         'CLAN_ROLES.deputy',
         'CLAN_ROLES.member',
-        'CHANNELS.clanPanel',
-        'CHANNELS.clanAdminReview',
         'CHANNELS.forestHunt',
         'CHANNELS.lakeHunt',
+        'CHANNELS.theValley',
+        'CHANNELS.theMaze',
+        'CHANNELS.clanPanel',
+        'CHANNELS.clanAdminReview',
         'CHANNELS.gearStore',
         'CHANNELS.gearPostStore'
     ];

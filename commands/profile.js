@@ -1,8 +1,13 @@
 const { EmbedBuilder } = require('discord.js');
 const db = require('../db');
-const progressionService = require('../services/progressionService');
 const gearService = require('../services/gearService');
 const { COLORS, EMOJIS, FOOTER_TEXT, formatError } = require('../utils/uiConstants');
+
+function buildHpBar(hp) {
+    const value = Math.max(0, Math.min(100, Number(hp || 0)));
+    const filled = Math.round(value / 10);
+    return `${'█'.repeat(filled)}${'░'.repeat(10 - filled)}`;
+}
 
 module.exports = async (message, args) => {
     try {
@@ -14,21 +19,23 @@ module.exports = async (message, args) => {
         }
 
         const user = gearService.ensureGearFields(await db.getUser(targetId));
-        const xpNeeded = 100 * user.level;
-        const targetMember = message.guild
-            ? await message.guild.members.fetch(targetId).catch(() => null)
-            : null;
-        const routeInfo = progressionService.getRouteLevelInfo(targetMember);
-        const routeText = routeInfo.route
-            ? `${routeInfo.route} • ${routeInfo.levelName || 'unknown'}`
-            : 'Not assigned';
+        const displayLevel = Math.max(1, Number(user.level || 1));
+        const xpNeeded = 100 * displayLevel;
+        const routeText = user.path || user.currentRoute || 'Not assigned';
+        const specializationText = user.specialization || user.currentSpecialty || 'Not assigned';
+        const hpValue = Number(user.hp ?? 100);
+        const hpBar = buildHpBar(hpValue);
 
-        const gearText = Object.entries(user.gearEquipment || {})
-            .map(([slot, item]) => `${slot}: ${item || '-'}`)
-            .join('\n');
+        const gearText = [
+            `الخوذة: ${user.gearEquipment?.helmet || 'فارغ'}`,
+            `السترة: ${user.gearEquipment?.chest || 'فارغ'}`,
+            `البنطلون: ${user.gearEquipment?.pants || 'فارغ'}`,
+            `الحذاء: ${user.gearEquipment?.shoes || 'فارغ'}`,
+            `السلاح: ${user.gearEquipment?.weapon || 'فارغ'}`,
+            `الدرع: ${user.gearEquipment?.shield || 'فارغ'}`
+        ].join('\n');
 
-        // simple ASCII-style progress bar
-        const filled = Math.round((user.xp / xpNeeded) * 10);
+        const filled = Math.max(0, Math.min(10, Math.round((Number(user.xp || 0) / xpNeeded) * 10)));
         const bar = '█'.repeat(filled) + '░'.repeat(10 - filled);
 
         const embed = new EmbedBuilder()
@@ -38,11 +45,13 @@ module.exports = async (message, args) => {
             .addFields(
                 { name: `${EMOJIS.LEVEL} المستوى | Level`, value: `**${user.level}**`, inline: true },
                 { name: '🧭 Route | المسار', value: `**${routeText}**`, inline: true },
+                { name: '🎯 Specialization | التخصص', value: `**${specializationText}**`, inline: true },
+                { name: '❤️ HP Status', value: `**${hpValue}/100 HP**\n[${hpBar}]`, inline: false },
                 { name: `${EMOJIS.XP} XP Progress`, value: `**${user.xp}** / ${xpNeeded}\n[${bar}]`, inline: false },
                 { name: `${EMOJIS.GOLD} ذهب | Gold`, value: `**${(user.gold / 10).toLocaleString()}**`, inline: true },
                 { name: `${EMOJIS.GEMS} جواهر | Gems`, value: `**${user.gems}**`, inline: true },
                 { name: `${EMOJIS.HONOR} شرف | Honor`, value: `**${user.honor}**`, inline: true },
-                { name: '🧰 Gear | العتاد', value: gearText || '-', inline: false }
+                { name: '🧰 Gear | العتاد', value: gearText, inline: false }
             )
             .setFooter({ text: FOOTER_TEXT })
             .setTimestamp();

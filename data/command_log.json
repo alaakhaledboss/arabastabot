@@ -4,82 +4,6 @@
     "username": "2m.y",
     "guildId": "1209486578812981288",
     "channelId": "1483171933939044516",
-    "command": "<@1132115457277702205>",
-    "args": [],
-    "rawContent": "%<@1132115457277702205>",
-    "status": "invoked",
-    "details": "normalized:<@1132115457277702205>",
-    "timestamp": "2026-04-07T09:46:03.817Z"
-  },
-  {
-    "userId": "1079479751200227388",
-    "username": "2m.y",
-    "guildId": "1209486578812981288",
-    "channelId": "1483171933939044516",
-    "command": "profile",
-    "args": [
-      "<@1132115457277702205>"
-    ],
-    "rawContent": "%p <@1132115457277702205>",
-    "status": "invoked",
-    "details": "normalized:profile",
-    "timestamp": "2026-04-07T09:46:13.607Z"
-  },
-  {
-    "userId": "1315569013690073088",
-    "username": "7mzr",
-    "guildId": "1209486578812981288",
-    "channelId": "1483171933939044516",
-    "command": "profile",
-    "args": [],
-    "rawContent": "%P",
-    "status": "invoked",
-    "details": "normalized:profile",
-    "timestamp": "2026-04-07T09:46:21.656Z"
-  },
-  {
-    "userId": "1315569013690073088",
-    "username": "7mzr",
-    "guildId": "1209486578812981288",
-    "channelId": "1483171933939044516",
-    "command": "profile",
-    "args": [
-      "<@1061679429983670342>"
-    ],
-    "rawContent": "%p <@1061679429983670342>",
-    "status": "invoked",
-    "details": "normalized:profile",
-    "timestamp": "2026-04-07T09:46:30.572Z"
-  },
-  {
-    "userId": "1079479751200227388",
-    "username": "2m.y",
-    "guildId": "1209486578812981288",
-    "channelId": "1483171933939044516",
-    "command": "bank",
-    "args": [],
-    "rawContent": "%b",
-    "status": "invoked",
-    "details": "normalized:bank",
-    "timestamp": "2026-04-07T09:46:40.248Z"
-  },
-  {
-    "userId": "1079479751200227388",
-    "username": "2m.y",
-    "guildId": "1209486578812981288",
-    "channelId": "1483171933939044516",
-    "command": "profile",
-    "args": [],
-    "rawContent": "%p",
-    "status": "invoked",
-    "details": "normalized:profile",
-    "timestamp": "2026-04-07T09:47:14.454Z"
-  },
-  {
-    "userId": "1079479751200227388",
-    "username": "2m.y",
-    "guildId": "1209486578812981288",
-    "channelId": "1483171933939044516",
     "command": "give",
     "args": [
       "gold",
@@ -1420,5 +1344,87 @@
     "status": "invoked",
     "details": "normalized:owner",
     "timestamp": "2026-06-08T21:24:56.253Z"
+  },
+  {
+    "userId": "1079479751200227388",
+    "username": "2m.y",
+    "guildId": "1209486578812981288",
+    "channelId": "1483171933939044516",
+    "command": "profile",
+    "args": [],
+    "rawContent": "%p",
+    "status": "invoked",
+    "details": "normalized:profile",
+    "timestamp": "2026-07-14T20:24:05.836Z"
+  },
+  {
+    "userId": "1510800771229417483",
+    "username": "k8r1_",
+    "guildId": "1209486578812981288",
+    "channelId": "1483171933939044516",
+    "command": "profile",
+    "args": [],
+    "rawContent": "%p",
+    "status": "invoked",
+    "details": "normalized:profile",
+    "timestamp": "2026-07-14T20:27:06.853Z"
+  },
+  {
+    "userId": "1267904509040918553",
+    "username": "onlytomio",
+    "guildId": "1209486578812981288",
+    "channelId": "1483171933939044516",
+    "command": "profile",
+    "args": [],
+    "rawContent": "%p",
+    "status": "invoked",
+    "details": "normalized:profile",
+    "timestamp": "2026-07-14T20:27:22.863Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "los",
+      "los",
+      "los"
+    ],
+    "rawContent": "%play los los los",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-07-14T20:34:48.983Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "los",
+      "los",
+      "los"
+    ],
+    "rawContent": "%play los los los",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-07-14T20:36:13.210Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "だいあるのーと"
+    ],
+    "rawContent": "%play だいあるのーと",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-08-10T09:30:17.922Z"
   }
 ]

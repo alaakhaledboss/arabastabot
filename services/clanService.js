@@ -10,6 +10,7 @@ const DATA_FILE = path.join(__dirname, '..', 'data', 'clans.json');
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 async function ensureStore() {
+    await fs.mkdir(path.dirname(DATA_FILE), { recursive: true });
     try {
         await fs.access(DATA_FILE);
     } catch {
@@ -22,24 +23,34 @@ async function readStore() {
     try {
         const raw = await fs.readFile(DATA_FILE, 'utf8');
         const parsed = JSON.parse(raw);
-        return parsed && typeof parsed === 'object' ? parsed : { clans: [] };
+        if (!parsed || typeof parsed !== 'object') return { clans: [] };
+        if (!Array.isArray(parsed.clans)) parsed.clans = [];
+        return parsed;
     } catch {
         return { clans: [] };
     }
 }
 
 async function writeStore(store) {
-    await fs.writeFile(DATA_FILE, JSON.stringify(store, null, 2), 'utf8');
+    await ensureStore();
+    const tmp = `${DATA_FILE}.tmp`;
+    await fs.writeFile(tmp, JSON.stringify(store, null, 2), 'utf8');
+    await fs.rename(tmp, DATA_FILE);
 }
 
 function ensureClanUserFields(user) {
     if (!user.clan || typeof user.clan !== 'object') {
         user.clan = { id: null, role: null, joinedAt: 0, contribution: 0 };
     }
+
     if (user.clan.id === undefined) user.clan.id = null;
     if (user.clan.role === undefined) user.clan.role = null;
     if (user.clan.joinedAt === undefined) user.clan.joinedAt = 0;
     if (user.clan.contribution === undefined) user.clan.contribution = 0;
+    if (user.clanId === undefined || user.clanId === null) user.clanId = user.clan.id ?? null;
+    if (user.clan.id === undefined) user.clan.id = user.clanId ?? null;
+
+    if (typeof user.lastActiveAt !== 'number') user.lastActiveAt = Number(user.lastActiveAt || 0);
     return user;
 }
 
@@ -55,10 +66,12 @@ function clanRoleForUser(clan, userId) {
 
 function normalizeClan(clan) {
     if (!clan || typeof clan !== 'object') return null;
-    clan.members = Array.isArray(clan.members) ? clan.members : [];
+    clan.members = Array.isArray(clan.members) ? [...new Set(clan.members)] : [];
     clan.status = clan.status || 'active';
     clan.path = clan.path || clan.route || null;
     clan.route = clan.route || clan.path || null;
+    clan.createdAt = Number(clan.createdAt || Date.now());
+    clan.updatedAt = Number(clan.updatedAt || clan.createdAt);
     return clan;
 }
 
@@ -74,7 +87,7 @@ async function findClanByMemberId(memberId) {
 
 async function saveClan(clan) {
     const store = await readStore();
-    const normalized = normalizeClan(clan);
+    const normalized = normalizeClan({ ...clan });
     const index = store.clans.findIndex((item) => item.id === normalized.id);
     if (index === -1) store.clans.push(normalized);
     else store.clans[index] = normalized;
@@ -87,59 +100,67 @@ async function removeClan(clanId) {
     await writeStore(store);
 }
 
+function normalizePathValue(route) {
+    const value = String(route || '').trim().toLowerCase();
+    return ['combat', 'scholar', 'atelier', 'merchant'].includes(value) ? value : null;
+}
+
 function getMemberRoute(member, user) {
     return progressionService.getRouteLevelInfo(member).route || user.currentRoute || null;
 }
 
 function parseAdminCreate(message) {
-    const match = String(message.content || '').match(/^%clan\s+admincreate\s+<@!?([0-9]+)>\s+<@!?([0-9]+)>\s+"([^"]+)"\s*(.*)$/i);
+    const content = String(message.content || '').trim();
+    const match = content.match(/^%clan\s+admincreate\s+<@!?([0-9]+)>\s+<@!?([0-9]+)>\s+"([^"]+)"\s*(.*)$/i);
     if (!match) return null;
 
     const [, leaderId, deputyId, clanName, remainder] = match;
-    const memberIds = [...String(remainder || '').matchAll(/<@!?([0-9]+)>/g)].map((item) => item[1]);
-    const ids = [leaderId, deputyId, ...memberIds];
-    const uniqueIds = [...new Set(ids)];
+    const memberIds = [...String(remainder || '').matchAll(/<@!?([0-9]+)>/g)].map((entry) => entry[1]);
+    const uniqueIds = [...new Set([leaderId, deputyId, ...memberIds])];
 
     return {
         leaderId,
         deputyId,
         clanName: clanName.trim(),
-        memberIds,
         uniqueIds
     };
 }
 
-async function syncClanRoles(member, roleKind) {
-    if (!member?.roles) return;
-
-    const clanRoleIds = Object.values(gameplayCfg.CLAN_ROLES).filter(Boolean);
-    for (const roleId of clanRoleIds) {
+async function removeAllClanRoles(member) {
+    if (!member?.roles?.cache) return;
+    const roleIds = Object.values(gameplayCfg.CLAN_ROLES).filter(Boolean);
+    for (const roleId of roleIds) {
         if (member.roles.cache.has(roleId)) {
             await member.roles.remove(roleId).catch(() => {});
         }
     }
+}
 
-    const targetRoleId = gameplayCfg.CLAN_ROLES[roleKind];
-    if (targetRoleId) {
-        await member.roles.add(targetRoleId).catch(() => {});
+async function applyClanRole(member, roleKind) {
+    if (!member?.roles) return;
+    await removeAllClanRoles(member);
+    const roleId = gameplayCfg.CLAN_ROLES[roleKind];
+    if (roleId) {
+        await member.roles.add(roleId).catch(() => {});
     }
 }
 
-async function pushClanRoleState(client, clan) {
+async function syncClanRoles(client, clan) {
     if (!client?.guilds) return;
-    const guild = client.guilds.cache.first() || await client.guilds.fetch().then((col) => col.first()).catch(() => null);
+    const guild = client.guilds.cache.first() || await client.guilds.fetch().then((collection) => collection.first()).catch(() => null);
     if (!guild) return;
 
     for (const memberId of clan.members) {
         const member = await guild.members.fetch(memberId).catch(() => null);
         if (!member) continue;
-        await syncClanRoles(member, clanRoleForUser(clan, memberId));
+        await applyClanRole(member, clanRoleForUser(clan, memberId));
     }
 }
 
-async function setUserClanState(userId, clanId, role) {
+async function setUserClanState(userId, clanId, role, joinedAt = Date.now()) {
     const user = ensureClanUserFields(await db.getUser(userId));
-    user.clan = { id: clanId, role, joinedAt: Date.now(), contribution: 0 };
+    user.clan = { id: clanId, role, joinedAt, contribution: 0 };
+    user.clanId = clanId;
     await db.saveUser(user);
     return user;
 }
@@ -147,47 +168,65 @@ async function setUserClanState(userId, clanId, role) {
 async function clearUserClanState(userId) {
     const user = ensureClanUserFields(await db.getUser(userId));
     user.clan = { id: null, role: null, joinedAt: 0, contribution: 0 };
+    user.clanId = null;
     await db.saveUser(user);
     return user;
 }
 
+async function resolveMemberRoute(member, user) {
+    const route = normalizePathValue(getMemberRoute(member, user));
+    if (route) return route;
+    return normalizePathValue(user.currentRoute);
+}
+
 async function createClanFromAdmin(message) {
+    if (!message.member?.permissions?.has?.(PermissionFlagsBits.Administrator)) {
+        return message.reply(formatError('هذا الأمر للإداريين فقط.', 'This command is admin-only.'));
+    }
+
     const payload = parseAdminCreate(message);
     if (!payload) {
         return message.reply('Usage: `%clan admincreate <@Leader> <@Deputy> "Clan Name" <@Member3> <@Member4> ...`').catch(() => {});
     }
 
-    if (!message.member?.permissions?.has?.(PermissionFlagsBits.Administrator)) {
-        return message.reply(formatError('هذا الأمر للإداريين فقط.', 'This command is admin-only.'));
-    }
-
-    const guild = message.guild;
-    if (!guild) {
+    if (!message.guild) {
         return message.reply(formatError('هذا الأمر يعمل داخل السيرفر فقط.', 'This command only works inside a guild.'));
     }
 
-    const totalMembers = payload.uniqueIds.length;
-    if (totalMembers < 5 || totalMembers > 12) {
-        return message.reply(formatError('يجب أن يتكون الكلان من 5 إلى 12 عضوًا.', 'Clan size must be between 5 and 12 members.'));
+    if (payload.uniqueIds.length < gameplayCfg.CLAN.minMembers || payload.uniqueIds.length > gameplayCfg.CLAN.maxMembers) {
+        return message.reply(formatError(
+            `يجب أن يتكون الكلان من ${gameplayCfg.CLAN.minMembers} إلى ${gameplayCfg.CLAN.maxMembers} أعضاء.`,
+            `Clan size must be between ${gameplayCfg.CLAN.minMembers} and ${gameplayCfg.CLAN.maxMembers} members.`
+        ));
     }
 
     const fetchedMembers = [];
     for (const memberId of payload.uniqueIds) {
-        const member = await guild.members.fetch(memberId).catch(() => null);
+        const member = await message.guild.members.fetch(memberId).catch(() => null);
         if (!member || member.user?.bot) {
             return message.reply(formatError(`تعذر العثور على العضو <@${memberId}>.`, `Could not resolve member <@${memberId}>.`));
         }
         fetchedMembers.push(member);
     }
 
-    const routes = new Set(fetchedMembers.map((member) => getMemberRoute(member, ensureClanUserFields({ currentRoute: null }))));
-    if (routes.has(null) || routes.size !== 1) {
-        return message.reply(formatError('كل الأعضاء يجب أن يكونوا على نفس المسار تمامًا.', 'All members must be on the exact same starting path.'));
+    const routeMap = new Map();
+    for (const member of fetchedMembers) {
+        const user = ensureClanUserFields(await db.getUser(member.id));
+        const route = await resolveMemberRoute(member, user);
+        if (!route) {
+            return message.reply(formatError(`العضو <@${member.id}> لم يحدد مساره بعد.`, `Member <@${member.id}> has not selected a path yet.`));
+        }
+        routeMap.set(member.id, route);
     }
 
-    const path = [...routes][0];
-    if (!['combat', 'scholar'].includes(path)) {
-        return message.reply(formatError('الكلانات المدارة هنا مدعومة للمقاتل أو الباحث فقط.', 'Admin-managed clans are supported for Combat or Scholar routes only.'));
+    const routes = new Set(routeMap.values());
+    if (routes.size !== 1) {
+        return message.reply(formatError('كل الأعضاء يجب أن يكونوا على نفس المسار تماماً.', 'All members must share the exact same starting path.'));
+    }
+
+    const pathRoute = [...routes][0];
+    if (!['combat', 'scholar', 'atelier', 'merchant'].includes(pathRoute)) {
+        return message.reply(formatError('المسار المحدد غير صالح.', 'The selected path is invalid.'));
     }
 
     for (const member of fetchedMembers) {
@@ -198,31 +237,32 @@ async function createClanFromAdmin(message) {
     }
 
     const clanId = `clan_${Date.now()}_${payload.leaderId}`;
+    const now = Date.now();
     const clan = {
         id: clanId,
         name: payload.clanName,
-        path,
-        route: path,
+        path: pathRoute,
+        route: pathRoute,
         leaderId: payload.leaderId,
         deputyId: payload.deputyId,
         members: payload.uniqueIds,
         status: 'active',
-        createdAt: Date.now(),
-        updatedAt: Date.now(),
+        createdAt: now,
+        updatedAt: now,
         createdBy: message.author.id
     };
 
     for (const member of fetchedMembers) {
         const roleKind = member.id === payload.leaderId ? 'leader' : member.id === payload.deputyId ? 'deputy' : 'member';
-        await setUserClanState(member.id, clanId, roleKind);
+        await setUserClanState(member.id, clanId, roleKind, now);
     }
 
     await saveClan(clan);
-    await pushClanRoleState(message.client, clan);
+    await syncClanRoles(message.client, clan);
 
     return message.reply([
         `✅ Clan created: **${payload.clanName}**`,
-        `Path: **${routeLabel(path)}**`,
+        `Path: **${routeLabel(pathRoute)}**`,
         `Leader: <@${payload.leaderId}>`,
         `Deputy: <@${payload.deputyId}>`,
         `Members: **${payload.uniqueIds.length}**`
@@ -232,27 +272,24 @@ async function createClanFromAdmin(message) {
 async function showClanMenu(message) {
     const user = ensureClanUserFields(await db.getUser(message.author.id));
     const clan = user.clan?.id ? await getClanById(user.clan.id) : await findClanByMemberId(message.author.id);
-
-    const lines = [
-        'Use `%clan admincreate <@Leader> <@Deputy> "Clan Name" <@Member3> ...`.',
-        'Use `%clan status`, `%clan list`, `%clan leave`, or `%clan disband` when applicable.',
-        '',
-        `Your clan: **${clan?.name || '-'}**`,
-        `Your role: **${user.clan?.role || '-'}**`,
-        `Your route: **${routeLabel(getMemberRoute(message.member, user))}**`,
-        `Clan size limit: **${gameplayCfg.CLAN.maxMembers}**`
-    ];
+    const route = await resolveMemberRoute(message.member, user);
 
     return message.reply({
-        embeds: [
-            {
-                color: COLORS.PRIMARY,
-                title: '🛡️ Clan System',
-                description: lines.join('\n'),
-                footer: { text: FOOTER_TEXT },
-                timestamp: new Date().toISOString()
-            }
-        ]
+        embeds: [{
+            color: COLORS.PRIMARY,
+            title: '🛡️ Clan System',
+            description: [
+                'Use `%clan admincreate <@Leader> <@Deputy> "Clan Name" <@Member3> ...`.',
+                'Use `%clan status`, `%clan list`, `%clan leave`, or `%clan disband` when applicable.',
+                '',
+                `Your clan: **${clan?.name || '-'}**`,
+                `Your role: **${user.clan?.role || '-'}**`,
+                `Your path: **${routeLabel(route)}**`,
+                `Clan size limit: **${gameplayCfg.CLAN.maxMembers}**`
+            ].join('\n'),
+            footer: { text: FOOTER_TEXT },
+            timestamp: new Date().toISOString()
+        }]
     });
 }
 
@@ -264,24 +301,64 @@ async function showClanStatus(message) {
         return message.reply('You are not in a clan.').catch(() => {});
     }
 
-    const summary = clan.members.map((memberId) => `<@${memberId}> (${clanRoleForUser(clan, memberId)})`).join('\n');
+    const roster = clan.members.map((memberId) => `<@${memberId}> (${clanRoleForUser(clan, memberId)})`).join('\n');
     return message.reply({
-        embeds: [
-            {
-                color: COLORS.INFO,
-                title: `🛡️ Clan: ${clan.name}`,
-                fields: [
-                    { name: 'Path', value: routeLabel(clan.path), inline: true },
-                    { name: 'Leader', value: `<@${clan.leaderId}>`, inline: true },
-                    { name: 'Deputy', value: clan.deputyId ? `<@${clan.deputyId}>` : '-', inline: true },
-                    { name: 'Members', value: `${clan.members.length}/${gameplayCfg.CLAN.maxMembers}`, inline: true },
-                    { name: 'Roster', value: summary || '-', inline: false }
-                ],
-                footer: { text: FOOTER_TEXT },
-                timestamp: new Date().toISOString()
-            }
-        ]
+        embeds: [{
+            color: COLORS.INFO,
+            title: `🛡️ Clan: ${clan.name}`,
+            fields: [
+                { name: 'Path', value: routeLabel(clan.path), inline: true },
+                { name: 'Leader', value: `<@${clan.leaderId}>`, inline: true },
+                { name: 'Deputy', value: clan.deputyId ? `<@${clan.deputyId}>` : '-', inline: true },
+                { name: 'Members', value: `${clan.members.length}/${gameplayCfg.CLAN.maxMembers}`, inline: true },
+                { name: 'Roster', value: roster || '-', inline: false }
+            ],
+            footer: { text: FOOTER_TEXT },
+            timestamp: new Date().toISOString()
+        }]
     });
+}
+
+async function removeMemberFromClan(clan, memberId, client, options = {}) {
+    const currentClan = normalizeClan(clan);
+    if (!currentClan) return null;
+
+    const wasLeader = currentClan.leaderId === memberId;
+    const wasDeputy = currentClan.deputyId === memberId;
+
+    currentClan.members = currentClan.members.filter((id) => id !== memberId);
+
+    if (wasLeader) {
+        currentClan.leaderId = currentClan.deputyId || currentClan.members[0] || null;
+        currentClan.deputyId = currentClan.members.find((id) => id !== currentClan.leaderId) || null;
+    } else if (wasDeputy) {
+        currentClan.deputyId = currentClan.members.find((id) => id !== currentClan.leaderId) || null;
+    }
+
+    await clearUserClanState(memberId);
+    currentClan.updatedAt = Date.now();
+
+    for (const remainingId of currentClan.members) {
+        const memberUser = ensureClanUserFields(await db.getUser(remainingId));
+        memberUser.clan = {
+            id: currentClan.id,
+            role: clanRoleForUser(currentClan, remainingId),
+            joinedAt: memberUser.clan?.joinedAt || currentClan.createdAt || Date.now(),
+            contribution: memberUser.clan?.contribution || 0
+        };
+        memberUser.clanId = currentClan.id;
+        await db.saveUser(memberUser);
+    }
+
+    if (client && currentClan.members.length) {
+        await syncClanRoles(client, currentClan);
+    }
+
+    if (!options.skipSave) {
+        await saveClan(currentClan);
+    }
+
+    return currentClan;
 }
 
 async function leaveClan(message) {
@@ -294,7 +371,7 @@ async function leaveClan(message) {
         return message.reply('You are not in a clan.').catch(() => {});
     }
 
-    await removeMemberFromClan(clan, message.author.id, message.client, { silent: true });
+    await removeMemberFromClan(clan, message.author.id, message.client);
     return message.reply(`✅ <@${message.author.id}> left clan **${clan.name}**.`).catch(() => {});
 }
 
@@ -307,96 +384,68 @@ async function disbandClan(message) {
     for (const memberId of clan.members) {
         await clearUserClanState(memberId);
     }
+
     await removeClan(clan.id);
     return message.reply(`✅ Clan **${clan.name}** disbanded.`).catch(() => {});
-}
-
-async function removeMemberFromClan(clan, memberId, client, options = {}) {
-    const index = clan.members.indexOf(memberId);
-    if (index !== -1) clan.members.splice(index, 1);
-
-    const wasLeader = clan.leaderId === memberId;
-    const wasDeputy = clan.deputyId === memberId;
-
-    if (wasLeader) {
-        clan.leaderId = clan.deputyId || clan.members[0] || null;
-        clan.deputyId = clan.members.find((id) => id !== clan.leaderId) || null;
-    } else if (wasDeputy) {
-        clan.deputyId = clan.members.find((id) => id !== clan.leaderId) || null;
-    }
-
-    await clearUserClanState(memberId);
-    clan.updatedAt = Date.now();
-
-    for (const remainingId of clan.members) {
-        const role = clanRoleForUser(clan, remainingId);
-        const memberUser = ensureClanUserFields(await db.getUser(remainingId));
-        memberUser.clan = {
-            id: clan.id,
-            role,
-            joinedAt: memberUser.clan?.joinedAt || clan.createdAt || Date.now(),
-            contribution: memberUser.clan?.contribution || 0
-        };
-        await db.saveUser(memberUser);
-    }
-
-    if (client && clan.members.length) {
-        await pushClanRoleState(client, clan);
-    }
-
-    await saveClan(clan);
-    if (!options.silent) return clan;
-    return clan;
 }
 
 async function runClanMaintenance(client) {
     const store = await readStore();
     const now = Date.now();
+    let changed = false;
 
     for (const clan of store.clans) {
         normalizeClan(clan);
         if (!clan.leaderId || !clan.deputyId) continue;
 
         const leader = ensureClanUserFields(await db.getUser(clan.leaderId));
-        const lastActiveAt = Number(leader.lastActiveAt || leader.clan?.joinedAt || clan.createdAt || 0);
+        const lastActiveAt = Number(leader.lastActiveAt || 0);
         if (!lastActiveAt) continue;
 
-        const inactiveFor = now - lastActiveAt;
-        if (inactiveFor < gameplayCfg.CLAN.founderAbsenceDays * DAY_MS) continue;
+        if (now - lastActiveAt < gameplayCfg.CLAN.founderAbsenceDays * DAY_MS) continue;
 
         const deputyId = clan.deputyId;
+        if (!deputyId) continue;
+
         clan.members = clan.members.filter((id) => id !== clan.leaderId);
-        clan.members = [...new Set([deputyId, ...clan.members])];
+        if (!clan.members.includes(deputyId)) clan.members.unshift(deputyId);
         clan.leaderId = deputyId;
         clan.deputyId = clan.members.find((id) => id !== clan.leaderId) || null;
         clan.updatedAt = now;
+        changed = true;
 
         leader.clan = { id: clan.id, role: 'member', joinedAt: leader.clan?.joinedAt || now, contribution: leader.clan?.contribution || 0 };
+        leader.clanId = clan.id;
         await db.saveUser(leader);
 
         const deputy = ensureClanUserFields(await db.getUser(deputyId));
         deputy.clan = { id: clan.id, role: 'leader', joinedAt: deputy.clan?.joinedAt || now, contribution: deputy.clan?.contribution || 0 };
+        deputy.clanId = clan.id;
         await db.saveUser(deputy);
 
         for (const memberId of clan.members) {
             if (memberId === deputyId) continue;
             const member = ensureClanUserFields(await db.getUser(memberId));
-            member.clan = { id: clan.id, role: 'member', joinedAt: member.clan?.joinedAt || now, contribution: member.clan?.contribution || 0 };
+            member.clan = {
+                id: clan.id,
+                role: 'member',
+                joinedAt: member.clan?.joinedAt || now,
+                contribution: member.clan?.contribution || 0
+            };
+            member.clanId = clan.id;
             await db.saveUser(member);
         }
 
-        await saveClan(clan);
-        await pushClanRoleState(client, clan);
+        await syncClanRoles(client, clan);
+    }
+
+    if (changed) {
+        await writeStore(store);
     }
 }
 
-async function applyFighterDeathPenalty(userId, client) {
+async function handleFighterDeath(userId, client = null) {
     const user = ensureClanUserFields(await db.getUser(userId));
-    const guild = client?.guilds?.cache?.first() || null;
-    const member = guild ? await guild.members.fetch(userId).catch(() => null) : null;
-    const route = progressionService.getRouteLevelInfo(member).route || user.currentRoute;
-    if (route !== 'combat' && user.currentRoute !== 'combat') return false;
-
     const clanId = user.clan?.id || null;
     const clan = clanId ? await getClanById(clanId) : null;
 
@@ -404,20 +453,27 @@ async function applyFighterDeathPenalty(userId, client) {
     user.xp = 0;
     user.currentRoute = null;
     user.currentSpecialty = null;
-    user.specialties = { combat: null, scholar: user.specialties?.scholar || null, atelier: user.specialties?.atelier || null, merchant: user.specialties?.merchant || null };
+    user.specialties = { combat: null, scholar: null, atelier: null, merchant: null };
     user.completedRoutes = [];
     user.prestigeRoles = [];
     user.prestigeCount = 0;
     user.rebirthCount = 0;
     user.pendingFinalRestoreRoute = '';
+    user.hp = 0;
+    user.clan = { id: null, role: null, joinedAt: 0, contribution: 0 };
+    user.clanId = null;
     await db.saveUser(user);
 
-    if (!clan) return true;
+    if (clan) {
+        await removeMemberFromClan(clan, userId, client, { skipSave: false });
+    }
 
-    await removeMemberFromClan(clan, userId, client, { silent: true });
-
-    if (member) {
-        await member.roles.remove(Object.values(gameplayCfg.CLAN_ROLES).filter(Boolean)).catch(() => {});
+    if (client?.guilds) {
+        const guild = client.guilds.cache.first() || await client.guilds.fetch().then((collection) => collection.first()).catch(() => null);
+        const member = guild ? await guild.members.fetch(userId).catch(() => null) : null;
+        if (member) {
+            await member.roles.remove(Object.values(gameplayCfg.CLAN_ROLES).filter(Boolean)).catch(() => {});
+        }
     }
 
     return true;
@@ -426,10 +482,7 @@ async function applyFighterDeathPenalty(userId, client) {
 async function handleClanCommand(message, args = []) {
     const action = String(args[0] || 'menu').toLowerCase();
 
-    if (action === 'admincreate') {
-        return createClanFromAdmin(message);
-    }
-
+    if (action === 'admincreate') return createClanFromAdmin(message);
     if (action === 'menu' || action === 'help') return showClanMenu(message);
     if (action === 'status') return showClanStatus(message);
     if (action === 'leave') return leaveClan(message);
@@ -450,7 +503,7 @@ module.exports = {
     getClanById,
     findClanByMemberId,
     runClanMaintenance,
-    applyFighterDeathPenalty,
+    handleFighterDeath,
     removeMemberFromClan,
     saveClan,
     readStore

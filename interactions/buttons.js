@@ -3,6 +3,8 @@ const bankService = require('../services/bankService');
 const musicService = require('../services/musicService');
 const progressionService = require('../services/progressionService');
 const payService = require('../services/payService');
+const craftService = require('../services/craftService');
+const sellService = require('../services/sellService');
 const db          = require('../db');
 const { formatError } = require('../utils/uiConstants');
 
@@ -31,6 +33,14 @@ module.exports = async function (interaction) {
         // ── Manual give claim buttons ───────────────────────
         if (system === 'give') {
             return await payService.handleGiveClaimInteraction(interaction);
+        }
+
+        if (system === 'craft') {
+            return await craftService.handleCraftInteraction(interaction, parts);
+        }
+
+        if (system === 'sell') {
+            return await sellService.handleSellInteraction(interaction, parts);
         }
 
         // ── Progression buttons ───────────────────────────────

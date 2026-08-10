@@ -1,334 +1,150 @@
-# ArabastaBot Manual (Human + AI Context)
+# دليل ArabastaBot الشامل
 
-Last updated: 2026-04-17
+هذا الملف هو المرجع الكامل لكل الأنظمة الفرعية الموجودة حاليًا في البوت، مكتوب بالعربية وبصيغة مرقمة واضحة. الغرض منه أن يعطي أي مطوّر أو مساهم أو وكيل ذكي صورة دقيقة عن كل نظام فعلي في الكود، وكيف يعمل، وما هي مسؤولياته، وما الملفات التي تديره.
 
-## 1) Purpose
+1. **نظام التشغيل والتهيئة العامة**
+   هذا هو الأساس الذي يبدأ منه البوت عند التشغيل. الملف الرئيسي هو [main.js](main.js)، وهو المسؤول عن تحميل متغيرات البيئة، إنشاء عميل Discord، تشغيل الاتصالات الأساسية، ثم تسجيل الدخول باستخدام `DISCORD_TOKEN`. هذا النظام يحدد أيضًا الأذونات المطلوبة للبوت مثل `Guilds` و`GuildMessages` و`MessageContent` و`GuildVoiceStates` و`GuildMembers`، لذلك فهو ليس مجرد نقطة تشغيل، بل هو البوابة التي تجعل بقية الأنظمة قابلة للعمل أصلًا.
 
-This document is a practical operating manual for ArabastaBot.
-It is designed to help maintainers, contributors, and AI agents understand:
+2. **نظام قاعدة البيانات والملفات الدائمة**
+   كل بيانات البوت محفوظة بصيغة JSON داخل مجلد [data](data). طبقة البيانات الأساسية موجودة في [db.js](db.js)، وهي التي تنشئ الملفات المفقودة تلقائيًا، وتصلح الملفات التالفة بإعادة إنشائها، وتستخدم الكتابة المؤقتة الآمنة عبر ملف `.tmp` قبل الاستبدال النهائي. هذا النظام هو العمود الفقري لكل شيء تقريبًا: أرصدة المستخدمين، السجل البنكي، السجلات، حالة الأوامر، حالة الخمول، العتاد، المواد، والكلانات.
 
-- what the bot does,
-- how requests flow through the code,
-- where data is stored,
-- who can run which commands,
-- and how to extend behavior safely.
+3. **نظام التقاط الرسائل وتوجيهها**
+   كل رسالة جديدة تمر عبر معالج الرسائل في [main.js](main.js). هذا المعالج يرفض رسائل البوت نفسه، ويتجاهل بعض الرسائل الخاصة من الحسابات أثناء حساب التقدم، ثم يفرّق بين الرسائل العادية ورسائل الأوامر التي تبدأ بالرمز `%`. إذا كانت الرسالة أمرًا، تُحوَّل مباشرة إلى [commands/commandHandler.js](commands/commandHandler.js). وإذا كانت رسالة عادية، فقد تدخل في أنظمة التقدم والمكافآت والمهام. هذا يعني أن الرسالة الواحدة قد تؤثر على أكثر من نظام في نفس الوقت.
 
-## 2) Tech Stack and Runtime
+4. **نظام التحيات العربية المختصرة**
+   داخل [main.js](main.js) توجد استجابات سريعة لعبارات عربية مثل `السلام` و`سلام`. هذا ليس أمرًا رسميًا، بل سلوك مباشر يردّ على التحية برسائل ترحيب عشوائية. وجود هذا النظام يعني أن البوت لا يعمل فقط بالأوامر، بل أيضًا كحوار سريع على مستوى الرسائل اليومية.
 
-- Runtime: Node.js (CommonJS)
-- Main framework: discord.js v14
-- Voice/music: @discordjs/voice, play-dl, @distube/ytdl-core, youtubei.js
-- Storage: JSON files (no SQL DB)
+5. **نظام الأوامر والاختصارات**
+   قلب البوت التشغيلي هو [commands/commandHandler.js](commands/commandHandler.js). هذا الملف يستقبل اسم الأمر، يطبّع الاختصارات والأسماء البديلة، ثم يوجّه التنفيذ إلى الوحدات المناسبة. من أمثلة الاختصارات: `b` للبنك، `s` للمتجر، `p` للملف الشخصي، `t` للمهام، و`lb` للمتصدرين. هذا النظام هو الذي يحدد أي أمر موجود، وأي أمر محجوب، وأي أمر مخصص للمالك أو للمصرّح لهم فقط.
 
-Main entrypoint: main.js
+6. **نظام المساعدة والدليل الداخلي**
+   هناك مستويان للمساعدة: مستوى عام عبر `%help`، ومستوى تفصيلي عبر `%man`. الملف [commands/manual.js](commands/manual.js) يحتوي وصفًا داخليًا لكل أمر تقريبًا: وظيفته، صيغة استخدامه، وأمثلة عليه. هذا النظام مهم لأنه يحافظ على أن يكون البوت قابلًا للتعلّم من داخل نفسه، لا من وثائق خارجية فقط.
 
-Startup flow:
-1. Load environment variables from .env.
-2. Create Discord client with intents:
-   - Guilds
-   - GuildMessages
-   - MessageContent
-   - GuildVoiceStates
-   - GuildMembers
-3. Initialize data files via db.initDB().
-4. Login with DISCORD_TOKEN.
+7. **نظام الصلاحيات العامة والمصرّح لهم والمالك**
+   البوت لا يعامل كل الأوامر بالطريقة نفسها. يوجد مستوى أوامر عامة للجميع، ومستوى أوامر للمصرّح لهم أو المدراء، ومستوى أوامر للمالك فقط. هذا المنطق موزع بين [commands/commandHandler.js](commands/commandHandler.js)، و[services/ownerOpsService.js](services/ownerOpsService.js)، و[services/qaAccessService.js](services/qaAccessService.js)، و[commands/permission.js](commands/permission.js). النظام يقرر من يستطيع رؤية قائمة الأوامر، ومن يستطيع تنفيذ الأوامر الحساسة، ومن يحتفظ بصلاحيات QA أو يفقدها.
 
-## 3) Environment Variables
+8. **نظام QA وتجارب التحكم الخاصة**
+   يوجد نظام منفصل لإدارة مستخدمي QA عبر [services/qaAccessService.js](services/qaAccessService.js). هذا النظام يضيف ويزيل مستخدمين من قائمة QA، ويسجل العمليات في سجل تدقيق، ويرتبط بأوامر مثل `%enableqa` و`%disableqa` و`%qalist`. وظيفته الأساسية هي منح طبقة اختبار وتجربة خاصة قبل أن تصل بعض الميزات إلى الاستخدام العام أو الاستخدام الإداري الواسع.
 
-Required:
-- DISCORD_TOKEN: bot token used by client.login().
+9. **نظام تعطيل وتمكين الأوامر**
+   يوجد أيضًا نظام تحكم تشغيلي بالأوامر عبر [services/disabledCommandsService.js](services/disabledCommandsService.js). هذا النظام يسمح للمالك بتعطيل أمر بعينه أو تعطيل كل الأوامر غير المحمية، ثم إعادة تفعيلها لاحقًا. من الناحية التشغيلية، هذا مهم جدًا وقت الأعطال أو أثناء التحديثات، لأنه يتيح إيقاف أجزاء محددة من البوت دون إغلاقه بالكامل.
 
-Optional:
-- OWNER_ID: owner user id. If missing, fallback default id is used in code.
-- YT_DLP_PATH: explicit path to yt-dlp executable for music fallback.
-- DENO_PATH: explicit path to deno executable (used with yt-dlp js runtime mode).
+10. **نظام البنك**
+    نظام البنك موجود في [commands/bank.js](commands/bank.js) و[services/bankService.js](services/bankService.js). هذا النظام يدير الرصيد البنكي، السحب، الإيداع، والنظرة العامة للحساب. كما يرتبط بالملفات البنكية واللوجات الخاصة بها داخل [data/bank.json](data/bank.json) و[data/bank_log.json](data/bank_log.json). البنك ليس مجرد رقم، بل هو جزء من اقتصاد البوت بالكامل، ويستخدم معه نموذج القيم الداخلية للذهب.
 
-## 4) Message and Interaction Flow
+11. **نظام المتجر العام والمنتجات**
+    المتجر العام موجود في [commands/shop.js](commands/shop.js) و[services/shopService.js](services/shopService.js). هذا النظام يدير واجهات شراء متنوعة، ومن ضمنها إدارة المنتجات وأسعارها وحالاتها، ويعتمد على [data/products.json](data/products.json). المتجر هو نقطة البيع الأساسية للأدوات والخصائص المرتبطة بالاقتصاد داخل البوت، وهو أيضًا المكان الذي تظهر فيه بعض واجهات التفاعل الأكثر تعقيدًا.
 
-### 4.1 Message Flow
+12. **نظام التحويلات بين المستخدمين والدفع اليدوي**
+    أوامر `%pay` و`%give` تديرها [commands/pay.js](commands/pay.js) و[services/payService.js](services/payService.js). `%pay` ينشئ تحويلًا يدويًا يحتاج موافقة أو تأكيد، بينما `%give` ينشئ حالة إعطاء أو مطالبة يمكن استلامها لاحقًا. هذا النظام يختلف عن البنك لأنه يهتم بتحريك الأموال بين الأشخاص، لا فقط بتخزينها داخل الحساب الشخصي.
 
-Message event is handled in main.js.
+13. **نظام تحويل لوحة المفاتيح**
+    أمر `%convert` موجود في [commands/convert.js](commands/convert.js). هذا النظام يحول النص بين تخطيطات الإنجليزية والعربية عند الحاجة، ويمكن تطبيقه على رسالة مستهدفة أو على محتوى معيّن. فائدته عملية جدًا داخل المجتمع العربي المختلط، لأن كثيرًا من الرسائل المكتوبة تكون على لوحة غير مناسبة.
 
-Rules:
-- Bot messages are ignored.
-- Prefix for commands is %.
-- Messages starting with "# " are excluded from progression counting.
-- Arabic greeting shortcuts are handled directly in main.js.
+14. **نظام الملف الشخصي**
+    الملف الشخصي موجود في [commands/profile.js](commands/profile.js). هذا النظام يعرض مستوى المستخدم، تقدمه، المسار الحالي، الذهب، الجواهر، الشرف، والعتاد المجهز. إنه واجهة قراءة أساسية للحالة الكاملة للاعب، ويجمع بياناته من قاعدة البيانات ومن نظام التقدم ومن نظام العتاد معًا.
 
-If message is a command:
-- Command is routed to commands/commandHandler.js.
-- Progression/reward task update can still run (unless excluded by # prefix rule).
+15. **نظام المتصدرين**
+    نظام المتصدرين موجود في [commands/leaderboard.js](commands/leaderboard.js). يسمح بعرض أفضل المستخدمين حسب XP أو الذهب أو الجواهر أو الشرف. هذا النظام مهم لأنه يعطي بعدًا تنافسيًا مباشرًا للاقتصاد والتقدم، ويحوّل الأرقام المخزنة إلى ترتيب عام واضح للناس داخل السيرفر.
 
-If message is not a command:
-- Progression and reward logic runs through:
-  - services/progressionService.js
-  - services/rewardService.js
-  - services/taskService.js
+16. **نظام التقدم والمسارات**
+    أحد أهم أنظمة البوت موجود في [services/progressionService.js](services/progressionService.js) و[config/progressionConfig.js](config/progressionConfig.js). هذا النظام يدير المسارات الأساسية مثل `Combat` و`Scholar` و`Atelier` و`Merchant`، ويقرأ الأدوار المرتبطة بالمسار، ويزامن حالة المستخدم بين القاعدة والDiscord، ويحدد مستوى المسار، ويضبط ظهور القنوات الخاصة بالمستخدم. هذا هو النظام الذي يربط البوت كله ببنية السيرفر التعليمية/القصصية.
 
-### 4.2 Interaction Flow (Buttons, Selects, Modals)
+17. **نظام التخصصات داخل المسار**
+    داخل نظام التقدم نفسه يوجد فرع خاص بالتخصصات. عندما يصل المستخدم إلى النقاط أو المستوى المطلوب، يمكنه اختيار تخصص ثابت داخل مساره مثل الاختيارات القتالية أو البحثية أو الحرفية أو التجارية حسب التكوين الحالي. هذا النظام يحدد لاحقًا نوع المكافآت أو الإطارات أو الامتيازات التي يمكن للمستخدم الحصول عليها.
 
-The interactionCreate event in main.js routes to:
-- interactions/buttons.js
-- interactions/selects.js
-- interactions/modals.js
+18. **نظام الترقيات Prestige**
+    أمر `%prestige` وملف [commands/progression.js](commands/progression.js) مع [services/progressionService.js](services/progressionService.js) يديران الترقيات. هذا النظام يسمح للمستخدم بإعادة بناء تقدمه ضمن شروط معينة مع الاحتفاظ أو إعادة ضبط بعض العلامات حسب تصميم المسار. الترقي ليس مجرد أمر تجميلي، بل طبقة تقدم أعلى تعطي هوية أقوى للمستخدم المتقدم.
 
-Interaction customId pattern is namespace-based, for example:
-- music:...
-- pay:confirm:...
-- give:claim:...
-- progression:...
-- shop:...
-- bank:...
-- convert:...
-- gold_credit:...
+19. **نظام الولادة الجديدة Rebirth**
+    أمر `%rebirth` جزء مستقل من نظام التقدم نفسه. يختلف عن Prestige لأنه يمثل إعادة انطلاق أكثر جذرية، وغالبًا يرتبط بمكافآت أو إعادة ضبط أوسع في البنية التقدمية. وجوده يعني أن البوت لا يكتفي بمستوى واحد من التقدم، بل يملك طبقات صعود متعددة.
 
-Important behavior:
-- Some actions must call showModal as the first response.
-- Permission checks are enforced by service handlers and interaction routers.
+20. **نظام الرسائل والمكافآت اليومية**
+    [services/rewardService.js](services/rewardService.js) يطبق مكافآت الرسائل والدورات الزمنية اليومية. هذا النظام يحسب XP والذهب للمشاركات اليومية، ويأخذ في الحسبان مضاعفات مرتبطة بالمسار، كما يتعامل مع حد الذهب اليومي في بعض الحالات. وهو جزء أساسي من حلقة اللعب الأساسية لأن المستخدم يكسب من النشاط المستمر لا من الأوامر فقط.
 
-## 5) Command System
+21. **نظام المهام اليومية**
+    [services/taskService.js](services/taskService.js) يدير التقدم في المهام اليومية مثل عدد الرسائل والوقت الصوتي. هذا النظام يحسب ما تم إنجازه اليوم، ويمنح المكافآت عند إكمال الشروط، ويتكامل مع متابع الصوت في الخلفية. هو نظام بناء عادة يومي، وليس مجرد عداد داخلي.
 
-Command entrypoint: commands/commandHandler.js
+22. **نظام الأدوار والربط بين السيرفر والتقدم**
+    الملف [services/progressionService.js](services/progressionService.js) لا يدير المسارات فقط، بل يزامن الأدوار، ويحدّث القنوات المرئية، ويزيل أو يضيف الأدوار الخاصة بالمستوى، ويمنع التعارض بين الرتبة والدور. هذا النظام هو الجسر بين بيانات المستخدم في JSON وبين الواقع الفعلي داخل Discord.
 
-### 5.1 Command Normalization
+23. **نظام الكلان الإداري**
+    [services/clanService.js](services/clanService.js) و[commands/clan.js](commands/clan.js) يديران نظام الكلان الحالي. الأمر الأساسي هو `%clan admincreate <@Leader> <@Deputy> "Clan Name" <@Member3> ...`، وهو أمر إداري ينشئ كلانًا من 5 إلى 12 عضوًا، مع شرط أن يكون الجميع على نفس المسار الابتدائي. هذا النظام يحفظ الكلان في قاعدة البيانات، ويضبط أدوار Founder وDeputy وMember، ويخزن حالة العضوية لكل لاعب داخل كائنه الشخصي.
 
-- Aliases are normalized to canonical command names.
-- Example: b -> bank, s -> shop, p -> profile, t -> tasks, lb -> leaderboard.
+24. **نظام صيانة الكلان والخمول القيادي**
+    داخل [services/clanService.js](services/clanService.js) توجد دالة صيانة دورية تتحقق من `lastActiveAt` للقائد. إذا بقي القائد غير نشط لمدة 21 يومًا، تُنقل القيادة تلقائيًا إلى النائب. هذا النظام مهم جدًا لأنه يمنع تجمّد الكلان بسبب قائد غائب، ويضمن استمرار الهيكل التنظيمي حتى لو اختفى صاحب القيادة.
 
-### 5.2 Access Model
+25. **نظام عقوبة وفاة المقاتل**
+    يوجد helper مخصص اسمه `handleFighterDeath` داخل [services/clanService.js](services/clanService.js). عند وفاة المقاتل، يعاد ضبط مستواه وإحصاءاته إلى الصفر، ويُزال من كلانه داخل القاعدة، وتُشال عنه الأدوار المرتبطة بالكلان من Discord إذا كان موجودًا. هذا النظام يمثل عقوبة قصصية/تنافسية واضحة للمسار القتالي.
 
-There are 4 effective access tiers:
+26. **نظام الصيد**
+    [services/huntingService.js](services/huntingService.js) و[commands/hunt.js](commands/hunt.js) يديران الصيد في الغابة والبحيرة. الصيد لا يعمل إلا داخل القنوات المخصصة له، مع كولداون صارم مدته 20 دقيقة لكل مستخدم. النظام يحسب الجداول حسب المسار والتخصص، ويسجل المواد في قاعدة البيانات، ويمنع الاستعمال خارج القناة الصحيحة. هذا نظام جمع موارد أساسي، وليس مجرد أمر عشوائي.
 
-1. Public commands:
-   - help, man, ping, play, song, profile, tasks, leaderboard, convert
+27. **نظام السقوطات النادرة والجوائز الفريدة في الصيد**
+    داخل نظام الصيد نفسه توجد العناصر النادرة جدًا مثل Dark Forest Sword وDark Forest Armor وSea Dragon Vest وSea Dragon Waist. إذا امتلك اللاعب العنصر من قبل، لا يضيع السقوط، بل يتحول إلى تعويض بديل من الذهب والجواهر. هذا يجعل السقوطات الفريدة ذات قيمة فعلية حتى مع التكرار، ويمنع الإحباط من تكرار العناصر الخاصة.
 
-2. Authorized or admin commands:
-   - commands
-   - Server admins can access command list view.
-   - Authorized users (bank_access=true) can access restricted operations.
+28. **نظام العتاد والمتجر الخاص بالعتاد**
+    [services/gearService.js](services/gearService.js) و[commands/gear.js](commands/gear.js) يقدمان نظام العتاد الكامل. الشراء مسموح فقط داخل قناة متجر العتاد المخصصة، ويُخصم الذهب الداخلي، ثم يُخزن العنصر داخل مخزون اللاعب. النظام يدعم شراء العناصر الأساسية مثل الخوذة والسترة والبنطلون والحذاء والسلاح والدرع، كما يسجل نتيجة الشراء في قناة نشر خاصة بالمتجر.
 
-3. Authorized commands:
-   - bank, shop, pay, give, specialty, prestige, rebirth, setlevel, setxp, log, logtransaction, logcommands
+29. **نظام تجهيز وإزالة تجهيز العتاد**
+    نفس النظام السابق يدير أيضًا `%gear equip <item_name>` و`%gear unequip <slot>`. التجهيز يضع العنصر في الخانة المناسبة، وإزالة التجهيز تعيد الخانة إلى `فارغ`. الخانات الست هي: الخوذة، السترة، البنطلون، الحذاء، السلاح، الدرع. هذا النظام يكمل متجر العتاد، لأنه يفصل بين امتلاك العنصر واستخدامه فعليًا.
 
-4. Owner-only commands:
-   - owner, permission, showbanklog, logtransactionreset, logcommandsreset,
-     reseteverything, disablecommand, enablecommand,
-     disableallcommands, enableallcommands, enableqa, disableqa, qalist
+30. **نظام عرض العتاد داخل الملف الشخصي**
+    [commands/profile.js](commands/profile.js) يعرض العتاد بشكل عربي واضح داخل الملف الشخصي. كل خانة تظهر باسمها العربي، وإذا كانت فارغة تظهر كلمة `فارغ`. هذا العرض مهم لأنه يربط واجهة القراءة بالحالة الفعلية للعتاد ويجعل المستخدم يفهم وضعه بسرعة من صفحة واحدة.
 
-Advanced owner operations are implemented in services/ownerOpsService.js.
-Some advanced operations are available to QA users depending on policy.
+31. **نظام الموسيقى**
+    [commands/music.js](commands/music.js) وملفات [services/music](services/music) تدير البحث والتشغيل والطابور والتحكم بالمقاطع الصوتية. هذا النظام يعتمد على `@discordjs/voice` و`play-dl` و`@distube/ytdl-core` و`youtubei.js`، ويحتوي على طبقات احتياطية لاختيار المصدر الأنسب للتشغيل. هو نظام مستقل بالكامل تقريبًا عن الاقتصاد والتقدم، لكنه جزء رئيسي من تجربة البوت العامة.
 
-### 5.3 Built-in Manual Command
+32. **نظام التحذيرات والحظر المؤقت**
+    [commands/warn.js](commands/warn.js) و[services/moderationService.js](services/moderationService.js) يديران التحذيرات، إزالة التحذيرات، وإعادة تفعيل الحظر. عند تراكم التحذيرات، يمكن تحويل الحالة إلى Blacklist مؤقتة، ثم يقوم نظام الصيانة بفكها عند انتهاء المدة. هذا النظام هو طبقة الحماية والانضباط داخل البوت.
 
-- %man <command> displays per-command manual info from commands/manual.js.
-- Access to a manual page is filtered by the same permission model.
+33. **نظام سجل الأوامر والعمليات النصية**
+    كل أمر يتم تسجيله في [data/command_log.json](data/command_log.json) عبر [db.js](db.js) و[commands/commandHandler.js](commands/commandHandler.js). توجد أوامر لعرض السجل، ومسحه، وإدارته. هذا النظام مفيد للتتبع، والتحقيق، وفهم أنماط الاستخدام، ويُستخدم أيضًا في الصلاحيات والتدقيق التشغيلي.
 
-## 6) Economy and Currency Model
+34. **نظام سجل التحويلات وسجل البنك**
+    سجلات مثل [data/transaction_log.json](data/transaction_log.json) و[data/conversion_log.json](data/conversion_log.json) و[data/bank_log.json](data/bank_log.json) تسجل الحركات الاقتصادية المهمة. هذا ليس مجرد أرشفة، بل هو نظام تدقيق مالي داخلي يتيح مراجعة ما حدث من تحويلات وإيداعات وسحوبات وتبديلات.
 
-Files involved:
-- services/bankService.js
-- services/shopService.js
-- services/payService.js
-- db.js
+35. **نظام الأوامر الإدارية الخاصة بالمالك**
+    [services/ownerOpsService.js](services/ownerOpsService.js) يدير مجموعة كبيرة من الأوامر المتقدمة مثل حالة النظام، التنفيذ التجريبي، إعادة التشغيل، التصدير والاستيراد، استعادة المستخدمين، وإدارة الأوامر. هذا النظام هو مركز التحكم الأعلى في البوت، ويُستخدم فقط عندما تكون السيطرة الكاملة مطلوبة.
 
-Core currencies:
-- gold
-- gems
-- honor
+36. **نظام أوامر الاختبار والتجربة**
+    الملفات [commands/testing.js](commands/testing.js) و[commands/profile.js](commands/profile.js) وبعض أوامر التغيير مثل `setlevel` و`setxp` تشكل طبقة اختبار مباشرة للحالة والمستوى والتوازن. هذه ليست ميزة لعب أساسية بقدر ما هي أدوات فحص وتعديل تساعد الإدارة على اختبار النظام أو تصحيح أوضاع المستخدمين بسرعة.
 
-Important internal representation detail:
-- Gold is commonly stored in internal units where 10 internal = 1 display gold.
-- Gems and honor are stored 1:1.
+37. **نظام التفاعل عبر الأزرار والقوائم والنماذج**
+    ملفات [interactions/buttons.js](interactions/buttons.js) و[interactions/selects.js](interactions/selects.js) و[interactions/modals.js](interactions/modals.js) تشكل طبقة التفاعل الحديثة داخل Discord. هذا النظام يدير الأزرار، القوائم المنسدلة، والنماذج المنبثقة، ويستخدم أنماط `customId` مثل `bank:...` و`pay:...` و`give:...` و`shop:...` و`progression:...` و`convert:...` و`gold_credit:...`. كثير من الميزات لا تعمل فقط كنص، بل كواجهة تفاعلية كاملة.
 
-Implications:
-- When adding features, always verify whether value is internal or display.
-- payService and ownerOpsService contain explicit conversion helpers.
+38. **نظام التسجيل بعد ارتفاع المستوى**
+    [services/levelUpAnnounceService.js](services/levelUpAnnounceService.js) مسؤول عن الإشعارات أو الإعلانات المرتبطة بزيادة المستوى. هذا النظام يخلق طبقة احتفالية أو إعلامية عندما يرتفع المستخدم في المستوى، وهو متصل مباشرة بحلقة المكافآت والتقدم.
 
-## 7) Progression and Tasks
+39. **نظام مراقبة النشاط والخمول**
+    البوت يحدّث `lastActiveAt` عند كل رسالة يرسلها المستخدم، وهذا الحقل يُستخدم في أكثر من مكان، خاصة في صيانة الكلان. وجود هذا الحقل يعني أن البوت لا يتعامل مع المستخدم كاسم فقط، بل يتابع نشاطه زمنيًا لصنع قرارات مثل نقل القيادة أو تحديد الخمول.
 
-Primary files:
-- services/progressionService.js
-- config/progressionConfig.js
-- services/rewardService.js
-- services/taskService.js
-- services/levelUpAnnounceService.js
+40. **نظام تتبع وقت الصوت**
+    داخل [main.js](main.js) يوجد متتبع دوري يحسب الوقت الذي يمضيه المستخدمون في القنوات الصوتية، ثم يضيفه إلى التقدم اليومي في [services/taskService.js](services/taskService.js). هذا النظام يعمل في الخلفية كل 30 ثانية تقريبًا، ويحوّل الوجود في الصوت إلى تقدم فعلي.
 
-### 7.1 Reward Loop
+41. **نظام رسالة النشاط الدورية للبوت**
+    [main.js](main.js) يحتوي أيضًا على رسالة نشاط دورية تُرسل إلى قناة مخصصة كل فترة ثابتة. هذا النظام يُستخدم لإظهار أن البوت ما زال يعمل، وهو ليس ميزة لعب، بل ميزة تشغيل ومراقبة داخلية.
 
-rewardService:
-- 1-minute cooldown for message reward tick.
-- Adds gold (internal units) and XP per tick.
-- Applies daily gold cap (default vs clan role cap).
-- Handles level-up loop where XP threshold is 100 * currentLevel.
+42. **نظام حماية الأعطال وإعادة الإقلاع**
+    [services/restartGuardService.js](services/restartGuardService.js) يحفظ حالة الأعطال الحرجة ويتيح إرسال رسالة استعادة بعد إعادة التشغيل التلقائية. هذا النظام يمنع ضياع معلومات السقوط الأخيرة، ويساعد المشرفين على فهم سبب الانقطاع إذا حدث.
 
-### 7.2 Daily Tasks
+43. **نظام التحكّم في السجل العام للرسائل والأنشطة**
+    البوت يركز على تسجيل أنشطة متعددة: رسالة المستخدم، أمره، حالته البنكية، التحويلات، الجواهر، والتحذيرات. هذا ليس نظامًا واحدًا منفصلًا فقط، بل طبقة تتبع ممتدة عبر ملفات JSON مختلفة، تجعل كل نظام آخر قابلًا للمراجعة لاحقًا.
 
-taskService tracks:
-- Daily message target (100)
-- Daily voice target (10 minutes)
-- Bonus grants for completion
+44. **نظام التنسيق بين البوت وDiscord نفسه**
+    جزء كبير من البوت لا يعمل داخل JSON فقط، بل ينعكس مباشرة على Discord: أدوار، صلاحيات قنوات، قنوات انتظار، أزرار، ونماذج. هذا يعني أن الأنظمة السابقة ليست واجهات نصية فقط، بل مرتبطة بحالة السيرفر الحقيقي وتخطيطه التنظيمي.
 
-Voice progress is updated by a periodic tracker in main.js.
+45. **نظام الإعدادات الثابتة الخاصة باللعب**
+    [config/gameplayConfig.js](config/gameplayConfig.js) يجمع IDs القنوات والأدوار الخاصة بالكلان والصيد والمتجر. هذا الملف هو المصدر المرجعي الوحيد لإعدادات اللعب، لذلك أي تغيير في هذه الأنظمة يجب أن يمر منه. وجوده يجعل البوت قابلًا للضبط بسرعة بدلًا من دفن المعرفات داخل الخدمات.
 
-### 7.3 Role-Based Progression
+46. **نظام التشغيل المحلي والإطلاق**
+    البوت يُشغل محليًا عبر `node main.js` بعد تثبيت الحزم بواسطة `npm install`، مع وجود [nodemon.json](nodemon.json) لتسهيل إعادة التشغيل أثناء التطوير. هذا الجزء هو ما يربط كل الأنظمة السابقة ببيئة التشغيل الفعلية على الجهاز أو على الخادم.
 
-progressionService + progressionConfig manage:
-- route roles,
-- specialty roles,
-- prestige tiers,
-- rebirth tiers,
-- route/specialty channel visibility,
-- verified role gate.
+47. **نظام المنطق القصصي والاقتصادي المشترك**
+    ليس كل ما في البوت أوامر منفصلة؛ كثير من الأنظمة تتقاطع. فالصيد يضيف مواد وعتادًا، والعتاد ينعكس في الملف الشخصي، والبنك يحرّك الذهب، والمهام اليومية تمنح XP، والتقدم يفتح مسارات وتخصصات، والكلان يضيف هوية جماعية، والمالك يتحكم في كل شيء عند الحاجة. هذه الترابطات هي النظام الأكبر الذي يجعل ArabastaBot بوتًا متكاملًا وليس مجموعة أوامر منفصلة.
 
-Admins are excluded from the route system logic (while still earning XP/levels).
+## ملخص عملي سريع
 
-## 8) Music System
+إذا أردت فهم البوت بسرعة، فرتّب قراءتك بهذا التسلسل: [main.js](main.js) ثم [commands/commandHandler.js](commands/commandHandler.js) ثم [db.js](db.js) ثم [services/progressionService.js](services/progressionService.js) ثم [services/clanService.js](services/clanService.js) ثم [services/huntingService.js](services/huntingService.js) ثم [services/gearService.js](services/gearService.js) ثم بقية الخدمات الاقتصادية والإدارية.
 
-Main files:
-- commands/music.js
-- services/music/playerService.js
-- services/music/queueManager.js
-- services/music/streamHandler.js
-
-Highlights:
-- Supports play/queue behavior and control interactions.
-- Uses layered strategy for resolving playable streams.
-- streamHandler includes yt-dlp fallback and executable resolution helpers.
-
-Operational note:
-- On Windows, setting YT_DLP_PATH (and optionally DENO_PATH) improves reliability.
-
-## 9) Data Storage and Files
-
-All persistent data is JSON-based under data/.
-
-Core files:
-- data/users.json: primary user state
-- data/bank.json: bank balances
-- data/products.json: product catalog
-- data/bank_log.json: bank action log
-- data/conversion_log.json: conversion log
-- data/transaction_log.json: capped transaction log
-- data/command_log.json: capped command usage log
-- data/qa_users.json: QA users list
-- data/qa_audit_log.json: QA audit records
-- data/qa_features.json: QA feature flags
-- data/runtime_state.json: crash/restart guard state
-
-DB layer: db.js
-
-DB behavior:
-- Creates missing files automatically.
-- Recovers corrupted JSON by recreating with defaults.
-- Uses temp-file atomic writes for safety.
-- Batches some saves with short delay for reduced IO churn.
-
-## 10) Operational Background Jobs
-
-Defined in main.js:
-
-- GIF role expiry cleanup interval (60s):
-  - Removes expired GIF role assignments.
-  - Clears user expiry metadata.
-
-- Voice task progress tracker interval (30s):
-  - Tracks active users in voice channels.
-  - Converts elapsed presence into task voice seconds.
-
-- Active heartbeat scheduler:
-  - Sends periodic "bot is active" message to a configured channel.
-  - Scheduler aligns to ten-minute boundaries.
-
-- Crash recovery notice:
-  - restartGuardService persists fatal crash info.
-  - Bot notifies owner/channel after automatic recovery.
-
-## 11) Owner and QA Operations
-
-Advanced operations live in services/ownerOpsService.js.
-
-Examples of advanced operations:
-- status, eval
-- shutdown, restart, update
-- exportdb, importdb
-- resetuser, transferall, giveall
-- viewlogs, clearspecificlog
-- alert, simulate
-- forceprestige, forcerebirth
-- reloadcommand, togglefeature
-
-QA controls live in services/qaAccessService.js:
-- Add/remove QA users
-- QA audit logging
-- Feature flags
-
-## 12) How to Run Locally
-
-1. Install dependencies:
-   - npm install
-
-2. Create .env at project root with at least:
-   - DISCORD_TOKEN=...
-   - OWNER_ID=... (recommended)
-
-3. Start bot:
-   - node main.js
-
-Optional with reload tools:
-- nodemon configuration exists in nodemon.json (ignores data and guide folders).
-
-## 13) How to Add or Modify a Command Safely
-
-1. Implement behavior in an existing command module (or add a new one under commands/).
-2. Wire routing in commands/commandHandler.js.
-3. Add alias mapping in COMMAND_ALIAS_TO_CANONICAL.
-4. Classify command into the appropriate access set.
-5. Add manual entry in commands/manual.js so %man can describe it.
-6. If command affects economy/progression, log actions in db logs.
-7. Validate interaction and permission checks.
-
-## 14) Common Pitfalls
-
-- Gold unit mismatch (internal vs display).
-- Forgetting to update manual/aliases when adding command names.
-- Showing modal after deferring interaction (invalid flow for modal-first actions).
-- Relying only on in-memory disabled command state (resets on process restart).
-- Confusing owner-only commands with authorized/admin-visible menus.
-
-## 15) AI Agent Quick Context Map
-
-If you are an AI agent working on this repository, start with:
-
-1. Routing and lifecycle:
-   - main.js
-   - commands/commandHandler.js
-
-2. Data model:
-   - db.js
-   - data/users.json
-
-3. Permission and operations:
-   - commands/permission.js
-   - services/ownerOpsService.js
-   - services/qaAccessService.js
-
-4. Economy and interactions:
-   - services/bankService.js
-   - services/shopService.js
-   - services/payService.js
-   - interactions/buttons.js
-   - interactions/modals.js
-   - interactions/selects.js
-
-5. Progression and tasks:
-   - services/progressionService.js
-   - config/progressionConfig.js
-   - services/rewardService.js
-   - services/taskService.js
-
-6. Music:
-   - commands/music.js
-   - services/music/playerService.js
-   - services/music/streamHandler.js
-
-This sequence gives the fastest complete understanding of bot behavior.
+هذا الملف هو النسخة المرجعية الحالية، وإذا أُضيف نظام جديد لاحقًا فيجب إدراجه هنا ضمن القائمة نفسها حتى يبقى الدليل مواكبًا للكود الفعلي.

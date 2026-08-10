@@ -1,174 +1,90 @@
 const db = require('../db');
 const { EmbedBuilder } = require('discord.js');
 const { COLORS, FOOTER_TEXT, formatError } = require('../utils/uiConstants');
-const progressionService = require('./progressionService');
+const clanService = require('./clanService');
 const cfg = require('../config/gameplayConfig');
 
-const FOREST_TABLES = {
-    scholar: {
-        professor: [
-            { name: 'herb', amount: 5, chance: 62 },
-            { name: 'poison_mushroom', amount: 2, chance: 20 },
-            { name: 'magic_flower', amount: 1, chance: 10 },
-            { name: 'forest_heart', amount: 1, chance: 6 }
-        ],
-        expert: [
-            { name: 'herb', amount: 5, chance: 50 },
-            { name: 'poison_mushroom', amount: 2, chance: 26.5 },
-            { name: 'magic_flower', amount: 1, chance: 18 },
-            { name: 'forest_heart', amount: 1, chance: 3.5 }
-        ],
-        teacher: [
-            { name: 'herb', amount: 5, chance: 50 },
-            { name: 'poison_mushroom', amount: 2, chance: 26.5 },
-            { name: 'magic_flower', amount: 1, chance: 18 },
-            { name: 'forest_heart', amount: 1, chance: 3.5 }
-        ]
-    },
-    combat: {
-        swordsman: [
-            { name: 'tiger_skin', amount: 1, chance: 37 },
-            { name: 'boar_horn', amount: 2, chance: 35 },
-            { name: 'green_mana_stone', amount: 2, chance: 25 }
-        ],
-        mage: [
-            { name: 'tiger_skin', amount: 1, chance: 40 },
-            { name: 'boar_horn', amount: 2, chance: 39.5 },
-            { name: 'green_mana_stone', amount: 2, chance: 18.5 }
-        ],
-        defender: [
-            { name: 'tiger_skin', amount: 1, chance: 45 },
-            { name: 'boar_horn', amount: 2, chance: 42 },
-            { name: 'green_mana_stone', amount: 2, chance: 11 }
-        ]
-    }
-};
+const COOLDOWN_MS = cfg.HUNTING.cooldownMinutes * 60 * 1000;
 
-const LAKE_TABLES = {
-    scholar: {
-        professor: [
-            { name: 'algae', amount: 5, chance: 62 },
-            { name: 'shell', amount: 2, chance: 20 },
-            { name: 'coral', amount: 1, chance: 10 },
-            { name: 'sea_heart', amount: 1, chance: 6 }
-        ],
-        expert: [
-            { name: 'algae', amount: 5, chance: 50.5 },
-            { name: 'shell', amount: 2, chance: 26.5 },
-            { name: 'coral', amount: 1, chance: 18 },
-            { name: 'sea_heart', amount: 1, chance: 3.5 }
-        ],
-        teacher: [
-            { name: 'algae', amount: 5, chance: 50.5 },
-            { name: 'shell', amount: 2, chance: 26.5 },
-            { name: 'coral', amount: 1, chance: 18 },
-            { name: 'sea_heart', amount: 1, chance: 3.5 }
-        ]
-    },
-    combat: {
-        swordsman: [
-            { name: 'starfish', amount: 1, chance: 62 },
-            { name: 'sea_dragon_bones', amount: 2, chance: 20 },
-            { name: 'sea_dragon_scales', amount: 2, chance: 10 },
-            { name: 'blue_mana_stone', amount: 2, chance: 6 }
-        ],
-        mage: [
-            { name: 'starfish', amount: 1, chance: 58 },
-            { name: 'sea_dragon_bones', amount: 2, chance: 24 },
-            { name: 'sea_dragon_scales', amount: 2, chance: 12 },
-            { name: 'blue_mana_stone', amount: 2, chance: 6 }
-        ],
-        defender: [
-            { name: 'starfish', amount: 1, chance: 65 },
-            { name: 'sea_dragon_bones', amount: 2, chance: 19 },
-            { name: 'sea_dragon_scales', amount: 2, chance: 11 },
-            { name: 'blue_mana_stone', amount: 2, chance: 5 }
-        ]
-    }
-};
-
-const EXPLORATION_TABLES = {
-    valley: {
+const HUNT_TABLES = {
+    forest: {
         scholar: {
             professor: [
-                { name: 'valley_herb', amount: 4, chance: 58 },
-                { name: 'spring_water', amount: 2, chance: 24 },
-                { name: 'ancient_leaf', amount: 1, chance: 12 },
-                { name: 'valley_relic', amount: 1, chance: 6 }
+                { name: 'herb', amount: 5, chance: 62 },
+                { name: 'poison_mushroom', amount: 2, chance: 20 },
+                { name: 'magic_flower', amount: 1, chance: 10 },
+                { name: 'forest_heart', amount: 1, chance: 6 }
             ],
             expert: [
-                { name: 'valley_herb', amount: 4, chance: 52 },
-                { name: 'spring_water', amount: 2, chance: 26 },
-                { name: 'ancient_leaf', amount: 1, chance: 15 },
-                { name: 'valley_relic', amount: 1, chance: 5 }
+                { name: 'herb', amount: 7, chance: 50 },
+                { name: 'poison_mushroom', amount: 4, chance: 26.5 },
+                { name: 'magic_flower', amount: 2, chance: 18 },
+                { name: 'forest_heart', amount: 1, chance: 3.5 }
             ],
             teacher: [
-                { name: 'valley_herb', amount: 4, chance: 52 },
-                { name: 'spring_water', amount: 2, chance: 26 },
-                { name: 'ancient_leaf', amount: 1, chance: 15 },
-                { name: 'valley_relic', amount: 1, chance: 5 }
+                { name: 'herb', amount: 7, chance: 50 },
+                { name: 'poison_mushroom', amount: 4, chance: 26.5 },
+                { name: 'magic_flower', amount: 2, chance: 18 },
+                { name: 'forest_heart', amount: 1, chance: 3.5 }
             ]
         },
         combat: {
             swordsman: [
-                { name: 'stone_chunk', amount: 2, chance: 60 },
-                { name: 'old_coin', amount: 3, chance: 25 },
-                { name: 'maze_chip', amount: 1, chance: 10 },
-                { name: 'lost_map_fragment', amount: 1, chance: 5 }
+                { name: 'tiger_skin', amount: 1, chance: 37 },
+                { name: 'boar_horn', amount: 2, chance: 35 },
+                { name: 'green_mana_stone', amount: 2, chance: 25 }
             ],
             mage: [
-                { name: 'stone_chunk', amount: 2, chance: 60 },
-                { name: 'old_coin', amount: 3, chance: 25 },
-                { name: 'maze_chip', amount: 1, chance: 10 },
-                { name: 'lost_map_fragment', amount: 1, chance: 5 }
+                { name: 'tiger_skin', amount: 2, chance: 40 },
+                { name: 'boar_horn', amount: 3, chance: 39.5 },
+                { name: 'green_mana_stone', amount: 3, chance: 18.5 }
             ],
             defender: [
-                { name: 'stone_chunk', amount: 2, chance: 60 },
-                { name: 'old_coin', amount: 3, chance: 25 },
-                { name: 'maze_chip', amount: 1, chance: 10 },
-                { name: 'lost_map_fragment', amount: 1, chance: 5 }
+                { name: 'tiger_skin', amount: 1, chance: 45 },
+                { name: 'boar_horn', amount: 2, chance: 42 },
+                { name: 'green_mana_stone', amount: 3, chance: 11 }
             ]
         }
     },
-    maze: {
+    lake: {
         scholar: {
             professor: [
-                { name: 'maze_ink', amount: 4, chance: 55 },
-                { name: 'rune_piece', amount: 2, chance: 25 },
-                { name: 'cipher_stone', amount: 1, chance: 12 },
-                { name: 'labyrinth_core', amount: 1, chance: 8 }
+                { name: 'algae', amount: 5, chance: 62 },
+                { name: 'shell', amount: 2, chance: 20 },
+                { name: 'coral', amount: 1, chance: 10 },
+                { name: 'sea_heart', amount: 1, chance: 6 }
             ],
             expert: [
-                { name: 'maze_ink', amount: 4, chance: 50 },
-                { name: 'rune_piece', amount: 2, chance: 28 },
-                { name: 'cipher_stone', amount: 1, chance: 15 },
-                { name: 'labyrinth_core', amount: 1, chance: 7 }
+                { name: 'algae', amount: 8, chance: 50.5 },
+                { name: 'shell', amount: 3, chance: 26.5 },
+                { name: 'coral', amount: 2, chance: 18 },
+                { name: 'sea_heart', amount: 1, chance: 3.5 }
             ],
             teacher: [
-                { name: 'maze_ink', amount: 4, chance: 50 },
-                { name: 'rune_piece', amount: 2, chance: 28 },
-                { name: 'cipher_stone', amount: 1, chance: 15 },
-                { name: 'labyrinth_core', amount: 1, chance: 7 }
+                { name: 'algae', amount: 8, chance: 50.5 },
+                { name: 'shell', amount: 3, chance: 26.5 },
+                { name: 'coral', amount: 2, chance: 18 },
+                { name: 'sea_heart', amount: 1, chance: 3.5 }
             ]
         },
         combat: {
             swordsman: [
-                { name: 'rust_fragment', amount: 2, chance: 58 },
-                { name: 'maze_fang', amount: 2, chance: 27 },
-                { name: 'broken_emblem', amount: 1, chance: 10 },
-                { name: 'maze_core', amount: 1, chance: 5 }
+                { name: 'starfish', amount: 1, chance: 62 },
+                { name: 'sea_dragon_bones', amount: 2, chance: 20 },
+                { name: 'sea_dragon_scales', amount: 2, chance: 10 },
+                { name: 'blue_mana_stone', amount: 2, chance: 6 }
             ],
             mage: [
-                { name: 'rust_fragment', amount: 2, chance: 58 },
-                { name: 'maze_fang', amount: 2, chance: 27 },
-                { name: 'broken_emblem', amount: 1, chance: 10 },
-                { name: 'maze_core', amount: 1, chance: 5 }
+                { name: 'starfish', amount: 1, chance: 54 },
+                { name: 'sea_dragon_bones', amount: 3, chance: 25 },
+                { name: 'sea_dragon_scales', amount: 3, chance: 15 },
+                { name: 'blue_mana_stone', amount: 3, chance: 4 }
             ],
             defender: [
-                { name: 'rust_fragment', amount: 2, chance: 58 },
-                { name: 'maze_fang', amount: 2, chance: 27 },
-                { name: 'broken_emblem', amount: 1, chance: 10 },
-                { name: 'maze_core', amount: 1, chance: 5 }
+                { name: 'starfish', amount: 1, chance: 65 },
+                { name: 'sea_dragon_bones', amount: 4, chance: 20 },
+                { name: 'sea_dragon_scales', amount: 3, chance: 10 },
+                { name: 'blue_mana_stone', amount: 3, chance: 3 }
             ]
         }
     }
@@ -176,59 +92,142 @@ const EXPLORATION_TABLES = {
 
 const UNIQUE_REWARDS = {
     forest: [
-        { name: 'forest_dark_sword', display: 'Dark Forest Sword', chance: 0.5, refund: cfg.HUNTING.uniqueDropRefunds.forest_dark_sword },
-        { name: 'forest_dark_armor', display: 'Dark Forest Armor', chance: 1.5, refund: cfg.HUNTING.uniqueDropRefunds.forest_dark_armor }
+        { name: 'dark_forest_sword', display: 'Dark Forest Sword', chance: 0.5, duplicateRefund: { gold: 2000, gems: 3 } },
+        { name: 'dark_forest_armor', display: 'Dark Forest Armor', chance: 0.5, duplicateRefund: { gold: 2000, gems: 3 } }
     ],
     lake: [
-        { name: 'sea_dragon_vest', display: 'Sea Dragon Vest', chance: 1, refund: cfg.HUNTING.uniqueDropRefunds.sea_dragon_vest },
-        { name: 'sea_dragon_waist', display: 'Sea Dragon Waist', chance: 1, refund: cfg.HUNTING.uniqueDropRefunds.sea_dragon_waist_armor }
+        { name: 'sea_dragon_vest', display: 'Sea Dragon Vest', chance: 0.5, duplicateRefund: { gold: 2000, gems: 3 } },
+        { name: 'sea_dragon_waist', display: 'Sea Dragon Waist', chance: 0.5, duplicateRefund: { gold: 2000, gems: 3 } }
     ]
 };
 
-const CHANNEL_BY_LOCATION = {
-    forest: 'forestHunt',
-    lake: 'lakeHunt',
-    valley: 'theValley',
-    maze: 'theMaze'
+const DAMAGE_RULES = {
+    scholar: {
+        professor: 5,
+        expert: 3.5,
+        teacher: 2.5
+    },
+    combat: {
+        forest: {
+            swordsman: {
+                tiger_skin: [13, 25],
+                boar_horn: [5, 12.5],
+                green_mana_stone: [0, 0]
+            },
+            mage: {
+                tiger_skin: [10, 17.5],
+                boar_horn: [4, 10],
+                green_mana_stone: [0, 0]
+            },
+            defender: {
+                tiger_skin: [8, 14],
+                boar_horn: [3, 7],
+                green_mana_stone: [0, 0]
+            }
+        },
+        lake: {
+            swordsman: {
+                starfish: [5, 7],
+                sea_dragon_bones: [10, 15],
+                sea_dragon_scales: [15, 30],
+                blue_mana_stone: [0, 0]
+            },
+            mage: {
+                starfish: [4, 5],
+                sea_dragon_bones: [10, 13],
+                sea_dragon_scales: [13, 22],
+                blue_mana_stone: [0, 0]
+            },
+            defender: {
+                starfish: [3, 5],
+                sea_dragon_bones: [8, 12],
+                sea_dragon_scales: [10, 18],
+                blue_mana_stone: [0, 0]
+            }
+        }
+    }
+};
+
+const DAMAGE_REDUCTION_BY_ITEM = {
+    'Leather Cap': 2,
+    'Iron Helmet': 4,
+    'Tattered Tunic': 2,
+    'Iron Plate': 6,
+    'Cloth Pants': 2,
+    'Worn Boots': 2,
+    'Rusty Sword': 1,
+    'Wooden Shield': 5,
+    'Dark Forest Sword': 8,
+    'Dark Forest Armor': 25,
+    'Sea Dragon Vest': 25,
+    'Sea Dragon Waist': 20
+};
+
+const FULL_SET_BONUS = {
+    forest: { withoutShield: 70, withShield: 75 },
+    lake: { withoutShield: 75, withShield: 80 }
+};
+
+const ROUTE_LABELS = {
+    combat: 'Combat',
+    scholar: 'Scholar',
+    atelier: 'Atelier',
+    merchant: 'Merchant'
+};
+
+const TIER_LABELS = {
+    professor: 'Professor',
+    expert: 'Expert',
+    teacher: 'Teacher',
+    swordsman: 'Swordsman',
+    mage: 'Mage',
+    defender: 'Defender'
 };
 
 function ensureHuntingFields(user) {
-    if (!user.hunting || typeof user.hunting !== 'object') {
-        user.hunting = { lastHuntAt: 0, cooldownUntil: 0, history: [] };
+    if (!user.inventory || typeof user.inventory !== 'object') {
+        user.inventory = { materials: {}, items: [], gear: { helmet: [], chest: [], pants: [], shoes: [], weapon: [], shield: [] } };
     }
+    if (!user.materials || typeof user.materials !== 'object') user.materials = user.inventory.materials || {};
+    if (!user.equippedGear || typeof user.equippedGear !== 'object') {
+        user.equippedGear = user.gearEquipment || { helmet: null, chest: null, pants: null, shoes: null, weapon: null, shield: null };
+    }
+    if (!user.gearEquipment || typeof user.gearEquipment !== 'object') user.gearEquipment = user.equippedGear;
+    if (!user.gearInventory || typeof user.gearInventory !== 'object') user.gearInventory = user.inventory.gear || { helmet: [], chest: [], pants: [], shoes: [], weapon: [], shield: [] };
+    if (!user.hunting || typeof user.hunting !== 'object') user.hunting = { lastHuntAt: 0, cooldownUntil: 0, history: [] };
     if (!Array.isArray(user.hunting.history)) user.hunting.history = [];
-    if (!user.materials || typeof user.materials !== 'object') user.materials = {};
-    if (!user.gearInventory || typeof user.gearInventory !== 'object') {
-        user.gearInventory = { helmet: [], chest: [], pants: [], shoes: [], weapon: [], shield: [] };
-    }
-    if (!user.gearEquipment || typeof user.gearEquipment !== 'object') {
-        user.gearEquipment = { helmet: null, chest: null, pants: null, shoes: null, weapon: null, shield: null };
-    }
+    if (typeof user.hp !== 'number') user.hp = Number(user.hp || 100);
+    if (typeof user.path !== 'string') user.path = user.currentRoute || null;
+    if (typeof user.specialization !== 'string') user.specialization = user.currentSpecialty || null;
+    if (typeof user.clanId !== 'string' && user.clanId !== null) user.clanId = user.clan?.id || null;
     return user;
 }
 
 function routeLabel(route) {
-    return ({ combat: 'Combat', scholar: 'Scholar', atelier: 'Atelier', merchant: 'Merchant' })[route] || route || '-';
+    return ROUTE_LABELS[route] || route || '-';
 }
 
-function currentRoute(member, user) {
-    return progressionService.getRouteLevelInfo(member).route || user.currentRoute || null;
+function tierLabel(tier) {
+    return TIER_LABELS[tier] || tier || '-';
 }
 
-function resolveHuntingTier(route, user) {
-    const specialty = String(user.currentSpecialty || '').toLowerCase();
+function normalizeKey(value) {
+    return String(value || '').trim().toLowerCase();
+}
 
+function resolveRoute(user) {
+    return normalizeKey(user.path || user.currentRoute);
+}
+
+function resolveTier(route, user) {
+    const specialty = normalizeKey(user.specialization || user.currentSpecialty);
     if (route === 'scholar') {
-        if (specialty === 'archivist') return 'professor';
-        if (specialty === 'dialectician') return 'expert';
-        if (specialty === 'theorist') return 'teacher';
+        if (specialty === 'professor' || specialty === 'expert' || specialty === 'teacher') return specialty;
         return 'teacher';
     }
 
     if (route === 'combat') {
-        if (specialty === 'marshal') return 'defender';
-        if (specialty === 'berserker') return 'mage';
-        if (specialty === 'duelist') return 'swordsman';
+        if (specialty === 'swordsman' || specialty === 'mage' || specialty === 'defender') return specialty;
         return 'swordsman';
     }
 
@@ -236,31 +235,39 @@ function resolveHuntingTier(route, user) {
 }
 
 function pickOne(entries) {
-    const total = entries.reduce((sum, item) => sum + Number(item.chance || 0), 0);
+    const total = entries.reduce((sum, entry) => sum + Number(entry.chance || 0), 0);
     let roll = Math.random() * total;
-    for (const item of entries) {
-        roll -= Number(item.chance || 0);
-        if (roll <= 0) return item;
+    for (const entry of entries) {
+        roll -= Number(entry.chance || 0);
+        if (roll <= 0) return entry;
     }
-    return entries[entries.length - 1];
+    return entries[entries.length - 1] || null;
 }
 
 function getTable(location, route, tier) {
-    if (location === 'forest') return FOREST_TABLES[route]?.[tier] || null;
-    if (location === 'lake') return LAKE_TABLES[route]?.[tier] || null;
-    return EXPLORATION_TABLES[location]?.[route]?.[tier] || null;
+    if (location === 'forest') return HUNT_TABLES.forest[route]?.[tier] || null;
+    if (location === 'lake') return HUNT_TABLES.lake[route]?.[tier] || null;
+    return null;
+}
+
+function getDamageRange(location, route, tier, itemName) {
+    if (route === 'scholar') {
+        return [DAMAGE_RULES.scholar[tier] || 0, DAMAGE_RULES.scholar[tier] || 0];
+    }
+
+    return DAMAGE_RULES.combat[location]?.[tier]?.[itemName] || [0, 0];
 }
 
 function getUniqueReward(location) {
     const entries = UNIQUE_REWARDS[location] || [];
-    const total = entries.reduce((sum, item) => sum + Number(item.chance || 0), 0);
-    let roll = Math.random() * 100;
-
+    const total = entries.reduce((sum, entry) => sum + Number(entry.chance || 0), 0);
+    const roll = Math.random() * 100;
     if (roll > total) return null;
 
-    for (const item of entries) {
-        roll -= Number(item.chance || 0);
-        if (roll <= 0) return item;
+    let remaining = roll;
+    for (const entry of entries) {
+        remaining -= Number(entry.chance || 0);
+        if (remaining <= 0) return entry;
     }
 
     return null;
@@ -268,159 +275,202 @@ function getUniqueReward(location) {
 
 function grantMaterial(user, name, amount) {
     user.materials[name] = Number(user.materials[name] || 0) + Number(amount || 0);
+    if (user.inventory?.materials) user.inventory.materials[name] = user.materials[name];
 }
 
-function grantUnique(user, reward) {
-    const alreadyOwned = Object.values(user.gearInventory).some((items) => Array.isArray(items) && items.includes(reward.name))
-        || Object.values(user.gearEquipment).includes(reward.name);
+function addUniqueItem(user, reward) {
+    const owned = Object.values(user.equippedGear || {}).includes(reward.name)
+        || Object.values(user.gearInventory || {}).some((items) => Array.isArray(items) && items.includes(reward.name))
+        || Array.isArray(user.inventory?.items) && user.inventory.items.some((item) => item?.name === reward.name);
 
-    if (alreadyOwned) {
-        user.gold += Number(reward.refund?.gold || 0);
-        user.gems += Number(reward.refund?.gems || 0);
-        return { duplicate: true };
+    if (owned) {
+        user.gold = Number(user.gold || 0) + Number(reward.duplicateRefund?.gold || 0) * 10;
+        user.gems = Number(user.gems || 0) + Number(reward.duplicateRefund?.gems || 0);
+        return { duplicate: true, stored: false };
     }
 
-    const slot = reward.name.includes('sword') ? 'weapon'
-        : reward.name.includes('armor') || reward.name.includes('vest') ? 'chest'
-            : reward.name.includes('waist') ? 'pants'
-                : 'shield';
-
-    if (!Array.isArray(user.gearInventory[slot])) user.gearInventory[slot] = [];
-    user.gearInventory[slot].push(reward.name);
-    return { duplicate: false };
+    if (!Array.isArray(user.inventory.items)) user.inventory.items = [];
+    user.inventory.items.push({
+        id: `${reward.name}_${Date.now()}`,
+        name: reward.display,
+        key: reward.name,
+        type: 'unique',
+        category: 'hunt_unique',
+        source: 'hunt'
+    });
+    return { duplicate: false, stored: true };
 }
 
-function resolveModeAndLocation(args = []) {
-    const first = String(args[0] || '').toLowerCase();
-    const second = String(args[1] || '').toLowerCase();
+function consumeHp(user, location, route, tier, itemName) {
+    const [minDamage, maxDamage] = getDamageRange(location, route, tier, itemName);
+    const baseDamage = minDamage === maxDamage ? minDamage : (Math.random() * (maxDamage - minDamage) + minDamage);
 
-    if (['forest', 'lake', 'valley', 'maze'].includes(first)) {
-        return { mode: first, location: first };
+    let reduction = 0;
+    const equipped = user.equippedGear || {};
+    const usedItems = Object.values(equipped).filter(Boolean);
+
+    for (const equippedItem of usedItems) {
+        reduction += Number(DAMAGE_REDUCTION_BY_ITEM[equippedItem] || 0);
     }
 
-    if (first === 'explore' && ['valley', 'maze'].includes(second)) {
-        return { mode: 'explore', location: second };
+    const hasFullForestSet = ['helmet', 'chest', 'pants', 'shoes'].every((slot) => String(equipped[slot] || '').toLowerCase().includes('dark forest'));
+    const hasFullLakeSet = ['helmet', 'chest', 'pants', 'shoes'].every((slot) => String(equipped[slot] || '').toLowerCase().includes('sea dragon'));
+    const shieldSlot = String(equipped.shield || '').toLowerCase();
+
+    if (hasFullForestSet) {
+        reduction = Math.max(reduction, FULL_SET_BONUS.forest[shieldSlot.includes('shield') ? 'withShield' : 'withoutShield']);
+    }
+    if (hasFullLakeSet) {
+        reduction = Math.max(reduction, FULL_SET_BONUS.lake[shieldSlot.includes('shield') ? 'withShield' : 'withoutShield']);
     }
 
-    return { mode: 'menu', location: null };
+    const effectiveDamagePercent = Math.max(0, baseDamage - reduction);
+    const damage = Math.max(0, Math.round((effectiveDamagePercent / 100) * 100));
+    user.hp = Math.max(0, Number(user.hp || 100) - damage);
+
+    return { baseDamage, reduction, effectiveDamagePercent, damage };
 }
 
-function matchesChannel(message, location) {
-    const expectedKey = CHANNEL_BY_LOCATION[location];
-    const expectedId = cfg.CHANNELS[expectedKey];
-    return Boolean(expectedId) && message.channel?.id === expectedId;
+function maybeWarnLowHp(user, client, userId, previousHp = 100) {
+    if (!client || typeof client.users?.fetch !== 'function') return;
+    const hp = Number(user.hp || 0);
+    if (hp > 10 || Number(previousHp || 0) <= 10) return;
+
+    client.users.fetch(userId).then((discordUser) => {
+        if (!discordUser) return;
+        return discordUser.send(`⚠️ تنبيه صحي: وصلت نقاط حياتك إلى ${hp}/100. إذا وصلت إلى 5/100 أو أقل فلن تتمكن من الصيد أو الاستكشاف حتى تتعافى.`).catch(() => {});
+    }).catch(() => {});
 }
 
-function channelLabel(location) {
-    return location === 'forest' ? 'forestHunt'
-        : location === 'lake' ? 'lakeHunt'
-            : location === 'valley' ? 'theValley'
-                : 'theMaze';
+function getHpBlockReason(user) {
+    if (Number(user.hp || 0) <= 5) {
+        return formatError('لا يمكنك الصيد أو الاستكشاف لأن نقاط حياتك 5/100 أو أقل. تعافَ أولاً.', 'You cannot hunt or explore because your HP is 5/100 or below. Recover first.');
+    }
+    return null;
+}
+
+function buildMenuEmbed(user) {
+    return new EmbedBuilder()
+        .setColor(COLORS.INFO)
+        .setTitle('🏹 نظام الصيد والاستكشاف')
+        .setDescription([
+            'استخدم `%hunt forest` أو `%hunt lake` داخل القناة المخصصة.',
+            `الانتظار الثابت: **${cfg.HUNTING.cooldownMinutes} دقيقة** لكل مستخدم.`,
+            '',
+            `HP الحالي: **${Number(user.hp || 0)}/100**`,
+            `المسار: **${routeLabel(resolveRoute(user))}**`,
+            `التخصص: **${tierLabel(resolveTier(resolveRoute(user), user))}**`,
+            '',
+            `غابة: <#${cfg.CHANNELS.forestHunt || '0'}>`,
+            `بحيرة: <#${cfg.CHANNELS.lakeHunt || '0'}>`
+        ].join('\n'))
+        .setFooter({ text: FOOTER_TEXT })
+        .setTimestamp();
 }
 
 async function handleHuntCommand(message, args = []) {
     const user = ensureHuntingFields(await db.getUser(message.author.id));
-    const route = currentRoute(message.member, user);
-    const { mode, location } = resolveModeAndLocation(args);
+    const location = normalizeKey(args[0]);
+    const route = resolveRoute(user);
+
+    if (!location) {
+        return message.reply({ embeds: [buildMenuEmbed(user)] });
+    }
+
+    if (!['forest', 'lake'].includes(location)) {
+        return message.reply(formatError('هذا المكان غير مدعوم للصيد.', 'This location is not supported for hunting.'));
+    }
+
+    if (!route || !['combat', 'scholar'].includes(route)) {
+        return message.reply(formatError('هذا النظام متاح للمقاتل أو الباحث فقط.', 'This system is only available for Combat or Scholar.'));
+    }
+
+    const hpBlockReason = getHpBlockReason(user);
+    if (hpBlockReason) return message.reply(hpBlockReason);
+
+    const expectedChannelId = location === 'forest' ? cfg.CHANNELS.forestHunt : cfg.CHANNELS.lakeHunt;
+    if (message.channel?.id !== expectedChannelId) {
+        return message.reply(formatError(
+            `استخدم أمر ${location === 'forest' ? 'الغابة' : 'البحيرة'} داخل رومه المخصص فقط.`,
+            `Use the ${location} hunt only in its dedicated channel.`
+        ));
+    }
+
     const now = Date.now();
-
-    if (mode === 'menu') {
-        const embed = new EmbedBuilder()
-            .setColor(COLORS.INFO)
-            .setTitle('🏹 Hunting & Exploring')
-            .setDescription([
-                'Use `%hunt forest`, `%hunt lake`, `%hunt valley`, or `%hunt maze` in the matching channel.',
-                'Cooldown: 20 minutes per user.',
-                '',
-                `Route: **${routeLabel(route)}**`,
-                `Current specialty: **${user.currentSpecialty || '-'}**`,
-                '',
-                `Forest: <#${cfg.CHANNELS.forestHunt || '0'}>`,
-                `Lake: <#${cfg.CHANNELS.lakeHunt || '0'}>`,
-                `Valley: <#${cfg.CHANNELS.theValley || '0'}>`,
-                `Maze: <#${cfg.CHANNELS.theMaze || '0'}>`
-            ].join('\n'))
-            .setFooter({ text: FOOTER_TEXT })
-            .setTimestamp();
-
-        return message.reply({ embeds: [embed] });
-    }
-
-    if (!route) {
-        return message.reply(formatError('اختر مسارًا أولًا قبل الصيد أو الاستكشاف.', 'Choose a route before hunting or exploring.'));
-    }
-
-    if (!['combat', 'scholar'].includes(route)) {
-        return message.reply(formatError('هذا النظام متاح للمقاتل أو الباحث فقط.', 'This system is available for Combat or Scholar routes only.'));
-    }
-
-    if (!matchesChannel(message, location)) {
-        return message.reply(formatError(
-            `استخدم أمر ${channelLabel(location)} فقط داخل رومه المخصص.`,
-            `Use the ${channelLabel(location)} command only in its dedicated channel.`
-        ));
-    }
-
     const lastHuntAt = Number(user.hunting.lastHuntAt || 0);
-    if (lastHuntAt && now - lastHuntAt < cfg.HUNTING.cooldownMinutes * 60 * 1000) {
-        const remainingMs = (cfg.HUNTING.cooldownMinutes * 60 * 1000) - (now - lastHuntAt);
-        const remainingMinutes = Math.ceil(remainingMs / 60000);
+    if (lastHuntAt && now - lastHuntAt < COOLDOWN_MS) {
+        const remainingMinutes = Math.ceil((COOLDOWN_MS - (now - lastHuntAt)) / 60000);
         return message.reply(formatError(
-            `لا يزال عليك الانتظار ${remainingMinutes} دقيقة قبل استخدام الصيد/الاستكشاف مرة أخرى.`,
-            `You must wait ${remainingMinutes} more minute(s) before hunting or exploring again.`
+            `لا يزال عليك الانتظار ${remainingMinutes} دقيقة قبل استخدام الصيد مرة أخرى.`,
+            `You must wait ${remainingMinutes} more minute(s) before hunting again.`
         ));
     }
 
-    const tier = resolveHuntingTier(route, user);
+    const tier = resolveTier(route, user);
     const table = getTable(location, route, tier);
     if (!table || !table.length) {
-        return message.reply(formatError('هذا المسار/التخصص غير مضبوط لهذا المكان بعد.', 'This route/specialty is not configured for this location yet.'));
+        return message.reply(formatError('هذا المسار أو التخصص غير مضبوط لهذا المكان بعد.', 'This route or specialty is not configured for this location yet.'));
     }
 
     const drop = pickOne(table);
     if (drop) grantMaterial(user, drop.name, drop.amount);
 
-    let uniqueResult = null;
-    if (location === 'forest' || location === 'lake') {
-        const unique = getUniqueReward(location);
-        if (unique) uniqueResult = grantUnique(user, unique);
-    }
+    const damage = consumeHp(user, location, route, tier, drop?.name || '');
+    const uniqueReward = getUniqueReward(location);
+    const uniqueResult = uniqueReward ? addUniqueItem(user, uniqueReward) : null;
 
     user.hunting.lastHuntAt = now;
-    user.hunting.cooldownUntil = now + (cfg.HUNTING.cooldownMinutes * 60 * 1000);
+    user.hunting.cooldownUntil = now + COOLDOWN_MS;
     user.hunting.history.unshift({
         at: now,
+        location,
         route,
         tier,
-        location,
-        drop: drop?.name || null,
-        unique: uniqueResult?.name || null
+        drop: drop ? { name: drop.name, amount: drop.amount } : null,
+        unique: uniqueReward ? { name: uniqueReward.name, duplicate: !!uniqueResult?.duplicate } : null,
+        damage: damage.damage
     });
     user.hunting.history = user.hunting.history.slice(0, 20);
 
+    const hpBeforeWarning = Number(user.hp || 0) + damage.damage;
+    const hpNow = Number(user.hp || 0);
+
     await db.saveUser(user);
 
-    const lines = [
-        `Location: **${location}**`,
-        `Route: **${routeLabel(route)}**`,
-        `Tier: **${tier || '-'}**`,
-        `Material: **${drop ? `${drop.amount}x ${drop.name}` : 'none'}**`
+    maybeWarnLowHp(user, message.client, message.author.id, hpBeforeWarning);
+
+    if (hpNow === 0) {
+        await clanService.handleFighterDeath(message.author.id, message.client).catch(() => {});
+    }
+
+    const responseLines = [
+        `المكان: **${location}**`,
+        `المسار: **${routeLabel(route)}**`,
+        `التخصص: **${tierLabel(tier)}**`,
+        `المادة: **${drop ? `${drop.amount}x ${drop.name}` : 'لا شيء'}**`,
+        `الضرر: **${damage.effectiveDamagePercent.toFixed(1)}%** (${damage.damage}/100)`,
+        `HP الحالي: **${hpNow}/100**`,
+        `انتهاء الانتظار: <t:${Math.floor(user.hunting.cooldownUntil / 1000)}:R>`
     ];
 
-    if (uniqueResult) {
-        lines.push(uniqueResult.duplicate
-            ? 'Unique drop was already owned, so fallback compensation was granted.'
-            : 'Unique gear was found and stored in your inventory.');
+    if (uniqueReward) {
+        responseLines.push(uniqueResult?.duplicate
+            ? `الدروب النادر: **${uniqueReward.display}** كان مملوكًا، وتم منح التعويض البديل.`
+            : `الدروب النادر: **${uniqueReward.display}** أُضيف إلى مخزونك.`);
+    }
+
+    if (hpBeforeWarning > 10 && hpNow <= 10) {
+        responseLines.push('تم إرسال تنبيه خاص لأن HP وصل إلى 10/100 أو أقل.');
+    }
+
+    if (hpNow === 0) {
+        responseLines.push('اللاعب وصل إلى 0 HP وتم تطبيق عقوبة الموت.');
     }
 
     const embed = new EmbedBuilder()
         .setColor(COLORS.SUCCESS)
-        .setTitle('🏹 Hunt Result')
-        .setDescription(lines.join('\n'))
-        .addFields(
-            { name: 'Next use', value: `<t:${Math.floor(user.hunting.cooldownUntil / 1000)}:R>`, inline: true },
-            { name: 'Tracked materials', value: Object.keys(user.materials).slice(0, 6).join(', ') || '-', inline: true }
-        )
+        .setTitle('🏹 نتيجة الصيد')
+        .setDescription(responseLines.join('\n'))
         .setFooter({ text: FOOTER_TEXT })
         .setTimestamp();
 
@@ -429,6 +479,7 @@ async function handleHuntCommand(message, args = []) {
 
 module.exports = {
     ensureHuntingFields,
-    resolveHuntingTier,
-    handleHuntCommand
+    handleHuntCommand,
+    resolveRoute,
+    resolveTier
 };

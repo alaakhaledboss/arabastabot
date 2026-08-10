@@ -157,6 +157,18 @@ const MANUALS = {
         structure: '`%gear [status|inventory|equip|unequip]`',
         examples: ['`%gear status`', '`%gear equip weapon forest_dark_sword`']
     },
+    craft: {
+        title: '%craft',
+        functionality: 'Opens the Atelier crafting panel and clan contribution buttons.',
+        structure: '`%craft`',
+        examples: ['`%craft`']
+    },
+    sell: {
+        title: '%sell',
+        functionality: 'Creates a merchant sale listing with a buy button.',
+        structure: '`%sell <item> <price>`',
+        examples: ['`%sell Dark Forest Sword 2500`']
+    },
     log: {
         title: '%log',
         functionality: 'Shows conversion log.',
