@@ -3,183 +3,6 @@
     "userId": "1156642624770424902",
     "username": "alaakhaledboss",
     "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [],
-    "rawContent": "%play",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T11:28:16.671Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "creepy",
-      "nuts",
-      "collection"
-    ],
-    "rawContent": "%play creepy nuts collection",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T11:35:06.817Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "otonoke"
-    ],
-    "rawContent": "%play otonoke",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T11:35:42.113Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "bling",
-      "bang",
-      "bang",
-      "born"
-    ],
-    "rawContent": "%play bling bang bang born",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T11:35:56.690Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "yofukashi",
-      "no",
-      "uta",
-      "op",
-      "1"
-    ],
-    "rawContent": "%play yofukashi no uta op 1",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T11:36:29.577Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "yofukashi",
-      "no",
-      "uta"
-    ],
-    "rawContent": "%play yofukashi no uta",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T11:36:53.838Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "mirai",
-      "nikki",
-      "op"
-    ],
-    "rawContent": "%play mirai nikki op",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T18:31:27.407Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1471494215526776963",
-    "command": "play",
-    "args": [
-      "asphyxia"
-    ],
-    "rawContent": "%play asphyxia",
-    "status": "invoked",
-    "details": "normalized:play",
-    "timestamp": "2026-04-12T18:31:57.547Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1483557855633342575",
-    "command": "song",
-    "args": [
-      "idol",
-      "yoasobi"
-    ],
-    "rawContent": "%song idol yoasobi",
-    "status": "invoked",
-    "details": "normalized:song",
-    "timestamp": "2026-04-12T18:41:37.231Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1483557855633342575",
-    "command": "help",
-    "args": [],
-    "rawContent": "%help",
-    "status": "invoked",
-    "details": "normalized:help",
-    "timestamp": "2026-04-12T18:41:44.300Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1483557855633342575",
-    "command": "song",
-    "args": [],
-    "rawContent": "%song",
-    "status": "invoked",
-    "details": "normalized:song",
-    "timestamp": "2026-04-12T18:41:57.248Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
-    "channelId": "1483557855633342575",
-    "command": "song",
-    "args": [
-      "idol",
-      "yoasobi"
-    ],
-    "rawContent": "%song idol yoasobi",
-    "status": "invoked",
-    "details": "normalized:song",
-    "timestamp": "2026-04-12T18:42:52.391Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "username": "alaakhaledboss",
-    "guildId": "1209486578812981288",
     "channelId": "1483557855633342575",
     "command": "song",
     "args": [
@@ -1412,5 +1235,187 @@
     "status": "invoked",
     "details": "normalized:hunt",
     "timestamp": "2026-08-10T11:23:02.487Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1489708291729920273",
+    "command": "commands",
+    "args": [],
+    "rawContent": "%command",
+    "status": "invoked",
+    "details": "normalized:commands",
+    "timestamp": "2026-08-10T11:38:44.780Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1489708291729920273",
+    "command": "reseteverything",
+    "args": [],
+    "rawContent": "%reseteverything",
+    "status": "invoked",
+    "details": "normalized:reseteverything",
+    "timestamp": "2026-08-10T11:38:55.282Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "tetoris"
+    ],
+    "rawContent": "%play tetoris",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-08-10T11:50:44.726Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "だいあるのーと",
+      "/",
+      "七草くりむ"
+    ],
+    "rawContent": "%play だいあるのーと / 七草くりむ",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-08-10T11:53:24.814Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "だいあるのーと",
+      "/",
+      "七草くりむ"
+    ],
+    "rawContent": "%play だいあるのーと / 七草くりむ",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-08-10T11:53:48.839Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "だいあるのーと",
+      "/",
+      "七草くりむ"
+    ],
+    "rawContent": "%play だいあるのーと / 七草くりむ",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-08-10T11:54:15.312Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "だいあるのーと",
+      "/",
+      "七草くりむ"
+    ],
+    "rawContent": "%play だいあるのーと / 七草くりむ",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-08-10T11:55:35.361Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "だいあるのーと",
+      "/",
+      "七草くりむ"
+    ],
+    "rawContent": "%play だいあるのーと / 七草くりむ",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-08-10T11:55:45.567Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "だいあるのーと",
+      "/",
+      "七草くりむ"
+    ],
+    "rawContent": "%play だいあるのーと / 七草くりむ",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-08-10T11:55:58.139Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "だいあるのーと",
+      "/",
+      "七草くりむ"
+    ],
+    "rawContent": "%play だいあるのーと / 七草くりむ",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-08-10T11:56:44.933Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "だいあるのーと",
+      "/",
+      "七草くりむ"
+    ],
+    "rawContent": "%play だいあるのーと / 七草くりむ",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-08-10T11:56:57.856Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "username": "alaakhaledboss",
+    "guildId": "1209486578812981288",
+    "channelId": "1471494215526776963",
+    "command": "play",
+    "args": [
+      "اني",
+      "مو",
+      "شيوعي"
+    ],
+    "rawContent": "%play اني مو شيوعي",
+    "status": "invoked",
+    "details": "normalized:play",
+    "timestamp": "2026-08-10T11:58:04.088Z"
   }
 ]

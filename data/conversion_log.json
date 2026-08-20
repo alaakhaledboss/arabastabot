@@ -1,18 +1,1 @@
-[
-  {
-    "userId": "1079479751200227388",
-    "fromType": "gold",
-    "fromAmount": 10000,
-    "toType": "gems",
-    "toAmount": 10,
-    "timestamp": "2026-04-18T07:35:51.547Z"
-  },
-  {
-    "userId": "1079479751200227388",
-    "fromType": "gems",
-    "fromAmount": 1000,
-    "toType": "honor",
-    "toAmount": 10,
-    "timestamp": "2026-04-21T20:04:15.576Z"
-  }
-]
+[]

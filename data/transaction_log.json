@@ -1,13 +1,5 @@
 [
   {
-    "userId": "1148344234982789271",
-    "action": "daily_voice_bonus",
-    "goldAmount": 50,
-    "reason": "Daily task bonus: 10 minutes voice",
-    "details": "xp:+100",
-    "timestamp": "2026-04-04T20:05:50.171Z"
-  },
-  {
     "userId": "747389646232748123",
     "action": "daily_voice_bonus",
     "goldAmount": 50,
@@ -798,5 +790,13 @@
     "reason": "Daily task bonus: 10 minutes voice",
     "details": "xp:+100",
     "timestamp": "2026-08-10T09:36:54.878Z"
+  },
+  {
+    "userId": "1079479751200227388",
+    "action": "daily_voice_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 10 minutes voice",
+    "details": "xp:+100",
+    "timestamp": "2026-08-10T11:48:53.759Z"
   }
 ]
