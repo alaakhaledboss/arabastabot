@@ -1,6 +1,21 @@
 require('dotenv').config();
 const path = require('path');
-process.env.FFMPEG_PATH = path.join(__dirname, 'bin/ffmpeg');
+const fs = require('fs');
+
+// Set path to static Linux FFmpeg binary
+const ffmpegPath = path.join(__dirname, 'bin/ffmpeg');
+process.env.FFMPEG_PATH = ffmpegPath;
+
+// Grant Linux execution permission (+x / 0755) to the binary
+try {
+    if (fs.existsSync(ffmpegPath)) {
+        fs.chmodSync(ffmpegPath, '755');
+        console.log('[music] Granted execution permissions to bin/ffmpeg');
+    }
+} catch (e) {
+    console.warn('[music] Could not set ffmpeg permissions:', e.message);
+}
+
 const { Client, GatewayIntentBits } = require('discord.js');
 const db = require('./db');
 
