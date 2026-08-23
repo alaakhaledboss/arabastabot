@@ -259,50 +259,34 @@ async function createYtDlpOpusResource(trackUrl) {
 
 async function createYtdlOpusResource(trackUrl) {
     try {
-        let info = getFromCache(audioInfoCache, trackUrl, AUDIO_INFO_CACHE_TTL_MS);
-        if (!info) {
-            info = await withTimeout(
-                ytdl.getInfo(trackUrl, ytdlAgent ? { agent: ytdlAgent } : {}),
-                6_500
-            );
-            putInCache(audioInfoCache, trackUrl, info);
+        const options = {
+            filter: 'audioonly',
+            highWaterMark: 1 << 62,
+            liveBuffer: 1 << 62,
+            dlChunkSize: 0,
+            quality: 'lowestaudio'
+        };
+
+        if (ytdlAgent) {
+            options.agent = ytdlAgent;
         }
 
-        const selected = ytdl.chooseFormat(info.formats, {
-            quality: 'highestaudio',
-            filter: 'audioonly'
-        });
+        const stream = ytdl(trackUrl, options);
 
-        if (!selected || !selected.url) throw new Error('NO_PLAYABLE_FORMATS');
-
-        // Extract cookie header if agent is present to avoid 403 Forbidden on FFmpeg
-        const headers = [];
-        if (ytdlAgent?.cookies) {
-            const cookieStr = ytdlAgent.cookies.map(c => `${c.name}=${c.value}`).join('; ');
-            headers.push(`Cookie: ${cookieStr}`);
-        }
-        headers.push('User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
-
-        return createAudioResource(selected.url, {
+        return createAudioResource(stream, {
             inputType: StreamType.Arbitrary,
-            inlineVolume: true,
-            ffmpegArgs: [
-                '-headers', headers.join('\r\n') + '\r\n',
-                '-reconnect', '1',
-                '-reconnect_streamed', '1',
-                '-reconnect_delay_max', '5'
-            ]
+            inlineVolume: true
         });
     } catch (err) {
         const msg = String(err?.message || err || '');
         if (/FFmpeg|avconv/i.test(msg)) throw new Error('FFMPEG_MISSING');
-        if (err?.message === 'NO_PLAYABLE_FORMATS' || /playable formats/i.test(msg)) throw new Error('NO_PLAYABLE_FORMATS');
+        if (/playable formats/i.test(msg)) throw new Error('NO_PLAYABLE_FORMATS');
         throw new Error('YTDL_INFO_FAILED');
     }
 }
 
 async function createPlayDlResource(trackUrl) {
-    const stream = await withTimeout(play.stream(trackUrl), 3_500);
+    const stream = await withTimeout(play.stream(trackUrl), 5_000);
     return createAudioResource(stream.stream, {
         inputType: stream.type || StreamType.Arbitrary,
         inlineVolume: true
@@ -312,24 +296,20 @@ async function createPlayDlResource(trackUrl) {
 async function createTrackResource(trackUrl) {
     if (!ytdl.validateURL(trackUrl)) throw new Error('TRACK_URL_MISSING');
 
+    // 1. Try ytdl-core stream first
     try {
         return await createYtdlOpusResource(trackUrl);
     } catch (ytdlErr) {
-        if (ytdlErr.message !== 'NO_PLAYABLE_FORMATS' && ytdlErr.message !== 'YTDL_INFO_FAILED') {
-            throw ytdlErr;
-        }
+        console.warn('[music] ytdl-core resource creation failed, falling back to play-dl:', ytdlErr?.message || ytdlErr);
     }
 
+    // 2. Try play-dl fallback
     try {
         return await createPlayDlResource(trackUrl);
-    } catch (_) {
-        try {
-            const info = await withTimeout(play.video_info(trackUrl), 3_500);
-            const stream = await withTimeout(play.stream_from_info(info), 3_500);
-            return createAudioResource(stream.stream, { inputType: stream.type || StreamType.Arbitrary, inlineVolume: true });
-        } catch (_) {
-            return await createYtDlpOpusResource(trackUrl);
-        }
+    } catch (playDlErr) {
+        console.warn('[music] play-dl resource creation failed, falling back to yt-dlp:', playDlErr?.message || playDlErr);
+        // 3. Try yt-dlp binary fallback
+        return await createYtDlpOpusResource(trackUrl);
     }
 }
 
