@@ -2,11 +2,16 @@ require('dotenv').config();
 const path = require('path');
 const fs = require('fs');
 
-// Set path to static Linux FFmpeg binary
+// Set FFmpeg executable path
 const ffmpegPath = path.join(__dirname, 'bin/ffmpeg');
 process.env.FFMPEG_PATH = ffmpegPath;
 
-// Grant Linux execution permission (+x / 0755) to the binary
+// Append the bin directory to system PATH so prism-media / discord.js find ffmpeg automatically
+const binDir = path.join(__dirname, 'bin');
+if (!process.env.PATH.includes(binDir)) {
+    process.env.PATH = `${binDir}:${process.env.PATH}`;
+}
+
 try {
     if (fs.existsSync(ffmpegPath)) {
         fs.chmodSync(ffmpegPath, '755');

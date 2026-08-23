@@ -310,7 +310,7 @@ async function createYtdlOpusResource(trackUrl) {
 async function createPlayDlResource(trackUrl) {
     const stream = await withTimeout(play.stream(trackUrl), 3_500);
     return createAudioResource(stream.stream, {
-        inputType: stream.type || StreamType.Arbitrary,
+        inputType: StreamType.Arbitrary,
         inlineVolume: true
     });
 }
@@ -332,7 +332,7 @@ async function createTrackResource(trackUrl) {
         try {
             const info = await withTimeout(play.video_info(trackUrl), 3_500);
             const stream = await withTimeout(play.stream_from_info(info), 3_500);
-            return createAudioResource(stream.stream, { inputType: stream.type, inlineVolume: true });
+            return createAudioResource(stream.stream, { inputType: StreamType.Arbitrary, inlineVolume: true });
         } catch (_) {
             return await createYtDlpOpusResource(trackUrl);
         }
