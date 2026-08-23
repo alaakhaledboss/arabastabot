@@ -43,8 +43,10 @@ async function searchYouTubeFirst(query) {
     const text = String(query || '').trim();
     if (!text) return null;
 
-    // Handle direct SoundCloud links
-    if (play.is_expired_url(text) || text.includes('soundcloud.com')) {
+    // Handle direct SoundCloud links properly without invalid helper calls
+    const isDirectLink = text.includes('soundcloud.com') || (typeof play.so_validate === 'function' && play.so_validate(text) === 'track');
+
+    if (isDirectLink) {
         return {
             title: 'SoundCloud Track',
             url: text,
