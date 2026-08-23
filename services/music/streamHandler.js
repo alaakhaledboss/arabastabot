@@ -3,7 +3,23 @@ const ytdl = require('@distube/ytdl-core');
 const { Innertube } = require('youtubei.js');
 const { spawn } = require('child_process');
 const fs = require('fs');
+const path = require('path');
 const { createAudioResource, StreamType } = require('@discordjs/voice');
+
+// --- Load YouTube Cookies Agent for ytdl-core ---
+let ytdlAgent = null;
+try {
+    const cookiesPath = path.join(__dirname, '../../cookies.json');
+    if (fs.existsSync(cookiesPath)) {
+        const cookies = JSON.parse(fs.readFileSync(cookiesPath, 'utf8'));
+        ytdlAgent = ytdl.createAgent(cookies);
+        console.log('[music] Successfully loaded ytdl-core cookie agent.');
+    } else {
+        console.warn('[music] cookies.json not found in root directory. ytdl-core running without cookies.');
+    }
+} catch (err) {
+    console.error('[music] Failed to initialize ytdl-core agent with cookies:', err?.message || err);
+}
 
 let innertubeClientPromise = null;
 const SEARCH_CACHE_TTL_MS = 2 * 60 * 1000;
@@ -240,7 +256,10 @@ async function createYtdlOpusResource(trackUrl) {
     try {
         let info = getFromCache(audioInfoCache, trackUrl, AUDIO_INFO_CACHE_TTL_MS);
         if (!info) {
-            info = await withTimeout(ytdl.getInfo(trackUrl), 6_500);
+            info = await withTimeout(
+                ytdl.getInfo(trackUrl, ytdlAgent ? { agent: ytdlAgent } : {}),
+                6_500
+            );
             putInCache(audioInfoCache, trackUrl, info);
         }
 
@@ -256,6 +275,7 @@ async function createYtdlOpusResource(trackUrl) {
         if (!selected) throw new Error('NO_PLAYABLE_FORMATS');
 
         const stream = ytdl.downloadFromInfo(info, {
+            agent: ytdlAgent, // Pass cookie agent here
             quality: 'highestaudio',
             filter: 'audioonly',
             format: selected,
@@ -411,7 +431,10 @@ async function enrichTrackMetadata(track) {
     try {
         let info = getFromCache(audioInfoCache, track.url, AUDIO_INFO_CACHE_TTL_MS);
         if (!info) {
-            info = await withTimeout(ytdl.getBasicInfo(track.url), 3_500);
+            info = await withTimeout(
+                ytdl.getBasicInfo(track.url, ytdlAgent ? { agent: ytdlAgent } : {}),
+                3_500
+            );
         }
 
         const title = info?.videoDetails?.title;

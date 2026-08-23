@@ -1,61 +1,5 @@
 [
   {
-    "userId": "747389646232748123",
-    "action": "daily_voice_bonus",
-    "goldAmount": 50,
-    "reason": "Daily task bonus: 10 minutes voice",
-    "details": "xp:+100",
-    "timestamp": "2026-04-04T20:53:20.645Z"
-  },
-  {
-    "userId": "747389646232748123",
-    "action": "daily_voice_bonus",
-    "goldAmount": 50,
-    "reason": "Daily task bonus: 10 minutes voice",
-    "details": "xp:+100",
-    "timestamp": "2026-04-05T05:56:42.416Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "action": "daily_voice_bonus",
-    "goldAmount": 50,
-    "reason": "Daily task bonus: 10 minutes voice",
-    "details": "xp:+100",
-    "timestamp": "2026-04-05T06:36:16.869Z"
-  },
-  {
-    "userId": "1440608339141857311",
-    "action": "daily_message_bonus",
-    "goldAmount": 50,
-    "reason": "Daily task bonus: 100 messages",
-    "details": "outside daily 350 cap",
-    "timestamp": "2026-04-05T07:13:48.104Z"
-  },
-  {
-    "userId": "1337522756048392303",
-    "action": "daily_message_bonus",
-    "goldAmount": 50,
-    "reason": "Daily task bonus: 100 messages",
-    "details": "outside daily 350 cap",
-    "timestamp": "2026-04-05T07:14:31.614Z"
-  },
-  {
-    "userId": "1315569013690073088",
-    "action": "daily_message_bonus",
-    "goldAmount": 50,
-    "reason": "Daily task bonus: 100 messages",
-    "details": "outside daily 350 cap",
-    "timestamp": "2026-04-05T07:36:45.735Z"
-  },
-  {
-    "userId": "1156642624770424902",
-    "action": "daily_message_bonus",
-    "goldAmount": 50,
-    "reason": "Daily task bonus: 100 messages",
-    "details": "outside daily 350 cap",
-    "timestamp": "2026-04-05T07:37:23.145Z"
-  },
-  {
     "userId": "1079479751200227388",
     "action": "daily_voice_bonus",
     "goldAmount": 50,
@@ -798,5 +742,61 @@
     "reason": "Daily task bonus: 10 minutes voice",
     "details": "xp:+100",
     "timestamp": "2026-08-10T11:48:53.759Z"
+  },
+  {
+    "userId": "632899479091150908",
+    "action": "daily_voice_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 10 minutes voice",
+    "details": "xp:+100",
+    "timestamp": "2026-08-20T20:39:16.299Z"
+  },
+  {
+    "userId": "747389646232748123",
+    "action": "daily_voice_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 10 minutes voice",
+    "details": "xp:+100",
+    "timestamp": "2026-08-20T20:39:17.122Z"
+  },
+  {
+    "userId": "1137011106620129343",
+    "action": "daily_voice_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 10 minutes voice",
+    "details": "xp:+100",
+    "timestamp": "2026-08-20T20:39:17.917Z"
+  },
+  {
+    "userId": "1148344234982789271",
+    "action": "daily_voice_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 10 minutes voice",
+    "details": "xp:+100",
+    "timestamp": "2026-08-20T20:39:18.323Z"
+  },
+  {
+    "userId": "1312136302195376259",
+    "action": "daily_voice_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 10 minutes voice",
+    "details": "xp:+100",
+    "timestamp": "2026-08-20T20:39:19.081Z"
+  },
+  {
+    "userId": "1079479751200227388",
+    "action": "daily_voice_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 10 minutes voice",
+    "details": "xp:+100",
+    "timestamp": "2026-08-20T20:39:19.884Z"
+  },
+  {
+    "userId": "1156642624770424902",
+    "action": "daily_voice_bonus",
+    "goldAmount": 50,
+    "reason": "Daily task bonus: 10 minutes voice",
+    "details": "xp:+100",
+    "timestamp": "2026-08-20T20:39:19.889Z"
   }
 ]

@@ -56,24 +56,24 @@ module.exports = {
 
     SPECIALTY_ROLE_IDS: {
         combat: {
-            duelist: '1483063329143521370',
-            berserker: '1483063382721433672',
-            marshal: '1483063428124770404'
+            swordmaster: '1483063329143521370',
+            armorer: '1483063382721433672',
+            wizard: '1483063428124770404'
         },
         scholar: {
-            theorist: '1483064441489850368',
-            dialectician: '1483064475581022299',
-            archivist: '1483064511148724235'
+            professor: '1483064441489850368',
+            expert: '1483064475581022299',
+            instructor: '1483064511148724235'
         },
         atelier: {
-            illustrator: '1483064526596472892',
-            raconteur: '1483064549170086030',
-            auteur: '1483064579121483839'
+            engineer: '1483064526596472892',
+            craftsman: '1483064549170086030',
+            Workman: '1483064579121483839'
         },
         merchant: {
-            patrician: '1483064586054799461',
-            syndicate: '1483064606141452433',
-            oligarch: '1483064639028985936'
+            noblesse: '1483064586054799461',
+            Grand_Merchant: '1483064606141452433',
+            Novice_Trader: '1483064639028985936'
         }
     },
 
