@@ -1,7 +1,7 @@
 const ffmpegStatic = require('ffmpeg-static');
 const fs = require('fs');
 const path = require('path');
-const { spawnSync } = require('child_process');
+const { spawn, spawnSync } = require('child_process');
 
 // Ensure ffmpeg-static binary is downloaded if npm blocked its install script
 if (!ffmpegStatic || !fs.existsSync(ffmpegStatic)) {
@@ -275,10 +275,23 @@ async function createYtdlOpusResource(trackUrl) {
 
         if (!selected || !selected.url) throw new Error('NO_PLAYABLE_FORMATS');
 
-        // Pass direct URL directly to FFmpeg to avoid Node stream crashes
+        // Extract cookie header if agent is present to avoid 403 Forbidden on FFmpeg
+        const headers = [];
+        if (ytdlAgent?.cookies) {
+            const cookieStr = ytdlAgent.cookies.map(c => `${c.name}=${c.value}`).join('; ');
+            headers.push(`Cookie: ${cookieStr}`);
+        }
+        headers.push('User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
+
         return createAudioResource(selected.url, {
             inputType: StreamType.Arbitrary,
-            inlineVolume: true
+            inlineVolume: true,
+            ffmpegArgs: [
+                '-headers', headers.join('\r\n') + '\r\n',
+                '-reconnect', '1',
+                '-reconnect_streamed', '1',
+                '-reconnect_delay_max', '5'
+            ]
         });
     } catch (err) {
         const msg = String(err?.message || err || '');
@@ -291,7 +304,7 @@ async function createYtdlOpusResource(trackUrl) {
 async function createPlayDlResource(trackUrl) {
     const stream = await withTimeout(play.stream(trackUrl), 3_500);
     return createAudioResource(stream.stream, {
-        inputType: StreamType.Arbitrary,
+        inputType: stream.type || StreamType.Arbitrary,
         inlineVolume: true
     });
 }
@@ -313,7 +326,7 @@ async function createTrackResource(trackUrl) {
         try {
             const info = await withTimeout(play.video_info(trackUrl), 3_500);
             const stream = await withTimeout(play.stream_from_info(info), 3_500);
-            return createAudioResource(stream.stream, { inputType: StreamType.Arbitrary, inlineVolume: true });
+            return createAudioResource(stream.stream, { inputType: stream.type || StreamType.Arbitrary, inlineVolume: true });
         } catch (_) {
             return await createYtDlpOpusResource(trackUrl);
         }
