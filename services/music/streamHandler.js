@@ -11,17 +11,25 @@ let ytdlAgent = null;
 try {
     const cookiesPath = path.join(__dirname, '../../cookies.json');
     if (fs.existsSync(cookiesPath)) {
-        const cookies = JSON.parse(fs.readFileSync(cookiesPath, 'utf8'));
-        ytdlAgent = ytdl.createAgent(cookies);
-        console.log('[music] Successfully loaded ytdl-core cookie agent.');
+        // Strip non-breaking spaces (\u00a0) and UTF-8 Byte Order Marks (\uFEFF)
+        let rawData = fs.readFileSync(cookiesPath, 'utf8')
+            .replace(/\u00a0/g, ' ')
+            .replace(/^\uFEFF/, '')
+            .trim();
+
+        if (rawData) {
+            const cookies = JSON.parse(rawData);
+            ytdlAgent = ytdl.createAgent(cookies);
+            console.log('[music] Successfully loaded ytdl-core cookie agent.');
+        } else {
+            console.warn('[music] cookies.json is empty.');
+        }
     } else {
-        console.warn('[music] cookies.json not found in root directory. ytdl-core running without cookies.');
+        console.warn('[music] cookies.json not found in root directory.');
     }
 } catch (err) {
     console.error('[music] Failed to initialize ytdl-core agent with cookies:', err?.message || err);
 }
-
-let innertubeClientPromise = null;
 const SEARCH_CACHE_TTL_MS = 2 * 60 * 1000;
 const META_CACHE_TTL_MS = 10 * 60 * 1000;
 const AUDIO_INFO_CACHE_TTL_MS = 8 * 60 * 1000;
