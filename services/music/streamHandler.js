@@ -1,21 +1,22 @@
-const ffmpegStatic = require('ffmpeg-static');
 const fs = require('fs');
 const path = require('path');
 const { spawn, spawnSync } = require('child_process');
 
-// Ensure ffmpeg-static binary is downloaded if npm blocked its install script
-if (!ffmpegStatic || !fs.existsSync(ffmpegStatic)) {
+// 1. Point to your custom Linux ffmpeg binary in bin/ffmpeg
+const localFfmpeg = path.join(__dirname, '../../bin/ffmpeg');
+if (fs.existsSync(localFfmpeg)) {
+    process.env.FFMPEG_PATH = localFfmpeg;
+    console.log('[music] Using custom ffmpeg binary from bin/ffmpeg');
+} else {
+    // 2. Fallback to ffmpeg-static if present
     try {
-        console.log('[music] Running ffmpeg-static install script fallback...');
-        const installJsPath = require.resolve('ffmpeg-static/install.js');
-        spawnSync(process.execPath, [installJsPath], { stdio: 'inherit' });
-    } catch (err) {
-        console.error('[music] Failed to force ffmpeg-static binary download:', err?.message || err);
+        const ffmpegStatic = require('ffmpeg-static');
+        if (ffmpegStatic && fs.existsSync(ffmpegStatic)) {
+            process.env.FFMPEG_PATH = ffmpegStatic;
+        }
+    } catch (_) {
+        console.warn('[music] Custom ffmpeg binary not found and ffmpeg-static missing.');
     }
-}
-
-if (ffmpegStatic && fs.existsSync(ffmpegStatic)) {
-    process.env.FFMPEG_PATH = ffmpegStatic;
 }
 
 const play = require('play-dl');
