@@ -1,4 +1,6 @@
 require('dotenv').config();
+const ffmpeg = require('ffmpeg-static');
+process.env.FFMPEG_PATH = ffmpeg;
 const { Client, GatewayIntentBits } = require('discord.js');
 const db = require('./db');
 
