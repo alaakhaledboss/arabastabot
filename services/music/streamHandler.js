@@ -6,12 +6,13 @@ const fs = require('fs');
 const path = require('path');
 const { createAudioResource, StreamType } = require('@discordjs/voice');
 
+let innertubeClientPromise = null;
+
 // --- Load YouTube Cookies Agent for ytdl-core ---
 let ytdlAgent = null;
 try {
     const cookiesPath = path.join(__dirname, '../../cookies.json');
     if (fs.existsSync(cookiesPath)) {
-        // Strip non-breaking spaces (\u00a0) and UTF-8 Byte Order Marks (\uFEFF)
         let rawData = fs.readFileSync(cookiesPath, 'utf8')
             .replace(/\u00a0/g, ' ')
             .replace(/^\uFEFF/, '')
@@ -30,6 +31,7 @@ try {
 } catch (err) {
     console.error('[music] Failed to initialize ytdl-core agent with cookies:', err?.message || err);
 }
+
 const SEARCH_CACHE_TTL_MS = 2 * 60 * 1000;
 const META_CACHE_TTL_MS = 10 * 60 * 1000;
 const AUDIO_INFO_CACHE_TTL_MS = 8 * 60 * 1000;
@@ -81,21 +83,17 @@ function getInnertubeClient() {
 
 function resolveYtDlpExecutable() {
     if (process.env.YT_DLP_PATH) return process.env.YT_DLP_PATH;
-
     const userProfile = process.env.USERPROFILE || '';
     const wingetPath = `${userProfile}\\AppData\\Local\\Microsoft\\WinGet\\Packages\\yt-dlp.yt-dlp_Microsoft.Winget.Source_8wekyb3d8bbwe\\yt-dlp.exe`;
     if (wingetPath && fs.existsSync(wingetPath)) return wingetPath;
-
     return 'yt-dlp';
 }
 
 function resolveDenoExecutable() {
     if (process.env.DENO_PATH) return process.env.DENO_PATH;
-
     const userProfile = process.env.USERPROFILE || '';
     const wingetDenoPath = `${userProfile}\\AppData\\Local\\Microsoft\\WinGet\\Packages\\DenoLand.Deno_Microsoft.Winget.Source_8wekyb3d8bbwe\\deno.exe`;
     if (wingetDenoPath && fs.existsSync(wingetDenoPath)) return wingetDenoPath;
-
     return null;
 }
 
@@ -142,30 +140,18 @@ async function searchWithYtDlp(query) {
             return rejectOnce(new Error('YTDLP_SEARCH_FAILED'));
         });
 
-        proc.stdout.on('data', (chunk) => {
-            stdout += chunk.toString();
-        });
-
-        proc.stderr.on('data', (chunk) => {
-            stderr += chunk.toString();
-        });
+        proc.stdout.on('data', (chunk) => { stdout += chunk.toString(); });
+        proc.stderr.on('data', (chunk) => { stderr += chunk.toString(); });
 
         proc.on('close', (code) => {
             clearTimeout(timeout);
-
             const videoId = (stdout || '')
                 .split(/\r?\n/)
                 .map((line) => line.trim())
                 .find((line) => /^[a-zA-Z0-9_-]{11}$/.test(line));
 
-            if (videoId) {
-                return resolveOnce(`https://www.youtube.com/watch?v=${videoId}`);
-            }
-
-            if (code !== 0 && stderr.trim()) {
-                return rejectOnce(new Error('YTDLP_SEARCH_FAILED'));
-            }
-
+            if (videoId) return resolveOnce(`https://www.youtube.com/watch?v=${videoId}`);
+            if (code !== 0 && stderr.trim()) return rejectOnce(new Error('YTDLP_SEARCH_FAILED'));
             return resolveOnce(null);
         });
     });
@@ -214,9 +200,7 @@ async function createYtDlpOpusResource(trackUrl) {
                 fail(new Error('YTDLP_SPAWN_FAILED'));
             });
 
-            proc.stderr.on('data', (chunk) => {
-                stderr += chunk.toString();
-            });
+            proc.stderr.on('data', (chunk) => { stderr += chunk.toString(); });
 
             try {
                 const resource = createAudioResource(proc.stdout, {
@@ -228,15 +212,11 @@ async function createYtDlpOpusResource(trackUrl) {
                 const msg = String(err?.message || err || '');
                 if (/ffmpeg|avconv/i.test(msg)) return fail(new Error('FFMPEG_MISSING'));
                 if (/@discordjs\/opus|opusscript|node-opus/.test(msg)) return fail(new Error('OPUS_CODEC_MISSING'));
-                console.warn(`[music] yt-dlp resource strategy failed (${strategyLabel}): ${msg || 'unknown error'}`);
                 fail(new Error('YTDLP_RESOURCE_FAILED'));
             }
 
             proc.on('close', (code) => {
-                if (!settled) {
-                    console.error(`[music] yt-dlp exited early (${strategyLabel}) code=${code}; stderr=${stderr.trim() || 'n/a'}`);
-                    fail(new Error('YTDLP_EXITED_EARLY'));
-                }
+                if (!settled) fail(new Error('YTDLP_EXITED_EARLY'));
             });
         });
     }
@@ -271,31 +251,15 @@ async function createYtdlOpusResource(trackUrl) {
             putInCache(audioInfoCache, trackUrl, info);
         }
 
-        const formats = info?.formats || [];
-        const audioOnly = ytdl.filterFormats(formats, 'audioonly');
-        if (!audioOnly.length) throw new Error('NO_PLAYABLE_FORMATS');
-
-        const selected = ytdl.chooseFormat(formats, {
+        const selected = ytdl.chooseFormat(info.formats, {
             quality: 'highestaudio',
             filter: 'audioonly'
-        }) || audioOnly.sort((a, b) => (b.audioBitrate || 0) - (a.audioBitrate || 0))[0];
-
-        if (!selected) throw new Error('NO_PLAYABLE_FORMATS');
-
-        const stream = ytdl.downloadFromInfo(info, {
-            agent: ytdlAgent, // Pass cookie agent here
-            quality: 'highestaudio',
-            filter: 'audioonly',
-            format: selected,
-            highWaterMark: 1 << 27,
-            dlChunkSize: 0
         });
 
-        stream.on('error', (err) => {
-            console.error('[music] ytdl stream runtime error:', err?.message || err);
-        });
+        if (!selected || !selected.url) throw new Error('NO_PLAYABLE_FORMATS');
 
-        return createAudioResource(stream, {
+        // Pass direct URL directly to FFmpeg to avoid Node stream crashes
+        return createAudioResource(selected.url, {
             inputType: StreamType.Arbitrary,
             inlineVolume: true
         });
@@ -348,12 +312,7 @@ async function searchYouTubeFirst(query) {
     if (cachedSearch?.url) return { ...cachedSearch };
 
     if (ytdl.validateURL(text)) {
-        const directResult = {
-            title: 'YouTube Track',
-            url: text,
-            requestedBy: null
-        };
-
+        const directResult = { title: 'YouTube Track', url: text, requestedBy: null };
         putInCache(searchCache, normalizedQuery, directResult);
         return directResult;
     }
@@ -372,10 +331,7 @@ async function searchYouTubeFirst(query) {
                 requestedBy: null
             };
 
-            if (result.url) {
-                putInCache(searchCache, normalizedQuery, result);
-            }
-
+            if (result.url) putInCache(searchCache, normalizedQuery, result);
             return result;
         }
     } catch (err) {
@@ -397,10 +353,7 @@ async function searchYouTubeFirst(query) {
             requestedBy: null
         };
 
-        if (result.url) {
-            putInCache(searchCache, normalizedQuery, result);
-        }
-
+        if (result.url) putInCache(searchCache, normalizedQuery, result);
         return result;
     } catch (err) {
         console.error('[music] youtubei.js search fallback failed:', err?.message || err);
@@ -409,12 +362,7 @@ async function searchYouTubeFirst(query) {
     try {
         const ytDlpUrl = await searchWithYtDlp(text);
         if (ytDlpUrl) {
-            const result = {
-                title: 'YouTube Track',
-                url: ytDlpUrl,
-                requestedBy: null
-            };
-
+            const result = { title: 'YouTube Track', url: ytDlpUrl, requestedBy: null };
             putInCache(searchCache, normalizedQuery, result);
             return result;
         }
