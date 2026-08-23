@@ -1,9 +1,26 @@
+const ffmpegStatic = require('ffmpeg-static');
+const fs = require('fs');
+const path = require('path');
+const { spawnSync } = require('child_process');
+
+// Ensure ffmpeg-static binary is downloaded if npm blocked its install script
+if (!ffmpegStatic || !fs.existsSync(ffmpegStatic)) {
+    try {
+        console.log('[music] Running ffmpeg-static install script fallback...');
+        const installJsPath = require.resolve('ffmpeg-static/install.js');
+        spawnSync(process.execPath, [installJsPath], { stdio: 'inherit' });
+    } catch (err) {
+        console.error('[music] Failed to force ffmpeg-static binary download:', err?.message || err);
+    }
+}
+
+if (ffmpegStatic && fs.existsSync(ffmpegStatic)) {
+    process.env.FFMPEG_PATH = ffmpegStatic;
+}
+
 const play = require('play-dl');
 const ytdl = require('@distube/ytdl-core');
 const { Innertube } = require('youtubei.js');
-const { spawn } = require('child_process');
-const fs = require('fs');
-const path = require('path');
 const { createAudioResource, StreamType } = require('@discordjs/voice');
 
 let innertubeClientPromise = null;
