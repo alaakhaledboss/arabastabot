@@ -296,21 +296,22 @@ async function createPlayDlResource(trackUrl) {
 async function createTrackResource(trackUrl) {
     if (!ytdl.validateURL(trackUrl)) throw new Error('TRACK_URL_MISSING');
 
-    // 1. Try ytdl-core stream first
+    // 1. Try yt-dlp first (Bypasses YouTube bot/sign-in blocks on cloud hosting)
+    try {
+        return await createYtDlpOpusResource(trackUrl);
+    } catch (ytDlpErr) {
+        console.warn('[music] yt-dlp resource creation failed, trying ytdl-core:', ytDlpErr?.message || ytDlpErr);
+    }
+
+    // 2. Try ytdl-core fallback
     try {
         return await createYtdlOpusResource(trackUrl);
     } catch (ytdlErr) {
-        console.warn('[music] ytdl-core resource creation failed, falling back to play-dl:', ytdlErr?.message || ytdlErr);
+        console.warn('[music] ytdl-core resource creation failed, trying play-dl:', ytdlErr?.message || ytdlErr);
     }
 
-    // 2. Try play-dl fallback
-    try {
-        return await createPlayDlResource(trackUrl);
-    } catch (playDlErr) {
-        console.warn('[music] play-dl resource creation failed, falling back to yt-dlp:', playDlErr?.message || playDlErr);
-        // 3. Try yt-dlp binary fallback
-        return await createYtDlpOpusResource(trackUrl);
-    }
+    // 3. Try play-dl fallback
+    return await createPlayDlResource(trackUrl);
 }
 
 async function searchYouTubeFirst(query) {
