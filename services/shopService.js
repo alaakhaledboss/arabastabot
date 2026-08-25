@@ -353,7 +353,7 @@ async function showColorMenu(interaction) {
             const price  = ROLE_COLOR_PRICES[slot] ?? DEFAULT_COLOR_PRICE;
             const name   = COLOR_HEX_MAP[slot];
             const mention = roleId ? `<@&${roleId}>` : `Color #${slot}`;
-            lines.push(`**${slot}** — ${mention}${name ? ` (${name})` : ''} — ${EMOJIS.GOLD} **${price.toLocaleString()}** ذهب`);
+            lines.push(`**${slot}** — ${mention}${name ? ` (${name})` : ''} — ${EMOJIS.GOLD} **${price.toLocaleString()}** gold`);
         }
 
         const embed = new EmbedBuilder()
