@@ -27,12 +27,12 @@ module.exports = async (message, args) => {
         const hpBar = buildHpBar(hpValue);
 
         const gearText = [
-            `الخوذة: ${user.gearEquipment?.helmet || 'فارغ'}`,
-            `السترة: ${user.gearEquipment?.chest || 'فارغ'}`,
-            `البنطلون: ${user.gearEquipment?.pants || 'فارغ'}`,
-            `الحذاء: ${user.gearEquipment?.shoes || 'فارغ'}`,
-            `السلاح: ${user.gearEquipment?.weapon || 'فارغ'}`,
-            `الدرع: ${user.gearEquipment?.shield || 'فارغ'}`
+            `Helmet: ${user.gearEquipment?.helmet || 'Empty'}`,
+            `Suit: ${user.gearEquipment?.chest || 'Empty'}`,
+            `Pants: ${user.gearEquipment?.pants || 'Empty'}`,
+            `Shoes: ${user.gearEquipment?.shoes || 'Empty'}`,
+            `Weapon: ${user.gearEquipment?.weapon || 'Empty'}`,
+            `Shield: ${user.gearEquipment?.shield || 'Empty'}`
         ].join('\n');
 
         const filled = Math.max(0, Math.min(10, Math.round((Number(user.xp || 0) / xpNeeded) * 10)));
@@ -43,9 +43,9 @@ module.exports = async (message, args) => {
             .setTitle(`${EMOJIS.PROFILE} **${discordUser.username}**`)
             .setThumbnail(discordUser.displayAvatarURL({ dynamic: true }))
             .addFields(
-                { name: `${EMOJIS.LEVEL} المستوى | Level`, value: `**${user.level}**`, inline: true },
-                { name: '🧭 Route | المسار', value: `**${routeText}**`, inline: true },
-                { name: '🎯 Specialization | التخصص', value: `**${specializationText}**`, inline: true },
+                { name: `${EMOJIS.LEVEL} Level`, value: `**${user.level}**`, inline: true },
+                { name: '🧭 Route', value: `**${routeText}**`, inline: true },
+                { name: '🎯 Specialization', value: `**${specializationText}**`, inline: true },
                 { name: '❤️ HP Status', value: `**${hpValue}/100 HP**\n[${hpBar}]`, inline: false },
                 { name: `${EMOJIS.XP} XP Progress`, value: `**${user.xp}** / ${xpNeeded}\n[${bar}]`, inline: false },
                 { name: `${EMOJIS.GOLD} ذهب | Gold`, value: `**${(user.gold / 10).toLocaleString()}**`, inline: true },
