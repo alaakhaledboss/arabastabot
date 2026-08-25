@@ -48,10 +48,10 @@ module.exports = async (message, args) => {
                 { name: '🎯 Specialization', value: `**${specializationText}**`, inline: true },
                 { name: '❤️ HP Status', value: `**${hpValue}/100 HP**\n[${hpBar}]`, inline: false },
                 { name: `${EMOJIS.XP} XP Progress`, value: `**${user.xp}** / ${xpNeeded}\n[${bar}]`, inline: false },
-                { name: `${EMOJIS.GOLD} ذهب | Gold`, value: `**${(user.gold / 10).toLocaleString()}**`, inline: true },
-                { name: `${EMOJIS.GEMS} جواهر | Gems`, value: `**${user.gems}**`, inline: true },
-                { name: `${EMOJIS.HONOR} شرف | Honor`, value: `**${user.honor}**`, inline: true },
-                { name: '🧰 Gear | العتاد', value: gearText, inline: false }
+                { name: `${EMOJIS.GOLD} Gold`, value: `**${(user.gold / 10).toLocaleString()}**`, inline: true },
+                { name: `${EMOJIS.GEMS} Gems`, value: `**${user.gems}**`, inline: true },
+                { name: `${EMOJIS.HONOR} Honor`, value: `**${user.honor}**`, inline: true },
+                { name: '🧰 Gear', value: gearText, inline: false }
             )
             .setFooter({ text: FOOTER_TEXT })
             .setTimestamp();
