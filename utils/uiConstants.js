@@ -84,7 +84,7 @@ const EMOJIS = {
 //  FOOTER TEXT
 // ════════════════════════════════════════════════════════════════
 
-const FOOTER_TEXT = 'ArabastaBot | Ministry of Finance • Kingdom of Arabasta';
+const FTEXTOOTER_ = 'ArabastaBot | Ministry of Finance • Kingdom of Arabasta';
 const FOOTER_TEXT_SHORT = 'ArabastaBot • Arabasta';
 
 // ════════════════════════════════════════════════════════════════

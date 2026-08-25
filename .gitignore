@@ -1,4 +1,10 @@
 .env
-database.json
-cookies.json
+node_modules/
 *.tmp
+
+# Dynamic Database Files (Do NOT push to host)
+database.json
+users.json
+cookies.json
+routes_export.json
+data/*.json
