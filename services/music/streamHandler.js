@@ -28,7 +28,21 @@ async function createTrackResource(trackUrl) {
     if (!trackUrl) throw new Error('TRACK_URL_MISSING');
 
     try {
-        const stream = await play.stream(trackUrl);
+        let streamUrl = trackUrl;
+
+        // If scClientID expired or stream links stale, force a fresh fetch
+        if (trackUrl.includes('soundcloud.com')) {
+            try {
+                const info = await play.soundcloud(trackUrl);
+                if (info && info.permalink_url) {
+                    streamUrl = info.permalink_url;
+                }
+            } catch (_) {
+                // Fallback to original URL if metadata lookup fails
+            }
+        }
+
+        const stream = await play.stream(streamUrl);
         return createAudioResource(stream.stream, {
             inputType: stream.type || StreamType.Arbitrary,
             inlineVolume: true
@@ -43,7 +57,7 @@ async function searchYouTubeFirst(query) {
     const text = String(query || '').trim();
     if (!text) return null;
 
-    // Handle direct SoundCloud links properly without invalid helper calls
+    // Handle direct SoundCloud links
     const isDirectLink = text.includes('soundcloud.com') || (typeof play.so_validate === 'function' && play.so_validate(text) === 'track');
 
     if (isDirectLink) {

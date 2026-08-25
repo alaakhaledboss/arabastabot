@@ -44,14 +44,14 @@ const ROLE_COLOR_PRICES = {
 const COLOR_HEX_MAP = {
     1:  'Teal Green',
     2:  'Lime Green',
-    3:  'Strong Green',
+    3:  'Green',
     4:  'Dark Forest Green',
     5:  'Mustard Yellow',
     6:  'Bronze',
     7:  'Dark Olive',
     8:  'Bright Orange',
     9:  'Crimson Red',
-    10: 'Pure Red',
+    10: 'Red',
     11: 'Dark Red',
     12: 'Magenta',
     13: 'Orchid Purple',
@@ -61,7 +61,7 @@ const COLOR_HEX_MAP = {
     17: 'Cyan',
     18: 'Royal Blue',
     19: 'Deep Blue',
-    20: 'Indigo Blue',
+    20: 'Blue',
     21: 'Golden Yellow',
     22: 'White',
     23: 'Silver',
@@ -117,7 +117,7 @@ const ROLE_ACCESS_CONFIG = [
         emoji:       '🌟',
         roleId:      '1482402547393101834',       // VIP 2
         price:       { gold: 10000, gems: 0, honor: 0 },
-        description: '**10,000** 💰 ذهب',
+        description: '**10,000** 💰 gold',
         level:       0
     },
     {
@@ -126,25 +126,25 @@ const ROLE_ACCESS_CONFIG = [
         emoji:       '⭐',
         roleId:      '1482401409537278186',       // VIP 1
         price:       { gold: 10000, gems: 5, honor: 0 },
-        description: '**10,000** 💰 ذهب + **5** 💎 جواهر',
+        description: '**10,000** 💰 gold + **5** 💎 gems',
         level:       1
     },
     {
         value:       'velvet',
-        label:       'مخمل',
+        label:       'rich',
         emoji:       '🌹',
         roleId:      '1482403173082599555',     // مخمل (Velvet)
         price:       { gold: 20000, gems: 20, honor: 1 },
-        description: '**20,000** 💰 ذهب + **20** 💎 جواهر + **1** ⚔️ شرف',
+        description: '**20,000** 💰 gold + **20** 💎 gems + **1** ⚔️ honor',
         level:       2
     },
     {
         value:       'bourgeois',
-        label:       'برجوازي',
+        label:       'bourgeois',
         emoji:       '👑',
         roleId:      '1482403333871501352',  // برجوازي (Bourgeois)
         price:       { gold: 20000, gems: 50, honor: 3 },
-        description: '**20,000** 💰 ذهب + **50** 💎 جواهر + **3** ⚔️ شرف',
+        description: '**20,000** 💰 gold + **50** 💎 gems + **3** ⚔️ honor',
         level:       3
     }
     ,
@@ -154,7 +154,7 @@ const ROLE_ACCESS_CONFIG = [
         emoji:       '🎞️',
         roleId:      '1488618034062033048',
         price:       { gold: 5000, gems: 0, honor: 0 },
-        description: '**5,000** 💰 ذهب — صلاحية أسبوعية (مرة واحدة في الشهر)',
+        description: '**5,000** 💰 gold — lasts for a week , can be bought once a month',
         level:       4
     }
 ];
@@ -186,10 +186,10 @@ function getCurrentAccessRole(member) {
 
 function formatAccessPriceCompact(price) {
     const parts = [];
-    if ((price.gold || 0) > 0) parts.push(`${price.gold.toLocaleString()} ذهب`);
-    if ((price.gems || 0) > 0) parts.push(`${price.gems} جواهر`);
-    if ((price.honor || 0) > 0) parts.push(`${price.honor} شرف`);
-    return parts.join(' + ') || 'مجاني';
+    if ((price.gold || 0) > 0) parts.push(`${price.gold.toLocaleString()} gold`);
+    if ((price.gems || 0) > 0) parts.push(`${price.gems} gems`);
+    if ((price.honor || 0) > 0) parts.push(`${price.honor} honor`);
+    return parts.join(' + ') || 'Free';
 }
 
 // ════════════════════════════════════════════════════════════════

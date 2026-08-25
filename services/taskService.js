@@ -47,10 +47,15 @@ function resetDailyTasksIfNeeded(user) {
 
 function applyLevelUps(user) {
     const oldLevel = Number(user.level || 1);
-    while (user.xp >= 100 * user.level) {
-        user.xp -= 100 * user.level;
+    
+    // Calculate required XP for current level
+    const xpNeeded = 100 * oldLevel;
+
+    if (user.xp >= xpNeeded) {
+        user.xp -= xpNeeded;
         user.level += 1;
     }
+
     return {
         oldLevel,
         newLevel: Number(user.level || oldLevel)
