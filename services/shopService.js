@@ -722,8 +722,8 @@ async function showCurrencyExchange(interaction) {
                 `Resets on the first day of each month`
             )
             .addFields(
-                createCurrencyField(`${EMOJIS.GOLD} رصيدك الحالي`, (user.gold / 10).toLocaleString(), '', true),
-                createCurrencyField(`${EMOJIS.GEMS} جواهرك الحالية`, user.gems, '', true)
+                createCurrencyField(`${EMOJIS.GOLD} رصيدك الحالي\nCurrent Gold Balance`, (user.gold / 10).toLocaleString(), '', true),
+                createCurrencyField(`${EMOJIS.GEMS} جواهرك الحالية\nCurrent Gems`, user.gems, '', true)
             )
             .setFooter({ text: FOOTER_TEXT })
             .setTimestamp();
