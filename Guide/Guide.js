@@ -1,5 +1,5 @@
 /**
- * GUIDE FILE ONLY (NON-EXECUTABLE)
+ * GUIDE FILE ONLY  (NON-EXECUTABLE)
  *
  * This file intentionally exports a string template so it can never crash the bot
  * even if it is accidentally required/imported at runtime.
