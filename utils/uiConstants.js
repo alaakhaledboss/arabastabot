@@ -106,7 +106,8 @@ function formatError(arabicText, englishText = '') {
     return `${EMOJIS.ERROR} ${arabicText}`;
 }
 
-/**n+ * Format a success message with consistent styling (backwards-compatible)
+/**
+ * Format a success message with consistent styling (backwards-compatible)
  * Accepts (arabicText, englishText) and outputs English then Arabic.
  * @param {string} arabicText - Arabic success message
  * @param {string} englishText - English success message (optional)
