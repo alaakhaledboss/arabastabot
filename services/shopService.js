@@ -280,9 +280,9 @@ async function showBag(interaction) {
                 createCurrencyField(`${EMOJIS.CREDIT} كريديت | Credit`, (user.credit || 0).toLocaleString(), '', true),
                 createCurrencyField(`${EMOJIS.XP} XP`, user.xp, '', true),
                 createCurrencyField(`${EMOJIS.LEVEL} المستوى | Level`, user.level, '', true),
-                createCurrencyField('💱 ذهب→جواهر هذا الشهر', `**${user.monthly_gold_to_gems || 0}/10**`, '', true),
-                createCurrencyField('💱 جواهر→شرف هذا الشهر', `**${user.monthly_gems_to_honor || 0}/10**`, '', true),
-                createCurrencyField('🎞️ GIF this month', `**${user.monthly_gif_buys || 0}/1**`, '', true)
+                createCurrencyField('💱 ذهب←جواهر هذا الشهر\nGold→Gems this month', `**${user.monthly_gold_to_gems || 0}/10**`, '', true),
+                createCurrencyField('💱 جواهر←شرف هذا الشهر\nGems→Honor this month', `**${user.monthly_gems_to_honor || 0}/10**`, '', true),
+                createCurrencyField('🎞️ صورة متحركة هذا الشهر\nGIF this month', `**${user.monthly_gif_buys || 0}/1**`, '', true)
             )
             .setFooter({ text: FOOTER_TEXT })
             .setTimestamp();
