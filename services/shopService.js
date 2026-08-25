@@ -501,7 +501,7 @@ async function showAccessMenu(interaction) {
             .setColor(COLORS.ACCESS)
             .setTitle('الرتب المميزة | Special Roles')
             .setDescription(
-                'الترتيب: GIF → VIP 2 → VIP 1 → مخمل → برجوازي\n' +
+                'الترتيب: GIF → VIP 2 → VIP 1 → rich → bourgeois\n' +
                 'يمكنك شراء رتبة أعلى فقط من رتبتك الحالية.\n\n' +
                 lines.join('\n\n')
             )
@@ -550,7 +550,7 @@ async function buyAccess(interaction) {
             return interaction.editReply({
                 content:
                     formatError('رتبتك الحالية أعلى أو مساوية للرتبة المطلوبة.', `Your current role (${currentCfg?.label || 'none'}) is equal or higher than ${config.label}.`) + 
-                    `\n\n> الترتيب: VIP 2 < VIP 1 < مخمل < برجوازي`
+                    `\n\n> الترتيب: VIP 2 < VIP 1 < rich < bourgeois`
             });
         }
 
@@ -1053,11 +1053,11 @@ async function showRoleFeatures(interaction) {
                 '> • كل ما سبق + نشر صور و فيديوهات',
                 '> • All above + share images and videos',
                 '',
-                `🌹 **مخمل**`,
+                `🌹 **rich**`,
                 '> • كل ما سبق + ستيكرات + ايموجيات خارج السيرفر + AI روم + رياكشن',
                 '> • All above + stickers + external emojis + AI room + reactions',
                 '',
-                `${EMOJIS.ROLE} **برجوازي**`,
+                `${EMOJIS.ROLE} **bourgeois**`,
                 '> • كل ما سبق + استخدام بوت الذكاء الاصطناعي في كل الشاتات',
                 '> • All above + AI bot access in all chats'
             ].join('\n'))
