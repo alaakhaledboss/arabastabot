@@ -147,6 +147,12 @@ function createDefaultUser(userId = null) {
         rebirthPendingRoute: '',
         pendingFinalRestoreRoute: '',
 
+        // Reusable monthly and location tracking
+        monthlyCraftingUsage: {},
+        monthlySellingUsage: {},
+        monthlyTransferUsage: {},
+        locationCooldowns: {},
+
         gearInventory: createDefaultGearInventory(),
         gearEquipment: createDefaultEquippedGear(),
         materials: {},
@@ -230,6 +236,10 @@ function normalizeUserRecord(user) {
     if (typeof user.rebirthPendingRoute !== 'string') user.rebirthPendingRoute = typeof user.pendingFinalRestoreRoute === 'string' ? user.pendingFinalRestoreRoute : '';
     if (typeof user.pendingFinalRestoreRoute !== 'string') user.pendingFinalRestoreRoute = user.rebirthPendingRoute || '';
     if (typeof user.lastActiveAt !== 'number') user.lastActiveAt = Number(user.lastActiveAt || 0);
+    if (!user.monthlyCraftingUsage || typeof user.monthlyCraftingUsage !== 'object') user.monthlyCraftingUsage = {};
+    if (!user.monthlySellingUsage || typeof user.monthlySellingUsage !== 'object') user.monthlySellingUsage = {};
+    if (!user.monthlyTransferUsage || typeof user.monthlyTransferUsage !== 'object') user.monthlyTransferUsage = {};
+    if (!user.locationCooldowns || typeof user.locationCooldowns !== 'object') user.locationCooldowns = {};
 
     if (!user.hunting || typeof user.hunting !== 'object') {
         user.hunting = { lastHuntAt: 0, cooldownUntil: 0, history: [] };

@@ -185,6 +185,48 @@ const TIER_LABELS = {
     wizard: 'Wizard'
 };
 
+function getCombatDamageModifier(route, specialty) {
+    if (route !== 'combat') return 1;
+
+    const target = normalizeSpecialtyName(specialty || '');
+    const skillMap = {
+        swordmaster: 1.45,
+        armorer: 1.2,
+        wizard: 1.35
+    };
+
+    return skillMap[target] || 1;
+}
+
+function getHuntingRewardChance(location, route, specialty, rewardChance) {
+    const base = Number(rewardChance || 0);
+    if (!Number.isFinite(base) || base <= 0) return 0;
+
+    const maxChance = Number(cfg.HUNTING.rewardChanceModifier || 1) * getCombatDamageModifier(route, specialty);
+    const adjusted = base * maxChance;
+    return Math.min(adjusted, 100);
+}
+
+function pickWeighted(entries, modifier = 1) {
+    const weighted = entries
+        .filter((entry) => entry && Number.isFinite(Number(entry.chance)))
+        .map((entry) => ({
+            ...entry,
+            chance: Math.max(0, Number(entry.chance || 0) * (Number(modifier) || 1))
+        }));
+
+    const totalChance = weighted.reduce((sum, entry) => sum + entry.chance, 0);
+    if (!totalChance || totalChance <= 0) return null;
+
+    let roll = Math.random() * totalChance;
+    for (const entry of weighted) {
+        roll -= entry.chance;
+        if (roll <= 0) return entry;
+    }
+
+    return weighted[weighted.length - 1] || null;
+}
+
 function ensureHuntingFields(user) {
     if (!user.inventory || typeof user.inventory !== 'object') {
         user.inventory = { materials: {}, items: [], gear: { helmet: [], chest: [], pants: [], shoes: [], weapon: [], shield: [] } };
@@ -437,7 +479,8 @@ async function handleHuntCommand(message, args = []) {
         return message.reply(formatError('هذا المسار أو التخصص غير مضبوط لهذا المكان بعد.', 'This route or specialty is not configured for this location yet.'));
     }
 
-    const drop = pickOne(table);
+    const rewardModifier = getCombatDamageModifier(route, tier);
+    const drop = pickWeighted(table, rewardModifier);
     if (drop) grantMaterial(user, drop.name, drop.amount);
 
     const damage = consumeHp(user, location, route, tier, drop?.name || '');
@@ -460,13 +503,14 @@ async function handleHuntCommand(message, args = []) {
     const hpBeforeWarning = Number(user.hp || 0) + damage.damage;
     const hpNow = Number(user.hp || 0);
 
+    if (hpNow === 0) {
+        progressionService.resetUserRouteState(user);
+        await clanService.handleFighterDeath(message.author.id, message.client).catch(() => {});
+    }
+
     await db.saveUser(user);
 
     maybeWarnLowHp(user, message.client, message.author.id, hpBeforeWarning);
-
-    if (hpNow === 0) {
-        await clanService.handleFighterDeath(message.author.id, message.client).catch(() => {});
-    }
 
     const responseLines = [
         `المكان: **${location}**`,
@@ -506,5 +550,8 @@ module.exports = {
     ensureHuntingFields,
     handleHuntCommand,
     resolveRoute,
-    resolveTier
+    resolveTier,
+    getCombatDamageModifier,
+    getHuntingRewardChance,
+    pickWeighted
 };

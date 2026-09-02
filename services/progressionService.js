@@ -170,6 +170,31 @@ function getRouteLevelInfo(member) {
     return { route: null, levelName: null, levelIndex: -1 };
 }
 
+function resetUserRouteState(user) {
+    if (!user || typeof user !== 'object') return user;
+
+    user.level = 0;
+    user.xp = 0;
+    user.currentRoute = null;
+    user.currentSpecialty = null;
+    user.specialties = { combat: null, scholar: null, atelier: null, merchant: null };
+    user.completedRoutes = [];
+    user.prestigeRoles = [];
+    user.prestigeCount = 0;
+    user.rebirthCount = 0;
+    user.pendingFinalRestoreRoute = '';
+    user.rebirthPendingRoute = '';
+    user.hp = 0;
+    user.clan = user.clan || { id: null, role: null, joinedAt: 0, contribution: 0 };
+    user.clan.id = null;
+    user.clan.role = null;
+    user.clan.joinedAt = 0;
+    user.clan.contribution = 0;
+    user.clanId = null;
+
+    return user;
+}
+
 function specialtiesFromMemberRoles(member) {
     const out = { combat: null, scholar: null, atelier: null, merchant: null };
     if (!member?.roles?.cache) return out;
@@ -742,5 +767,6 @@ module.exports = {
     sendSpecialtySelectionEmbed,
     sendPrestigeSelectionEmbed,
     sendRebirthSelectionEmbed,
-    handleButtonInteraction
+    handleButtonInteraction,
+    resetUserRouteState
 };
