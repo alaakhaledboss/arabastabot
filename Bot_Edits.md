@@ -208,7 +208,7 @@
   * حفظ الكلان وتوزيع أدوار Founder / Deputy / Member.
   * نقل القيادة تلقائياً عند خمول القائد.
   * Helper لعقوبة وفاة المقاتل وحذفه من الكلان.
-* تحديث `commands/manual.js` و`commands/commandHandler.js` لإظهار `%clan` و`%hunt` و`%gear`.
+* تحديث `commands/manual.js` و`commands/commandHandler.js` لإظهار `%clan` و`%gear` مع إزالة واجهة الأمر النصي القديمة.
 
 ### ما يزال مطلوباً منك
 * `CHANNELS.clanPanel` -> ID روم لوحة الكلان.

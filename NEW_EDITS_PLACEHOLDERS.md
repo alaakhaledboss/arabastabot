@@ -10,7 +10,7 @@ This file summarizes the new gameplay additions and the values that still need t
 - Admin clan registration via `%clan admincreate`
 - 20-minute hunting cooldown and channel checks
 - Profile now shows equipped gear
-- Bot help/manual now includes `%clan`, `%hunt`, and `%gear`
+- Bot help/manual now includes `%clan` and `%gear`
 - User data now persists gear, materials, hunting cooldowns, and clan info
 
 ## Files added

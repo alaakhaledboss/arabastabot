@@ -145,12 +145,6 @@ const MANUALS = {
         structure: '`%clan [admincreate|menu|status|leave|list|disband]`',
         examples: ['`%clan`', '`%clan admincreate @Leader @Deputy "Blue Tide" @Member3 @Member4`']
     },
-    hunt: {
-        title: '%hunt',
-        functionality: 'Runs a forest or lake hunt and awards materials or gear.',
-        structure: '`%hunt [forest|lake]`',
-        examples: ['`%hunt forest`', '`%hunt lake`']
-    },
     gear: {
         title: '%gear',
         functionality: 'Shows gear inventory and equipment management.',

@@ -14,7 +14,6 @@ const payCmd         = require('./pay');
 const testingCmd     = require('./testing');
 const warnCmd        = require('./warn');
 const clanCmd        = require('./clan');
-const huntCmd        = require('./hunt');
 const gearCmd        = require('./gear');
 const craftCmd       = require('./craft');
 const sellCmd        = require('./sell');
@@ -61,7 +60,6 @@ const COMMAND_ALIAS_TO_CANONICAL = {
     reblacklist: 'reblacklist',
     removeblacklist: 'reblacklist',
     clan: 'clan',
-    hunt: 'hunt',
     gear: 'gear',
     craft: 'craft',
     sell: 'sell',
@@ -148,7 +146,7 @@ function canManageCommandState(userId, OWNER_ID) {
 
 const PUBLIC_COMMANDS = new Set([
     'help', 'man',
-    'ping', 'play', 'song', 'profile', 'tasks', 'leaderboard', 'convert', 'clan', 'hunt', 'gear', 'craft', 'sell'
+    'ping', 'play', 'song', 'profile', 'tasks', 'leaderboard', 'convert', 'clan', 'gear', 'craft', 'sell'
 ]);
 
 const AUTHORIZED_OR_ADMIN_COMMANDS = new Set(['commands']);
@@ -189,7 +187,7 @@ async function showHelp(message) {
                 { name: '👤 Profile | الملف الشخصي', value: '`%p` / `%profile` [@user] — Show profile | عرض الملف الشخصي', inline: false },
                 { name: '🏆 Leaderboard | المتصدرين', value: '`%lb` / `%leaderboard` [xp|gold|gems|honor] — Top rankings | أفضل المتصدرين', inline: false },
                 { name: '🗓️ Tasks | المهام', value: '`%t` / `%task` / `%tasks` — Daily progress | تقدم المهام اليومية', inline: false },
-                { name: '🧩 Gameplay | اللعب', value: '`%clan` — Clan system | نظام الكلان\n`%hunt forest|lake` — Hunt runs | جولات الصيد\n`%gear status` — Gear management | إدارة العتاد\n`%craft` — Clan crafting panel | لوحة التصنيع\n`%sell <item> <price>` — Merchant listing | قائمة البيع', inline: false },
+                { name: '🧩 Gameplay | اللعب', value: '`%clan` — Clan system | نظام الكلان\n`%gear status` — Gear management | إدارة العتاد\n`%craft` — Clan crafting panel | لوحة التصنيع\n`%sell <item> <price>` — Merchant listing | قائمة البيع', inline: false },
                 { name: '🎵 Music | الموسيقى', value: '`%play <query>` — Play/queue music | تشغيل/إضافة أغاني\n`%song <query>` — Get YouTube URL only | جلب رابط يوتيوب فقط', inline: false },
                 { name: '🔧 Utility | أدوات', value: '`%ping` — Ping bot | التحقق من البوت\n`%convert` [@user] — Keyboard convert | تحويل لوحة المفاتيح', inline: false },
                 { name: '🔐 Restricted Menus | قوائم الصلاحيات', value: '`%command` — Authorized/Admin commands | أوامر المصرّح لهم/الإداريين\n`%owner` — Owner-only commands | أوامر المالك فقط', inline: false }
@@ -222,7 +220,8 @@ async function showAuthorizedCommands(message, OWNER_ID) {
                 { name: '� Bank/Shop | البنك/المتجر', value: '`%b` / `%bank`\n`%s` / `%shop`', inline: false },
                 { name: '� Transfers | التحويلات', value: '`%pay gold|gems|honor @user <amount>` — Manual pay flow\n`%give gold|gems|honor @user <amount>` — Bank give + claim', inline: false },
                 { name: '🧭 Progression | التقدم', value: '`%specialty <name>`\n`%prestige <route>`\n`%rebirth <route>`', inline: false },
-                { name: '🧩 Gameplay | اللعب', value: '`%clan`\n`%clan admincreate <@Leader> <@Deputy> "Clan Name" <@Member3> ...`\n`%hunt forest|lake|valley|maze`\n`%gear status`\n`%craft`\n`%sell <item> <price>`', inline: false },
+                { name: '🧩 Gameplay | اللعب', value: '`%clan`\n`%clan admincreate <@Leader> <@Deputy> "Clan Name" <@Member3> ...`\n`%gear status`\n`%craft`\n`%sell <item> <price>`', inline: false },
+                { name: '⚖️ Moderation | الإشراف', value: '`%warn @user` — Warn user | تحذير المستخدم\n`%removewarning @user` — Remove warning | إزالة التحذير\n`%reblacklist @user` — Reapply blacklist | إعادة الحظر', inline: false },
                 { name: '🧪 Testing | الاختبار', value: '`%setlevel @user <value>`\n`%setxp @user <value>`', inline: false },
                 { name: '📜 Logs | السجلات', value: '`%log`\n`%logtransaction`\n`%logcommands`', inline: false }
             );
@@ -463,9 +462,6 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
 
             case 'clan':
                 return await clanCmd(message, args);
-
-            case 'hunt':
-                return await huntCmd(message, args);
 
             case 'gear':
                 return await gearCmd(message, args);

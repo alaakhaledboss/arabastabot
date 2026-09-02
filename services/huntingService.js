@@ -421,7 +421,8 @@ function buildMenuEmbed(user) {
         .setColor(COLORS.INFO)
         .setTitle('🏹 نظام الصيد والاستكشاف')
         .setDescription([
-            'استخدم `%hunt forest` أو `%hunt lake` داخل القناة المخصصة.',
+            'استخدم أزرار Hunt / Research داخل القناة المخصصة للغابة أو البحيرة.',
+            'تم حذف واجهة الأمر النصي القديم لصالح النظام التفاعلي الجديد.',
             `الانتظار الثابت: **${cfg.HUNTING.cooldownMinutes} دقيقة** لكل مستخدم.`,
             '',
             `HP الحالي: **${Number(user.hp || 0)}/100**`,

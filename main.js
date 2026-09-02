@@ -45,6 +45,10 @@ const client = new Client({
     ]
 });
 
+client.once('ready', () => {
+    client.emit('clientReady');
+});
+
 const OWNER_ID = process.env.OWNER_ID || '1156642624770424902';
 const ACTIVE_CHANNEL_ID = '1486699040581353545';
 const ACTIVE_HEARTBEAT_INTERVAL_MS = 10 * 60 * 1000;
