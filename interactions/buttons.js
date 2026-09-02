@@ -5,6 +5,7 @@ const progressionService = require('../services/progressionService');
 const payService = require('../services/payService');
 const craftService = require('../services/craftService');
 const sellService = require('../services/sellService');
+const gamePanelService = require('../services/gamePanelService');
 const db          = require('../db');
 const { formatError } = require('../utils/uiConstants');
 
@@ -46,6 +47,11 @@ module.exports = async function (interaction) {
         // ── Progression buttons ───────────────────────────────
         if (system === 'progression') {
             return await progressionService.handleButtonInteraction(interaction);
+        }
+
+        // ── Game panel buttons ───────────────────────────────
+        if (system === 'game') {
+            return await gamePanelService.handleGameButton(interaction, action, parts[2]);
         }
 
         // ── Shop buttons ──────────────────────────────────────

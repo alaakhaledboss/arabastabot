@@ -22,6 +22,7 @@ const progressionService = require('../services/progressionService');
 const disabledCommandsService = require('../services/disabledCommandsService');
 const ownerOpsService = require('../services/ownerOpsService');
 const qaAccessService = require('../services/qaAccessService');
+const gamePanelService = require('../services/gamePanelService');
 const manualCmd = require('./manual');
 
 // ── Command normalization / aliases ──────────────────────────
@@ -39,6 +40,7 @@ const COMMAND_ALIAS_TO_CANONICAL = {
 
     b: 'bank',
     bank: 'bank',
+    game: 'game',
 
     s: 'shop',
     shop: 'shop',
@@ -153,6 +155,7 @@ const AUTHORIZED_OR_ADMIN_COMMANDS = new Set(['commands']);
 
 const AUTHORIZED_COMMANDS = new Set([
     'bank', 'shop',
+    'game',
     'pay', 'give',
     'specialty', 'prestige', 'rebirth',
     'setlevel', 'setxp',
@@ -220,7 +223,7 @@ async function showAuthorizedCommands(message, OWNER_ID) {
                 { name: '� Bank/Shop | البنك/المتجر', value: '`%b` / `%bank`\n`%s` / `%shop`', inline: false },
                 { name: '� Transfers | التحويلات', value: '`%pay gold|gems|honor @user <amount>` — Manual pay flow\n`%give gold|gems|honor @user <amount>` — Bank give + claim', inline: false },
                 { name: '🧭 Progression | التقدم', value: '`%specialty <name>`\n`%prestige <route>`\n`%rebirth <route>`', inline: false },
-                { name: '🧩 Gameplay | اللعب', value: '`%clan`\n`%clan admincreate <@Leader> <@Deputy> "Clan Name" <@Member3> ...`\n`%gear status`\n`%craft`\n`%sell <item> <price>`', inline: false },
+                { name: '🧩 Gameplay | اللعب', value: '`%clan`\n`%clan admincreate <@Leader> <@Deputy> "Clan Name" <@Member3> ...`\n`%gear status`\n`%craft`\n`%sell <item> <price>`\n`%game <forest|lake>` — Open a region panel | افتح لوحة منطقة', inline: false },
                 { name: '⚖️ Moderation | الإشراف', value: '`%warn @user` — Warn user | تحذير المستخدم\n`%removewarning @user` — Remove warning | إزالة التحذير\n`%reblacklist @user` — Reapply blacklist | إعادة الحظر', inline: false },
                 { name: '🧪 Testing | الاختبار', value: '`%setlevel @user <value>`\n`%setxp @user <value>`', inline: false },
                 { name: '📜 Logs | السجلات', value: '`%log`\n`%logtransaction`\n`%logcommands`', inline: false }
@@ -444,6 +447,26 @@ module.exports = async function (client, message, cmd, args, OWNER_ID) {
             case 's':
             case 'shop':
                 return await shopCmd(message, OWNER_ID);
+
+            case 'game': {
+                const isAllowed = await isAuthorizedUser();
+                if (!isAllowed) {
+                    return message.reply('❌ You do not have permission to use %game. | ليس لديك صلاحية لاستخدام %game.').catch(() => {});
+                }
+
+                const area = String(args?.[0] || '').trim();
+                const supported = gamePanelService.getSupportedAreas();
+                const normalized = gamePanelService.normalizeArea(area);
+                if (!area || !normalized) {
+                    const validAreas = supported.join('\n');
+                    return message.reply({
+                        content: `❌ Invalid game area.\nAvailable game areas:\n${validAreas}\n\n❌ منطقة لعبة غير صالحة.\nالمناطق المتاحة:\n${validAreas}`,
+                        allowedMentions: { parse: [] }
+                    }).catch(() => {});
+                }
+
+                return await gamePanelService.summonAreaPanel({ message, area: normalized, OWNER_ID });
+            }
 
             case 'ping':
                 return miscCmd.ping(message);

@@ -4,6 +4,7 @@ const { COLORS, FOOTER_TEXT, formatError } = require('../utils/uiConstants');
 const clanService = require('./clanService');
 const cfg = require('../config/gameplayConfig');
 const progressionService = require('./progressionService');
+const monthlyLimitService = require('./monthlyLimitService');
 
 const COOLDOWN_MS = cfg.HUNTING.cooldownMinutes * 60 * 1000;
 
@@ -436,6 +437,136 @@ function buildMenuEmbed(user) {
         .setTimestamp();
 }
 
+async function handleButtonActivity({ interaction, activity, area }) {
+    if (!interaction || typeof interaction.reply !== 'function') {
+        return null;
+    }
+
+    const normalizedArea = normalizeKey(area);
+    const normalizedActivity = normalizeKey(activity);
+
+    if (!['forest', 'lake'].includes(normalizedArea)) {
+        return interaction.reply({ content: formatError('This region is not supported for regional game panels.', 'This region is not supported for regional game panels.'), ephemeral: true });
+    }
+
+    const route = normalizedActivity === 'hunt' ? 'combat' : normalizedActivity === 'research' ? 'scholar' : null;
+    if (!route) {
+        return interaction.reply({ content: formatError('This activity is not supported.', 'This activity is not supported.'), ephemeral: true });
+    }
+
+    const user = ensureHuntingFields(await db.getUser(interaction.user.id));
+    const currentRoute = normalizeKey(user.currentRoute || user.path || '');
+    const currentSpecialty = normalizeSpecialtyName(user.specialization || user.currentSpecialty || '');
+
+    if (currentRoute !== route) {
+        return interaction.reply({
+            content: formatError(
+                `${route === 'combat' ? 'أنت بحاجة إلى مسار Combat لاستخدام Hunt.' : 'أنت بحاجة إلى مسار Scholar لاستخدام Research.'}`,
+                `${route === 'combat' ? 'You need the Combat route to use Hunt.' : 'You need the Scholar route to use Research.'}`
+            ),
+            ephemeral: true
+        });
+    }
+
+    const validSpecialties = route === 'combat' ? ['swordmaster', 'armorer', 'wizard'] : ['professor', 'expert', 'instructor'];
+    if (!validSpecialties.includes(currentSpecialty)) {
+        return interaction.reply({
+            content: formatError(
+                `${route === 'combat' ? 'لا يوجد تخصص Combat صالح.' : 'لا يوجد تخصص Scholar صالح.'}`,
+                `${route === 'combat' ? 'You do not have a valid Combat specialty.' : 'You do not have a valid Scholar specialty.'}`
+            ),
+            ephemeral: true
+        });
+    }
+
+    const hpBlockReason = getHpBlockReason(user);
+    if (hpBlockReason) {
+        return interaction.reply({ content: hpBlockReason, ephemeral: true });
+    }
+
+    const cooldownMs = cfg.LOCATIONS?.[normalizedArea]?.cooldownMs || COOLDOWN_MS;
+    const cooldownExpiry = Number(monthlyLimitService.getLocationCooldown(user, normalizedArea) || 0);
+    const now = Date.now();
+
+    if (cooldownExpiry > now) {
+        const remaining = Math.max(1, Math.ceil((cooldownExpiry - now) / 60000));
+        return interaction.reply({
+            content: formatError(
+                `لا يزال عليك الانتظار ${remaining} دقيقة قبل استخدام ${normalizedArea} مرة أخرى.`,
+                `You must wait ${remaining} minute(s) before using ${normalizedArea} again.`
+            ),
+            ephemeral: true
+        });
+    }
+
+    const tier = resolveTier(route, user);
+    const table = getTable(normalizedArea, route, tier);
+    if (!table || !table.length) {
+        return interaction.reply({
+            content: formatError('This route is not configured for this region yet.', 'This route is not configured for this region yet.'),
+            ephemeral: true
+        });
+    }
+
+    const rewardModifier = getCombatDamageModifier(route, tier);
+    const drop = pickWeighted(table, rewardModifier);
+    if (drop) grantMaterial(user, drop.name, drop.amount);
+
+    const damage = consumeHp(user, normalizedArea, route, tier, drop?.name || '');
+    const uniqueReward = getUniqueReward(normalizedArea);
+    const uniqueResult = uniqueReward ? addUniqueItem(user, uniqueReward) : null;
+
+    user.hunting.lastHuntAt = now;
+    user.hunting.cooldownUntil = now + cooldownMs;
+    monthlyLimitService.setLocationCooldown(user, normalizedArea, now + cooldownMs);
+    user.hunting.history.unshift({
+        at: now,
+        location: normalizedArea,
+        route,
+        tier,
+        drop: drop ? { name: drop.name, amount: drop.amount } : null,
+        unique: uniqueReward ? { name: uniqueReward.name, duplicate: !!uniqueResult?.duplicate } : null,
+        damage: damage.damage
+    });
+    user.hunting.history = user.hunting.history.slice(0, 20);
+
+    const hpBeforeWarning = Number(user.hp || 0) + damage.damage;
+    const hpNow = Number(user.hp || 0);
+
+    if (hpNow === 0) {
+        progressionService.resetUserRouteState(user);
+        await interaction.client?.users?.fetch?.(interaction.user.id).catch(() => {});
+    }
+
+    await db.saveUser(user);
+    maybeWarnLowHp(user, interaction.client, interaction.user.id, hpBeforeWarning);
+
+    const responseLines = [
+        `Location: **${normalizedArea}**`,
+        `Route: **${routeLabel(route)}**`,
+        `Specialty: **${tierLabel(tier)}**`,
+        `Material: **${drop ? `${drop.amount}x ${drop.name}` : 'لا شيء'}**`,
+        `Damage: **${damage.effectiveDamagePercent.toFixed(1)}%** (${damage.damage}/100)`,
+        `HP: **${hpNow}/100**`,
+        `Cooldown resets: <t:${Math.floor((now + cooldownMs) / 1000)}:R>`
+    ];
+
+    if (uniqueReward) {
+        responseLines.push(uniqueResult?.duplicate
+            ? `Rare drop: **${uniqueReward.display}** already owned; alternate refund granted.`
+            : `Rare drop: **${uniqueReward.display}** added to your inventory.`);
+    }
+
+    const embed = new EmbedBuilder()
+        .setColor(COLORS.SUCCESS)
+        .setTitle(`${route === 'combat' ? '⚔️ Hunt Result' : '🔎 Research Result'} | ${normalizedArea}`)
+        .setDescription(responseLines.join('\n'))
+        .setFooter({ text: FOOTER_TEXT })
+        .setTimestamp();
+
+    return interaction.reply({ embeds: [embed] });
+}
+
 async function handleHuntCommand(message, args = []) {
     const user = await loadHuntingUser(message);
     const location = normalizeKey(args[0]);
@@ -550,6 +681,7 @@ async function handleHuntCommand(message, args = []) {
 module.exports = {
     ensureHuntingFields,
     handleHuntCommand,
+    handleButtonActivity,
     resolveRoute,
     resolveTier,
     getCombatDamageModifier,
