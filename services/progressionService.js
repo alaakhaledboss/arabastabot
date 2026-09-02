@@ -8,21 +8,26 @@ function toTitle(value) {
 }
 
 function ensureProgressFields(user) {
+    if (!user || typeof user !== 'object') return user;
+
     user.currentRoute = user.currentRoute || null;
     user.currentSpecialty = user.currentSpecialty || null;
     user.specialties = user.specialties && typeof user.specialties === 'object'
         ? user.specialties
         : { combat: null, scholar: null, atelier: null, merchant: null };
 
-        for (const route of cfg.ROUTES) {
-            if (user.specialties[route] === undefined) user.specialties[route] = null;
-        }
+    for (const route of cfg.ROUTES) {
+        if (user.specialties[route] === undefined) user.specialties[route] = null;
+    }
 
     if (!Array.isArray(user.completedRoutes)) user.completedRoutes = [];
     if (!Array.isArray(user.prestigeRoles)) user.prestigeRoles = [];
     if (typeof user.prestigeCount !== 'number') user.prestigeCount = user.prestigeRoles.length || 0;
     if (typeof user.rebirthCount !== 'number') user.rebirthCount = 0;
-    if (typeof user.pendingFinalRestoreRoute !== 'string') user.pendingFinalRestoreRoute = '';
+    if (typeof user.rebirthPendingRoute !== 'string') {
+        user.rebirthPendingRoute = typeof user.pendingFinalRestoreRoute === 'string' ? user.pendingFinalRestoreRoute : '';
+    }
+    if (typeof user.pendingFinalRestoreRoute !== 'string') user.pendingFinalRestoreRoute = user.rebirthPendingRoute || '';
 
     return user;
 }
@@ -32,10 +37,24 @@ function normalizeRoute(input) {
     return cfg.ROUTES.includes(key) ? key : null;
 }
 
+const LEGACY_SPECIALTY_ALIASES = {
+    duelist: 'swordmaster',
+    berserker: 'armorer',
+    marshal: 'wizard',
+    theorist: 'professor',
+    dialectician: 'expert',
+    archivist: 'instructor',
+    swordsman: 'swordmaster',
+    mage: 'armorer',
+    defender: 'wizard',
+    teacher: 'instructor'
+};
+
 function normalizeSpecialty(route, input) {
     if (!route || !cfg.SPECIALTY_ROLE_IDS[route]) return null;
-    const key = String(input || '').trim().toLowerCase();
-    return cfg.SPECIALTY_ROLE_IDS[route][key] ? key : null;
+    const key = String(input || '').trim().toLowerCase().replace(/\s+/g, '_');
+    const alias = LEGACY_SPECIALTY_ALIASES[key] || key;
+    return cfg.SPECIALTY_ROLE_IDS[route][alias] ? alias : null;
 }
 
 function memberHasRole(member, roleId) {
@@ -121,34 +140,17 @@ async function syncRouteLevelRoleForUser(member, user) {
     const route = user?.currentRoute;
     if (!route) return;
 
-    const hasSpecialtyInRoute = !!user?.specialties?.[route];
     const allIds = getAllRouteLevelRoleIds();
     const presentIds = allIds.filter((id) => memberHasRole(member, id));
 
-    if (hasSpecialtyInRoute) {
-        if (!presentIds.length) return;
-        for (const roleId of presentIds) {
-            await removeRole(member, roleId);
-        }
-        return;
-    }
-
-    const roleIds = cfg.ROUTE_LEVEL_ROLE_IDS[route] || [];
-    const desiredIndex = getRouteLevelIndexForLevel(route, user.level);
-    const desiredRoleId = roleIds[desiredIndex];
-    if (!desiredRoleId) return;
-
-    if (presentIds.length === 1 && presentIds[0] === desiredRoleId) {
-        return;
-    }
-
     for (const roleId of presentIds) {
-        if (roleId !== desiredRoleId) {
-            await removeRole(member, roleId);
-        }
+        await removeRole(member, roleId);
     }
 
-    await addRole(member, desiredRoleId);
+    const routeRoleId = (cfg.ROUTE_LEVEL_ROLE_IDS[route] || [])[0];
+    if (routeRoleId) {
+        await addRole(member, routeRoleId);
+    }
 }
 
 function getRouteLevelInfo(member) {
@@ -158,15 +160,9 @@ function getRouteLevelInfo(member) {
 
     for (const route of cfg.ROUTES) {
         const ids = cfg.ROUTE_LEVEL_ROLE_IDS[route] || [];
-        const labels = cfg.ROUTE_LEVEL_LABELS?.[route] || [];
-
-        for (let i = ids.length - 1; i >= 0; i -= 1) {
-            if (member.roles.cache.has(ids[i])) {
-                return {
-                    route,
-                    levelName: labels[i] || `level_${i + 1}`,
-                    levelIndex: i
-                };
+        for (const id of ids) {
+            if (member.roles.cache.has(id)) {
+                return { route, levelName: 'route', levelIndex: 0 };
             }
         }
     }
@@ -215,16 +211,15 @@ async function removeRole(member, roleId) {
 }
 
 async function setRouteLevelRoles(member, targetRoute) {
-    // Remove all route level roles, then add the first level of target route.
     for (const route of cfg.ROUTES) {
         for (const roleId of (cfg.ROUTE_LEVEL_ROLE_IDS[route] || [])) {
             await removeRole(member, roleId);
         }
     }
 
-    const firstRole = cfg.ROUTE_LEVEL_ROLE_IDS[targetRoute]?.[0];
-    if (firstRole) {
-        await addRole(member, firstRole);
+    const routeRoleId = cfg.ROUTE_LEVEL_ROLE_IDS[targetRoute]?.[0];
+    if (routeRoleId) {
+        await addRole(member, routeRoleId);
     }
 }
 
@@ -274,6 +269,7 @@ async function syncMemberState(member, { allowRestoreFromDb = false } = {}) {
     if (isProgressionExcluded(member)) {
         user.currentRoute = null;
         user.currentSpecialty = null;
+        user.rebirthPendingRoute = '';
         user.pendingFinalRestoreRoute = '';
         await updateSpecialtyChannelVisibility(member, user);
         await db.saveUser(user);
@@ -283,7 +279,6 @@ async function syncMemberState(member, { allowRestoreFromDb = false } = {}) {
     const verified = isVerifiedMember(member);
 
     if (!verified) {
-        // System ignores unverified users.
         await db.saveUser(user);
         return user;
     }
@@ -291,7 +286,6 @@ async function syncMemberState(member, { allowRestoreFromDb = false } = {}) {
     const detectedSpecialties = specialtiesFromMemberRoles(member);
     let detectedRoute = routeFromMemberRoles(member) || routeFromSpecialtyRoles(detectedSpecialties);
 
-    // Restore route role from DB if user rejoined and has verified role but no route roles.
     if (!detectedRoute
         && allowRestoreFromDb
         && user.currentRoute
@@ -306,15 +300,15 @@ async function syncMemberState(member, { allowRestoreFromDb = false } = {}) {
     }
 
     for (const route of cfg.ROUTES) {
-        user.specialties[route] = detectedSpecialties[route] || null;
+        user.specialties[route] = detectedSpecialties[route] || user.specialties[route] || null;
     }
 
     user.currentSpecialty = user.currentRoute ? (user.specialties[user.currentRoute] || null) : null;
 
     await syncRouteLevelRoleForUser(member, user);
 
-    // If final role exists on Discord, keep DB pending restore clear.
     if (memberHasRole(member, cfg.FINAL_COMPLETION_ROLE)) {
+        user.rebirthPendingRoute = '';
         user.pendingFinalRestoreRoute = '';
     }
 
@@ -364,7 +358,7 @@ async function handleSpecialtySelection(message, args) {
 
     const user = await syncMemberState(member);
     const route = user.currentRoute;
-    if (!route) return 'You do not have a valid route level role.';
+    if (!route) return 'You do not have a valid route.';
 
     if (message.channelId !== cfg.SPECIALTY_CHANNEL_IDS[route]) {
         return `Use this command in your route specialty channel only.`;
@@ -393,8 +387,9 @@ async function handleSpecialtySelection(message, args) {
     user.specialties[route] = requested;
     user.currentSpecialty = requested;
 
-    if (user.pendingFinalRestoreRoute && user.pendingFinalRestoreRoute === route) {
+    if (user.rebirthPendingRoute && user.rebirthPendingRoute === route) {
         await addRole(member, cfg.FINAL_COMPLETION_ROLE);
+        user.rebirthPendingRoute = '';
         user.pendingFinalRestoreRoute = '';
     }
 
@@ -425,7 +420,7 @@ async function handlePrestige(message, args) {
     }
 
     const currentRoute = user.currentRoute;
-    if (!currentRoute) return 'Could not detect your current route from roles.';
+    if (!currentRoute) return 'Could not detect your current route.';
 
     const targetRoute = normalizeRoute(args[0]);
     if (!targetRoute) {
@@ -434,6 +429,10 @@ async function handlePrestige(message, args) {
 
     if (targetRoute === currentRoute) {
         return 'You must choose a different route than your current one.';
+    }
+
+    if (user.completedRoutes.includes(targetRoute)) {
+        return `Route **${targetRoute}** is already completed.`;
     }
 
     if (!canAfford(user, cfg.COSTS.prestige)) {
@@ -450,19 +449,17 @@ async function handlePrestige(message, args) {
     user.prestigeCount += 1;
     user.prestigeRoles.push(`tier_${user.prestigeCount}`);
 
+    user.currentRoute = targetRoute;
+    user.currentSpecialty = null;
+    user.specialties[targetRoute] = null;
     user.level = 1;
     user.xp = 0;
 
-    user.currentRoute = targetRoute;
-    user.currentSpecialty = user.specialties[targetRoute] || null;
-
-    await setRouteLevelRoles(member, targetRoute);
-    await setPrestigeTierRole(member, user.prestigeCount);
-
-    if (user.prestigeCount >= cfg.LIMITS.maxPrestige) {
+    if (user.prestigeCount === 3) {
         await addRole(member, cfg.FINAL_COMPLETION_ROLE);
     }
 
+    await syncMemberState(member);
     await updateSpecialtyChannelVisibility(member, user);
     await db.saveUser(user);
 
@@ -479,13 +476,13 @@ async function handleRebirth(message, args) {
         return 'Use this command in the rebirth channel only.';
     }
 
-    if (!memberHasRole(member, cfg.FINAL_COMPLETION_ROLE)) {
-        return 'Rebirth is unlocked only for users with the final completion role.';
+    const user = await syncMemberState(member);
+
+    if (Number(user.prestigeCount || 0) !== 3 && !memberHasRole(member, cfg.FINAL_COMPLETION_ROLE)) {
+        return 'Rebirth is unlocked only after the full prestige loop is complete.';
     }
 
-    const user = await syncMemberState(member);
     const targetRoute = normalizeRoute(args[0]);
-
     if (!targetRoute) {
         return `Usage: \`%rebirth <combat|scholar|atelier|merchant>\``;
     }
@@ -494,38 +491,32 @@ async function handleRebirth(message, args) {
         return `You can only rebirth into a previously completed route.`;
     }
 
-    if (!canAfford(user, cfg.COSTS.rebirth)) {
+    if (!canAfford(user, { gold: cfg.COSTS.rebirth.gold, gems: cfg.COSTS.rebirth.gems, honor: 0 })) {
         const c = cfg.COSTS.rebirth;
         return `Not enough currency. Required: ${c.gold} gold and ${c.gems} gems.`;
     }
 
-    applyCost(user, cfg.COSTS.rebirth);
+    applyCost(user, { gold: cfg.COSTS.rebirth.gold, gems: cfg.COSTS.rebirth.gems, honor: 0 });
 
-    // Reset level progression
-    user.level = 1;
-    user.xp = 0;
+    const currentTargetSpecialty = user.specialties[targetRoute];
+    const roleId = currentTargetSpecialty ? cfg.SPECIALTY_ROLE_IDS[targetRoute]?.[currentTargetSpecialty] : null;
+    if (roleId) await removeRole(member, roleId);
 
-    // Remove specialty only for target route
-    const oldSpecialty = user.specialties[targetRoute];
-    if (oldSpecialty) {
-        const roleId = cfg.SPECIALTY_ROLE_IDS[targetRoute]?.[oldSpecialty];
-        if (roleId) await removeRole(member, roleId);
-    }
     user.specialties[targetRoute] = null;
+    if (user.currentSpecialty === currentTargetSpecialty) {
+        user.currentSpecialty = null;
+    }
+
+    await removeRole(member, cfg.FINAL_COMPLETION_ROLE);
 
     user.currentRoute = targetRoute;
-    user.currentSpecialty = null;
-
-    // Temporarily remove final role and restore after picking specialty again.
-    await removeRole(member, cfg.FINAL_COMPLETION_ROLE);
+    user.level = 1;
+    user.xp = 0;
+    user.rebirthPendingRoute = targetRoute;
     user.pendingFinalRestoreRoute = targetRoute;
-
     user.rebirthCount += 1;
-    await grantRebirthRole(member, user.rebirthCount);
 
-    await setRouteLevelRoles(member, targetRoute);
-
-    await updateSpecialtyChannelVisibility(member, user);
+    await syncMemberState(member);
     await db.saveUser(user);
 
     return `✅ Rebirth complete. Route set to **${targetRoute}**. Level reset to 1 and XP reset to 0.`;
@@ -552,7 +543,7 @@ async function showProgressionStatus(message, args) {
         `Prestige Count: **${user.prestigeCount || 0}/${cfg.LIMITS.maxPrestige}**`,
         `Rebirth Count: **${user.rebirthCount || 0}**`,
         `Completed Routes: **${user.completedRoutes.join(', ') || '-'}**`,
-        `Pending Final Restore Route: **${user.pendingFinalRestoreRoute || '-'}**`,
+        `Rebirth Pending Route: **${user.rebirthPendingRoute || user.pendingFinalRestoreRoute || '-'}**`,
         '',
         '**Specialties by Route:**',
         specialties
@@ -673,6 +664,16 @@ async function runActionFromButton(interaction, action, targetRoute, specialty, 
             channelId: cfg.SPECIALTY_CHANNEL_IDS[targetRoute],
             author: interaction.user
         }, [specialty]);
+
+        const user = ensureProgressFields(await db.getUser(interaction.user.id));
+        if (user.rebirthPendingRoute === targetRoute) {
+            await addRole(interaction.member, cfg.FINAL_COMPLETION_ROLE);
+            user.rebirthPendingRoute = '';
+            user.pendingFinalRestoreRoute = '';
+            await db.saveUser(user);
+            await syncMemberState(interaction.member);
+        }
+
         await interaction.reply({ content: reply, ephemeral: true });
         return true;
     }

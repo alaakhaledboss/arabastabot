@@ -144,6 +144,7 @@ function createDefaultUser(userId = null) {
         prestigeRoles: [],
         prestigeCount: 0,
         rebirthCount: 0,
+        rebirthPendingRoute: '',
         pendingFinalRestoreRoute: '',
 
         gearInventory: createDefaultGearInventory(),
@@ -226,7 +227,8 @@ function normalizeUserRecord(user) {
     if (!Array.isArray(user.prestigeRoles)) user.prestigeRoles = [];
     if (typeof user.prestigeCount !== 'number') user.prestigeCount = user.prestigeRoles.length || 0;
     if (typeof user.rebirthCount !== 'number') user.rebirthCount = 0;
-    if (typeof user.pendingFinalRestoreRoute !== 'string') user.pendingFinalRestoreRoute = '';
+    if (typeof user.rebirthPendingRoute !== 'string') user.rebirthPendingRoute = typeof user.pendingFinalRestoreRoute === 'string' ? user.pendingFinalRestoreRoute : '';
+    if (typeof user.pendingFinalRestoreRoute !== 'string') user.pendingFinalRestoreRoute = user.rebirthPendingRoute || '';
     if (typeof user.lastActiveAt !== 'number') user.lastActiveAt = Number(user.lastActiveAt || 0);
 
     if (!user.hunting || typeof user.hunting !== 'object') {
@@ -314,7 +316,8 @@ async function getUser(userId) {
     if (!Array.isArray(user.prestigeRoles)) user.prestigeRoles = [];
     if (user.prestigeCount === undefined) user.prestigeCount = user.prestigeRoles.length || 0;
     if (user.rebirthCount === undefined) user.rebirthCount = 0;
-    if (user.pendingFinalRestoreRoute === undefined) user.pendingFinalRestoreRoute = '';
+    if (user.rebirthPendingRoute === undefined) user.rebirthPendingRoute = user.pendingFinalRestoreRoute ?? '';
+    if (user.pendingFinalRestoreRoute === undefined) user.pendingFinalRestoreRoute = user.rebirthPendingRoute ?? '';
     if (user.lastActiveAt === undefined) user.lastActiveAt = 0;
     if (user.clanId === undefined) user.clanId = user.clan?.id ?? null;
     if (user.inventory === undefined || typeof user.inventory !== 'object') {

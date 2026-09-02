@@ -10,19 +10,19 @@ const COOLDOWN_MS = cfg.HUNTING.cooldownMinutes * 60 * 1000;
 const HUNT_TABLES = {
     forest: {
         scholar: {
-            theorist: [
+            professor: [
                 { name: 'herb', amount: 5, chance: 62 },
                 { name: 'poison_mushroom', amount: 2, chance: 20 },
                 { name: 'magic_flower', amount: 1, chance: 10 },
                 { name: 'forest_heart', amount: 1, chance: 6 }
             ],
-            dialectician: [
+            expert: [
                 { name: 'herb', amount: 7, chance: 50 },
                 { name: 'poison_mushroom', amount: 4, chance: 26.5 },
                 { name: 'magic_flower', amount: 2, chance: 18 },
                 { name: 'forest_heart', amount: 1, chance: 3.5 }
             ],
-            archivist: [
+            instructor: [
                 { name: 'herb', amount: 7, chance: 50 },
                 { name: 'poison_mushroom', amount: 4, chance: 26.5 },
                 { name: 'magic_flower', amount: 2, chance: 18 },
@@ -30,17 +30,17 @@ const HUNT_TABLES = {
             ]
         },
         combat: {
-            duelist: [
+            swordmaster: [
                 { name: 'tiger_skin', amount: 1, chance: 37 },
                 { name: 'boar_horn', amount: 2, chance: 35 },
                 { name: 'green_mana_stone', amount: 2, chance: 25 }
             ],
-            berserker: [
+            armorer: [
                 { name: 'tiger_skin', amount: 2, chance: 40 },
                 { name: 'boar_horn', amount: 3, chance: 39.5 },
                 { name: 'green_mana_stone', amount: 3, chance: 18.5 }
             ],
-            marshal: [
+            wizard: [
                 { name: 'tiger_skin', amount: 1, chance: 45 },
                 { name: 'boar_horn', amount: 2, chance: 42 },
                 { name: 'green_mana_stone', amount: 3, chance: 11 }
@@ -61,7 +61,7 @@ const HUNT_TABLES = {
                 { name: 'coral', amount: 2, chance: 18 },
                 { name: 'sea_heart', amount: 1, chance: 3.5 }
             ],
-            teacher: [
+            instructor: [
                 { name: 'algae', amount: 8, chance: 50.5 },
                 { name: 'shell', amount: 3, chance: 26.5 },
                 { name: 'coral', amount: 2, chance: 18 },
@@ -69,19 +69,19 @@ const HUNT_TABLES = {
             ]
         },
         combat: {
-            swordsman: [
+            swordmaster: [
                 { name: 'starfish', amount: 1, chance: 62 },
                 { name: 'sea_dragon_bones', amount: 2, chance: 20 },
                 { name: 'sea_dragon_scales', amount: 2, chance: 10 },
                 { name: 'blue_mana_stone', amount: 2, chance: 6 }
             ],
-            mage: [
+            armorer: [
                 { name: 'starfish', amount: 1, chance: 54 },
                 { name: 'sea_dragon_bones', amount: 3, chance: 25 },
                 { name: 'sea_dragon_scales', amount: 3, chance: 15 },
                 { name: 'blue_mana_stone', amount: 3, chance: 4 }
             ],
-            defender: [
+            wizard: [
                 { name: 'starfish', amount: 1, chance: 65 },
                 { name: 'sea_dragon_bones', amount: 4, chance: 20 },
                 { name: 'sea_dragon_scales', amount: 3, chance: 10 },
@@ -104,42 +104,42 @@ const UNIQUE_REWARDS = {
 
 const DAMAGE_RULES = {
     scholar: {
-        theorist: 5,
-        dialectician: 3.5,
-        archivist: 2.5
+        professor: 5,
+        expert: 3.5,
+        instructor: 2.5
     },
     combat: {
         forest: {
-            duelist: {
+            swordmaster: {
                 tiger_skin: [13, 25],
                 boar_horn: [5, 12.5],
                 green_mana_stone: [0, 0]
             },
-            berserker: {
+            armorer: {
                 tiger_skin: [10, 17.5],
                 boar_horn: [4, 10],
                 green_mana_stone: [0, 0]
             },
-            marshal: {
+            wizard: {
                 tiger_skin: [8, 14],
                 boar_horn: [3, 7],
                 green_mana_stone: [0, 0]
             }
         },
         lake: {
-            duelist: {
+            swordmaster: {
                 starfish: [5, 7],
                 sea_dragon_bones: [10, 15],
                 sea_dragon_scales: [15, 30],
                 blue_mana_stone: [0, 0]
             },
-            berserker: {
+            armorer: {
                 starfish: [4, 5],
                 sea_dragon_bones: [10, 13],
                 sea_dragon_scales: [13, 22],
                 blue_mana_stone: [0, 0]
             },
-            marshal: {
+            wizard: {
                 starfish: [3, 5],
                 sea_dragon_bones: [8, 12],
                 sea_dragon_scales: [10, 18],
@@ -179,10 +179,10 @@ const ROUTE_LABELS = {
 const TIER_LABELS = {
     professor: 'Professor',
     expert: 'Expert',
-    teacher: 'Teacher',
-    swordsman: 'Swordsman',
-    mage: 'Mage',
-    defender: 'Defender'
+    instructor: 'Instructor',
+    swordmaster: 'Swordmaster',
+    armorer: 'Armorer',
+    wizard: 'Wizard'
 };
 
 function ensureHuntingFields(user) {
@@ -226,16 +226,34 @@ function resolveRoute(user) {
     return normalizeKey(user.path || user.currentRoute);
 }
 
+const LEGACY_SPECIALTY_ALIASES = {
+    theorist: 'professor',
+    dialectician: 'expert',
+    archivist: 'instructor',
+    duelist: 'swordmaster',
+    berserker: 'armorer',
+    marshal: 'wizard',
+    swordsman: 'swordmaster',
+    mage: 'armorer',
+    defender: 'wizard',
+    teacher: 'instructor'
+};
+
+function normalizeSpecialtyName(value) {
+    const normalized = normalizeKey(value);
+    return LEGACY_SPECIALTY_ALIASES[normalized] || normalized;
+}
+
 function resolveTier(route, user) {
-    const specialty = normalizeKey(user.specialization || user.currentSpecialty);
+    const specialty = normalizeSpecialtyName(user.specialization || user.currentSpecialty);
     if (route === 'scholar') {
-        if (specialty === 'theorist' || specialty === 'dialectician' || specialty === 'archivist') return specialty;
-        return 'theorist';
+        if (['professor', 'expert', 'instructor'].includes(specialty)) return specialty;
+        return 'professor';
     }
 
     if (route === 'combat') {
-        if (specialty === 'duelist' || specialty === 'berserker' || specialty === 'marshal') return specialty;
-        return 'duelist';
+        if (['swordmaster', 'armorer', 'wizard'].includes(specialty)) return specialty;
+        return 'swordmaster';
     }
 
     return null;
@@ -389,10 +407,7 @@ async function handleHuntCommand(message, args = []) {
     }
 
     if (!route || !['combat', 'scholar'].includes(route)) {
-        return message.reply(formatError(
-            `الصيد في ${location === 'lake' ? 'البحيرة' : 'الغابة'} متاح فقط لمساري Combat وScholar. مسارك الحالي: ${routeLabel(route)}.`,
-            `Hunting in the ${location} is only available for the Combat and Scholar routes. Your current route is: ${routeLabel(route)}.`
-        ));
+        return message.reply(formatError('هذا النظام متاح للمقاتل أو الباحث فقط.', 'This system is only available for Combat or Scholar.'));
     }
 
     const hpBlockReason = getHpBlockReason(user);
@@ -419,10 +434,7 @@ async function handleHuntCommand(message, args = []) {
     const tier = resolveTier(route, user);
     const table = getTable(location, route, tier);
     if (!table || !table.length) {
-        return message.reply(formatError(
-            `لا يوجد إعداد صيد مطابق لمسارك ${routeLabel(route)} وتخصصك ${tierLabel(tier)} داخل ${location === 'lake' ? 'البحيرة' : 'الغابة'}.`,
-            `No hunting setup matches your ${routeLabel(route)} route and ${tierLabel(tier)} specialty in the ${location}.`
-        ));
+        return message.reply(formatError('هذا المسار أو التخصص غير مضبوط لهذا المكان بعد.', 'This route or specialty is not configured for this location yet.'));
     }
 
     const drop = pickOne(table);

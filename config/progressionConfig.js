@@ -3,55 +3,21 @@ const ROUTES = ['combat', 'scholar', 'atelier', 'merchant'];
 module.exports = {
     VERIFIED_ROLE_ID: '1490079203087876206',
 
-    // Route level progression thresholds (index maps to ROUTE_LEVEL_ROLE_IDS index).
-    // Last route-tier unlocks before specialty gate at level 25.
-    ROUTE_LEVEL_THRESHOLDS_DEFAULT: [1, 3, 7, 11, 15, 19, 22],
+    // Route role system simplified: route identity is no longer tied to the old 7-rank ladder.
+    ROUTE_LEVEL_THRESHOLDS_DEFAULT: [1],
 
-    // Any role in each array means the member belongs to that route.
     ROUTE_LEVEL_ROLE_IDS: {
-        combat: [
-            '1483055696810610792', // neophyte
-            '1483056507950993439', // squire
-            '1483056454683590656', // sentinel
-            '1483056668031062016', // crusader
-            '1483055652325818381', // warlord
-            '1483055481311334613', // conqueror
-            '1483055295008608397'  // immortal
-        ],
-        scholar: [
-            '1483057508414394408', // seeker
-            '1483057593269227631', // scribe
-            '1483057637754142730', // analyst
-            '1483057676450664619', // philosopher
-            '1483057701348180010', // sage
-            '1483057748055691274', // oracle
-            '1483057803294670959'  // omniscient
-        ],
-        atelier: [
-            '1483059322601869363', // fledgling
-            '1483059336895922189', // artisan
-            '1483059379845726229', // designer
-            '1483059363143880866', // visionary
-            '1483059429724127355', // genius
-            '1483059469280612443', // virtuoso
-            '1483059478302822421'  // maestro
-        ],
-        merchant: [
-            '1483060797054914571', // peddler
-            '1483060878482997268', // trader
-            '1483060887303749713', // broker
-            '1483060915766300803', // affluent
-            '1483060943847030865', // tycoon
-            '1483060963740618772', // magnate
-            '1483060995634102293'  // sovereign
-        ]
+        combat: ['1483055696810610792'],
+        scholar: ['1483057508414394408'],
+        atelier: ['1483059322601869363'],
+        merchant: ['1483060797054914571']
     },
 
     ROUTE_LEVEL_LABELS: {
-        combat: ['neophyte', 'squire', 'sentinel', 'crusader', 'warlord', 'conqueror', 'immortal'],
-        scholar: ['seeker', 'scribe', 'analyst', 'philosopher', 'sage', 'oracle', 'omniscient'],
-        atelier: ['fledgling', 'artisan', 'designer', 'visionary', 'genius', 'virtuoso', 'maestro'],
-        merchant: ['peddler', 'trader', 'broker', 'affluent', 'tycoon', 'magnate', 'sovereign']
+        combat: ['route'],
+        scholar: ['route'],
+        atelier: ['route'],
+        merchant: ['route']
     },
 
     SPECIALTY_ROLE_IDS: {
@@ -68,12 +34,12 @@ module.exports = {
         atelier: {
             engineer: '1483064526596472892',
             craftsman: '1483064549170086030',
-            Workman: '1483064579121483839'
+            workman: '1483064579121483839'
         },
         merchant: {
             noblesse: '1483064586054799461',
-            Grand_Merchant: '1483064606141452433',
-            Novice_Trader: '1483064639028985936'
+            grand_merchant: '1483064606141452433',
+            novice_trader: '1483064639028985936'
         }
     },
 
